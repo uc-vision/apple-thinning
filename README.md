@@ -23,3 +23,7 @@ To simulate and quantify good apple thinning process, the game can have function
 - The score can be shown as a money. 
 - The players can teleport to travel around the apple tree field. It should also support locomotion. 
 - The world has skybox, grass field, and trees. Audio of successful thinning maybe a good feedback to the players.
+
+## Resources
+
+Apple mesh: https://www.cgtrader.com/free-3d-models/food/fruit/low-poly-apples
