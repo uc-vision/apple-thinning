@@ -33,7 +33,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.047, 0.006, -0.123 )
 shape = SubResource( 2 )
 
 [node name="GrabPos" type="Position3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0134786, 0, 0.0603267 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.013, 0, -0.06 )
 
 [node name="SleepArea" type="Area" parent="."]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Assets/CGTuts_OceanHDRI_Freebie_001.hdr" type="Texture" id=1]
 [ext_resource path="res://LeftHand.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Game.gd" type="Script" id=4]
 [ext_resource path="res://VRController.gd" type="Script" id=5]
 [ext_resource path="res://HealthyLargeAplle.tscn" type="PackedScene" id=6]
+[ext_resource path="res://HealthySmallApple.tscn" type="PackedScene" id=7]
 
 [sub_resource type="SpatialMaterial" id=7]
 albedo_color = Color( 0.345098, 0.458824, 0.282353, 1 )
@@ -83,3 +84,7 @@ mesh = SubResource( 6 )
 material/0 = null
 
 [node name="HealthyLargeApple" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.365848, 0 )
+
+[node name="HealthySmallApple" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.732355, 0.754071, 0 )

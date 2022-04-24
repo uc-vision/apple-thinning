@@ -39,6 +39,7 @@ shape = SubResource( 2 )
 shape = SubResource( 3 )
 
 [node name="GrabPos" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013, 0, -0.06 )
 
 [node name="GrabCast" type="RayCast" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.333461, -0.942764, 0, 0.942764, 0.333461, 0.037, -0.035, -0.293 )
