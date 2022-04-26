@@ -36,7 +36,8 @@ To simulate and quantify good apple thinning process, the game can have function
 
 ## Resources
 
-Apple mesh: https://www.cgtrader.com/free-3d-models/food/fruit/low-poly-apples
+Apple mesh: https://www.cgtrader.com/free-3d-models/food/fruit/low-poly-apples 
+
 Apple Tree Model:
 ```
 Model Information:
