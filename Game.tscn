@@ -1,14 +1,10 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Assets/CGTuts_OceanHDRI_Freebie_001.hdr" type="Texture" id=1]
 [ext_resource path="res://Scenes/LeftHand.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/RightHand.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Game.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/VRController.gd" type="Script" id=5]
-[ext_resource path="res://Scenes/HealthyLargeAplle.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/HealthySmallApple.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/DamagedLargeApple.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/DamagedSmallApple.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/AppleTree_TypeA.tscn" type="PackedScene" id=10]
 
 [sub_resource type="SpatialMaterial" id=7]
@@ -61,7 +57,13 @@ visible = false
 shape = SubResource( 2 )
 
 [node name="AppleTree_TypeA" parent="World" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.738132, 0, 0 )
+transform = Transform( 0.865912, 0, 0.500196, 0, 1, 0, -0.500196, 0, 0.865912, 1.10621, 0, -0.690945 )
+
+[node name="AppleTree_TypeA2" parent="World" instance=ExtResource( 10 )]
+transform = Transform( 0.659713, 0, 0.751517, 0, 1, 0, -0.751517, 0, 0.659713, 0.0543693, 0, 2.55871 )
+
+[node name="AppleTree_TypeA3" parent="World" instance=ExtResource( 10 )]
+transform = Transform( -0.245878, 0.000311551, 0.969301, 0.000232528, 1, -0.000262437, -0.969301, 0.000160868, -0.245878, -2.33622, -0.00642586, 0.457768 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 3 )
@@ -88,15 +90,3 @@ material/0 = null
 [node name="TeleportPointy" type="MeshInstance" parent="TeleportMesh"]
 mesh = SubResource( 6 )
 material/0 = null
-
-[node name="HealthyLargeApple" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.365848, 0 )
-
-[node name="HealthySmallApple" parent="." instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.732355, 0.754071, 0 )
-
-[node name="DamagedLargeApple" parent="." instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.626915, 0.365848, 0 )
-
-[node name="DamagedSmallApple" parent="." instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.337261, 0.566131, 0 )
