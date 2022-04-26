@@ -1,20 +1,19 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://addons/godot-openvr/meshes/vr_glove_right_model_slim.glb" type="PackedScene" id=1]
+[ext_resource path="res://addons/godot-openvr/meshes/vr_glove_left_model_slim.glb" type="PackedScene" id=1]
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 0.01, 3, 0.01 )
 
-[sub_resource type="SphereShape" id=2]
-radius = 0.1
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 0.01, 0.05, 0.05 )
 
 [sub_resource type="SphereShape" id=3]
 
 [sub_resource type="CubeMesh" id=4]
 size = Vector3( 0.01, 0.5, 0.01 )
 
-[node name="RightHand" type="ARVRController"]
-controller_id = 2
+[node name="LeftHand" type="ARVRController"]
 
 [node name="Hand" parent="." instance=ExtResource( 1 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
@@ -30,19 +29,19 @@ material/0 = null
 [node name="Area" type="Area" parent="."]
 
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.047, 0.006, -0.123 )
-shape = SubResource( 2 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014, 0.006, -0.081 )
+shape = SubResource( 5 )
+
+[node name="GrabPos" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.013, 0, -0.06 )
 
 [node name="SleepArea" type="Area" parent="."]
 
 [node name="CollisionShape" type="CollisionShape" parent="SleepArea"]
 shape = SubResource( 3 )
 
-[node name="GrabPos" type="Position3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013, 0, -0.06 )
-
 [node name="GrabCast" type="RayCast" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.333461, -0.942764, 0, 0.942764, 0.333461, 0.037, -0.035, -0.293 )
+transform = Transform( 1, 0, 0, 0, 0.333461, -0.942764, 0, 0.942764, 0.333461, -0.037, -0.035, -0.293 )
 cast_to = Vector3( 0, -0.5, 0 )
 
 [node name="MeshInstance" type="MeshInstance" parent="GrabCast"]

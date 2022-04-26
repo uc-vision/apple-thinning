@@ -1,14 +1,17 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Assets/CGTuts_OceanHDRI_Freebie_001.hdr" type="Texture" id=1]
-[ext_resource path="res://LeftHand.tscn" type="PackedScene" id=2]
-[ext_resource path="res://RightHand.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/LeftHand.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/RightHand.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Game.gd" type="Script" id=4]
-[ext_resource path="res://VRController.gd" type="Script" id=5]
-[ext_resource path="res://HealthyLargeAplle.tscn" type="PackedScene" id=6]
-[ext_resource path="res://HealthySmallApple.tscn" type="PackedScene" id=7]
-[ext_resource path="res://DamagedLargeApple.tscn" type="PackedScene" id=8]
-[ext_resource path="res://DamagedSmallApple.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/VRController.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/HealthyLargeAplle.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/HealthySmallApple.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/DamagedLargeApple.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/DamagedSmallApple.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/AppleCluster_Type2.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/AppleCluster_Type1.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/AppleCluster_Type3.tscn" type="PackedScene" id=12]
 
 [sub_resource type="SpatialMaterial" id=7]
 albedo_color = Color( 0.345098, 0.458824, 0.282353, 1 )
@@ -58,6 +61,15 @@ visible = false
 
 [node name="CollisionShape" type="CollisionShape" parent="World/Ground/StaticBody"]
 shape = SubResource( 2 )
+
+[node name="AppleCluster_Type1" parent="World" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.447131, 0.449882, -0.940583 )
+
+[node name="AppleCluster_Type2" parent="World" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.105269, 0.479709, -0.999821 )
+
+[node name="AppleCluster_Type3" parent="World" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.567197, 0.486316, -0.824721 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 3 )
