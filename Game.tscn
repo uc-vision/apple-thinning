@@ -1,10 +1,12 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Assets/CGTuts_OceanHDRI_Freebie_001.hdr" type="Texture" id=1]
-[ext_resource path="res://Scenes/LeftHand.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/RightHand.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/LeftHandModel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/RightHandModel.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Game.gd" type="Script" id=4]
-[ext_resource path="res://Scenes/VRController.gd" type="Script" id=5]
+[ext_resource path="res://addons/godot-xr-tools/functions/Function_Pickup.tscn" type="PackedScene" id=5]
+[ext_resource path="res://addons/godot-xr-tools/functions/Function_Teleport.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/YetAnotherApple.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/AppleTree_TypeA.tscn" type="PackedScene" id=10]
 
 [sub_resource type="SpatialMaterial" id=7]
@@ -22,24 +24,6 @@ panorama = ExtResource( 1 )
 background_mode = 2
 background_sky = SubResource( 4 )
 
-[sub_resource type="SpatialMaterial" id=8]
-albedo_color = Color( 0.870588, 0.478431, 0.0862745, 1 )
-
-[sub_resource type="CylinderMesh" id=5]
-material = SubResource( 8 )
-top_radius = 0.2
-bottom_radius = 0.5
-height = 0.2
-
-[sub_resource type="SpatialMaterial" id=9]
-albedo_color = Color( 0.870588, 0.478431, 0.0862745, 1 )
-
-[sub_resource type="CylinderMesh" id=6]
-material = SubResource( 9 )
-top_radius = 0.01
-bottom_radius = 0.1
-height = 0.8
-
 [node name="Game" type="Spatial"]
 script = ExtResource( 4 )
 
@@ -51,19 +35,19 @@ mesh = SubResource( 1 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="World/Ground"]
-visible = false
+collision_mask = 6
 
 [node name="CollisionShape" type="CollisionShape" parent="World/Ground/StaticBody"]
 shape = SubResource( 2 )
 
 [node name="AppleTree_TypeA" parent="World" instance=ExtResource( 10 )]
-transform = Transform( 0.865912, 0, 0.500196, 0, 1, 0, -0.500196, 0, 0.865912, 1.10621, 0, -0.690945 )
+transform = Transform( 0.865912, 0, 0.500196, 0, 1, 0, -0.500196, 0, 0.865912, 0.855611, 0, -0.607795 )
 
 [node name="AppleTree_TypeA2" parent="World" instance=ExtResource( 10 )]
-transform = Transform( 0.659713, 0, 0.751517, 0, 1, 0, -0.751517, 0, 0.659713, 0.0543693, 0, 2.55871 )
+transform = Transform( 0.659713, 0, 0.751517, 0, 1, 0, -0.751517, 0, 0.659713, 0.623137, 0, 1.94574 )
 
 [node name="AppleTree_TypeA3" parent="World" instance=ExtResource( 10 )]
-transform = Transform( -0.245878, 0.000311551, 0.969301, 0.000232528, 1, -0.000262437, -0.969301, 0.000160868, -0.245878, -2.33622, -0.00642586, 0.457768 )
+transform = Transform( 0.618275, 0.000110675, 0.785962, 0.000195117, 1, -0.000294311, -0.785962, 0.000335321, 0.618275, -1.32446, -0.00660324, 0.475171 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 3 )
@@ -76,17 +60,27 @@ shadow_enabled = true
 
 [node name="PlayerCamera" type="ARVRCamera" parent="ARVROrigin"]
 
-[node name="LeftHand" parent="ARVROrigin" instance=ExtResource( 2 )]
-script = ExtResource( 5 )
+[node name="LeftHand" type="ARVRController" parent="ARVROrigin"]
 
-[node name="RightHand" parent="ARVROrigin" instance=ExtResource( 3 )]
-script = ExtResource( 5 )
+[node name="LeftHandModel" parent="ARVROrigin/LeftHand" instance=ExtResource( 2 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0272692, 0, 0.055 )
 
-[node name="TeleportMesh" type="MeshInstance" parent="."]
-visible = false
-mesh = SubResource( 5 )
-material/0 = null
+[node name="Function_Pickup" parent="ARVROrigin/LeftHand" instance=ExtResource( 5 )]
+pickup_range = 0.1
 
-[node name="TeleportPointy" type="MeshInstance" parent="TeleportMesh"]
-mesh = SubResource( 6 )
-material/0 = null
+[node name="Function_Teleport" parent="ARVROrigin/LeftHand" instance=ExtResource( 6 )]
+
+[node name="RightHand" type="ARVRController" parent="ARVROrigin"]
+controller_id = 2
+
+[node name="RightHandModel" parent="ARVROrigin/RightHand" instance=ExtResource( 3 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.027, 0, 0.055 )
+
+[node name="Function_Pickup" parent="ARVROrigin/RightHand" instance=ExtResource( 5 )]
+pickup_range = 0.1
+
+[node name="Function_Teleport" parent="ARVROrigin/RightHand" instance=ExtResource( 6 )]
+
+[node name="YetAnotherApple" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00460619, 0.183095, 0.283847 )
+mode = 1

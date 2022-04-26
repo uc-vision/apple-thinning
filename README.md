@@ -2,6 +2,16 @@
 
 Godot VR project to simulate apple thinning process. 
 
+![Game Scene Screenshot](https://github.com/uc-vision/apple-thinning/blob/xr-tools/apple-thinning_27042022.png)
+
+## Running this project
+
+The project is built on Godot game engine v3.4 with GLES2. It is designed to be played on Oculus Quest 2. The following plugins are required to be installed in under `addons` folder:
+
+- [Godot Open VR](https://github.com/GodotVR/godot_openvr)
+- [Godot Oculus Mobile Asset](https://github.com/GodotVR/godot-oculus-mobile-asset)
+- [Godot XR Tools](https://github.com/GodotVR/godot-xr-tools) 
+
 ## Design Decision
 
 #### Apple thinning in the real world
