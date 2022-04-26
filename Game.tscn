@@ -1,10 +1,11 @@
 [gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Assets/CGTuts_OceanHDRI_Freebie_001.hdr" type="Texture" id=1]
-[ext_resource path="res://Scenes/LeftHand.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/RightHand.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/LeftHandModel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/RightHandModel.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Game.gd" type="Script" id=4]
-[ext_resource path="res://Scenes/NewApple.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Custom_Function_Pickup.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/YetAnotherApple.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/AppleTree_TypeA.tscn" type="PackedScene" id=10]
 
 [sub_resource type="SpatialMaterial" id=7]
@@ -39,8 +40,6 @@ material = SubResource( 9 )
 top_radius = 0.01
 bottom_radius = 0.1
 height = 0.8
-
-[sub_resource type="CubeMesh" id=10]
 
 [node name="Game" type="Spatial"]
 script = ExtResource( 4 )
@@ -79,9 +78,18 @@ shadow_enabled = true
 
 [node name="PlayerCamera" type="ARVRCamera" parent="ARVROrigin"]
 
-[node name="LeftHand" parent="ARVROrigin" instance=ExtResource( 2 )]
+[node name="LeftHand" type="ARVRController" parent="ARVROrigin"]
 
-[node name="RightHand" parent="ARVROrigin" instance=ExtResource( 3 )]
+[node name="Custom_Function_Pickup" parent="ARVROrigin/LeftHand" instance=ExtResource( 5 )]
+
+[node name="LeftHandModel" parent="ARVROrigin/LeftHand" instance=ExtResource( 2 )]
+
+[node name="RightHand" type="ARVRController" parent="ARVROrigin"]
+controller_id = 2
+
+[node name="Custom_Function_Pickup" parent="ARVROrigin/RightHand" instance=ExtResource( 5 )]
+
+[node name="RightHandModel" parent="ARVROrigin/RightHand" instance=ExtResource( 3 )]
 
 [node name="TeleportMesh" type="MeshInstance" parent="."]
 visible = false
@@ -92,19 +100,6 @@ material/0 = null
 mesh = SubResource( 6 )
 material/0 = null
 
-[node name="NewApple" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.132086, 0.788541, -0.835662 )
-
-[node name="NewApple2" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.60058, 0.471259, -0.527191 )
-
-[node name="NewApple3" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.132086, 0.471259, -0.835662 )
-
-[node name="NewApple4" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.346487, 0.471259, -0.835662 )
-
-[node name="MeshInstance" type="MeshInstance" parent="."]
-transform = Transform( 0.522954, 0, 0, 0, 0.536107, 0, 0, 0, 0.291131, 0, 0.475508, -1.22148 )
-mesh = SubResource( 10 )
-material/0 = null
+[node name="YetAnotherApple" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00460619, 0.183095, 0.283847 )
+mode = 1
