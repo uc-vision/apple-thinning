@@ -4,7 +4,7 @@
 [ext_resource path="res://Scenes/LeftHandModel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/RightHandModel.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Game.gd" type="Script" id=4]
-[ext_resource path="res://Scenes/Custom_Function_Pickup.tscn" type="PackedScene" id=5]
+[ext_resource path="res://addons/godot-xr-tools/functions/Function_Pickup.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/YetAnotherApple.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/AppleTree_TypeA.tscn" type="PackedScene" id=10]
 
@@ -80,16 +80,18 @@ shadow_enabled = true
 
 [node name="LeftHand" type="ARVRController" parent="ARVROrigin"]
 
-[node name="Custom_Function_Pickup" parent="ARVROrigin/LeftHand" instance=ExtResource( 5 )]
-
 [node name="LeftHandModel" parent="ARVROrigin/LeftHand" instance=ExtResource( 2 )]
+
+[node name="Function_Pickup" parent="ARVROrigin/LeftHand" instance=ExtResource( 5 )]
+pickup_range = 0.1
 
 [node name="RightHand" type="ARVRController" parent="ARVROrigin"]
 controller_id = 2
 
-[node name="Custom_Function_Pickup" parent="ARVROrigin/RightHand" instance=ExtResource( 5 )]
-
 [node name="RightHandModel" parent="ARVROrigin/RightHand" instance=ExtResource( 3 )]
+
+[node name="Function_Pickup" parent="ARVROrigin/RightHand" instance=ExtResource( 5 )]
+pickup_range = 0.1
 
 [node name="TeleportMesh" type="MeshInstance" parent="."]
 visible = false
