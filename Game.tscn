@@ -1,11 +1,8 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Assets/CGTuts_OceanHDRI_Freebie_001.hdr" type="Texture" id=1]
-[ext_resource path="res://Scenes/LeftHandModel.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/RightHandModel.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Game.gd" type="Script" id=4]
-[ext_resource path="res://addons/godot-xr-tools/functions/Function_Pickup.tscn" type="PackedScene" id=5]
-[ext_resource path="res://addons/godot-xr-tools/functions/Function_Teleport.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/YetAnotherApple.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/AppleTree_TypeA.tscn" type="PackedScene" id=10]
 
@@ -56,31 +53,8 @@ environment = SubResource( 3 )
 transform = Transform( 1, 0, 0, 0, 0.54002, 0.841652, 0, -0.841652, 0.54002, 0, 24.5053, 18.1196 )
 shadow_enabled = true
 
-[node name="ARVROrigin" type="ARVROrigin" parent="."]
-
-[node name="PlayerCamera" type="ARVRCamera" parent="ARVROrigin"]
-
-[node name="LeftHand" type="ARVRController" parent="ARVROrigin"]
-
-[node name="LeftHandModel" parent="ARVROrigin/LeftHand" instance=ExtResource( 2 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0272692, 0, 0.055 )
-
-[node name="Function_Pickup" parent="ARVROrigin/LeftHand" instance=ExtResource( 5 )]
-pickup_range = 0.05
-
-[node name="Function_Teleport" parent="ARVROrigin/LeftHand" instance=ExtResource( 6 )]
-
-[node name="RightHand" type="ARVRController" parent="ARVROrigin"]
-controller_id = 2
-
-[node name="RightHandModel" parent="ARVROrigin/RightHand" instance=ExtResource( 3 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.027, 0, 0.055 )
-
-[node name="Function_Pickup" parent="ARVROrigin/RightHand" instance=ExtResource( 5 )]
-pickup_range = 0.05
-
-[node name="Function_Teleport" parent="ARVROrigin/RightHand" instance=ExtResource( 6 )]
-
 [node name="YetAnotherApple" parent="." instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00460619, 0.183095, 0.283847 )
 mode = 1
+
+[node name="Player" parent="." instance=ExtResource( 2 )]

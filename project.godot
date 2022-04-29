@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "OculusTracker",
 "class": "OculusHandTracker",
 "language": "GDScript",
-"path": "res://addons/godot_ovrmobile/example_scenes/oculus_hand_tracker.gd"
+"path": "res://Scenes/HandTracking.gd"
 }, {
 "base": "OculusTracker",
 "class": "OculusTouchController",
