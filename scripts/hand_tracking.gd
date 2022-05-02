@@ -290,16 +290,22 @@ func detect_gripping():
 	return false
 
 
+func get_closest_rigidbody(palm_area, bodies):
+	var closest_body: RigidBody = null
+	var closest_distance = null
+	for body in bodies:
+		var curr_distance = palm_area.global_transform.origin.distance_to(body.global_transform.origin)
+		# closest_body == null is first case
+		if body is RigidBody and (closest_body == null or curr_distance < closest_distance):
+			closest_body = body
+			closest_distance = curr_distance
+	return closest_body
+	
 func grab_object():
 	if !held_object:
 		var palm_area = hand_skel.get_node("Palm/Grab_Range")
 		var bodies = palm_area.get_overlapping_bodies()
-		var rigid_body = null
-		if len(bodies) > 0:
-			for body in bodies:
-				if body is RigidBody:
-					rigid_body = body
-					break
+		var rigid_body = get_closest_rigidbody(palm_area, bodies)
 		if rigid_body:
 			#get_node("../../OutputNode/Viewport/OtherLabel").text = rigid_body.get_name()
 			held_object = rigid_body
@@ -316,7 +322,7 @@ func grab_object():
 		held_object = null
 	
 func drop_object():
-	held_object.mode = held_object_data["mode"]
+	held_object.mode = RigidBody.MODE_RIGID
 	held_object.collision_layer = held_object_data["layer"]
 	held_object.collision_mask = held_object_data["mask"]
 	held_object.apply_impulse(Vector3(0, 0, 0), grab_point_velocity)

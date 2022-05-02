@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "OculusTracker",
 "class": "OculusHandTracker",
 "language": "GDScript",
-"path": "res://Scenes/HandTracking.gd"
+"path": "res://scripts/hand_tracking.gd"
 }, {
 "base": "OculusTracker",
 "class": "OculusTouchController",
