@@ -40,6 +40,7 @@ func _initialize_ovr_mobile_arvr_interface():
 	if !arvr_interface:
 		print("Couldn't find OVRMobile interface")
 	else:
+		$Viewport.hdr = false
 		# the init config needs to be done before arvr_interface.initialize()
 		ovr_init_config = load("res://addons/godot_ovrmobile/OvrInitConfig.gdns");
 		if (ovr_init_config):
@@ -83,7 +84,8 @@ func _initialize_ovr_mobile_arvr_interface():
 			if (ovr_vr_api_proxy):
 				ovr_vr_api_proxy = ovr_vr_api_proxy.new()
 
-			get_viewport().arvr = true
+#			get_viewport().arvr = true
+			
 
 			# Connect to the plugin signals
 			_connect_to_signals()
@@ -91,6 +93,7 @@ func _initialize_ovr_mobile_arvr_interface():
 			print("Loaded OVRMobile")
 		else:
 			print("Failed to enable OVRMobile")
+			
 
 
 func _connect_to_signals():
