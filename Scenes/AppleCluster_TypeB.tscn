@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/DamagedLargeApple.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/HealthyLargeAplle.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/HealthySmallApple.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/DamagedSmallApple.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/AppleCluster.gd" type="Script" id=5]
+[ext_resource path="res://Audio/beep.wav" type="AudioStream" id=6]
 
 [node name="AppleCluster_TypeB" type="Spatial"]
+script = ExtResource( 5 )
 
 [node name="HealthyLargeApple" parent="." instance=ExtResource( 2 )]
 transform = Transform( 0.276581, -0.951177, 0.136987, 0.931674, 0.230464, -0.280839, 0.235557, 0.205302, 0.949928, 0.0388288, -0.0131579, -0.0150189 )
@@ -42,3 +45,6 @@ mode = 1
 [node name="DamagedSmallApple" parent="." instance=ExtResource( 4 )]
 transform = Transform( 0.941557, 0.270801, 0.200344, 0.11414, 0.303088, -0.946102, -0.316928, 0.913676, 0.254466, -0.00417612, 0.000874534, -0.0540716 )
 mode = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
