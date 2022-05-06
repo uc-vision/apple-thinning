@@ -1,7 +1,7 @@
 extends RigidBody
 
 signal on_picked
-
+var picked_off = false
 #var point
 #
 #const Point = {
@@ -22,4 +22,6 @@ func _ready():
 #		point = Point.DAMAGED
 
 func picked_up():
-	emit_signal("on_picked")
+	if !picked_off:
+		emit_signal("on_picked")
+		picked_off = true

@@ -1,25 +1,29 @@
 extends Spatial
 
-var score
+onready var score = 0
+onready var apple_pick_sound_player = $ApplePickSound
+var point
+
+const Point = {
+	HEALTHY_LARGE = 1.5,
+	HEALTHY_SMALL = 1,
+	DAMAGED = -3,
+}
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	score = 0
+func _on_HealthyLargeApple_on_picked():
+	play_apple_picked_sound()
+	score += Point.HEALTHY_LARGE
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-func _on_Apple_on_picked(points):
-	score += points
-	get_node("/root/AudioStreamPlayer").play()
-	$AudioStreamPlayer.play()
-
-	play_beep()
+func _on_HealthySmallApple_on_picked():
+	play_apple_picked_sound()
+	score += Point.HEALTHY_SMALL
 	
-		
-func play_beep():
-	var beep_player = get_node("../AudioStreamPlayer")
-	beep_player.play()
+
+func _on_DamagedApple_on_picked():
+	play_apple_picked_sound()
+	score += Point.DAMAGED
+	
+func play_apple_picked_sound():
+	apple_pick_sound_player.play()
