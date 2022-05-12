@@ -1,6 +1,6 @@
 extends Spatial
 
-onready var score = 0
+onready var score
 onready var remaining_apple_count = 0
 onready var apple_pick_sound_player = $ApplePickSound
 var point
@@ -19,27 +19,31 @@ func _ready():
 			remaining_apple_count += 1
 
 
-func _on_HealthyLargeApple_on_picked():
+func _on_HealthyLargeApple_on_picked(apple):
 	play_apple_picked_sound()
+	hide_point(apple)
 	remaining_apple_count -= 1
 	if remaining_apple_count <= MAX_APPLE_NUM_TO_LEAVE:
 		calculate_score()
 
 
-func _on_HealthySmallApple_on_picked():
+func _on_HealthySmallApple_on_picked(apple):
 	play_apple_picked_sound()
+	hide_point(apple)
 	remaining_apple_count -= 1
 	if remaining_apple_count <= MAX_APPLE_NUM_TO_LEAVE:
 		calculate_score()
 	
 
-func _on_DamagedApple_on_picked():
+func _on_DamagedApple_on_picked(apple):
 	play_apple_picked_sound()
+	hide_point(apple)
 	remaining_apple_count -= 1
 	if remaining_apple_count <= MAX_APPLE_NUM_TO_LEAVE:
 		calculate_score()
 		
 func calculate_score():
+	score = 0
 	var children = get_children()
 	for child in children:
 		var groups = child.get_groups()
@@ -58,3 +62,7 @@ func calculate_score():
 	
 func play_apple_picked_sound():
 	apple_pick_sound_player.play()
+	
+func hide_point(apple):
+	if apple.is_score_visible:
+		apple.hide_point()
