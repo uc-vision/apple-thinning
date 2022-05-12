@@ -1,10 +1,9 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Assets/CGTuts_OceanHDRI_Freebie_001.hdr" type="Texture" id=1]
 [ext_resource path="res://Scenes/ARVROrigin.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Audio/beep.wav" type="AudioStream" id=3]
 [ext_resource path="res://Game.gd" type="Script" id=4]
-[ext_resource path="res://Scenes/YetAnotherApple.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/AppleTree_TypeA.tscn" type="PackedScene" id=10]
 
 [sub_resource type="SpatialMaterial" id=7]
@@ -53,10 +52,6 @@ environment = SubResource( 3 )
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.54002, 0.841652, 0, -0.841652, 0.54002, 0, 24.5053, 18.1196 )
 shadow_enabled = true
-
-[node name="YetAnotherApple" parent="." instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00460619, 0.183095, 0.283847 )
-mode = 1
 
 [node name="ARVROrigin" parent="." instance=ExtResource( 2 )]
 

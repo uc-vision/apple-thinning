@@ -4,7 +4,7 @@
 [ext_resource path="res://Scenes/HealthyLargeAplle.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/HealthySmallApple.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/DamagedSmallApple.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/AppleCluster.gd" type="Script" id=5]
+[ext_resource path="res://scripts/AppleCluster.gd" type="Script" id=5]
 [ext_resource path="res://Audio/apple-picking-sound.wav" type="AudioStream" id=6]
 
 [node name="AppleCluster_TypeA" type="Spatial"]
