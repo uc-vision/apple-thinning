@@ -10,6 +10,7 @@ radius = 0.03
 viewport_path = NodePath("PointNode/Viewport")
 
 [node name="DamagedLargeApple" type="RigidBody" groups=["Apple", "Damaged"]]
+angular_damp = 5.0
 script = ExtResource( 2 )
 
 [node name="AppleMesh" parent="." instance=ExtResource( 1 )]
