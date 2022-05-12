@@ -9,8 +9,8 @@ func _ready():
 
 func picked_up():
 	if !picked_off:
-		emit_signal("on_picked")
 		picked_off = true
+		emit_signal("on_picked")
 		
 func show_point():
 	if !picked_off:
