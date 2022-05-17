@@ -176,3 +176,7 @@ func _check_worldscale(world_scale):
 		var inv_world_scale = 1.0 / _was_world_scale
 		var controller_scale = Vector3(inv_world_scale, inv_world_scale, inv_world_scale)
 		$TouchControllerModel.scale = -controller_scale if controller_id == RIGHT_TRACKER_ID else controller_scale
+
+
+func _on_LeftTouchController_button_release(button):
+	pass # Replace with function body.

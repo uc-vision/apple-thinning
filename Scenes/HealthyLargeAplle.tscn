@@ -1,15 +1,18 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Assets/Apple.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/Apple.gd" type="Script" id=2]
+[ext_resource path="res://scripts/Apple.gd" type="Script" id=2]
 
 [sub_resource type="SphereShape" id=1]
 radius = 0.03
 
-[node name="HealthyLargeApple" type="RigidBody"]
+[sub_resource type="ViewportTexture" id=2]
+viewport_path = NodePath("PointNode/Viewport")
+
+[node name="HealthyLargeApple" type="RigidBody" groups=["Apple", "HealthyLarge"]]
+linear_damp = 0.5
+angular_damp = 5.0
 script = ExtResource( 2 )
-center_pickup_on = NodePath("Pickup")
-highlight_mesh_instance = NodePath("AppleMesh")
 
 [node name="AppleMesh" parent="." instance=ExtResource( 1 )]
 transform = Transform( 0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, 0, 0, 0 )
@@ -19,3 +22,22 @@ shape = SubResource( 1 )
 
 [node name="Pickup" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.03 )
+
+[node name="PointNode" type="Spatial" parent="."]
+visible = false
+
+[node name="Viewport" type="Viewport" parent="PointNode"]
+size = Vector2( 50, 50 )
+transparent_bg = true
+
+[node name="Point" type="Label" parent="PointNode/Viewport"]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "+2"
+align = 1
+valign = 1
+
+[node name="Sprite3D" type="Sprite3D" parent="PointNode"]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, -0.0279159, 0.0383017 )
+flip_v = true
+texture = SubResource( 2 )

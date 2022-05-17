@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "OculusTracker",
 "class": "OculusHandTracker",
 "language": "GDScript",
-"path": "res://addons/godot_ovrmobile/example_scenes/oculus_hand_tracker.gd"
+"path": "res://scripts/hand_tracking.gd"
 }, {
 "base": "OculusTracker",
 "class": "OculusTouchController",
@@ -39,6 +39,10 @@ config/icon="res://icon.png"
 [gdnative]
 
 singletons=[ "res://addons/godot-openvr/godot_openvr.gdnlib", "res://addons/godot_ovrmobile/godot_ovrmobile.gdnlib" ]
+
+[global]
+
+vram=false
 
 [layer_names]
 
