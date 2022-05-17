@@ -315,6 +315,9 @@ func grab_object():
 			held_object.mode = RigidBody.MODE_STATIC
 			held_object.collision_layer = 0
 			held_object.collision_mask = 0
+			held_object.picked_up()
+#			get_node("../../AudioStreamPlayer").play()
+			
 	else:
 		held_object.mode = held_object_data["mode"]
 		held_object.collision_layer = held_object_data["layer"]
