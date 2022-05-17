@@ -1,13 +1,15 @@
 extends Spatial
 
-onready var score
+onready var old_score
+onready var current_score = 0
 onready var remaining_apple_count = 0
 onready var apple_pick_sound_player = $ApplePickSound
-var point
-var MAX_APPLE_NUM_TO_LEAVE = 2
+onready var score = get_tree().root.get_node("Game/Score")
+onready var point
+onready var MAX_APPLE_NUM_TO_LEAVE = 2
 
 const Point = {
-	HEALTHY_LARGE = 1.5,
+	HEALTHY_LARGE = 2,
 	HEALTHY_SMALL = 1,
 	DAMAGED = -3,
 }
@@ -43,22 +45,23 @@ func _on_DamagedApple_on_picked(apple):
 		calculate_score()
 		
 func calculate_score():
-	score = 0
+	old_score = current_score
+	current_score = 0
 	var children = get_children()
 	for child in children:
 		var groups = child.get_groups()
 		if groups.has("Apple") and !child.picked_off:
-			var point
 			if groups.has("HealthyLarge"):
-				point = Point.HEALTHY_LARGE
+				current_score += Point.HEALTHY_LARGE
 			elif groups.has("HealthySmall"):
-				point = Point.HEALTHY_SMALL
+				current_score += Point.HEALTHY_SMALL
 			else:
-				point = Point.DAMAGED
+				current_score += Point.DAMAGED
 			
-			score += point
 			child.show_point()
-		
+	
+	score.update_score(old_score, current_score)
+
 	
 func play_apple_picked_sound():
 	apple_pick_sound_player.play()

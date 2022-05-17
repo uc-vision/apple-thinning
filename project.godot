@@ -40,6 +40,10 @@ config/icon="res://icon.png"
 
 singletons=[ "res://addons/godot-openvr/godot_openvr.gdnlib", "res://addons/godot_ovrmobile/godot_ovrmobile.gdnlib" ]
 
+[global]
+
+vram=false
+
 [layer_names]
 
 2d_physics/layer_1="World"

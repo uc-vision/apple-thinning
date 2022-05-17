@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Assets/CGTuts_OceanHDRI_Freebie_001.hdr" type="Texture" id=1]
 [ext_resource path="res://Scenes/ARVROrigin.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Audio/beep.wav" type="AudioStream" id=3]
 [ext_resource path="res://Game.gd" type="Script" id=4]
+[ext_resource path="res://scripts/Score.gd" type="Script" id=5]
 [ext_resource path="res://Scenes/AppleTree_TypeA.tscn" type="PackedScene" id=10]
 
 [sub_resource type="SpatialMaterial" id=7]
@@ -20,6 +21,18 @@ panorama = ExtResource( 1 )
 [sub_resource type="Environment" id=3]
 background_mode = 2
 background_sky = SubResource( 4 )
+
+[sub_resource type="SpatialMaterial" id=8]
+albedo_color = Color( 0.964706, 1, 0.560784, 1 )
+
+[sub_resource type="CubeMesh" id=9]
+material = SubResource( 8 )
+size = Vector3( 1, 1, 0.3 )
+
+[sub_resource type="BoxShape" id=10]
+
+[sub_resource type="ViewportTexture" id=11]
+viewport_path = NodePath("Score/Viewport")
 
 [node name="Game" type="Spatial"]
 script = ExtResource( 4 )
@@ -55,6 +68,15 @@ shadow_enabled = true
 
 [node name="ARVROrigin" parent="." instance=ExtResource( 2 )]
 
+[node name="Skeleton" parent="ARVROrigin/LeftHand/HandModel/ArmatureLeft" index="0"]
+bones/0/bound_children = [ NodePath("BoneAttachment 11"), NodePath("Palm") ]
+bones/2/bound_children = [ NodePath("BoneAttachment") ]
+bones/6/bound_children = [ NodePath("BoneAttachment 6") ]
+bones/7/bound_children = [ NodePath("BoneAttachment 5") ]
+bones/8/bound_children = [ NodePath("BoneAttachment 2"), NodePath("BoneAttachment 3"), NodePath("BoneAttachment 4") ]
+bones/11/bound_children = [ NodePath("BoneAttachment 10") ]
+bones/12/bound_children = [ NodePath("BoneAttachment 7"), NodePath("BoneAttachment 8"), NodePath("BoneAttachment 9") ]
+
 [node name="BoneAttachment" parent="ARVROrigin/LeftHand/HandModel/ArmatureLeft/Skeleton" index="0"]
 transform = Transform( 0.715416, 0.480301, 0.507437, -0.520631, 0.850801, -0.0712857, -0.465966, -0.213188, 0.858735, 3.59585, -2.80285, -1.91577 )
 
@@ -82,6 +104,13 @@ transform = Transform( 0.987593, 0.0968453, -0.123618, 0.132458, -0.0908865, 0.9
 [node name="BoneAttachment 10" parent="ARVROrigin/LeftHand/HandModel/ArmatureLeft/Skeleton" index="9"]
 transform = Transform( 0.988767, -0.0960949, -0.114484, 0.110551, -0.0453155, 0.992837, -0.100594, -0.99434, -0.034183, 13.8116, 0.264028, -0.702144 )
 
+[node name="Skeleton" parent="ARVROrigin/RightHand/HandModel/ArmatureRight" index="0"]
+bones/0/bound_children = [ NodePath("BoneAttachment 5"), NodePath("BoneAttachment 6"), NodePath("BoneAttachment 7"), NodePath("BoneAttachment 8"), NodePath("BoneAttachment 9"), NodePath("BoneAttachment 10"), NodePath("BoneAttachment 11"), NodePath("BoneAttachment 12"), NodePath("BoneAttachment 13"), NodePath("BoneAttachment 14"), NodePath("BoneAttachment 15"), NodePath("BoneAttachment 16") ]
+bones/2/bound_children = [ NodePath("BoneAttachment 3") ]
+bones/3/bound_children = [ NodePath("BoneAttachment 2") ]
+bones/4/bound_children = [ NodePath("BoneAttachment") ]
+bones/10/bound_children = [ NodePath("BoneAttachment 4") ]
+
 [node name="BoneAttachment" parent="ARVROrigin/RightHand/HandModel/ArmatureRight/Skeleton" index="0"]
 transform = Transform( 0.575562, 0.67335, 0.464036, -0.739133, 0.671135, -0.0570919, -0.349873, -0.310125, 0.883974, -8.31233, 6.69126, 4.37118 )
 
@@ -92,6 +121,74 @@ transform = Transform( 0.707382, 0.518598, 0.480278, -0.649744, 0.744603, 0.1529
 transform = Transform( 0.715415, 0.480301, 0.507437, -0.520631, 0.850801, -0.0712857, -0.465966, -0.213189, 0.858734, -3.59585, 2.80285, 1.91577 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[node name="Score" type="Spatial" parent="."]
+transform = Transform( 0.835194, 0, 0.549956, 0, 1, 0, -0.549956, 0, 0.835194, -0.501307, 0.520785, -0.574699 )
+script = ExtResource( 5 )
+
+[node name="Viewport" type="Viewport" parent="Score"]
+size = Vector2( 200, 200 )
+transparent_bg = true
+usage = 1
+render_target_v_flip = true
+
+[node name="Control" type="Control" parent="Score/Viewport"]
+anchor_left = 0.3
+anchor_top = 0.3
+anchor_right = 0.3
+anchor_bottom = 0.3
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Label" type="Label" parent="Score/Viewport/Control"]
+anchor_left = 0.3
+anchor_right = 0.3
+margin_right = 70.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0.00392157, 0.0431373, 0.266667, 1 )
+text = "You Earned"
+align = 1
+
+[node name="Score" type="Label" parent="Score/Viewport/Control"]
+anchor_left = 0.7
+anchor_top = 0.7
+anchor_right = 0.7
+anchor_bottom = 0.7
+margin_right = 40.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0.00392157, 0.0431373, 0.266667, 1 )
+text = "0"
+align = 2
+valign = 2
+
+[node name="ScoreUnit" type="Label" parent="Score/Viewport/Control"]
+anchor_left = 0.3
+anchor_top = 0.7
+anchor_right = 0.3
+anchor_bottom = 0.7
+margin_right = 40.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0.00392157, 0.0431373, 0.266667, 1 )
+text = "$"
+
+[node name="StaticBody" type="StaticBody" parent="Score"]
+
+[node name="ScoreBoard" type="MeshInstance" parent="Score/StaticBody"]
+mesh = SubResource( 9 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Score/StaticBody"]
+transform = Transform( 0.48512, 0, 0, 0, 0.48512, 0, 0, 0, 0.149559, 0, 0, 0 )
+shape = SubResource( 10 )
+
+[node name="Sprite3D" type="Sprite3D" parent="Score"]
+transform = Transform( 1.09998, 0, 0, 0, 1.09998, 0, 5.96046e-08, 0, 1, -0.0344051, -0.00184762, 0.169621 )
+texture = SubResource( 11 )
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Score"]
+transform = Transform( 0.835194, 0, -0.549956, 0, 1, 0, 0.549956, 0, 0.835194, 0.102629, -0.520785, 0.755682 )
 stream = ExtResource( 3 )
 
 [editable path="World/AppleTree_TypeA"]
