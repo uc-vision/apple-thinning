@@ -177,5 +177,4 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.629034, 0.494587 )
 
 [editable path="World/AppleTree_TypeA"]
 [editable path="World/AppleTree_TypeA/AppleTree"]
-[editable path="World/AppleTree_TypeA/AppleCluster_TypeA"]
 [editable path="ARVROrigin"]

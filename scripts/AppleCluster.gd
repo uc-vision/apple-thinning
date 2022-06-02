@@ -20,6 +20,10 @@ func _ready():
 		if child.get_groups().has("Apple"):
 			remaining_apple_count += 1
 
+func initialize(spawn_location):
+	translation = spawn_location
+	translate(Vector3(0, 2, 0))
+	
 
 func _on_HealthyLargeApple_on_picked(apple):
 	play_apple_picked_sound()
