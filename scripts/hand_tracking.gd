@@ -307,16 +307,19 @@ func grab_object():
 		var bodies = palm_area.get_overlapping_bodies()
 		var rigid_body = get_closest_rigidbody(palm_area, bodies)
 		if rigid_body:
-			#get_node("../../OutputNode/Viewport/OtherLabel").text = rigid_body.get_name()
-			held_object = rigid_body
-			held_object_data["mode"] = held_object.mode
-			held_object_data["layer"] = held_object.collision_layer
-			held_object_data["mask"] = held_object.collision_mask
-			held_object.mode = RigidBody.MODE_STATIC
-			held_object.collision_layer = 0
-			held_object.collision_mask = 0
-			held_object.picked_up()
-#			get_node("../../AudioStreamPlayer").play()
+			
+			if 'Apple' in rigid_body.get_groups():
+				held_object = rigid_body
+				held_object_data["mode"] = held_object.mode
+				held_object_data["layer"] = held_object.collision_layer
+				held_object_data["mask"] = held_object.collision_mask
+				held_object.mode = RigidBody.MODE_STATIC
+				held_object.collision_layer = 0
+				held_object.collision_mask = 0
+				held_object.picked_up()
+				
+			if rigid_body.has_method("interact"):
+				rigid_body.interact()
 			
 	else:
 		held_object.mode = held_object_data["mode"]

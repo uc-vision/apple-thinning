@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Assets/CGTuts_OceanHDRI_Freebie_001.hdr" type="Texture" id=1]
 [ext_resource path="res://Scenes/ARVROrigin.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Audio/beep.wav" type="AudioStream" id=3]
 [ext_resource path="res://Game.gd" type="Script" id=4]
 [ext_resource path="res://scripts/Score.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/GameReset.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/AppleTree_TypeA.tscn" type="PackedScene" id=10]
 
 [sub_resource type="SpatialMaterial" id=7]
@@ -190,6 +191,9 @@ texture = SubResource( 11 )
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Score"]
 transform = Transform( 0.835194, 0, -0.549956, 0, 1, 0, 0.549956, 0, 0.835194, 0.102629, -0.520785, 0.755682 )
 stream = ExtResource( 3 )
+
+[node name="GameReset" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.469421, 0 )
 
 [editable path="World/AppleTree_TypeA"]
 [editable path="World/AppleTree_TypeA/AppleTree"]
