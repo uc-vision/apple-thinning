@@ -2,7 +2,7 @@
 
 Godot VR project to simulate apple thinning process. 
 
-![Game Scene Screenshot](https://github.com/uc-vision/apple-thinning/blob/xr-tools/apple-thinning_27042022.png)
+![Game Scene Screenshot](https://github.com/uc-vision/apple-thinning/blob/main/apple-thinning_27042022.png)
 
 ## Running this project
 
