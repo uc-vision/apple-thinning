@@ -3,6 +3,7 @@ extends RigidBody
 # A timer to avoid resetting game multiple times in one attempt
 const WAIT_TIME  = 2
 onready var timer = $GameResetTimer
+onready var score_node = get_tree().root.get_node("Game/Score")
 
 func _ready():
 	# Timer setup. No repeat, counts down 2 seconds, and start
@@ -13,6 +14,9 @@ func _ready():
 func interact():
 	# The game reset valid after the timer's remaining time reaches 0
 	if timer.get_time_left() == 0:
+		# Reset the level's score
+		score_node.reset_score()
+		# Rest the level
 		reset_game()
 		# Restart the timer
 		timer.start()
