@@ -1,28 +1,49 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/AppleCluster_TypeB.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/AppleCluster_TypeA.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/AppleCluster_TypeC.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/AppleTree.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scripts/AppleTree.gd" type="Script" id=5]
+
+[sub_resource type="Curve3D" id=1]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -0.0107371, 0.763548, 0.107095, 0, 0, 0, 0, 0, 0, -0.0900356, 0.879068, 0.344067, 0, 0, 0, 0, 0, 0, -0.0326493, 0.839708, 0.731455, 0, 0, 0, 0, 0, 0, -0.00338675, 0.889762, 0.846837, 0, 0, 0, 0, 0, 0, 0.0337429, 1.25701, 1.17274 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0 )
+}
 
 [node name="AppleTree_TypeA" type="Spatial"]
+script = ExtResource( 5 )
 
 [node name="AppleTree" parent="." instance=ExtResource( 4 )]
 
 [node name="AppleCluster_TypeA" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.354127, 1.01409, -0.313894 )
+visible = false
 
 [node name="AppleCluster_TypeB" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.868371, 1.02658, -0.432581 )
+visible = false
 
 [node name="AppleCluster_TypeC" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.112633, 1.00495, 0.76304 )
+visible = false
 
 [node name="AppleCluster_TypeA2" parent="." instance=ExtResource( 2 )]
 transform = Transform( 0.187247, 0.477266, 0.858578, -0.101697, 0.878759, -0.466305, -0.977034, 0, 0.213082, -0.15101, 0.900359, 0.555541 )
+visible = false
 
 [node name="AppleCluster_TypeB2" parent="." instance=ExtResource( 1 )]
 transform = Transform( 0.662048, -0.749425, 0.00737374, 0.628923, 0.550191, -0.549314, 0.407613, 0.36831, 0.835583, 0.586987, 1.11915, -0.731395 )
+visible = false
 
 [node name="AppleCluster_TypeC2" parent="." instance=ExtResource( 3 )]
 transform = Transform( 0.875046, -0.483935, -0.0100872, -0.251517, -0.436787, -0.863688, 0.413563, 0.758304, -0.503926, -0.574008, 1.03736, -0.344097 )
+visible = false
+
+[node name="AppleClusterSpawnPath1" type="Path" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00919244, -0.0551334, 0.0235204 )
+curve = SubResource( 1 )
+
+[node name="PathFollow" type="PathFollow" parent="AppleClusterSpawnPath1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0159127, 0.775651, 0.12462 )

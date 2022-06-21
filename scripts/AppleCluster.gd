@@ -21,6 +21,11 @@ func _ready():
 			remaining_apple_count += 1
 
 
+func initialize(spawn_location):
+	set_translation(spawn_location)
+	play_apple_picked_sound()
+
+
 func _on_HealthyLargeApple_on_picked(apple):
 	play_apple_picked_sound()
 	hide_point(apple)
