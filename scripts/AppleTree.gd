@@ -46,3 +46,9 @@ func _ready():
 					var apple_cluster_c_instance = apple_cluster_c.instance()
 					apple_cluster_c_instance.initialize(cluster_spawn_location.translation)
 					add_child(apple_cluster_c_instance)
+					
+func tree_hit():
+	get_tree().root.get_node("Game/AudioStreamPlayer").play()
+	for child in get_children():
+		if "AppleCluster" in child.get_groups():
+			child.drop_cluster()

@@ -74,3 +74,9 @@ func play_apple_picked_sound():
 func hide_point(apple):
 	if apple.is_score_visible:
 		apple.hide_point()
+
+func drop_cluster():
+	for child in get_children():
+		if "Apple" in child.get_groups():
+			if child.get_mode() == RigidBody.MODE_STATIC:
+				child.set_mode(RigidBody.MODE_RIGID)

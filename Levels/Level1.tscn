@@ -25,8 +25,8 @@ collision_mask = 6
 [node name="CollisionShape" type="CollisionShape" parent="Ground/StaticBody"]
 shape = SubResource( 3 )
 
-[node name="AppleTree_TypeA" parent="Ground" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.932708, 1.04598, 0.466644 )
+[node name="AppleTree_TypeA" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.324802, 0.123211, -0.618746 )
 
-[node name="AppleTree_TypeA2" parent="Ground" instance=ExtResource( 1 )]
-transform = Transform( 0.393765, 0, -0.919211, 0, 1, 0, 0.919211, 0, 0.393765, -2.75906, 1.04598, 1.66309 )
+[node name="AppleTree_TypeA2" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.393765, 0, -0.919211, 0, 1, 0, 0.919211, 0, 0.393765, -1.50155, 0.123211, 0.5777 )
