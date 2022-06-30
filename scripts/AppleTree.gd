@@ -48,12 +48,13 @@ func _ready():
 					apple_cluster_c_instance.initialize(cluster_spawn_location.translation)
 					child.add_child(apple_cluster_c_instance)
 					
-func tree_hit():
-	var area_node = get_node("Branch1/Areas/Area")
-	get_tree().root.get_node("Game/AudioStreamPlayer").play()
+func tree_hit(area_node):
 	
-	var branch = area_node.get_parent().get_parent()
+	# Get all the clusters belong to the hit area
+	var overlapping_apples = area_node.get_overlapping_bodies()
 	
-	for child in branch.get_children():
-		if "AppleCluster" in child.get_groups():
-			child.drop_cluster()
+	# Drop the clusters that belong to the area
+	for apple in overlapping_apples:
+		var parent_cluster = apple.get_parent()
+		if not parent_cluster.isDropped:
+			parent_cluster.drop_cluster()

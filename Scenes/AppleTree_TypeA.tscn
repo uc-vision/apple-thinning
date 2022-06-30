@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
+[ext_resource path="res://scripts/BranchSection.gd" type="Script" id=1]
 [ext_resource path="res://Assets/AppleTree.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scripts/AppleTree.gd" type="Script" id=5]
 
@@ -25,22 +26,32 @@ curve = SubResource( 1 )
 [node name="PathFollow" type="PathFollow" parent="Branch1/AppleClusterSpawnPath"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0107371, 0.763548, 0.107095 )
 
-[node name="Areas" type="Spatial" parent="Branch1"]
+[node name="Sections" type="Spatial" parent="Branch1"]
 
-[node name="Area" type="Area" parent="Branch1/Areas"]
+[node name="Section1" type="Area" parent="Branch1/Sections"]
+script = ExtResource( 1 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Branch1/Areas/Area"]
+[node name="CollisionShape" type="CollisionShape" parent="Branch1/Sections/Section1"]
 transform = Transform( 0.0376092, 0, 0, 0, 0.0335341, 0.1223, 0, -0.0197003, 0.20818, -0.0619798, 0.876379, 0.180357 )
 shape = SubResource( 2 )
 
-[node name="Area2" type="Area" parent="Branch1/Areas"]
+[node name="Section2" type="Area" parent="Branch1/Sections"]
+script = ExtResource( 1 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Branch1/Areas/Area2"]
+[node name="CollisionShape" type="CollisionShape" parent="Branch1/Sections/Section2"]
 transform = Transform( 0.0389611, -5.79546e-10, 0.0452395, 0.00184118, 0.0381207, -0.0376276, -0.00910254, 0.00771071, 0.186026, -0.0270141, 0.912042, 0.535933 )
 shape = SubResource( 2 )
 
-[node name="Area3" type="Area" parent="Branch1/Areas"]
+[node name="Section3" type="Area" parent="Branch1/Sections"]
+script = ExtResource( 1 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Branch1/Areas/Area3"]
+[node name="CollisionShape" type="CollisionShape" parent="Branch1/Sections/Section3"]
 transform = Transform( 0.0400527, 0, 0, 0, 0.027445, 0.190671, 0, -0.0275574, 0.189894, 0.0280013, 1.09293, 0.953958 )
 shape = SubResource( 2 )
+
+[connection signal="area_entered" from="Branch1/Sections/Section1" to="Branch1/Sections/Section1" method="_on_Section_area_entered"]
+[connection signal="area_exited" from="Branch1/Sections/Section1" to="Branch1/Sections/Section1" method="_on_Section_area_exited"]
+[connection signal="area_entered" from="Branch1/Sections/Section2" to="Branch1/Sections/Section2" method="_on_Section_area_entered"]
+[connection signal="area_exited" from="Branch1/Sections/Section2" to="Branch1/Sections/Section2" method="_on_Section_area_exited"]
+[connection signal="area_entered" from="Branch1/Sections/Section3" to="Branch1/Sections/Section3" method="_on_Section_area_entered"]
+[connection signal="area_exited" from="Branch1/Sections/Section3" to="Branch1/Sections/Section3" method="_on_Section_area_exited"]
