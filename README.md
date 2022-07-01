@@ -2,7 +2,7 @@
 
 Godot VR project to simulate apple thinning process. 
 
-![Game Scene Screenshot](https://github.com/uc-vision/apple-thinning/blob/xr-tools/apple-thinning_27042022.png)
+![Game Scene Screenshot](https://github.com/uc-vision/apple-thinning/blob/main/apple-thinning_27042022.png)
 
 ## Running this project
 
@@ -49,3 +49,9 @@ Model License:
 * license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
 * requirements:	Author must be credited. Commercial use is allowed.
 ```
+
+#### Audio
+
+- `apple-branch-hit-sound`: https://freesound.org/people/ArrowheadProductions/sounds/566685/
+- `apple-cluster-falling-sound`: https://freesound.org/people/waveplaySFX/sounds/399933/
+- 

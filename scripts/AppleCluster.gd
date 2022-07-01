@@ -6,6 +6,8 @@ onready var remaining_apple_count = 0
 onready var apple_pick_sound_player = $ApplePickSound
 onready var score = get_tree().root.get_node("Game/Score")
 onready var point
+onready var isDropped = false
+
 onready var MAX_APPLE_NUM_TO_LEAVE = 2
 
 const Point = {
@@ -20,10 +22,11 @@ func _ready():
 		if child.get_groups().has("Apple"):
 			remaining_apple_count += 1
 
+
 func initialize(spawn_location):
-	translation = spawn_location
-	translate(Vector3(0, 2, 0))
-	
+	set_translation(spawn_location)
+	play_apple_picked_sound()
+
 
 func _on_HealthyLargeApple_on_picked(apple):
 	play_apple_picked_sound()
@@ -73,3 +76,11 @@ func play_apple_picked_sound():
 func hide_point(apple):
 	if apple.is_score_visible:
 		apple.hide_point()
+
+func drop_cluster():
+	# Drop all the apples in the cluster
+	for child in get_children():
+		if "Apple" in child.get_groups():
+			if child.get_mode() == RigidBody.MODE_STATIC:
+				child.set_mode(RigidBody.MODE_RIGID)
+	isDropped = true

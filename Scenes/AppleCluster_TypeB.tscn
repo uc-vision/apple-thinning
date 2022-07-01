@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/DamagedLargeApple.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/HealthyLargeAplle.tscn" type="PackedScene" id=2]
@@ -7,48 +7,58 @@
 [ext_resource path="res://scripts/AppleCluster.gd" type="Script" id=5]
 [ext_resource path="res://Audio/apple-picking-sound.wav" type="AudioStream" id=6]
 
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.05, 0.05, 0.05 )
+
 [node name="AppleCluster_TypeB" type="Spatial" groups=["AppleCluster"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0408861, 0 )
 script = ExtResource( 5 )
 
 [node name="HealthyLargeApple" parent="." instance=ExtResource( 2 )]
-transform = Transform( 0.276581, -0.951177, 0.136987, 0.931674, 0.230464, -0.280839, 0.235557, 0.205302, 0.949928, 0.0388288, -0.0131579, -0.0150189 )
+transform = Transform( 0.276581, -0.951177, 0.136987, 0.931674, 0.230464, -0.280839, 0.235557, 0.205302, 0.949928, 0.0388288, -0.0674365, -0.0150189 )
 mode = 1
 
 [node name="HealthySmallApple" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.712288, -0.349905, -0.608451, 0.589974, 0.768084, 0.248952, 0.380232, -0.536296, 0.753532, 0.0159256, -0.0347783, 0.0368247 )
+transform = Transform( 0.712288, -0.349905, -0.608451, 0.589974, 0.768084, 0.248952, 0.380232, -0.536296, 0.753532, 0.0159256, -0.0890569, 0.0368247 )
 mode = 1
 
 [node name="HealthyLargeApple2" parent="." instance=ExtResource( 2 )]
-transform = Transform( 0.208862, 0.490637, 0.845962, -0.971886, 0.200283, 0.123793, -0.108694, -0.848035, 0.518674, -0.0254268, 0.0142874, 0.0281216 )
+transform = Transform( 0.208862, 0.490637, 0.845962, -0.971886, 0.200283, 0.123793, -0.108694, -0.848035, 0.518674, -0.0254268, -0.0399912, 0.0281216 )
 mode = 1
 
 [node name="HealthySmallApple2" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.711401, 0.669159, -0.214792, -0.702787, 0.677361, -0.217425, 0, 0.305629, 0.952151, -0.0329079, -0.031789, -0.0179989 )
+transform = Transform( 0.711401, 0.669159, -0.214792, -0.702787, 0.677361, -0.217425, 0, 0.305629, 0.952151, -0.0329079, -0.0860676, -0.0179989 )
 mode = 1
 
 [node name="HealthyLargeApple3" parent="." instance=ExtResource( 2 )]
-transform = Transform( 0.86738, -0.141795, 0.477017, 0.362845, 0.836212, -0.41121, -0.34058, 0.529759, 0.776763, 0.0195848, -0.049792, -0.0583394 )
+transform = Transform( 0.86738, -0.141795, 0.477017, 0.362845, 0.836212, -0.41121, -0.34058, 0.529759, 0.776763, 0.0195848, -0.104071, -0.0583394 )
 mode = 1
 
 [node name="HealthySmallApple3" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.878131, 0.461135, -0.127442, -0.235266, 0.648169, 0.724242, 0.416577, -0.605996, 0.677667, -0.0533188, -0.0309735, 0.0260013 )
+transform = Transform( 0.878131, 0.461135, -0.127442, -0.235266, 0.648169, 0.724242, 0.416577, -0.605996, 0.677667, -0.0533188, -0.0852521, 0.0260013 )
 mode = 1
 
 [node name="HealthySmallApple4" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.00196489, 0.133695, 0.991021, 0.999892, -0.0146952, 0, 0.0145633, 0.990914, -0.133709, -0.046722, 0.0200328, -0.0331871 )
+transform = Transform( 0.00196489, 0.133695, 0.991021, 0.999892, -0.0146952, 0, 0.0145633, 0.990914, -0.133709, -0.046722, -0.0342458, -0.0331871 )
 mode = 1
 
 [node name="DamagedLargeApple" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014118, -0.0771876, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014118, -0.131466, 0 )
 mode = 1
 
 [node name="DamagedSmallApple" parent="." instance=ExtResource( 4 )]
-transform = Transform( 0.941557, 0.270801, 0.200344, 0.11414, 0.303088, -0.946102, -0.316928, 0.913676, 0.254466, -0.00417612, 0.000874534, -0.0540716 )
+transform = Transform( 0.941557, 0.270801, 0.200344, 0.11414, 0.303088, -0.946102, -0.316928, 0.913676, 0.254466, -0.00417612, -0.0534041, -0.0540716 )
 mode = 1
 
 [node name="ApplePickSound" type="AudioStreamPlayer3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0542786, 0 )
 stream = ExtResource( 6 )
+
+[node name="ClusterHub" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0542786, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ClusterHub"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0947913, 0 )
+shape = SubResource( 1 )
 
 [connection signal="on_picked" from="HealthyLargeApple" to="." method="_on_HealthyLargeApple_on_picked"]
 [connection signal="on_picked" from="HealthySmallApple" to="." method="_on_HealthySmallApple_on_picked"]

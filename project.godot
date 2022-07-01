@@ -46,9 +46,9 @@ vram=false
 
 [layer_names]
 
-2d_physics/layer_1="World"
-2d_physics/layer_2="Apple"
-2d_physics/layer_3="Player"
+3d_physics/layer_1="World"
+3d_physics/layer_2="Apple"
+3d_physics/layer_3="Player"
 
 [physics]
 
