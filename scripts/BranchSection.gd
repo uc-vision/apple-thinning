@@ -6,7 +6,7 @@ var hand_velocity = Vector3(0, 0, 0)
 var prior_hand_velocities = []
 var prior_hand_position = Vector3(0, 0, 0)
 
-const MIN_BRANCH_HIT_SPEED = 5
+const MIN_BRANCH_HIT_SPEED = 10
 
 func _ready():
 	# Get the parent tree which this branch area section belongs to
@@ -33,7 +33,7 @@ func _physics_process(delta):
 			
 		prior_hand_position = hand_global_transform.origin
 		
-		if prior_hand_velocities.size() > 30:
+		if prior_hand_velocities.size() > 20:
 			prior_hand_velocities.remove(0)
 			
 		# If the hand is colliding fast enough to the branch, make the cluster on that area fall
@@ -45,6 +45,7 @@ func _on_Section_area_entered(area):
 	# Check if the entered area is a player'a hand.
 	if "HandArea" in area.get_groups():
 		hand_area = area
+		get_node("BranchHitSoundPlayer").play()
 		set_physics_process(true)
 
 

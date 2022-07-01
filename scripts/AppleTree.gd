@@ -3,6 +3,7 @@ extends Spatial
 onready var apple_cluster_a = preload("res://Scenes/AppleCluster_TypeA.tscn")
 onready var apple_cluster_b = preload("res://Scenes/AppleCluster_TypeB.tscn")
 onready var apple_cluster_c = preload("res://Scenes/AppleCluster_TypeC.tscn")
+onready var apple_cluster_fall_sound_player = get_node("AppleClusterFallSoundPlayer")
 onready var rng = RandomNumberGenerator.new()
 onready var cluster_type
 onready var cluster_spawn_location
@@ -51,10 +52,12 @@ func _ready():
 func tree_hit(area_node):
 	
 	# Get all the clusters belong to the hit area
-	var overlapping_apples = area_node.get_overlapping_bodies()
+	var overlapping_apples = area_node.get_overlapping_areas()
 	
 	# Drop the clusters that belong to the area
-	for apple in overlapping_apples:
-		var parent_cluster = apple.get_parent()
-		if not parent_cluster.isDropped:
-			parent_cluster.drop_cluster()
+	for area in overlapping_apples:
+		if area.get_name() == "ClusterHub":
+			var parent_cluster = area.get_parent()
+			if not parent_cluster.isDropped:
+				apple_cluster_fall_sound_player.play()
+				parent_cluster.drop_cluster()

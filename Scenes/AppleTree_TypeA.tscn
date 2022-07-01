@@ -1,6 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scripts/BranchSection.gd" type="Script" id=1]
+[ext_resource path="res://Audio/tree-branch-hit-sound.wav" type="AudioStream" id=2]
+[ext_resource path="res://Audio/apple-cluster-falling-sound.wav" type="AudioStream" id=3]
 [ext_resource path="res://Assets/AppleTree.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scripts/AppleTree.gd" type="Script" id=5]
 
@@ -32,15 +34,23 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0107371, 0.763548, 0.107095
 script = ExtResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Branch1/Sections/Section1"]
-transform = Transform( 0.0376092, 0, 0, 0, 0.0335341, 0.1223, 0, -0.0197003, 0.20818, -0.0619798, 0.876379, 0.180357 )
+transform = Transform( 0.0337876, 6.81306e-11, -0.0162478, 0.000905219, 0.0339385, 0.0843479, 0.00225214, -0.0136411, 0.209854, -0.0610933, 0.858575, 0.17553 )
 shape = SubResource( 2 )
+
+[node name="BranchHitSoundPlayer" type="AudioStreamPlayer3D" parent="Branch1/Sections/Section1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0562929, 0.862151, 0.190176 )
+stream = ExtResource( 2 )
 
 [node name="Section2" type="Area" parent="Branch1/Sections"]
 script = ExtResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Branch1/Sections/Section2"]
-transform = Transform( 0.0389611, -5.79546e-10, 0.0452395, 0.00184118, 0.0381207, -0.0376276, -0.00910254, 0.00771071, 0.186026, -0.0270141, 0.912042, 0.535933 )
+transform = Transform( 0.0350706, -0.000432286, 0.0609238, 0.00228737, 0.0342699, -0.0290974, -0.0113084, 0.00559117, 0.183057, -0.0270511, 0.914979, 0.536412 )
 shape = SubResource( 2 )
+
+[node name="BranchHitSoundPlayer" type="AudioStreamPlayer3D" parent="Branch1/Sections/Section2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0163877, 0.907534, 0.492746 )
+stream = ExtResource( 2 )
 
 [node name="Section3" type="Area" parent="Branch1/Sections"]
 script = ExtResource( 1 )
@@ -48,6 +58,13 @@ script = ExtResource( 1 )
 [node name="CollisionShape" type="CollisionShape" parent="Branch1/Sections/Section3"]
 transform = Transform( 0.0400527, 0, 0, 0, 0.027445, 0.190671, 0, -0.0275574, 0.189894, 0.0280013, 1.09293, 0.953958 )
 shape = SubResource( 2 )
+
+[node name="BranchHitSoundPlayer" type="AudioStreamPlayer3D" parent="Branch1/Sections/Section3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0246515, 1.16113, 0.994166 )
+stream = ExtResource( 2 )
+
+[node name="AppleClusterFallSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
 
 [connection signal="area_entered" from="Branch1/Sections/Section1" to="Branch1/Sections/Section1" method="_on_Section_area_entered"]
 [connection signal="area_exited" from="Branch1/Sections/Section1" to="Branch1/Sections/Section1" method="_on_Section_area_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Assets/CGTuts_OceanHDRI_Freebie_001.hdr" type="Texture" id=1]
 [ext_resource path="res://Scenes/ARVROrigin.tscn" type="PackedScene" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://scripts/Score.gd" type="Script" id=5]
 [ext_resource path="res://Scenes/GameReset.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Levels/Level1.tscn" type="PackedScene" id=7]
-[ext_resource path="res://DeleteMe.gd" type="Script" id=8]
 
 [sub_resource type="PanoramaSky" id=4]
 panorama = ExtResource( 1 )
@@ -35,11 +34,6 @@ size = Vector3( 1, 1, 0.3 )
 
 [sub_resource type="ViewportTexture" id=11]
 viewport_path = NodePath("Score/Viewport")
-
-[sub_resource type="CubeMesh" id=12]
-
-[sub_resource type="BoxShape" id=13]
-extents = Vector3( 0.2, 0.2, 0.2 )
 
 [node name="Game" type="Spatial"]
 script = ExtResource( 4 )
@@ -178,18 +172,5 @@ stream = ExtResource( 3 )
 
 [node name="GameReset" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.469421, 0 )
-
-[node name="DeleteMe" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.808331, 0 )
-script = ExtResource( 8 )
-
-[node name="MeshInstance" type="MeshInstance" parent="DeleteMe"]
-transform = Transform( 0.114035, 0, 0, 0, 0.122231, 0, 0, 0, 0.108256, 0, 0, 0 )
-mesh = SubResource( 12 )
-material/0 = null
-
-[node name="CollisionShape" type="CollisionShape" parent="DeleteMe"]
-transform = Transform( 0.56129, 0, 0, 0, 0.563473, 0, 0, 0, 0.565822, 0, 0, 0 )
-shape = SubResource( 13 )
 
 [editable path="ARVROrigin"]
