@@ -10,6 +10,8 @@ onready var isDropped = false
 
 onready var MAX_APPLE_NUM_TO_LEAVE = 2
 
+signal score_updated(old_score, new_score)
+
 const Point = {
 	HEALTHY_LARGE = 2,
 	HEALTHY_SMALL = 1,
@@ -67,7 +69,7 @@ func calculate_score():
 			
 			child.show_point()
 	
-	score.update_score(old_score, current_score)
+	emit_signal("score_updated", old_score, current_score)
 
 	
 func play_apple_picked_sound():
@@ -83,4 +85,8 @@ func drop_cluster():
 		if "Apple" in child.get_groups():
 			if child.get_mode() == RigidBody.MODE_STATIC:
 				child.set_mode(RigidBody.MODE_RIGID)
+				
+	old_score = current_score
+	current_score = 0
+	emit_signal("score_updated", old_score, current_score)
 	isDropped = true
