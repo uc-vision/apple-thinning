@@ -3,7 +3,7 @@
 [ext_resource path="res://scripts/BranchSection.gd" type="Script" id=1]
 [ext_resource path="res://Audio/tree-branch-hit-sound.wav" type="AudioStream" id=2]
 [ext_resource path="res://Audio/apple-cluster-falling-sound.wav" type="AudioStream" id=3]
-[ext_resource path="res://Assets/AppleTree.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/AppleTreeModel.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scripts/AppleTree.gd" type="Script" id=5]
 
 [sub_resource type="Curve3D" id=1]
@@ -14,10 +14,10 @@ _data = {
 
 [sub_resource type="BoxShape" id=2]
 
-[node name="AppleTree_TypeA" type="Spatial"]
+[node name="AppleTree" type="Spatial"]
 script = ExtResource( 5 )
 
-[node name="AppleTree" parent="." instance=ExtResource( 4 )]
+[node name="AppleTreeModel" parent="." instance=ExtResource( 4 )]
 
 [node name="Branch1" type="Spatial" parent="." groups=["Branch"]]
 
