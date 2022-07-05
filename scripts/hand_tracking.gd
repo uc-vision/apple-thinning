@@ -308,7 +308,7 @@ func grab_object():
 		var rigid_body = get_closest_rigidbody(palm_area, bodies)
 		if rigid_body:
 			
-			if 'Apple' in rigid_body.get_groups() and rigid_body.is_pickable():
+			if 'Apple' in rigid_body.get_groups() and rigid_body.is_interactable():
 				held_object = rigid_body
 				held_object_data["mode"] = held_object.mode
 				held_object_data["layer"] = held_object.collision_layer

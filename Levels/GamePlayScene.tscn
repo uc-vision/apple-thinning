@@ -168,4 +168,5 @@ text = "5"
 align = 1
 valign = 1
 
+[connection signal="timeout" from="RemainingTimeTimer" to="." method="_on_RemainingTimeTimer_timeout"]
 [connection signal="timeout" from="GameStartTimer" to="." method="_on_GameStartTimer_timeout"]

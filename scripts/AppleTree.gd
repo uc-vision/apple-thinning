@@ -58,6 +58,6 @@ func tree_hit(area_node):
 	for area in overlapping_apples:
 		if area.get_name() == "ClusterHub":
 			var parent_cluster = area.get_parent()
-			if not parent_cluster.isDropped:
+			if not parent_cluster.isDropped and parent_cluster.is_interactable:
 				apple_cluster_fall_sound_player.play()
 				parent_cluster.drop_cluster()

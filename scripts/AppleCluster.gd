@@ -8,7 +8,7 @@ onready var score = get_tree().root.get_node("Game/Score")
 onready var point
 onready var isDropped = false
 # Makes apples only pickable during the game play.
-onready var isPickable = false
+onready var is_interactable = false
 
 onready var MAX_APPLE_NUM_TO_LEAVE = 2
 

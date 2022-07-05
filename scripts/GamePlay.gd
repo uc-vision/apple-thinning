@@ -55,4 +55,16 @@ func setup_apples():
 			for branch_child in child.get_children():
 				if "AppleCluster" in branch_child.get_groups():
 					branch_child.connect("score_updated", self, "_on_AppleCluster_score_updated")
-					branch_child.isPickable = true
+					branch_child.is_interactable = true
+
+
+func _on_RemainingTimeTimer_timeout():
+	set_apple_not_pickable()
+	
+	
+func set_apple_not_pickable():
+	for child in $AppleTree.get_children():
+		if "Branch" in child.get_groups():
+			for branch_child in child.get_children():
+				if "AppleCluster" in branch_child.get_groups():
+					branch_child.is_interactable = false
