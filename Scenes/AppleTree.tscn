@@ -31,6 +31,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0107371, 0.763548, 0.107095
 [node name="Sections" type="Spatial" parent="Branch1"]
 
 [node name="Section1" type="Area" parent="Branch1/Sections"]
+collision_mask = 6
 script = ExtResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Branch1/Sections/Section1"]
@@ -42,6 +43,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0562929, 0.862151, 0.190176
 stream = ExtResource( 2 )
 
 [node name="Section2" type="Area" parent="Branch1/Sections"]
+collision_mask = 6
 script = ExtResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Branch1/Sections/Section2"]
@@ -53,6 +55,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0163877, 0.907534, 0.492746
 stream = ExtResource( 2 )
 
 [node name="Section3" type="Area" parent="Branch1/Sections"]
+collision_mask = 6
 script = ExtResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Branch1/Sections/Section3"]

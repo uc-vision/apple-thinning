@@ -7,6 +7,8 @@ onready var apple_pick_sound_player = $ApplePickSound
 onready var score = get_tree().root.get_node("Game/Score")
 onready var point
 onready var isDropped = false
+# Makes apples only pickable during the game play.
+onready var isPickable = false
 
 onready var MAX_APPLE_NUM_TO_LEAVE = 2
 
