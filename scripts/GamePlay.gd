@@ -5,6 +5,7 @@ onready var remaining_time_timer = $RemainingTimeTimer
 onready var combo_timer = $ComboTimer
 onready var gui_board = $GUI
 onready var before_game_obstacle = $BeforeGameObstacle
+onready var pause_dialog = $PauseDialog
 
 const WAIT_TIME = 5
 const GAME_PLAY_DURATION = 60
@@ -17,8 +18,13 @@ onready var current_combo = 0
 
 onready var total_score = 0
 
+signal resume_button_pressed
+signal exit_button_pressed
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	pause_dialog.connect("exit_button_pressed", self, "_on_ExitButton_pressed")
+	pause_dialog.connect("resume_button_pressed", self, "_on_ResumeButton_pressed")
 	# Set up the getset-ready timer
 	game_start_timer.set_one_shot(true)
 	game_start_timer.set_wait_time(WAIT_TIME)
@@ -97,3 +103,10 @@ func _on_ComboTimer_timeout():
 func cut_combo():
 	current_combo = 0
 	gui_board.update_combo_label(str(current_combo))
+	
+	
+func _on_ExitButton_pressed():
+	pass
+	
+func _on_ResumeButton_pressed():
+	pass
