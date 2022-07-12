@@ -12,11 +12,16 @@ func enable():
 	set_visible(true)
 	$ResumeButton/ResumeButtonArea.set_monitoring(true)
 	$ExitButton/ExitButtonArea.set_monitoring(true)
+	$ResumeButton/ResumeButtonArea/CollisionShape.set_disabled(false)
+	$ExitButton/ExitButtonArea/CollisionShape.set_disabled(false)
+	
 	
 func disable():
 	set_visible(false)
 	$ResumeButton/ResumeButtonArea.set_monitoring(false)
 	$ExitButton/ExitButtonArea.set_monitoring(false)
+	$ResumeButton/ResumeButtonArea/CollisionShape.set_disabled(true)
+	$ExitButton/ExitButtonArea/CollisionShape.set_disabled(true)
 
 func _on_ResumeButtonArea_area_entered(area):
 	if "HandArea" in area.get_groups():

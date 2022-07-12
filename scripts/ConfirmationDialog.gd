@@ -11,11 +11,15 @@ func enable():
 	set_visible(true)
 	$ExitButton/ExitButtonArea.set_monitoring(true)
 	$CancelButton/CancelButtonArea.set_monitoring(true)
+	$ExitButton/ExitButtonArea/CollisionShape.set_disabled(false)
+	$CancelButton/CancelButtonArea/CollisionShape.set_disabled(false)
 	
 func disable():
 	set_visible(false)
 	$ExitButton/ExitButtonArea.set_monitoring(false)
 	$CancelButton/CancelButtonArea.set_monitoring(false)
+	$ExitButton/ExitButtonArea/CollisionShape.set_disabled(true)
+	$CancelButton/CancelButtonArea/CollisionShape.set_disabled(true)
 
 
 func _on_ExitButtonArea_area_entered(area):
