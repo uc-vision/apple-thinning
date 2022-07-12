@@ -12,7 +12,6 @@ func enable():
 	$PauseButtonArea/CollisionShape.set_disabled(false)
 	
 func disable():
-	set_visible(false)
 	$PauseButtonArea.set_monitoring(false)
 	$PauseButtonArea/CollisionShape.set_disabled(true)
 	

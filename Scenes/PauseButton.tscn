@@ -11,7 +11,7 @@ material = SubResource( 1 )
 size = Vector3( 0.05, 0.2, 0.35 )
 
 [sub_resource type="BoxShape" id=3]
-extents = Vector3( 0.025, 0.1, 0.175 )
+extents = Vector3( 0.05, 0.1, 0.175 )
 
 [node name="PauseButton" type="MeshInstance"]
 mesh = SubResource( 2 )
@@ -25,6 +25,7 @@ texture = ExtResource( 1 )
 [node name="PauseButtonArea" type="Area" parent="."]
 
 [node name="CollisionShape" type="CollisionShape" parent="PauseButtonArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0247343, 0, 0 )
 shape = SubResource( 3 )
 
 [connection signal="area_entered" from="PauseButtonArea" to="." method="_on_PauseButtonArea_area_entered"]

@@ -16,7 +16,7 @@ size = Vector3( 0.05, 0.2, 0.35 )
 viewport_path = NodePath("ResumeButton/Viewport")
 
 [sub_resource type="BoxShape" id=9]
-extents = Vector3( 0.025, 0.1, 0.175 )
+extents = Vector3( 0.1, 0.1, 0.175 )
 
 [sub_resource type="SpatialMaterial" id=4]
 albedo_color = Color( 0.933333, 0.607843, 0.0235294, 1 )
@@ -29,7 +29,7 @@ size = Vector3( 0.05, 0.2, 0.35 )
 viewport_path = NodePath("ExitButton/Viewport")
 
 [sub_resource type="BoxShape" id=10]
-extents = Vector3( 0.025, 0.1, 0.175 )
+extents = Vector3( 0.1, 0.1, 0.175 )
 
 [sub_resource type="ViewportTexture" id=8]
 viewport_path = NodePath("Viewport")
@@ -63,6 +63,7 @@ texture = SubResource( 6 )
 [node name="ResumeButtonArea" type="Area" parent="ResumeButton"]
 
 [node name="CollisionShape" type="CollisionShape" parent="ResumeButton/ResumeButtonArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0780052, 0, 0 )
 shape = SubResource( 9 )
 
 [node name="ExitButton" type="MeshInstance" parent="."]
@@ -87,6 +88,7 @@ texture = SubResource( 7 )
 [node name="ExitButtonArea" type="Area" parent="ExitButton"]
 
 [node name="CollisionShape" type="CollisionShape" parent="ExitButton/ExitButtonArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0692857, 0, 0 )
 shape = SubResource( 10 )
 
 [node name="Viewport" type="Viewport" parent="."]
@@ -103,5 +105,8 @@ text = "Game Paused"
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0137973, -0.0128112, -0.0514029 )
 texture = SubResource( 8 )
 
+[node name="WaitTimer" type="Timer" parent="."]
+
 [connection signal="area_entered" from="ResumeButton/ResumeButtonArea" to="." method="_on_ResumeButtonArea_area_entered"]
 [connection signal="area_entered" from="ExitButton/ExitButtonArea" to="." method="_on_ExitButtonArea_area_entered"]
+[connection signal="timeout" from="WaitTimer" to="." method="_on_WaitTimer_timeout"]

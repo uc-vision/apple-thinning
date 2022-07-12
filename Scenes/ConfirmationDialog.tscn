@@ -19,7 +19,7 @@ size = Vector3( 0.05, 0.2, 0.35 )
 viewport_path = NodePath("ExitButton/Viewport")
 
 [sub_resource type="BoxShape" id=8]
-extents = Vector3( 0.025, 0.1, 0.175 )
+extents = Vector3( 0.1, 0.1, 0.175 )
 
 [sub_resource type="SpatialMaterial" id=6]
 albedo_color = Color( 0.117647, 0.564706, 0.937255, 1 )
@@ -32,7 +32,7 @@ size = Vector3( 0.05, 0.2, 0.35 )
 viewport_path = NodePath("CancelButton/Viewport")
 
 [sub_resource type="BoxShape" id=10]
-extents = Vector3( 0.025, 0.1, 0.175 )
+extents = Vector3( 0.1, 0.1, 0.175 )
 
 [node name="ConfirmationDialog" type="MeshInstance"]
 mesh = SubResource( 1 )
@@ -78,6 +78,7 @@ texture = SubResource( 5 )
 [node name="ExitButtonArea" type="Area" parent="ExitButton"]
 
 [node name="CollisionShape" type="CollisionShape" parent="ExitButton/ExitButtonArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0735203, 0, 0 )
 shape = SubResource( 8 )
 
 [node name="CancelButton" type="MeshInstance" parent="."]
@@ -102,7 +103,11 @@ texture = SubResource( 9 )
 [node name="CancelButtonArea" type="Area" parent="CancelButton"]
 
 [node name="CollisionShape" type="CollisionShape" parent="CancelButton/CancelButtonArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0758514, 0, 0 )
 shape = SubResource( 10 )
+
+[node name="WaitTimer" type="Timer" parent="."]
 
 [connection signal="area_entered" from="ExitButton/ExitButtonArea" to="." method="_on_ExitButtonArea_area_entered"]
 [connection signal="area_entered" from="CancelButton/CancelButtonArea" to="." method="_on_CancelButtonArea_area_entered"]
+[connection signal="timeout" from="WaitTimer" to="." method="_on_WaitTimer_timeout"]

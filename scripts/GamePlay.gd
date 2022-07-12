@@ -116,6 +116,9 @@ func cut_combo():
 	
 # Pauses the game
 func _on_PauseButton_pressed():
+	pause_button.disable()
+	confirmation_dialog.disable()
+	
 	# Pauses the timers
 	game_start_timer.set_paused(true)
 	remaining_time_timer.set_paused(true)
@@ -124,12 +127,12 @@ func _on_PauseButton_pressed():
 	# Make apples not interactable
 	set_apple_not_pickable()
 	
-	pause_button.disable()
-	pause_dialog.enable()
+	pause_dialog.enable(false)
 	
 # Resumes the game
 func _on_ResumeButton_pressed():
 	pause_dialog.disable()
+	confirmation_dialog.disable()
 	pause_button.enable()
 	
 	# Makes apples interactalble again
@@ -144,14 +147,16 @@ func _on_ResumeButton_pressed():
 # Asks player for the confirmation
 func _on_ExitButton_pressed():
 	pause_dialog.disable()
-	confirmation_dialog.enable()
+	pause_button.disable()
+	confirmation_dialog.enable(true)
 	
 # Exit the GamePlayScene to MenuScene
 func _on_ConfirmExit_pressed():
 	pass # TODO: Exit to the Menu scene once the Menu scene is built
 	
-# Close the ConfirmationDialog and show the PauseDialog again
+# Show the PauseDialog again
 func _on_CancelButton_pressed():
 	confirmation_dialog.disable()
-	pause_dialog.enable()
+	pause_button.disable()
+	pause_dialog.enable(true)
 	
