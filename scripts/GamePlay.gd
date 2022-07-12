@@ -4,10 +4,10 @@ onready var game_start_timer = $GameStartTimer
 onready var remaining_time_timer = $RemainingTimeTimer
 onready var combo_timer = $ComboTimer
 onready var gui_board = $GUI
-onready var before_game_obstacle = $BeforeGameObstacle
-onready var pause_button = $PauseButton
-onready var pause_dialog = $PauseDialog
-onready var confirmation_dialog = $ConfirmationDialog
+onready var before_game_obstacle = $Platform/BeforeGameObstacle
+onready var pause_button = $Platform/PauseButton
+onready var pause_dialog = $Platform/PauseDialog
+onready var confirmation_dialog = $Platform/ConfirmationDialog
 
 const WAIT_TIME = 5
 const GAME_PLAY_DURATION = 60

@@ -1,13 +1,10 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/AppleTree.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/GamePlay.gd" type="Script" id=2]
 [ext_resource path="res://Audio/beep.wav" type="AudioStream" id=3]
 [ext_resource path="res://scripts/GamePlayGUI.gd" type="Script" id=4]
-[ext_resource path="res://scripts/BeforeGameObstacle.gd" type="Script" id=5]
-[ext_resource path="res://Scenes/PauseDialog.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/PauseButton.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/ConfirmationDialog.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Platform.tscn" type="PackedScene" id=9]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_color = Color( 0.345098, 0.458824, 0.282353, 1 )
@@ -24,20 +21,6 @@ size = Vector3( 1, 1, 0.1 )
 
 [sub_resource type="ViewportTexture" id=5]
 viewport_path = NodePath("GUI/Viewport")
-
-[sub_resource type="SpatialMaterial" id=6]
-flags_transparent = true
-albedo_color = Color( 1, 0.376471, 0.882353, 0.623529 )
-
-[sub_resource type="CubeMesh" id=7]
-material = SubResource( 6 )
-size = Vector3( 0.1, 1.5, 2 )
-
-[sub_resource type="BoxShape" id=8]
-extents = Vector3( 0.05, 0.75, 1 )
-
-[sub_resource type="ViewportTexture" id=9]
-viewport_path = NodePath("BeforeGameObstacle/Viewport")
 
 [node name="GamePlayScene" type="Spatial"]
 script = ExtResource( 2 )
@@ -130,40 +113,6 @@ text = "x0"
 transform = Transform( 1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, 0, 0, 0.052539 )
 texture = SubResource( 5 )
 
-[node name="BeforeGameObstacle" type="MeshInstance" parent="."]
-transform = Transform( 0.910957, 0, -0.4125, 0, 1, 0, 0.4125, 0, 0.910957, 0.0323786, 0.890184, 0.0146617 )
-mesh = SubResource( 7 )
-material/0 = null
-script = ExtResource( 5 )
-
-[node name="StaticBody" type="StaticBody" parent="BeforeGameObstacle"]
-collision_mask = 6
-
-[node name="CollisionShape" type="CollisionShape" parent="BeforeGameObstacle/StaticBody"]
-shape = SubResource( 8 )
-
-[node name="Sprite3D" type="Sprite3D" parent="BeforeGameObstacle"]
-transform = Transform( -0.00411895, 0, 0.999992, 0, 1, 0, -0.999992, 0, -0.00411895, 0.110156, 0.0596616, 0.0357904 )
-texture = SubResource( 9 )
-
-[node name="Viewport" type="Viewport" parent="BeforeGameObstacle"]
-size = Vector2( 100, 100 )
-transparent_bg = true
-render_target_v_flip = true
-
-[node name="GameStartContdownContainer" type="MarginContainer" parent="BeforeGameObstacle/Viewport"]
-margin_left = 50.0
-margin_top = 50.0
-margin_right = 50.0
-margin_bottom = 50.0
-
-[node name="GameStartCountdown" type="Label" parent="BeforeGameObstacle/Viewport/GameStartContdownContainer"]
-margin_right = 8.0
-margin_bottom = 14.0
-text = "5"
-align = 1
-valign = 1
-
 [node name="RemainingTimeTimer" type="Timer" parent="."]
 
 [node name="GameStartTimer" type="Timer" parent="."]
@@ -176,14 +125,8 @@ __meta__ = {
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 
-[node name="PauseDialog" parent="." instance=ExtResource( 6 )]
-transform = Transform( 0.935348, -0.158605, -0.316179, 0.167182, 0.985926, 0, 0.311729, -0.0528593, 0.9487, -0.281165, 0.946922, 0 )
-
-[node name="PauseButton" parent="." instance=ExtResource( 7 )]
-transform = Transform( 0.931349, 0, -0.364129, 0, 1, 0, 0.364129, 0, 0.931349, -0.0331502, 0.720235, -0.140386 )
-
-[node name="ConfirmationDialog" parent="." instance=ExtResource( 8 )]
-transform = Transform( 0.887631, 0, -0.460556, 0, 1, 0, 0.460556, 0, 0.887631, -0.0440377, 0.821745, -1.09651 )
+[node name="Platform" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.397837, 0, 0.917456, 0, 1, 0, -0.917456, 0, 0.397837, 0.160289, 0.215261, 0.0695064 )
 
 [connection signal="timeout" from="RemainingTimeTimer" to="." method="_on_RemainingTimeTimer_timeout"]
 [connection signal="timeout" from="GameStartTimer" to="." method="_on_GameStartTimer_timeout"]
