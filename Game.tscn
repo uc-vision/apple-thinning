@@ -94,6 +94,6 @@ shape = SubResource( 15 )
 stream = ExtResource( 3 )
 
 [node name="GameReset" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.469421, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.305942, 0.469421, 0.128892 )
 
 [editable path="ARVROrigin"]

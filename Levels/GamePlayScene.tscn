@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scenes/AppleTree.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/GamePlay.gd" type="Script" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://scripts/GamePlayGUI.gd" type="Script" id=4]
 [ext_resource path="res://scripts/BeforeGameObstacle.gd" type="Script" id=5]
 [ext_resource path="res://Scenes/PauseDialog.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/PauseButton.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/ConfirmationDialog.tscn" type="PackedScene" id=8]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_color = Color( 0.345098, 0.458824, 0.282353, 1 )
@@ -129,7 +131,7 @@ transform = Transform( 1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, 0, 0, 0.0
 texture = SubResource( 5 )
 
 [node name="BeforeGameObstacle" type="MeshInstance" parent="."]
-transform = Transform( 0.910957, 0, -0.4125, 0, 1, 0, 0.4125, 0, 0.910957, -0.132855, 0.890184, -0.0601595 )
+transform = Transform( 0.910957, 0, -0.4125, 0, 1, 0, 0.4125, 0, 0.910957, 0.0323786, 0.890184, 0.0146617 )
 mesh = SubResource( 7 )
 material/0 = null
 script = ExtResource( 5 )
@@ -176,7 +178,12 @@ stream = ExtResource( 3 )
 
 [node name="PauseDialog" parent="." instance=ExtResource( 6 )]
 transform = Transform( 0.935348, -0.158605, -0.316179, 0.167182, 0.985926, 0, 0.311729, -0.0528593, 0.9487, -0.281165, 0.946922, 0 )
-visible = false
+
+[node name="PauseButton" parent="." instance=ExtResource( 7 )]
+transform = Transform( 0.931349, 0, -0.364129, 0, 1, 0, 0.364129, 0, 0.931349, -0.0331502, 0.720235, -0.140386 )
+
+[node name="ConfirmationDialog" parent="." instance=ExtResource( 8 )]
+transform = Transform( 0.887631, 0, -0.460556, 0, 1, 0, 0.460556, 0, 0.887631, -0.0440377, 0.821745, -1.09651 )
 
 [connection signal="timeout" from="RemainingTimeTimer" to="." method="_on_RemainingTimeTimer_timeout"]
 [connection signal="timeout" from="GameStartTimer" to="." method="_on_GameStartTimer_timeout"]

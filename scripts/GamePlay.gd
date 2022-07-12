@@ -5,7 +5,9 @@ onready var remaining_time_timer = $RemainingTimeTimer
 onready var combo_timer = $ComboTimer
 onready var gui_board = $GUI
 onready var before_game_obstacle = $BeforeGameObstacle
+onready var pause_button = $PauseButton
 onready var pause_dialog = $PauseDialog
+onready var confirmation_dialog = $ConfirmationDialog
 
 const WAIT_TIME = 5
 const GAME_PLAY_DURATION = 60
@@ -13,18 +15,19 @@ const COMBO_INTERVAL = 3
 
 onready var game_start_countdown = WAIT_TIME
 onready var remaining_time = GAME_PLAY_DURATION
-#onready var combo_countdown = COMBO_INTERVAL
 onready var current_combo = 0
 
 onready var total_score = 0
 
-signal resume_button_pressed
-signal exit_button_pressed
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# Connect the game pause UI signals
 	pause_dialog.connect("exit_button_pressed", self, "_on_ExitButton_pressed")
 	pause_dialog.connect("resume_button_pressed", self, "_on_ResumeButton_pressed")
+	pause_button.connect("pause_button_pressed", self, "_on_PauseButton_pressed")
+	confirmation_dialog.connect("confirm_exit_pressed", self, "_on_ConfirmExit_pressed")
+	confirmation_dialog.connect("cancel_button_pressed", self, "_on_CancelButton_pressed")
+
 	# Set up the getset-ready timer
 	game_start_timer.set_one_shot(true)
 	game_start_timer.set_wait_time(WAIT_TIME)
@@ -89,6 +92,13 @@ func setup_apples():
 func _on_RemainingTimeTimer_timeout():
 	set_apple_not_pickable()
 	
+func set_apple_pickable():
+	for child in $AppleTree.get_children():
+		if "Branch" in child.get_groups():
+			for branch_child in child.get_children():
+				if "AppleCluster" in branch_child.get_groups():
+					branch_child.is_interactable = true
+	
 func set_apple_not_pickable():
 	for child in $AppleTree.get_children():
 		if "Branch" in child.get_groups():
@@ -104,9 +114,44 @@ func cut_combo():
 	current_combo = 0
 	gui_board.update_combo_label(str(current_combo))
 	
+# Pauses the game
+func _on_PauseButton_pressed():
+	# Pauses the timers
+	game_start_timer.set_paused(true)
+	remaining_time_timer.set_paused(true)
+	combo_timer.set_paused(true)
 	
-func _on_ExitButton_pressed():
-	pass
+	# Make apples not interactable
+	set_apple_not_pickable()
 	
+	pause_button.disable()
+	pause_dialog.enable()
+	
+# Resumes the game
 func _on_ResumeButton_pressed():
-	pass
+	pause_dialog.disable()
+	pause_button.enable()
+	
+	# Makes apples interactalble again
+	set_apple_pickable()
+	
+	# Resumes the timers
+	game_start_timer.set_paused(false)
+	remaining_time_timer.set_paused(false)
+	combo_timer.set_paused(false)
+	
+
+# Asks player for the confirmation
+func _on_ExitButton_pressed():
+	pause_dialog.disable()
+	confirmation_dialog.enable()
+	
+# Exit the GamePlayScene to MenuScene
+func _on_ConfirmExit_pressed():
+	pass # TODO: Exit to the Menu scene once the Menu scene is built
+	
+# Close the ConfirmationDialog and show the PauseDialog again
+func _on_CancelButton_pressed():
+	confirmation_dialog.disable()
+	pause_dialog.enable()
+	

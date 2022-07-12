@@ -1,16 +1,19 @@
 extends MeshInstance
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
+signal pause_button_pressed
+ 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	enable()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func enable():
+	set_visible(true)
+	$PauseButtonArea.set_monitoring(true)
+	
+func disable():
+	set_visible(false)
+	$PauseButtonArea.set_monitoring(false)
+	
+func _on_PauseButtonArea_area_entered(area):
+	if "HandArea" in area.get_groups():
+		emit_signal("pause_button_pressed")
