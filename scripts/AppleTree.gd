@@ -8,11 +8,6 @@ onready var rng = RandomNumberGenerator.new()
 onready var cluster_type
 onready var cluster_spawn_location
 
-enum CLUSTER_TYPE {
-	A,
-	B,
-	C
-}
 const MAX_CLUSTER_PER_BRANCH = 5
 const NUM_BRANCH = 3
 

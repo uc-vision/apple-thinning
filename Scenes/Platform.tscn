@@ -1,9 +1,11 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scenes/PauseButton.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/PauseDialog.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/ConfirmationDialog.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/BeforeGameObstacle.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/PlatformController.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scripts/Platform.gd" type="Script" id=6]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 1, 0.1, 0.625 )
@@ -31,6 +33,7 @@ height = 0.75
 extents = Vector3( 0.04, 0.375, 0.62 )
 
 [node name="Platform" type="Spatial"]
+script = ExtResource( 6 )
 
 [node name="Floor" type="StaticBody" parent="."]
 
@@ -165,7 +168,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.469, 0 )
 shape = SubResource( 7 )
 
 [node name="PauseButton" parent="." instance=ExtResource( 1 )]
-transform = Transform( -4.37114e-08, 0, -1, 0.679672, 0.733516, -2.97094e-08, 0.733516, -0.679672, -3.2063e-08, 0, 0.896456, -0.480695 )
+transform = Transform( -4.37114e-08, 0, -1, 0.679672, 0.733516, -2.97094e-08, 0.733516, -0.679672, -3.2063e-08, -0.310374, 0.896456, -0.480695 )
 
 [node name="PauseDialog" parent="." instance=ExtResource( 2 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1.19224, -0.615356 )
@@ -175,3 +178,6 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1.18
 
 [node name="BeforeGameObstacle" parent="." instance=ExtResource( 4 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1.09738, -0.768621 )
+
+[node name="PlatformController" parent="." instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-08, 0, -1, 0.694093, 0.719885, -3.03398e-08, 0.719885, -0.694093, -3.14672e-08, 0.275988, 0.9, -0.48047 )

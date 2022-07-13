@@ -40,7 +40,7 @@ shape = SubResource( 3 )
 transform = Transform( -0.735743, 0, 0.677261, 0, 1, 0, -0.677261, 0, -0.735743, -0.752347, 0.123211, 0.0827933 )
 
 [node name="GUI" type="MeshInstance" parent="."]
-transform = Transform( 0.960527, 0, 0.278186, 0, 1, 0, -0.278186, 0, 0.960527, 0.302338, 0.814538, -1.47247 )
+transform = Transform( 0.914204, 0, -0.405254, 0, 1, 0, 0.405254, 0, 0.914204, 0.815817, 0.814538, -1.24485 )
 mesh = SubResource( 4 )
 material/0 = null
 script = ExtResource( 4 )
@@ -110,7 +110,7 @@ margin_bottom = 14.0
 text = "x0"
 
 [node name="Sprite3D" type="Sprite3D" parent="GUI"]
-transform = Transform( 1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, 0, 0, 0.052539 )
+transform = Transform( 1, 0, 8.9407e-08, 0, 1, 0, -8.9407e-08, 0, 1, 0, 0, 0.052539 )
 texture = SubResource( 5 )
 
 [node name="RemainingTimeTimer" type="Timer" parent="."]

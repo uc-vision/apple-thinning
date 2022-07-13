@@ -4,6 +4,7 @@ onready var game_start_timer = $GameStartTimer
 onready var remaining_time_timer = $RemainingTimeTimer
 onready var combo_timer = $ComboTimer
 onready var gui_board = $GUI
+onready var platform = $Platform
 onready var before_game_obstacle = $Platform/BeforeGameObstacle
 onready var pause_button = $Platform/PauseButton
 onready var pause_dialog = $Platform/PauseDialog
@@ -43,7 +44,9 @@ func _ready():
 	# Start the getset-ready timer counting down
 	game_start_timer.start()
 	
-
+func set_player(player):
+	platform.add_child(player)
+	
 func _process(delta):
 	# Checks the game start countdown and updates the GUI board
 	if not game_start_timer.is_stopped():
@@ -70,6 +73,7 @@ func _on_AppleCluster_score_updated(cluster_score, has_damaged):
 func _on_GameStartTimer_timeout():
 	before_game_obstacle.remove_obstacle()
 	setup_apples()
+	platform.enable_platform_motion()
 	remaining_time_timer.start()
 	
 # Increment the combo whenever an apple is picked. Updates the score board and start a new combo timer countdown. 
@@ -117,7 +121,7 @@ func cut_combo():
 # Pauses the game
 func _on_PauseButton_pressed():
 	pause_button.disable()
-	confirmation_dialog.disable()
+	platform.disable_platform_motion()
 	
 	# Pauses the timers
 	game_start_timer.set_paused(true)
@@ -132,7 +136,7 @@ func _on_PauseButton_pressed():
 # Resumes the game
 func _on_ResumeButton_pressed():
 	pause_dialog.disable()
-	confirmation_dialog.disable()
+	platform.enable_platform_motion()
 	pause_button.enable()
 	
 	# Makes apples interactalble again
@@ -147,7 +151,6 @@ func _on_ResumeButton_pressed():
 # Asks player for the confirmation
 func _on_ExitButton_pressed():
 	pause_dialog.disable()
-	pause_button.disable()
 	confirmation_dialog.enable(true)
 	
 # Exit the GamePlayScene to MenuScene
@@ -157,6 +160,5 @@ func _on_ConfirmExit_pressed():
 # Show the PauseDialog again
 func _on_CancelButton_pressed():
 	confirmation_dialog.disable()
-	pause_button.disable()
 	pause_dialog.enable(true)
 	
