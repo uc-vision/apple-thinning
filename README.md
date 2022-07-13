@@ -54,4 +54,7 @@ Model License:
 
 - `apple-branch-hit-sound`: https://freesound.org/people/ArrowheadProductions/sounds/566685/
 - `apple-cluster-falling-sound`: https://freesound.org/people/waveplaySFX/sounds/399933/
-- 
+
+#### Images
+
+- Pause, Up, and Down icons: https://icons8.com
