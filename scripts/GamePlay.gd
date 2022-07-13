@@ -45,7 +45,8 @@ func _ready():
 	game_start_timer.start()
 	
 func set_player(player):
-	platform.add_child(player)
+	get_tree().root.get_node("Game/AudioStreamPlayer").play()
+	platform.add_child(player, true)
 	
 func _process(delta):
 	# Checks the game start countdown and updates the GUI board

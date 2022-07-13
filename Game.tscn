@@ -38,6 +38,15 @@ shadow_enabled = true
 
 [node name="ARVROrigin" parent="." instance=ExtResource( 2 )]
 
+[node name="Skeleton" parent="ARVROrigin/LeftHand/HandModel/ArmatureLeft" index="0"]
+bones/0/bound_children = [ NodePath("BoneAttachment 11"), NodePath("Palm") ]
+bones/2/bound_children = [ NodePath("BoneAttachment") ]
+bones/6/bound_children = [ NodePath("BoneAttachment 6") ]
+bones/7/bound_children = [ NodePath("BoneAttachment 5") ]
+bones/8/bound_children = [ NodePath("BoneAttachment 2"), NodePath("BoneAttachment 3"), NodePath("BoneAttachment 4") ]
+bones/11/bound_children = [ NodePath("BoneAttachment 10") ]
+bones/12/bound_children = [ NodePath("BoneAttachment 7"), NodePath("BoneAttachment 8"), NodePath("BoneAttachment 9") ]
+
 [node name="BoneAttachment" parent="ARVROrigin/LeftHand/HandModel/ArmatureLeft/Skeleton" index="0"]
 transform = Transform( 0.715416, 0.480301, 0.507437, -0.520631, 0.850801, -0.0712857, -0.465966, -0.213188, 0.858735, 3.59585, -2.80285, -1.91577 )
 
@@ -72,6 +81,13 @@ collision_mask = 3
 [node name="CollisionShape" type="CollisionShape" parent="ARVROrigin/LeftHand/Area"]
 transform = Transform( 0.0198257, 0, -0.999803, 0, 1, 0, 0.999803, 0, 0.0198257, 0.0724205, 0, -0.00143611 )
 shape = SubResource( 14 )
+
+[node name="Skeleton" parent="ARVROrigin/RightHand/HandModel/ArmatureRight" index="0"]
+bones/0/bound_children = [ NodePath("BoneAttachment 5"), NodePath("BoneAttachment 6"), NodePath("BoneAttachment 7"), NodePath("BoneAttachment 8"), NodePath("BoneAttachment 9"), NodePath("BoneAttachment 10"), NodePath("BoneAttachment 11"), NodePath("BoneAttachment 12"), NodePath("BoneAttachment 13"), NodePath("BoneAttachment 14"), NodePath("BoneAttachment 15"), NodePath("BoneAttachment 16") ]
+bones/2/bound_children = [ NodePath("BoneAttachment 3") ]
+bones/3/bound_children = [ NodePath("BoneAttachment 2") ]
+bones/4/bound_children = [ NodePath("BoneAttachment") ]
+bones/10/bound_children = [ NodePath("BoneAttachment 4") ]
 
 [node name="BoneAttachment" parent="ARVROrigin/RightHand/HandModel/ArmatureRight/Skeleton" index="0"]
 transform = Transform( 0.575562, 0.67335, 0.464036, -0.739133, 0.671135, -0.0570919, -0.349873, -0.310125, 0.883974, -8.31233, 6.69126, 4.37118 )

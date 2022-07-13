@@ -19,8 +19,14 @@ func interact():
 		timer.start()
 	
 func reset_game():
-	# Beep sound for debugging purpose
-	get_tree().root.get_node("Game/AudioStreamPlayer").play()
+	
+	# TODO: This is level dependent. Move this logic to Game.gd once there are multiple levels
+	var platform = get_node("../Levels/GamePlayScene/Platform")
+	var player = platform.get_child(platform.get_child_count() - 1)
+	if not player:
+		get_tree().root.get_node("Game/AudioStreamPlayer").play()
+	platform.remove_child(player)
+	get_parent().add_child(player, true)
 	
 	# Destroy the current level and load a new level
 	var world = get_tree().root.get_node("Game/Levels")
@@ -29,3 +35,4 @@ func reset_game():
 	
 	var new_level = load("res://Levels/GamePlayScene.tscn").instance()
 	world.add_child(new_level)
+	get_parent().enter_game_play_scene()
