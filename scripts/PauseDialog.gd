@@ -8,7 +8,7 @@ signal exit_button_pressed
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	wait_timer.set_one_shot(false)
+	wait_timer.set_one_shot(true)
 	disable()
 	
 func enable(wait):
