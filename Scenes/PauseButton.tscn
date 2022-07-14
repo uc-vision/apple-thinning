@@ -8,10 +8,10 @@ albedo_color = Color( 0.117647, 0.564706, 0.937255, 1 )
 
 [sub_resource type="CubeMesh" id=2]
 material = SubResource( 1 )
-size = Vector3( 0.05, 0.2, 0.35 )
+size = Vector3( 0.05, 0.2, 0.25 )
 
 [sub_resource type="BoxShape" id=3]
-extents = Vector3( 0.05, 0.1, 0.175 )
+extents = Vector3( 0.05, 0.1, 0.125 )
 
 [node name="PauseButton" type="MeshInstance"]
 mesh = SubResource( 2 )

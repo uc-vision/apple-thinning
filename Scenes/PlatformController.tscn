@@ -11,12 +11,12 @@ albedo_color = Color( 0.988235, 0.427451, 0, 1 )
 
 [sub_resource type="CylinderMesh" id=3]
 material = SubResource( 2 )
-top_radius = 0.13
-bottom_radius = 0.13
+top_radius = 0.1
+bottom_radius = 0.1
 height = 0.07
 
 [sub_resource type="CylinderShape" id=4]
-radius = 0.13
+radius = 0.1
 height = 0.1
 
 [node name="PlatformController" type="MeshInstance"]
@@ -30,7 +30,7 @@ mesh = SubResource( 3 )
 material/0 = null
 
 [node name="Sprite3D" type="Sprite3D" parent="ElevateButton"]
-transform = Transform( -1.31134e-08, -0.3, -1.31134e-08, 0, -1.31134e-08, 0.3, -0.3, 1.31134e-08, 5.73206e-16, 0, 0.0351709, 0 )
+transform = Transform( -8.74228e-09, -0.2, -8.74228e-09, 0, -8.74228e-09, 0.2, -0.2, 8.74228e-09, 3.82137e-16, -1.11022e-16, 0.0351709, 0 )
 texture = ExtResource( 1 )
 
 [node name="ElevateButtonArea" type="Area" parent="ElevateButton"]
@@ -45,7 +45,7 @@ mesh = SubResource( 3 )
 material/0 = null
 
 [node name="Sprite3D" type="Sprite3D" parent="LowerButton"]
-transform = Transform( -1.31134e-08, 0.3, -1.31134e-08, 0, -1.31134e-08, -0.3, -0.3, -1.31134e-08, 5.73206e-16, 0, 0.0373998, 0 )
+transform = Transform( -8.74228e-09, 0.2, -8.74228e-09, 0, -8.74228e-09, -0.2, -0.2, -8.74228e-09, 3.82137e-16, 0, 0.0373998, 0 )
 texture = ExtResource( 1 )
 
 [node name="LowerButtonArea" type="Area" parent="LowerButton"]

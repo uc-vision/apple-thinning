@@ -57,7 +57,7 @@ func _ready():
 					apple_cluster_c_instance.initialize(cluster_spawn_location.translation)
 					apple_cluster_c_instance.connect("cluster_finished", self, "_on_AppleCluster_finished")
 					child.add_child(apple_cluster_c_instance)
-					
+
 func tree_hit(area_node):
 	
 	# Get all the clusters belong to the hit area

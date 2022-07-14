@@ -224,7 +224,7 @@ material/0 = null
 shape = SubResource( 11 )
 
 [node name="PauseButton" parent="." instance=ExtResource( 1 )]
-transform = Transform( -4.37114e-08, 0, -1, 0.679672, 0.733516, -2.97094e-08, 0.733516, -0.679672, -3.2063e-08, -0.310374, 1.00056, -0.480695 )
+transform = Transform( -4.37114e-08, 0, -1, 0.679672, 0.733516, -2.97094e-08, 0.733516, -0.679672, -3.2063e-08, -0.310374, 0.928717, -0.405295 )
 
 [node name="PauseDialog" parent="." instance=ExtResource( 2 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1.29635, -0.615356 )
@@ -236,4 +236,4 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1.29
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1.20149, -0.768621 )
 
 [node name="PlatformController" parent="." instance=ExtResource( 5 )]
-transform = Transform( -4.37114e-08, 0, -1, 0.694093, 0.719885, -3.03398e-08, 0.719885, -0.694093, -3.14672e-08, 0.275988, 1.00411, -0.48047 )
+transform = Transform( -4.37114e-08, 0, -1, 0.694093, 0.719885, -3.03398e-08, 0.719885, -0.694093, -3.14672e-08, 0.275988, 0.950695, -0.385534 )

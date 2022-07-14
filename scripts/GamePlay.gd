@@ -55,6 +55,7 @@ func _ready():
 	wait_tree_spawn_timer.set_one_shot(true)
 	wait_tree_spawn_timer.set_wait_time(TREE_SPAWN_WAIT_TIME)
 	
+	
 	# Start the getset-ready timer counting down
 	game_start_timer.start()
 	
