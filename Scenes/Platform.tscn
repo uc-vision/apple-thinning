@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scenes/PauseButton.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/PauseDialog.tscn" type="PackedScene" id=2]
@@ -17,9 +17,6 @@ albedo_color = Color( 0.941176, 0.137255, 0.0901961, 1 )
 material = SubResource( 2 )
 size = Vector3( 2, 0.2, 1.25 )
 
-[sub_resource type="BoxShape" id=6]
-extents = Vector3( 1, 0.375, 0.04 )
-
 [sub_resource type="SpatialMaterial" id=5]
 albedo_color = Color( 0.941176, 0.137255, 0.0901961, 1 )
 
@@ -29,13 +26,29 @@ top_radius = 0.04
 bottom_radius = 0.04
 height = 0.75
 
-[sub_resource type="BoxShape" id=7]
-extents = Vector3( 0.04, 0.375, 0.62 )
+[sub_resource type="CylinderShape" id=8]
+radius = 0.04
+height = 0.75
+
+[sub_resource type="CylinderShape" id=9]
+radius = 0.04
+height = 0.75
+
+[sub_resource type="CylinderShape" id=10]
+radius = 0.04
+height = 0.75
+
+[sub_resource type="CylinderShape" id=11]
+radius = 0.04
+height = 0.75
 
 [node name="Platform" type="Spatial"]
 script = ExtResource( 6 )
 
 [node name="Floor" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.104108, 0 )
+collision_layer = 8
+collision_mask = 7
 
 [node name="CollisionShape" type="CollisionShape" parent="Floor"]
 shape = SubResource( 1 )
@@ -44,140 +57,183 @@ shape = SubResource( 1 )
 mesh = SubResource( 3 )
 material/0 = null
 
-[node name="FrontFence" type="StaticBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.446703, -0.580446 )
+[node name="FrontFence" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.550811, -0.580446 )
 
-[node name="CollisionShape" type="CollisionShape" parent="FrontFence"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0249918, 0 )
-shape = SubResource( 6 )
-
-[node name="Poles" type="Spatial" parent="FrontFence"]
-
-[node name="Pole1" type="MeshInstance" parent="FrontFence/Poles"]
+[node name="Pole1" type="MeshInstance" parent="FrontFence"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, 0, 0 )
 mesh = SubResource( 4 )
-skeleton = NodePath("../..")
+skeleton = NodePath("")
 material/0 = null
 
-[node name="Pole2" type="MeshInstance" parent="FrontFence/Poles"]
+[node name="StaticBody" type="StaticBody" parent="FrontFence/Pole1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="FrontFence/Pole1/StaticBody"]
+shape = SubResource( 8 )
+
+[node name="Pole2" type="MeshInstance" parent="FrontFence"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.325, 0, 0 )
 mesh = SubResource( 4 )
-skeleton = NodePath("../..")
+skeleton = NodePath("")
 material/0 = null
 
-[node name="Pole3" type="MeshInstance" parent="FrontFence/Poles"]
+[node name="StaticBody" type="StaticBody" parent="FrontFence/Pole2"]
+
+[node name="CollisionShape2" type="CollisionShape" parent="FrontFence/Pole2/StaticBody"]
+shape = SubResource( 8 )
+
+[node name="Pole3" type="MeshInstance" parent="FrontFence"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.325, 0, 0 )
 mesh = SubResource( 4 )
-skeleton = NodePath("../..")
+skeleton = NodePath("")
 material/0 = null
 
-[node name="Pole4" type="MeshInstance" parent="FrontFence/Poles"]
+[node name="StaticBody" type="StaticBody" parent="FrontFence/Pole3"]
+
+[node name="CollisionShape3" type="CollisionShape" parent="FrontFence/Pole3/StaticBody"]
+shape = SubResource( 8 )
+
+[node name="Pole4" type="MeshInstance" parent="FrontFence"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, 0, 0 )
 mesh = SubResource( 4 )
-skeleton = NodePath("../..")
+skeleton = NodePath("")
 material/0 = null
 
-[node name="Pole5" type="MeshInstance" parent="FrontFence/Poles"]
+[node name="StaticBody" type="StaticBody" parent="FrontFence/Pole4"]
+
+[node name="CollisionShape4" type="CollisionShape" parent="FrontFence/Pole4/StaticBody"]
+shape = SubResource( 8 )
+
+[node name="Pole5" type="MeshInstance" parent="FrontFence"]
 transform = Transform( -4.37114e-08, -2.55, 0, 1, -1.11464e-07, 0, 0, 0, 1, 0, 0.371604, 0 )
 mesh = SubResource( 4 )
-skeleton = NodePath("../..")
+skeleton = NodePath("")
 material/0 = null
 
-[node name="BackFence" type="StaticBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44812, 0.584175 )
+[node name="StaticBody" type="StaticBody" parent="FrontFence/Pole5"]
 
-[node name="CollisionShape" type="CollisionShape" parent="BackFence"]
-shape = SubResource( 6 )
+[node name="CollisionShape" type="CollisionShape" parent="FrontFence/Pole5/StaticBody"]
+shape = SubResource( 9 )
 
-[node name="Poles" type="Spatial" parent="BackFence"]
+[node name="BackFence" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.550811, 0.577046 )
 
-[node name="Pole1" type="MeshInstance" parent="BackFence/Poles"]
+[node name="Pole1" type="MeshInstance" parent="BackFence"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, 0, 0 )
 mesh = SubResource( 4 )
-skeleton = NodePath("../..")
+skeleton = NodePath("")
 material/0 = null
 
-[node name="Pole2" type="MeshInstance" parent="BackFence/Poles"]
+[node name="StaticBody" type="StaticBody" parent="BackFence/Pole1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="BackFence/Pole1/StaticBody"]
+shape = SubResource( 8 )
+
+[node name="Pole2" type="MeshInstance" parent="BackFence"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.325, 0, 0 )
 mesh = SubResource( 4 )
-skeleton = NodePath("../..")
+skeleton = NodePath("")
 material/0 = null
 
-[node name="Pole3" type="MeshInstance" parent="BackFence/Poles"]
+[node name="StaticBody" type="StaticBody" parent="BackFence/Pole2"]
+
+[node name="CollisionShape2" type="CollisionShape" parent="BackFence/Pole2/StaticBody"]
+shape = SubResource( 8 )
+
+[node name="Pole3" type="MeshInstance" parent="BackFence"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.325, 0, 0 )
 mesh = SubResource( 4 )
-skeleton = NodePath("../..")
+skeleton = NodePath("")
 material/0 = null
 
-[node name="Pole4" type="MeshInstance" parent="BackFence/Poles"]
+[node name="StaticBody" type="StaticBody" parent="BackFence/Pole3"]
+
+[node name="CollisionShape3" type="CollisionShape" parent="BackFence/Pole3/StaticBody"]
+shape = SubResource( 8 )
+
+[node name="Pole4" type="MeshInstance" parent="BackFence"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, 0, 0 )
 mesh = SubResource( 4 )
-skeleton = NodePath("../..")
+skeleton = NodePath("")
 material/0 = null
 
-[node name="Pole5" type="MeshInstance" parent="BackFence/Poles"]
+[node name="StaticBody" type="StaticBody" parent="BackFence/Pole4"]
+
+[node name="CollisionShape4" type="CollisionShape" parent="BackFence/Pole4/StaticBody"]
+shape = SubResource( 8 )
+
+[node name="Pole5" type="MeshInstance" parent="BackFence"]
 transform = Transform( -4.37114e-08, -2.55, 0, 1, -1.11464e-07, 0, 0, 0, 1, 0, 0.371604, 0 )
 mesh = SubResource( 4 )
-skeleton = NodePath("../..")
+skeleton = NodePath("")
 material/0 = null
 
-[node name="LeftFence" type="StaticBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.948283, 0, 0 )
+[node name="StaticBody" type="StaticBody" parent="BackFence/Pole5"]
 
-[node name="Spatial" type="Spatial" parent="LeftFence"]
+[node name="CollisionShape" type="CollisionShape" parent="BackFence/Pole5/StaticBody"]
+shape = SubResource( 9 )
 
-[node name="MeshInstance" type="MeshInstance" parent="LeftFence/Spatial"]
+[node name="LeftFence" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.953855, 0.104108, 0 )
 
-[node name="Pole1" type="MeshInstance" parent="LeftFence/Spatial/MeshInstance"]
+[node name="Pole1" type="MeshInstance" parent="LeftFence"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0 )
 mesh = SubResource( 4 )
-skeleton = NodePath("../..")
+skeleton = NodePath("")
 material/0 = null
 
-[node name="Pole2" type="MeshInstance" parent="LeftFence/Spatial/MeshInstance"]
+[node name="StaticBody" type="StaticBody" parent="LeftFence/Pole1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="LeftFence/Pole1/StaticBody"]
+shape = SubResource( 10 )
+
+[node name="Pole2" type="MeshInstance" parent="LeftFence"]
 transform = Transform( 1, 0, 0, 0, -6.55671e-08, -1, 0, 1.5, -4.37114e-08, 0, 0.82, 0 )
 mesh = SubResource( 4 )
-skeleton = NodePath("../..")
+skeleton = NodePath("")
 material/0 = null
 
-[node name="CollisionShape" type="CollisionShape" parent="LeftFence"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.469, 0 )
-shape = SubResource( 7 )
+[node name="StaticBody" type="StaticBody" parent="LeftFence/Pole2"]
 
-[node name="RightFence" type="StaticBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.984541, 0, 0 )
+[node name="CollisionShape" type="CollisionShape" parent="LeftFence/Pole2/StaticBody"]
+shape = SubResource( 11 )
 
-[node name="Spatial" type="Spatial" parent="RightFence"]
+[node name="RightFence" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.94793, 0.104108, 0 )
 
-[node name="MeshInstance" type="MeshInstance" parent="RightFence/Spatial"]
-
-[node name="Pole1" type="MeshInstance" parent="RightFence/Spatial/MeshInstance"]
+[node name="Pole1" type="MeshInstance" parent="RightFence"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0 )
 mesh = SubResource( 4 )
-skeleton = NodePath("../..")
+skeleton = NodePath("")
 material/0 = null
 
-[node name="Pole2" type="MeshInstance" parent="RightFence/Spatial/MeshInstance"]
+[node name="StaticBody" type="StaticBody" parent="RightFence/Pole1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="RightFence/Pole1/StaticBody"]
+shape = SubResource( 10 )
+
+[node name="Pole2" type="MeshInstance" parent="RightFence"]
 transform = Transform( 1, 0, 0, 0, -6.55671e-08, -1, 0, 1.5, -4.37114e-08, 0, 0.82, 0 )
 mesh = SubResource( 4 )
-skeleton = NodePath("../..")
+skeleton = NodePath("")
 material/0 = null
 
-[node name="CollisionShape" type="CollisionShape" parent="RightFence"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.469, 0 )
-shape = SubResource( 7 )
+[node name="StaticBody" type="StaticBody" parent="RightFence/Pole2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="RightFence/Pole2/StaticBody"]
+shape = SubResource( 11 )
 
 [node name="PauseButton" parent="." instance=ExtResource( 1 )]
-transform = Transform( -4.37114e-08, 0, -1, 0.679672, 0.733516, -2.97094e-08, 0.733516, -0.679672, -3.2063e-08, -0.310374, 0.896456, -0.480695 )
+transform = Transform( -4.37114e-08, 0, -1, 0.679672, 0.733516, -2.97094e-08, 0.733516, -0.679672, -3.2063e-08, -0.310374, 1.00056, -0.480695 )
 
 [node name="PauseDialog" parent="." instance=ExtResource( 2 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1.19224, -0.615356 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1.29635, -0.615356 )
 
 [node name="ConfirmationDialog" parent="." instance=ExtResource( 3 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1.18866, -0.609134 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1.29277, -0.609134 )
 
 [node name="BeforeGameObstacle" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1.09738, -0.768621 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1.20149, -0.768621 )
 
 [node name="PlatformController" parent="." instance=ExtResource( 5 )]
-transform = Transform( -4.37114e-08, 0, -1, 0.694093, 0.719885, -3.03398e-08, 0.719885, -0.694093, -3.14672e-08, 0.275988, 0.9, -0.48047 )
+transform = Transform( -4.37114e-08, 0, -1, 0.694093, 0.719885, -3.03398e-08, 0.719885, -0.694093, -3.14672e-08, 0.275988, 1.00411, -0.48047 )

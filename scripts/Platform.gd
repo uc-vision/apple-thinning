@@ -9,6 +9,8 @@ var lower_vector
 const PLATFORM_SPEED = 0.7
 const ELEVATE_DIRECTION = Vector3(0, 1, 0)
 const LOWER_DIRECTION = Vector3(0, -1, 0)
+const LOW_BOUNDARY = 0.05
+const HIGH_BOUNDARY = 2
 
 enum State {
 	DISABLED,
@@ -27,11 +29,11 @@ func disable_platform_motion():
 func _physics_process(delta):
 	
 	# Elavate the platform
-	if (controller.current_state == State.ELEVATING):
+	if (controller.current_state == State.ELEVATING and get_translation().y < HIGH_BOUNDARY):
 		elevate_vector = PLATFORM_SPEED * ELEVATE_DIRECTION * delta
 		translate(elevate_vector)
 		
 	# Lower the platform
-	if (controller.current_state == State.LOWERING):
+	if (controller.current_state == State.LOWERING and get_translation().y > LOW_BOUNDARY):
 		lower_vector = PLATFORM_SPEED * LOWER_DIRECTION * delta
 		translate(lower_vector)
