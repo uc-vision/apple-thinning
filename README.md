@@ -52,8 +52,11 @@ Model License:
 
 #### Audio
 
-- `apple-branch-hit-sound`: https://freesound.org/people/ArrowheadProductions/sounds/566685/
-- `apple-cluster-falling-sound`: https://freesound.org/people/waveplaySFX/sounds/399933/
+- `apple-branch-hit-sound.wav`: https://freesound.org/people/ArrowheadProductions/sounds/566685/
+- `apple-cluster-falling-sound.wav`: https://freesound.org/people/waveplaySFX/sounds/399933/
+- `apple-cluster-thinned-sound.wav`: https://freesound.org/people/Kenneth_Cooney/sounds/463067/  
+- `apple-tree-thinned-sound.wav`: https://freesound.org/people/Kenneth_Cooney/sounds/457547/
+- `poor-apple-thinning-sound.wav`: https://freesound.org/people/Isaac200000/sounds/188013/
 
 #### Images
 
