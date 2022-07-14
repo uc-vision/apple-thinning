@@ -1,5 +1,6 @@
 extends Spatial
 
+onready var rng = RandomNumberGenerator.new()
 onready var score = 0
 onready var remaining_apple_count = 0
 onready var apple_pick_sound_player = $ApplePickSound
@@ -8,7 +9,7 @@ onready var isDropped = false
 onready var is_interactable = false
 onready var hasDamaged
 
-onready var MAX_APPLE_NUM_TO_LEAVE = 2
+const MAX_APPLE_NUM_TO_LEAVE = 2
 
 signal score_updated(new_score, has_damaged)
 signal apple_picked
@@ -29,6 +30,10 @@ func _ready():
 
 func initialize(spawn_location):
 	set_translation(spawn_location)
+	# Give a random rotation on the apple clusters in Y direction
+	var rotation_offset = rng.randf_range(-180, 180)
+	var rotation_vector = Vector3(0, deg2rad(rotation_offset), 0)
+	set_rotation(rotation_vector)
 
 
 func _on_HealthyLargeApple_on_picked(apple):

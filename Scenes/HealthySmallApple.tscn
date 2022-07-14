@@ -35,7 +35,7 @@ transparent_bg = true
 [node name="Point" type="Label" parent="PointNode/Viewport"]
 margin_right = 40.0
 margin_bottom = 14.0
-text = "+1"
+text = "+100"
 align = 1
 valign = 1
 
