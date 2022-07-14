@@ -13,7 +13,6 @@ onready var before_game_obstacle = $Platform/BeforeGameObstacle
 onready var pause_button = $Platform/PauseButton
 onready var pause_dialog = $Platform/PauseDialog
 onready var confirmation_dialog = $Platform/ConfirmationDialog
-onready var apple_tree
 
 const DIALOG_WAIT_TIME = 5
 const GAME_PLAY_DURATION = 60
@@ -35,8 +34,6 @@ func _ready():
 	pause_button.connect("pause_button_pressed", self, "_on_PauseButton_pressed")
 	confirmation_dialog.connect("confirm_exit_pressed", self, "_on_ConfirmExit_pressed")
 	confirmation_dialog.connect("cancel_button_pressed", self, "_on_CancelButton_pressed")
-	apple_tree = $AppleTree
-	apple_tree.connect("all_clusters_thinned", self, "_on_AppleTree_finished_thinning")
 
 	# Set up the getset-ready timer
 	game_start_timer.set_one_shot(true)
@@ -58,12 +55,10 @@ func _ready():
 	wait_tree_spawn_timer.set_one_shot(true)
 	wait_tree_spawn_timer.set_wait_time(TREE_SPAWN_WAIT_TIME)
 	
-	
 	# Start the getset-ready timer counting down
 	game_start_timer.start()
 	
 func set_player(player):
-	get_tree().root.get_node("Game/AudioStreamPlayer").play()
 	platform.add_child(player)
 	player.set_name("ARVROrigin")
 	
@@ -104,6 +99,8 @@ func _on_AppleCluster_apple_picked():
 
 # Connect custom signals with apples and make them interactable
 func setup_apples():
+	$AppleTree.connect("all_clusters_thinned", self, "_on_AppleTree_finished_thinning")
+	
 	for child in $AppleTree.get_children():
 		if "Branch" in child.get_groups():
 			for branch_child in child.get_children():
@@ -188,8 +185,7 @@ func _on_AppleTree_finished_thinning():
 
 # Remove the finished apple tree
 func _on_WaitTreeRemoveTimer_timeout():
-	apple_tree = $AppleTree
-	apple_tree.queue_free()
+	$AppleTree.queue_free()
 	# Wait for a moment to spawn a new tree
 	wait_tree_spawn_timer.start()
 

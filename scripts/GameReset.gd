@@ -36,4 +36,5 @@ func reset_game():
 	
 	var new_level = load("res://Levels/GamePlayScene.tscn").instance()
 	world.add_child(new_level)
+	new_level.set_name("GamePlayScene")
 	get_parent().enter_game_play_scene()
