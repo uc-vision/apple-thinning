@@ -122,6 +122,10 @@ __meta__ = {
 "_editor_description_": ""
 }
 
+[node name="WaitTreeRemoveTimer" type="Timer" parent="."]
+
+[node name="WaitTreeSpawnTimer" type="Timer" parent="."]
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 
@@ -131,3 +135,5 @@ transform = Transform( 0.397837, 0, 0.917456, 0, 1, 0, -0.917456, 0, 0.397837, 0
 [connection signal="timeout" from="RemainingTimeTimer" to="." method="_on_RemainingTimeTimer_timeout"]
 [connection signal="timeout" from="GameStartTimer" to="." method="_on_GameStartTimer_timeout"]
 [connection signal="timeout" from="ComboTimer" to="." method="_on_ComboTimer_timeout"]
+[connection signal="timeout" from="WaitTreeRemoveTimer" to="." method="_on_WaitTreeRemoveTimer_timeout"]
+[connection signal="timeout" from="WaitTreeSpawnTimer" to="." method="_on_WaitTreeSpawnTimer_timeout"]

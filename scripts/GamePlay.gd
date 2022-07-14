@@ -5,6 +5,8 @@ onready var apple_tree_scene = load("res://Scenes/AppleTree.tscn")
 onready var game_start_timer = $GameStartTimer
 onready var remaining_time_timer = $RemainingTimeTimer
 onready var combo_timer = $ComboTimer
+onready var wait_tree_spawn_timer = $WaitTreeSpawnTimer
+onready var wait_tree_remove_timer = $WaitTreeRemoveTimer
 onready var gui_board = $GUI
 onready var platform = $Platform
 onready var before_game_obstacle = $Platform/BeforeGameObstacle
@@ -13,11 +15,13 @@ onready var pause_dialog = $Platform/PauseDialog
 onready var confirmation_dialog = $Platform/ConfirmationDialog
 onready var apple_tree
 
-const WAIT_TIME = 5
+const DIALOG_WAIT_TIME = 5
 const GAME_PLAY_DURATION = 60
 const COMBO_INTERVAL = 3
+const TREE_REMOVE_WAIT_TIMER = 0.5
+const TREE_SPAWN_WAIT_TIME = 0.5
 
-onready var game_start_countdown = WAIT_TIME
+onready var game_start_countdown = DIALOG_WAIT_TIME
 onready var remaining_time = GAME_PLAY_DURATION
 onready var current_combo = 0
 
@@ -36,7 +40,7 @@ func _ready():
 
 	# Set up the getset-ready timer
 	game_start_timer.set_one_shot(true)
-	game_start_timer.set_wait_time(WAIT_TIME)
+	game_start_timer.set_wait_time(DIALOG_WAIT_TIME)
 	
 	# Set up the game play timer
 	remaining_time_timer.set_one_shot(true)
@@ -45,6 +49,15 @@ func _ready():
 	# Set up the combo timer
 	combo_timer.set_one_shot(true)
 	combo_timer.set_wait_time(COMBO_INTERVAL)
+	
+	# Set up the wait apple tree removing timer
+	wait_tree_remove_timer.set_one_shot(true)
+	wait_tree_remove_timer.set_wait_time(TREE_REMOVE_WAIT_TIMER)
+	
+	# Set up the wait apple tree spawning timer
+	wait_tree_spawn_timer.set_one_shot(true)
+	wait_tree_spawn_timer.set_wait_time(TREE_SPAWN_WAIT_TIME)
+	
 	
 	# Start the getset-ready timer counting down
 	game_start_timer.start()
@@ -171,9 +184,18 @@ func _on_CancelButton_pressed():
 
 # Remove the tree that's finished thinning and prepare the new tree.	
 func _on_AppleTree_finished_thinning():
+	wait_tree_remove_timer.start()
+
+# Remove the finished apple tree
+func _on_WaitTreeRemoveTimer_timeout():
 	apple_tree = $AppleTree
 	apple_tree.queue_free()
+	# Wait for a moment to spawn a new tree
+	wait_tree_spawn_timer.start()
+
+# Spawn a new apple tree
+func _on_WaitTreeSpawnTimer_timeout():
 	var new_apple_tree = apple_tree_scene.instance()
-	new_apple_tree.set_name("AppleTree")
 	add_child(new_apple_tree)
+	new_apple_tree.set_name("AppleTree")
 	setup_apples()

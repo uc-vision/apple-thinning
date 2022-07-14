@@ -12,7 +12,7 @@ onready var num_cluster = 0
 const MAX_CLUSTER_PER_BRANCH = 5
 const NUM_BRANCH = 3
 const TREE_TRANSLATE = Vector3(-0.8, 0.13, 0.08)
-const TREE_ROTATION = Vector3(0, 137, 0)
+const TREE_ROTATION = Vector3(0, 2.4, 0)
 
 signal all_clusters_thinned
 
@@ -45,17 +45,17 @@ func _ready():
 				if cluster_type == 0:
 					var apple_cluster_a_instance = apple_cluster_a.instance()
 					apple_cluster_a_instance.initialize(cluster_spawn_location.translation)
-					apple_cluster_a_instance.connect("cluster_finished", self, "_on_AppleCluster_finihed")
+					apple_cluster_a_instance.connect("cluster_finished", self, "_on_AppleCluster_finished")
 					child.add_child(apple_cluster_a_instance)
 				elif cluster_type == 1:
 					var apple_cluster_b_instance = apple_cluster_b.instance()
 					apple_cluster_b_instance.initialize(cluster_spawn_location.translation)
-					apple_cluster_b_instance.connect("cluster_finished", self, "_on_AppleCluster_finihed")
+					apple_cluster_b_instance.connect("cluster_finished", self, "_on_AppleCluster_finished")
 					child.add_child(apple_cluster_b_instance)
 				else:
 					var apple_cluster_c_instance = apple_cluster_c.instance()
 					apple_cluster_c_instance.initialize(cluster_spawn_location.translation)
-					apple_cluster_c_instance.connect("cluster_finished", self, "_on_AppleCluster_finihed")
+					apple_cluster_c_instance.connect("cluster_finished", self, "_on_AppleCluster_finished")
 					child.add_child(apple_cluster_c_instance)
 					
 func tree_hit(area_node):
@@ -71,7 +71,7 @@ func tree_hit(area_node):
 				apple_cluster_fall_sound_player.play()
 				parent_cluster.drop_cluster()
 
-func _on_AppleCluster_finihed():
+func _on_AppleCluster_finished():
 	num_cluster -= 1
 	if num_cluster == 0:
 		$ThinningCompletedSoundPlayer.play()

@@ -82,8 +82,8 @@ func calculate_score():
 	else:
 		$ThinningCompletedSoundPlayer.play()
 	
-	emit_signal("cluster_finished")
 	emit_signal("score_updated", score, hasDamaged)
+	emit_signal("cluster_finished")
 	
 func play_apple_picked_sound():
 	apple_pick_sound_player.play()
