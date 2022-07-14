@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scripts/BranchSection.gd" type="Script" id=1]
 [ext_resource path="res://Audio/tree-branch-hit-sound.wav" type="AudioStream" id=2]
 [ext_resource path="res://Audio/apple-cluster-falling-sound.wav" type="AudioStream" id=3]
 [ext_resource path="res://Assets/AppleTreeModel.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scripts/AppleTree.gd" type="Script" id=5]
+[ext_resource path="res://Audio/apple-tree-thinned-sound.wav" type="AudioStream" id=6]
 
 [sub_resource type="Curve3D" id=1]
 _data = {
@@ -68,6 +69,9 @@ stream = ExtResource( 2 )
 
 [node name="AppleClusterFallSoundPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
+
+[node name="ThinningCompletedSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
 
 [connection signal="area_entered" from="Branch1/Sections/Section1" to="Branch1/Sections/Section1" method="_on_Section_area_entered"]
 [connection signal="area_exited" from="Branch1/Sections/Section1" to="Branch1/Sections/Section1" method="_on_Section_area_exited"]

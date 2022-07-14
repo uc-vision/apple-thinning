@@ -21,12 +21,13 @@ func interact():
 func reset_game():
 	
 	# TODO: This is level dependent. Move this logic to Game.gd once there are multiple levels
-	var platform = get_node("../Levels/GamePlayScene/Platform")
-	var player = platform.get_child(platform.get_child_count() - 1)
+	var platform = get_tree().root.get_node("Game/Levels/GamePlayScene/Platform")
+	var player = get_tree().root.get_node("Game/Levels/GamePlayScene/Platform/ARVROrigin")
 	if not player:
 		get_tree().root.get_node("Game/AudioStreamPlayer").play()
 	platform.remove_child(player)
-	get_parent().add_child(player, true)
+	get_parent().add_child(player)
+	player.set_name("ARVROrigin")
 	
 	# Destroy the current level and load a new level
 	var world = get_tree().root.get_node("Game/Levels")

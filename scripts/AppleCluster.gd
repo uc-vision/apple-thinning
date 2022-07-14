@@ -12,6 +12,7 @@ onready var MAX_APPLE_NUM_TO_LEAVE = 2
 
 signal score_updated(new_score, has_damaged)
 signal apple_picked
+signal cluster_finished
 
 const Point = {
 	HEALTHY_LARGE = 200,
@@ -76,8 +77,13 @@ func calculate_score():
 			
 			child.show_point()
 	
+	if hasDamaged:
+		$PoorlyThinnedSoundPlayer.play()
+	else:
+		$ThinningCompletedSoundPlayer.play()
+	
+	emit_signal("cluster_finished")
 	emit_signal("score_updated", score, hasDamaged)
-
 	
 func play_apple_picked_sound():
 	apple_pick_sound_player.play()
@@ -94,6 +100,7 @@ func drop_cluster():
 				child.set_mode(RigidBody.MODE_RIGID)
 				
 	score = 0
-	emit_signal("score_updated", score)
+	emit_signal("cluster_finished")
+	emit_signal("score_updated", score, false)
 	isDropped = true
 	is_interactable = false

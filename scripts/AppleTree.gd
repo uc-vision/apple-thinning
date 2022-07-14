@@ -7,11 +7,19 @@ onready var apple_cluster_fall_sound_player = get_node("AppleClusterFallSoundPla
 onready var rng = RandomNumberGenerator.new()
 onready var cluster_type
 onready var cluster_spawn_location
+onready var num_cluster = 0
 
 const MAX_CLUSTER_PER_BRANCH = 5
 const NUM_BRANCH = 3
+const TREE_TRANSLATE = Vector3(-0.8, 0.13, 0.08)
+const TREE_ROTATION = Vector3(0, 137, 0)
+
+signal all_clusters_thinned
 
 func _ready():
+	
+	set_translation(TREE_TRANSLATE)
+	set_rotation(TREE_ROTATION)
 	
 	# Iterate over branches in the tree
 	for child in get_children():
@@ -22,6 +30,9 @@ func _ready():
 			
 			# Random number of apples per branch is spawned 
 			for i in range(rng.randi_range(1, MAX_CLUSTER_PER_BRANCH)):
+				
+				# Count the number of apple clusters spawned in the tree.
+				num_cluster += 1
 				
 				# Get the spawning location node
 				cluster_spawn_location = cluster_spawn_path.get_node("PathFollow")
@@ -34,14 +45,17 @@ func _ready():
 				if cluster_type == 0:
 					var apple_cluster_a_instance = apple_cluster_a.instance()
 					apple_cluster_a_instance.initialize(cluster_spawn_location.translation)
+					apple_cluster_a_instance.connect("cluster_finished", self, "_on_AppleCluster_finihed")
 					child.add_child(apple_cluster_a_instance)
 				elif cluster_type == 1:
 					var apple_cluster_b_instance = apple_cluster_b.instance()
 					apple_cluster_b_instance.initialize(cluster_spawn_location.translation)
+					apple_cluster_b_instance.connect("cluster_finished", self, "_on_AppleCluster_finihed")
 					child.add_child(apple_cluster_b_instance)
 				else:
 					var apple_cluster_c_instance = apple_cluster_c.instance()
 					apple_cluster_c_instance.initialize(cluster_spawn_location.translation)
+					apple_cluster_c_instance.connect("cluster_finished", self, "_on_AppleCluster_finihed")
 					child.add_child(apple_cluster_c_instance)
 					
 func tree_hit(area_node):
@@ -56,3 +70,9 @@ func tree_hit(area_node):
 			if not parent_cluster.isDropped and parent_cluster.is_interactable:
 				apple_cluster_fall_sound_player.play()
 				parent_cluster.drop_cluster()
+
+func _on_AppleCluster_finihed():
+	num_cluster -= 1
+	if num_cluster == 0:
+		$ThinningCompletedSoundPlayer.play()
+		emit_signal("all_clusters_thinned")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/DamagedLargeApple.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/HealthyLargeAplle.tscn" type="PackedScene" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://Scenes/DamagedSmallApple.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scripts/AppleCluster.gd" type="Script" id=5]
 [ext_resource path="res://Audio/apple-picking-sound.wav" type="AudioStream" id=6]
+[ext_resource path="res://Audio/apple-cluster-thinned-sound.wav" type="AudioStream" id=7]
+[ext_resource path="res://Audio/poor-apple-thinning-sound.wav" type="AudioStream" id=8]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.05, 0.05, 0.05 )
@@ -59,6 +61,14 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0542786, 0 )
 [node name="CollisionShape" type="CollisionShape" parent="ClusterHub"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0947913, 0 )
 shape = SubResource( 1 )
+
+[node name="ThinningCompletedSoundPlayer" type="AudioStreamPlayer3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0529001, 0 )
+stream = ExtResource( 7 )
+
+[node name="PoorlyThinnedSoundPlayer" type="AudioStreamPlayer3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0482558, 0 )
+stream = ExtResource( 8 )
 
 [connection signal="on_picked" from="HealthyLargeApple" to="." method="_on_HealthyLargeApple_on_picked"]
 [connection signal="on_picked" from="HealthySmallApple" to="." method="_on_HealthySmallApple_on_picked"]

@@ -1,10 +1,12 @@
 extends Spatial
 
+onready var player
+
 func _ready():
 	enter_game_play_scene()
 	
 func enter_game_play_scene():
-	var player = $ARVROrigin
+	player = $ARVROrigin
 
 	if player and player.get_parent():
 		player.get_parent().remove_child(player)
