@@ -128,8 +128,6 @@ func set_apple_pickable():
 					branch_child.is_interactable = true
 	
 func set_apple_not_pickable():
-	if not $AppleTree:
-		$AudioStreamPlayer.play()
 	for child in $AppleTree.get_children():
 		if "Branch" in child.get_groups():
 			for branch_child in child.get_children():
@@ -203,4 +201,5 @@ func _on_WaitTreeSpawnTimer_timeout():
 	var new_apple_tree = apple_tree_scene.instance()
 	add_child(new_apple_tree)
 	new_apple_tree.set_name("AppleTree")
-	setup_apples()
+	if not remaining_time_timer.is_stopped():
+		setup_apples()
