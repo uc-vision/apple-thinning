@@ -117,6 +117,7 @@ text = "Game Paused"
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform( -1.18021e-08, 0, 0.27, 0, 0.27, 0, -0.27, 0, -1.18021e-08, 0.0195048, -0.0185319, -0.0913387 )
+modulate = Color( 0.117647, 0.564706, 0.937255, 1 )
 texture = SubResource( 8 )
 
 [node name="WaitTimer" type="Timer" parent="."]

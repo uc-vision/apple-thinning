@@ -10,6 +10,3 @@ func _ready():
 
 func update_label(ready_set_go_text):
 	$Viewport/GameStartCountdown.set_text(ready_set_go_text)
-
-func remove_obstacle():
-	self.queue_free()

@@ -31,7 +31,7 @@ collision_mask = 14
 shape = SubResource( 3 )
 
 [node name="GamePlayGUI" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.550815, 1.58949, -1.58891 )
+transform = Transform( 0.911963, 0, -0.410273, 0, 1, 0, 0.410273, 0, 0.911963, 1.10267, 1.58949, -1.1535 )
 
 [node name="AppleTree" parent="." instance=ExtResource( 1 )]
 transform = Transform( -0.731354, 0, 0.681998, 0, 1, 0, -0.681998, 0, -0.731354, -0.8, 0.13, 0.08 )
@@ -53,7 +53,7 @@ __meta__ = {
 stream = ExtResource( 3 )
 
 [node name="Platform" parent="." instance=ExtResource( 9 )]
-transform = Transform( 0.397837, 0, 0.917456, 0, 1, 0, -0.917456, 0, 0.397837, 0.392, 0.1, -0.13 )
+transform = Transform( 0.397837, 0, 0.917456, 0, 1, 0, -0.917456, 0, 0.397837, 0.41317, 0.1, -0.12082 )
 
 [connection signal="timeout" from="RemainingTimeTimer" to="." method="_on_RemainingTimeTimer_timeout"]
 [connection signal="timeout" from="GameStartTimer" to="." method="_on_GameStartTimer_timeout"]

@@ -60,6 +60,7 @@ render_target_v_flip = true
 [node name="Label" type="Label" parent="Viewport"]
 margin_right = 40.0
 margin_bottom = 14.0
+custom_colors/font_outline_modulate = Color( 0.117647, 0.564706, 0.937255, 1 )
 custom_fonts/font = SubResource( 11 )
 text = "The items and scores will be lost.
 Are you sure you wanna exit the game?"
@@ -68,6 +69,7 @@ valign = 1
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform( -1.7865e-08, 0, 0.3, 0, 0.109655, 0, -0.109655, 0, -4.88762e-08, 0.0502435, -0.00776674, -0.0144912 )
+modulate = Color( 0.117647, 0.564706, 0.937255, 1 )
 texture = SubResource( 2 )
 
 [node name="ExitButton" type="MeshInstance" parent="."]

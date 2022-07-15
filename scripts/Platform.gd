@@ -1,7 +1,8 @@
 extends Spatial
 
 onready var controller = $PlatformController
-onready var before_game_obstacle = $BeforeGameObstacle
+onready var before_game_obstacle = $GameFlowObstacle
+onready var pause_button = $PauseButton
 
 var elevate_vector
 var lower_vector
@@ -44,3 +45,10 @@ func update_before_game_obstacle(game_start_countdown):
 		before_game_obstacle.update_label("Set")
 	elif game_start_countdown == 1:
 		before_game_obstacle.update_label("Go!")
+		
+func hide_game_flow_obstacle():
+	before_game_obstacle.set_visible(false)
+	
+func show_game_flow_obstacle():
+	before_game_obstacle.update_label("Finish!")
+	before_game_obstacle.set_visible(true)

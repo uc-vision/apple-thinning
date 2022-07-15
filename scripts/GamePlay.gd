@@ -9,7 +9,6 @@ onready var wait_tree_spawn_timer = $WaitTreeSpawnTimer
 onready var wait_tree_remove_timer = $WaitTreeRemoveTimer
 onready var gui_board = $GamePlayGUI
 onready var platform = $Platform
-onready var before_game_obstacle = $Platform/BeforeGameObstacle
 onready var pause_button = $Platform/PauseButton
 onready var pause_dialog = $Platform/PauseDialog
 onready var confirmation_dialog = $Platform/ConfirmationDialog
@@ -87,7 +86,7 @@ func _on_AppleCluster_score_updated(cluster_score, has_damaged):
 	
 # Start the game
 func _on_GameStartTimer_timeout():
-	before_game_obstacle.remove_obstacle()
+	platform.hide_game_flow_obstacle()
 	setup_apples()
 	platform.enable_platform_motion()
 	remaining_time_timer.start()
@@ -112,7 +111,14 @@ func setup_apples():
 
 # Game time is up
 func _on_RemainingTimeTimer_timeout():
+	# Make apples not interactable
 	set_apple_not_pickable()
+	gui_board.update_remaining_time(str(0))
+	# Put obstacle between the player and a tree
+	platform.show_game_flow_obstacle()
+	pause_button.disable()
+	platform.disable_platform_motion()
+
 	
 func set_apple_pickable():
 	for child in $AppleTree.get_children():
@@ -122,6 +128,8 @@ func set_apple_pickable():
 					branch_child.is_interactable = true
 	
 func set_apple_not_pickable():
+	if not $AppleTree:
+		$AudioStreamPlayer.play()
 	for child in $AppleTree.get_children():
 		if "Branch" in child.get_groups():
 			for branch_child in child.get_children():
