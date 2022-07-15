@@ -1,8 +1,7 @@
 extends Spatial
 
 onready var controller = $PlatformController
-var player = get_tree().root.get_node("Game/ARVROrigin")
-var current_player_translate
+onready var before_game_obstacle = $BeforeGameObstacle
 
 var elevate_vector
 var lower_vector
@@ -37,3 +36,11 @@ func _physics_process(delta):
 	if (controller.current_state == State.LOWERING and get_translation().y > LOW_BOUNDARY):
 		lower_vector = PLATFORM_SPEED * LOWER_DIRECTION * delta
 		translate(lower_vector)
+		
+func update_before_game_obstacle(game_start_countdown):
+	if game_start_countdown == 3:
+		before_game_obstacle.update_label("Ready")
+	elif game_start_countdown == 2:
+		before_game_obstacle.update_label("Set")
+	elif game_start_countdown == 1:
+		before_game_obstacle.update_label("Go!")

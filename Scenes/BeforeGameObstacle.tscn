@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scripts/BeforeGameObstacle.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Fonts/Calistoga/Calistoga-Regular.ttf" type="DynamicFontData" id=2]
 
 [sub_resource type="SpatialMaterial" id=6]
 flags_transparent = true
@@ -16,6 +17,10 @@ extents = Vector3( 0.05, 0.75, 1 )
 [sub_resource type="ViewportTexture" id=2]
 viewport_path = NodePath("Viewport")
 
+[sub_resource type="DynamicFont" id=8]
+size = 56
+font_data = ExtResource( 2 )
+
 [node name="BeforeGameObstacle" type="MeshInstance"]
 mesh = SubResource( 7 )
 material/0 = null
@@ -28,23 +33,19 @@ collision_mask = 6
 shape = SubResource( 1 )
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform( -0.00411895, 0, 0.999992, 0, 1, 0, -0.999992, 0, -0.00411895, 0.0604747, 0.0596616, 0.035995 )
+transform = Transform( -2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 0.0958354, -0.532185, -0.791691 )
 texture = SubResource( 2 )
 
 [node name="Viewport" type="Viewport" parent="."]
-size = Vector2( 100, 100 )
+size = Vector2( 800, 400 )
 transparent_bg = true
 render_target_v_flip = true
 
-[node name="GameStartContdownContainer" type="MarginContainer" parent="Viewport"]
+[node name="GameStartCountdown" type="Label" parent="Viewport"]
 margin_left = 50.0
 margin_top = 50.0
-margin_right = 50.0
-margin_bottom = 50.0
-
-[node name="GameStartCountdown" type="Label" parent="Viewport/GameStartContdownContainer"]
-margin_right = 8.0
-margin_bottom = 14.0
-text = "5"
+margin_right = 450.0
+margin_bottom = 123.0
+custom_fonts/font = SubResource( 8 )
 align = 1
 valign = 1

@@ -68,7 +68,7 @@ func _process(delta):
 	if not game_start_timer.is_stopped():
 		if game_start_countdown != ceil(game_start_timer.get_time_left()):
 			game_start_countdown = ceil(game_start_timer.get_time_left())
-			before_game_obstacle.update_game_start_countdown(str(game_start_countdown))
+			platform.update_before_game_obstacle(game_start_countdown)
 	
 	# Checks the game play remaining time and updates the GUI board
 	if not remaining_time_timer.is_stopped():
