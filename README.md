@@ -61,3 +61,7 @@ Model License:
 #### Images
 
 - Pause, Up, and Down icons: https://icons8.com
+
+#### Fonts
+
+- Calistoga: https://fonts.google.com/share?selection.family=Calistoga
