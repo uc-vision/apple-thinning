@@ -14,10 +14,10 @@ func _ready():
 
 
 func update_remaining_time(remaining_time_text):
-	$Viewport/MarginContainer/VBoxContainer/BottomRow/RemainingTimeContainer/RemainingTime.set_text(remaining_time_text)
+	$RemainingTimeSection/Viewport/RemainingTime.set_text(remaining_time_text)
 
 func update_score_label(score_text):
-	$Viewport/MarginContainer/VBoxContainer/TopRow/ScoreContainer/Score.set_text(score_text)
+	$ScoreSection/Viewport/Score.set_text(score_text)
 
 func update_combo_label(combo_text):
-	$Viewport/MarginContainer/VBoxContainer/BottomRow/ComboContainer/Combo.set_text("x" + combo_text)
+	$ComboSection/Viewport/VBoxContainer/ComboContainer/Combo.set_text("x" + combo_text)
