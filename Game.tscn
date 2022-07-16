@@ -38,34 +38,7 @@ shadow_enabled = true
 
 [node name="ARVROrigin" parent="." instance=ExtResource( 2 )]
 
-[node name="BoneAttachment" parent="ARVROrigin/LeftHand/HandModel/ArmatureLeft/Skeleton" index="0"]
-transform = Transform( 0.715416, 0.480301, 0.507437, -0.520631, 0.850801, -0.0712857, -0.465966, -0.213188, 0.858735, 3.59585, -2.80285, -1.91577 )
-
-[node name="BoneAttachment 2" parent="ARVROrigin/LeftHand/HandModel/ArmatureLeft/Skeleton" index="1"]
-transform = Transform( 0.992608, 0.0543433, -0.108515, 0.109345, -0.0125266, 0.993925, 0.0526545, -0.998444, -0.0183762, 15.792, -2.06916, -1.2769 )
-
-[node name="BoneAttachment 3" parent="ARVROrigin/LeftHand/HandModel/ArmatureLeft/Skeleton" index="2"]
-transform = Transform( 0.992608, 0.0543433, -0.108515, 0.109345, -0.0125266, 0.993925, 0.0526545, -0.998444, -0.0183762, 15.792, -2.06916, -1.2769 )
-
-[node name="BoneAttachment 4" parent="ARVROrigin/LeftHand/HandModel/ArmatureLeft/Skeleton" index="3"]
-transform = Transform( 0.992608, 0.0543433, -0.108515, 0.109345, -0.0125266, 0.993925, 0.0526545, -0.998444, -0.0183762, 15.792, -2.06916, -1.2769 )
-
-[node name="BoneAttachment 5" parent="ARVROrigin/LeftHand/HandModel/ArmatureLeft/Skeleton" index="4"]
-transform = Transform( 0.994319, -0.0918411, -0.0538007, 0.0547371, 0.00770642, 0.998471, -0.091286, -0.995744, 0.0126898, 13.3754, -2.20219, -1.05505 )
-
-[node name="BoneAttachment 7" parent="ARVROrigin/LeftHand/HandModel/ArmatureLeft/Skeleton" index="6"]
-transform = Transform( 0.987593, 0.0968453, -0.123618, 0.132458, -0.0908865, 0.987014, 0.0843529, -0.991142, -0.102587, 16.5356, 0.568592, -0.979276 )
-
-[node name="BoneAttachment 8" parent="ARVROrigin/LeftHand/HandModel/ArmatureLeft/Skeleton" index="7"]
-transform = Transform( 0.987593, 0.0968453, -0.123618, 0.132458, -0.0908865, 0.987014, 0.0843529, -0.991142, -0.102587, 16.5356, 0.568592, -0.979276 )
-
-[node name="BoneAttachment 9" parent="ARVROrigin/LeftHand/HandModel/ArmatureLeft/Skeleton" index="8"]
-transform = Transform( 0.987593, 0.0968453, -0.123618, 0.132458, -0.0908865, 0.987014, 0.0843529, -0.991142, -0.102587, 16.5356, 0.568592, -0.979276 )
-
-[node name="BoneAttachment 10" parent="ARVROrigin/LeftHand/HandModel/ArmatureLeft/Skeleton" index="9"]
-transform = Transform( 0.988767, -0.0960949, -0.114484, 0.110551, -0.0453155, 0.992837, -0.100594, -0.99434, -0.034183, 13.8116, 0.264028, -0.702144 )
-
-[node name="Area" type="Area" parent="ARVROrigin/LeftHand" index="2" groups=["HandArea"]]
+[node name="Area" type="Area" parent="ARVROrigin/LeftHand" index="1" groups=["HandArea"]]
 collision_layer = 4
 collision_mask = 3
 
@@ -73,16 +46,7 @@ collision_mask = 3
 transform = Transform( 0.0198257, 0, -0.999803, 0, 1, 0, 0.999803, 0, 0.0198257, 0.0724205, 0, -0.00143611 )
 shape = SubResource( 14 )
 
-[node name="BoneAttachment" parent="ARVROrigin/RightHand/HandModel/ArmatureRight/Skeleton" index="0"]
-transform = Transform( 0.575562, 0.67335, 0.464036, -0.739133, 0.671135, -0.0570919, -0.349873, -0.310125, 0.883974, -8.31233, 6.69126, 4.37118 )
-
-[node name="BoneAttachment 2" parent="ARVROrigin/RightHand/HandModel/ArmatureRight/Skeleton" index="1"]
-transform = Transform( 0.707382, 0.518598, 0.480278, -0.649744, 0.744603, 0.152968, -0.278287, -0.420265, 0.863674, -5.92187, 4.49557, 3.43076 )
-
-[node name="BoneAttachment 3" parent="ARVROrigin/RightHand/HandModel/ArmatureRight/Skeleton" index="2"]
-transform = Transform( 0.715415, 0.480301, 0.507437, -0.520631, 0.850801, -0.0712857, -0.465966, -0.213189, 0.858734, -3.59585, 2.80285, 1.91577 )
-
-[node name="Area" type="Area" parent="ARVROrigin/RightHand" index="2" groups=["HandArea"]]
+[node name="Area" type="Area" parent="ARVROrigin/RightHand" index="1" groups=["HandArea"]]
 collision_layer = 4
 collision_mask = 3
 
