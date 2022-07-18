@@ -15,7 +15,7 @@ extents = Vector3( 0.05, 0.05, 0.05 )
 script = ExtResource( 4 )
 
 [node name="HealthyLargeApple" parent="." instance=ExtResource( 1 )]
-transform = Transform( 0.547461, -0.836831, 0, 0.836831, 0.547461, 0, 0, 0, 1, 0.0446375, -0.0503112, 0.0027465 )
+transform = Transform( 0.547461, -0.836831, 0, 0.836831, 0.547461, 0, 0, 0, 1, 0.0257213, -0.0515658, 0.0027465 )
 mode = 1
 
 [node name="HealthySmallApple" parent="." instance=ExtResource( 2 )]
@@ -23,19 +23,19 @@ transform = Transform( 0.876462, 0.295984, 0.379747, -0.319952, 0.947434, 0, -0.
 mode = 1
 
 [node name="HealthySmallApple2" parent="." instance=ExtResource( 2 )]
-transform = Transform( 0.687654, 0.0658014, -0.72305, -0.29152, 0.937104, -0.191968, 0.664942, 0.342791, 0.663586, -0.000408076, -0.0812383, -0.0331781 )
+transform = Transform( 0.950722, 0.305992, 0.0499676, -0.29152, 0.937104, -0.191968, -0.105565, 0.167941, 0.980128, -0.0170312, -0.0759064, -0.000872904 )
 mode = 1
 
 [node name="HealthySmallApple3" parent="." instance=ExtResource( 2 )]
-transform = Transform( 0.81708, 0.378943, -0.43449, -0.570387, 0.641007, -0.513584, 0.0838918, 0.667467, 0.739899, -0.012314, -0.0361606, -0.0257325 )
+transform = Transform( 0.81708, 0.378943, -0.43449, -0.570387, 0.641007, -0.513584, 0.0838918, 0.667467, 0.739899, -0.00855028, -0.0474517, -0.0219688 )
 mode = 1
 
 [node name="HealthySmallApple4" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0211164, -0.0830174, 0.0203025 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0176663, -0.0695308, 0.0203025 )
 mode = 1
 
 [node name="DamagedSmallApple" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.714747, 0.639307, -0.28359, 0.13239, 0.274479, 0.952436, 0.686739, -0.718295, 0.111545, -0.00408839, -0.0306971, 0.0371787 )
+transform = Transform( 0.984166, -0.150655, -0.0933835, 0.0590288, -0.218197, 0.974118, -0.167132, -0.964206, -0.20585, -0.0106749, -0.0375972, 0.0214966 )
 mode = 1
 
 [node name="ApplePickSound" type="AudioStreamPlayer3D" parent="."]
