@@ -15,6 +15,7 @@ func enable(wait):
 	if wait:
 		wait_timer.start()
 	else:
+		$DialogPupUpSoundPlayer.play()
 		set_visible(true)
 		$ResumeButton/ResumeButtonArea.set_monitoring(true)
 		$ExitButton/ExitButtonArea.set_monitoring(true)
@@ -27,13 +28,18 @@ func disable():
 	$ExitButton/ExitButtonArea.set_monitoring(false)
 	$ResumeButton/ResumeButtonArea/CollisionShape.set_disabled(true)
 	$ExitButton/ExitButtonArea/CollisionShape.set_disabled(true)
+	
+func play_button_pressed_sound():
+	$ButtonPressSoundPlayer.play()
 
 func _on_ResumeButtonArea_area_entered(area):
 	if "HandArea" in area.get_groups():
+		play_button_pressed_sound()
 		emit_signal("resume_button_pressed")
 
 func _on_ExitButtonArea_area_entered(area):
 	if "HandArea" in area.get_groups():
+		play_button_pressed_sound()
 		emit_signal("exit_button_pressed")
 
 func _on_WaitTimer_timeout():

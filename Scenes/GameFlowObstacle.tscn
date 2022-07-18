@@ -1,7 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scripts/GameFlowObstacle.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/Calistoga/Calistoga-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Audio/set-voice.wav" type="AudioStream" id=3]
+[ext_resource path="res://Audio/go-voice.wav" type="AudioStream" id=4]
+[ext_resource path="res://Audio/ready-voice.wav" type="AudioStream" id=5]
+[ext_resource path="res://Audio/times-up-whistle.wav" type="AudioStream" id=6]
 
 [sub_resource type="SpatialMaterial" id=6]
 flags_transparent = true
@@ -40,3 +44,15 @@ margin_bottom = 123.0
 custom_fonts/font = SubResource( 8 )
 align = 1
 valign = 1
+
+[node name="ReadyVoicePlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+
+[node name="SetVoicePlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[node name="GoVoicePlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[node name="TimesUpWhistlePlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )

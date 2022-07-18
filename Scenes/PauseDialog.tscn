@@ -1,7 +1,9 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scripts/PauseDialog.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/Calistoga/Calistoga-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Audio/dialog-pop-up-sound.wav" type="AudioStream" id=3]
+[ext_resource path="res://Audio/button-press-sound.wav" type="AudioStream" id=4]
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 0.02, 0.5, 1 )
@@ -121,6 +123,12 @@ modulate = Color( 0.117647, 0.564706, 0.937255, 1 )
 texture = SubResource( 8 )
 
 [node name="WaitTimer" type="Timer" parent="."]
+
+[node name="DialogPupUpSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[node name="ButtonPressSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
 
 [connection signal="area_entered" from="ResumeButton/ResumeButtonArea" to="." method="_on_ResumeButtonArea_area_entered"]
 [connection signal="area_entered" from="ExitButton/ExitButtonArea" to="." method="_on_ExitButtonArea_area_entered"]

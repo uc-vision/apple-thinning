@@ -11,6 +11,7 @@ onready var platform = $Platform
 onready var pause_button = $Platform/PauseButton
 onready var pause_dialog = $Platform/PauseDialog
 onready var confirmation_dialog = $Platform/ConfirmationDialog
+onready var bgm_player = $BGM_Player
 
 const DIALOG_WAIT_TIME = 5
 const GAME_PLAY_DURATION = 60
@@ -75,8 +76,6 @@ func _process(delta):
 	if not remaining_time_timer.is_stopped():
 		if remaining_time != ceil(remaining_time_timer.get_time_left()):
 			remaining_time = ceil(remaining_time_timer.get_time_left())
-			if not remaining_time_watch:
-				$AudioStreamPlayer.play()
 			remaining_time_watch.update_remaining_time(str(remaining_time))
 			
 
@@ -94,6 +93,7 @@ func _on_GameStartTimer_timeout():
 	setup_apples()
 	platform.enable_platform_motion()
 	remaining_time_timer.start()
+	bgm_player.play()
 	
 # Increment the combo whenever an apple is picked. Updates the score board and start a new combo timer countdown. 
 func _on_AppleCluster_apple_picked():
@@ -115,6 +115,7 @@ func setup_apples():
 
 # Game time is up
 func _on_RemainingTimeTimer_timeout():
+	bgm_player.stop()
 	# Make apples not interactable
 	set_apple_not_pickable()
 	remaining_time_watch.update_remaining_time(str(0))
@@ -148,6 +149,9 @@ func cut_combo():
 	
 # Pauses the game
 func _on_PauseButton_pressed():
+	# Pause the game play BGM
+	bgm_player.set_stream_paused(true)
+	
 	pause_button.disable()
 	platform.disable_platform_motion()
 	
@@ -169,6 +173,9 @@ func _on_ResumeButton_pressed():
 	
 	# Makes apples interactalble again
 	set_apple_pickable()
+	
+	# Resume the game play BGM
+	bgm_player.set_stream_paused(false)
 	
 	# Resumes the timers
 	game_start_timer.set_paused(false)

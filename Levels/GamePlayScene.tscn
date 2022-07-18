@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scenes/AppleTree.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/GamePlay.gd" type="Script" id=2]
-[ext_resource path="res://Audio/beep.wav" type="AudioStream" id=3]
+[ext_resource path="res://Audio/game-play-bgm.wav" type="AudioStream" id=3]
 [ext_resource path="res://Scenes/Platform.tscn" type="PackedScene" id=9]
 
 [sub_resource type="SpatialMaterial" id=1]
@@ -45,11 +45,12 @@ __meta__ = {
 
 [node name="WaitTreeSpawnTimer" type="Timer" parent="."]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 3 )
-
 [node name="Platform" parent="." instance=ExtResource( 9 )]
 transform = Transform( 0.397837, 0, 0.917456, 0, 1, 0, -0.917456, 0, 0.397837, 0.41317, 0.1, -0.12082 )
+
+[node name="BGM_Player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -15.0
 
 [connection signal="timeout" from="RemainingTimeTimer" to="." method="_on_RemainingTimeTimer_timeout"]
 [connection signal="timeout" from="GameStartTimer" to="." method="_on_GameStartTimer_timeout"]

@@ -57,6 +57,10 @@ Model License:
 - `apple-cluster-thinned-sound.wav`: https://freesound.org/people/Kenneth_Cooney/sounds/463067/  
 - `apple-tree-thinned-sound.wav`: https://freesound.org/people/Kenneth_Cooney/sounds/457547/
 - `poor-apple-thinning-sound.wav`: https://freesound.org/people/Isaac200000/sounds/188013/
+- `dialog-pop-up-sound.wav`, `platform-up-sound.wav`, `platform-down-sound.wav`, `button-press-sound.wav`: https://pixabay.com/sound-effects/game-ui-sounds-14857/
+- `game-play-bgm.wav`: https://pixabay.com/music/upbeat-happy-funny-kids-111912/
+- `ready-voice.wav`, `set-voice.wav`, `go-voice.wav`: https://freesound.org/people/Alivvie/sounds/451271/
+- `times-up-whistle.wav`: https://pixabay.com/sound-effects/metal-whistle-6121/
 
 #### Images
 

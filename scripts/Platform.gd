@@ -1,8 +1,10 @@
 extends Spatial
 
 onready var controller = $PlatformController
-onready var before_game_obstacle = $GameFlowObstacle
+onready var game_flow_obstacle = $GameFlowObstacle
 onready var pause_button = $PauseButton
+onready var platform_up_sound_player = $PlatformUpSoundPlayer
+onready var platform_down_sound_player = $PlatformDownSoundPlayer
 
 var elevate_vector
 var lower_vector
@@ -32,23 +34,35 @@ func _physics_process(delta):
 	if (controller.current_state == State.ELEVATING and get_translation().y < HIGH_BOUNDARY):
 		elevate_vector = PLATFORM_SPEED * ELEVATE_DIRECTION * delta
 		translate(elevate_vector)
+		if not platform_up_sound_player.is_playing():
+			platform_up_sound_player.play()
 		
 	# Lower the platform
 	if (controller.current_state == State.LOWERING and get_translation().y > LOW_BOUNDARY):
 		lower_vector = PLATFORM_SPEED * LOWER_DIRECTION * delta
 		translate(lower_vector)
+		if not platform_down_sound_player.is_playing():
+			platform_down_sound_player.play()
 		
 func update_before_game_obstacle(game_start_countdown):
 	if game_start_countdown == 3:
-		before_game_obstacle.update_label("Ready")
+		game_flow_obstacle.update_label("Ready")
+		game_flow_obstacle.say_ready()
 	elif game_start_countdown == 2:
-		before_game_obstacle.update_label("Set")
+		game_flow_obstacle.update_label("Set")
+		game_flow_obstacle.say_set()
 	elif game_start_countdown == 1:
-		before_game_obstacle.update_label("Go!")
+		game_flow_obstacle.update_label("Go!")
+		game_flow_obstacle.say_go()
 		
 func hide_game_flow_obstacle():
-	before_game_obstacle.set_visible(false)
+	game_flow_obstacle.set_visible(false)
 	
 func show_game_flow_obstacle():
-	before_game_obstacle.update_label("Finish!")
-	before_game_obstacle.set_visible(true)
+	game_flow_obstacle.update_label("Finish!")
+	game_flow_obstacle.set_visible(true)
+	game_flow_obstacle.play_times_up_whistle()
+
+	
+func play_button_press_sound():
+	$ButtonPressSoundPlayer.play()
