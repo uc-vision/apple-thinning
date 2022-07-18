@@ -123,17 +123,22 @@ func _update_hand_model(model : Spatial, skel: Skeleton):
 	
 	
 func grab_object(object_to_pickup):
-	#get_node("../../OutputNode/Viewport/OtherLabel").text = rigid_body.get_name()
 	held_object = object_to_pickup
-	held_object.mode = RigidBody.MODE_STATIC
-	var original_position = held_object.global_transform
 	
-	held_object_original_parent  = held_object.get_parent()
-	
-	held_object_original_parent.remove_child(held_object)
-	grabPoint.add_child(held_object)
-	held_object.set_owner(grabPoint)
-	held_object.global_transform = original_position
+	if 'Apple' in held_object.get_groups() and held_object.is_interactable():
+		held_object.mode = RigidBody.MODE_STATIC
+		var original_position = held_object.global_transform
+		
+		held_object_original_parent  = held_object.get_parent()
+		
+		held_object_original_parent.remove_child(held_object)
+		grabPoint.add_child(held_object)
+		held_object.set_owner(grabPoint)
+		held_object.global_transform = original_position
+		held_object.picked_up()
+
+	if held_object.has_method("interact"):
+		held_object.interact()
 	
 func drop_object():
 	var original_position = held_object.global_transform
