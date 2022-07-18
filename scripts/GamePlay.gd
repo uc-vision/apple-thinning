@@ -7,7 +7,6 @@ onready var remaining_time_timer = $RemainingTimeTimer
 onready var combo_timer = $ComboTimer
 onready var wait_tree_spawn_timer = $WaitTreeSpawnTimer
 onready var wait_tree_remove_timer = $WaitTreeRemoveTimer
-onready var gui_board = $GamePlayGUI
 onready var platform = $Platform
 onready var pause_button = $Platform/PauseButton
 onready var pause_dialog = $Platform/PauseDialog
@@ -19,11 +18,12 @@ const COMBO_INTERVAL = 3
 const TREE_REMOVE_WAIT_TIMER = 0.5
 const TREE_SPAWN_WAIT_TIME = 0.5
 
-onready var game_start_countdown = DIALOG_WAIT_TIME
-onready var remaining_time = GAME_PLAY_DURATION
-onready var current_combo = 0
-
-onready var total_score = 0
+var game_start_countdown = DIALOG_WAIT_TIME
+var remaining_time = GAME_PLAY_DURATION
+var current_combo = 0
+var remaining_time_watch 
+var score_and_combo_watch
+var total_score = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -61,6 +61,8 @@ func _ready():
 func set_player(player):
 	platform.add_child(player)
 	player.set_name("ARVROrigin")
+	remaining_time_watch = $Platform/ARVROrigin/LeftHand/RemainingTimeWatch
+	score_and_combo_watch = $Platform/ARVROrigin/RightHand/ScoreAndComboWatch
 	
 func _process(delta):
 	# Checks the game start countdown and updates the GUI board
@@ -73,7 +75,9 @@ func _process(delta):
 	if not remaining_time_timer.is_stopped():
 		if remaining_time != ceil(remaining_time_timer.get_time_left()):
 			remaining_time = ceil(remaining_time_timer.get_time_left())
-			gui_board.update_remaining_time(str(remaining_time))
+			if not remaining_time_watch:
+				$AudioStreamPlayer.play()
+			remaining_time_watch.update_remaining_time(str(remaining_time))
 			
 
 func _on_AppleCluster_score_updated(cluster_score, has_damaged):
@@ -82,7 +86,7 @@ func _on_AppleCluster_score_updated(cluster_score, has_damaged):
 		cut_combo()
 	# Add the score based on the current combo
 	total_score += cluster_score * (1 + float(current_combo) / 100)
-	gui_board.update_score_label(str(total_score))
+	score_and_combo_watch.update_score_label(str(total_score))
 	
 # Start the game
 func _on_GameStartTimer_timeout():
@@ -94,7 +98,7 @@ func _on_GameStartTimer_timeout():
 # Increment the combo whenever an apple is picked. Updates the score board and start a new combo timer countdown. 
 func _on_AppleCluster_apple_picked():
 	current_combo += 1
-	gui_board.update_combo_label(str(current_combo))
+	score_and_combo_watch.update_combo_label(str(current_combo))
 	combo_timer.start()
 
 # Connect custom signals with apples and make them interactable
@@ -113,7 +117,7 @@ func setup_apples():
 func _on_RemainingTimeTimer_timeout():
 	# Make apples not interactable
 	set_apple_not_pickable()
-	gui_board.update_remaining_time(str(0))
+	remaining_time_watch.update_remaining_time(str(0))
 	# Put obstacle between the player and a tree
 	platform.show_game_flow_obstacle()
 	pause_button.disable()
@@ -140,7 +144,7 @@ func _on_ComboTimer_timeout():
 # Set the combo to zero and update the GUI board
 func cut_combo():
 	current_combo = 0
-	gui_board.update_combo_label(str(current_combo))
+	score_and_combo_watch.update_combo_label(str(current_combo))
 	
 # Pauses the game
 func _on_PauseButton_pressed():

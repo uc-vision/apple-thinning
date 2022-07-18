@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/AppleTree.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/GamePlay.gd" type="Script" id=2]
 [ext_resource path="res://Audio/beep.wav" type="AudioStream" id=3]
-[ext_resource path="res://Scenes/GamePlayGUI.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Platform.tscn" type="PackedScene" id=9]
 
 [sub_resource type="SpatialMaterial" id=1]
@@ -29,9 +28,6 @@ collision_mask = 14
 
 [node name="CollisionShape" type="CollisionShape" parent="Ground/StaticBody"]
 shape = SubResource( 3 )
-
-[node name="GamePlayGUI" parent="." instance=ExtResource( 6 )]
-transform = Transform( 0.911963, 0, -0.410273, 0, 1, 0, 0.410273, 0, 0.911963, 1.10267, 1.58949, -1.1535 )
 
 [node name="AppleTree" parent="." instance=ExtResource( 1 )]
 transform = Transform( -0.731354, 0, 0.681998, 0, 1, 0, -0.681998, 0, -0.731354, -0.8, 0.13, 0.08 )
