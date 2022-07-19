@@ -6,7 +6,7 @@ var hand_velocity = Vector3(0, 0, 0)
 var prior_hand_velocities = []
 var prior_hand_position = Vector3(0, 0, 0)
 
-const MIN_BRANCH_HIT_SPEED = 10
+const MIN_BRANCH_HIT_SPEED = 20
 
 func _ready():
 	# Get the parent tree which this branch area section belongs to

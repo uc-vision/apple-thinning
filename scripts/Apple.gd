@@ -22,3 +22,7 @@ func hide_point():
 	if picked_off:
 		is_score_visible = false
 		get_node("PointNode").set_visible(false)
+
+# Get apple being pickable or not from the parent apple cluster.
+func is_interactable():
+	return get_parent().is_interactable

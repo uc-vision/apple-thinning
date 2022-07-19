@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/apple-tree-thinned-sound.wav-2ef7c4927ee186ab5fb36937d1730c4d.sample"
+
+[deps]
+
+source_file="res://Audio/apple-tree-thinned-sound.wav"
+dest_files=[ "res://.import/apple-tree-thinned-sound.wav-2ef7c4927ee186ab5fb36937d1730c4d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

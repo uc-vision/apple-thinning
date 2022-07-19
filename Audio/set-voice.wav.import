@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/set-voice.wav-6426e6e36014175d578abe11d0dc8251.sample"
+
+[deps]
+
+source_file="res://Audio/set-voice.wav"
+dest_files=[ "res://.import/set-voice.wav-6426e6e36014175d578abe11d0dc8251.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

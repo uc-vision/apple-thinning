@@ -1,0 +1,144 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Assets/Fonts/Calistoga/Calistoga-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scripts/GamePlayGUI.gd" type="Script" id=2]
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0.117647, 0.564706, 0.937255, 1 )
+
+[sub_resource type="CubeMesh" id=4]
+material = SubResource( 5 )
+size = Vector3( 1, 1, 0.1 )
+
+[sub_resource type="CubeMesh" id=6]
+size = Vector3( 0.8, 0.3, 0.1 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 72
+font_data = ExtResource( 1 )
+
+[sub_resource type="ViewportTexture" id=8]
+viewport_path = NodePath("ScoreSection/Viewport")
+
+[sub_resource type="CylinderMesh" id=18]
+top_radius = 0.18
+bottom_radius = 0.18
+height = 0.1
+
+[sub_resource type="ViewportTexture" id=11]
+viewport_path = NodePath("RemainingTimeSection/Viewport")
+
+[sub_resource type="DynamicFont" id=12]
+size = 72
+font_data = ExtResource( 1 )
+
+[sub_resource type="CubeMesh" id=10]
+size = Vector3( 0.4, 0.4, 0.1 )
+
+[sub_resource type="DynamicFont" id=15]
+size = 72
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=17]
+size = 46
+font_data = ExtResource( 1 )
+
+[sub_resource type="ViewportTexture" id=16]
+viewport_path = NodePath("ComboSection/Viewport")
+
+[node name="GamePlayGUI" type="MeshInstance"]
+mesh = SubResource( 4 )
+material/0 = null
+script = ExtResource( 2 )
+
+[node name="ScoreSection" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.259241, 0.0502701 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="Viewport" type="Viewport" parent="ScoreSection"]
+size = Vector2( 250, 250 )
+transparent_bg = true
+usage = 1
+render_target_v_flip = true
+
+[node name="Score" type="Label" parent="ScoreSection/Viewport"]
+anchor_left = -1.0
+anchor_right = 0.9
+margin_right = 8.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 7 )
+text = "0"
+align = 2
+valign = 1
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform( 0.3, 0, 2.68221e-08, 0, 0.3, 0, -2.68221e-08, 0, 0.3, 0.0428202, 0.0200112, 0.104796 )
+modulate = Color( 0.117647, 0.564706, 0.937255, 1 )
+texture = SubResource( 8 )
+
+[node name="RemainingTimeSection" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.220529, -0.171316, 0.049245 )
+mesh = SubResource( 18 )
+material/0 = null
+
+[node name="Sprite3D" type="Sprite3D" parent="RemainingTimeSection"]
+transform = Transform( 0.3, 0, 0, 0, -1.31134e-08, 0.3, 0, -0.3, -1.31134e-08, 0.16536, 0.0563099, 0.220614 )
+modulate = Color( 0.117647, 0.564706, 0.937255, 1 )
+texture = SubResource( 11 )
+
+[node name="Viewport" type="Viewport" parent="RemainingTimeSection"]
+size = Vector2( 250, 250 )
+transparent_bg = true
+render_target_v_flip = true
+
+[node name="RemainingTime" type="Label" parent="RemainingTimeSection/Viewport"]
+anchor_left = -0.3
+anchor_right = 0.4
+margin_top = 4.0
+margin_right = 16.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 12 )
+text = "60"
+align = 2
+
+[node name="ComboSection" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.217907, -0.174035, 0.0481531 )
+mesh = SubResource( 10 )
+material/0 = null
+
+[node name="Viewport" type="Viewport" parent="ComboSection"]
+size = Vector2( 250, 250 )
+transparent_bg = true
+render_target_v_flip = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ComboSection/Viewport"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="ComboContainer" type="MarginContainer" parent="ComboSection/Viewport/VBoxContainer"]
+margin_right = 144.0
+margin_bottom = 94.0
+
+[node name="Combo" type="Label" parent="ComboSection/Viewport/VBoxContainer/ComboContainer"]
+margin_right = 144.0
+margin_bottom = 94.0
+custom_fonts/font = SubResource( 15 )
+text = "x0"
+align = 1
+
+[node name="ComboLabelContainer" type="MarginContainer" parent="ComboSection/Viewport/VBoxContainer"]
+margin_top = 98.0
+margin_right = 144.0
+margin_bottom = 158.0
+
+[node name="ComboLabel" type="Label" parent="ComboSection/Viewport/VBoxContainer/ComboLabelContainer"]
+margin_right = 144.0
+margin_bottom = 60.0
+custom_fonts/font = SubResource( 17 )
+text = "Combo"
+
+[node name="Sprite3D" type="Sprite3D" parent="ComboSection"]
+transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.138259, -0.128823, 0.0553517 )
+modulate = Color( 0.117647, 0.564706, 0.937255, 1 )
+texture = SubResource( 16 )
