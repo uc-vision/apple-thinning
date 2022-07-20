@@ -52,8 +52,11 @@ transform = Transform( 0.397837, 0, 0.917456, 0, 1, 0, -0.917456, 0, 0.397837, 0
 stream = ExtResource( 3 )
 volume_db = -15.0
 
+[node name="GoToGameResultsSceneTimer" type="Timer" parent="."]
+
 [connection signal="timeout" from="RemainingTimeTimer" to="." method="_on_RemainingTimeTimer_timeout"]
 [connection signal="timeout" from="GameStartTimer" to="." method="_on_GameStartTimer_timeout"]
 [connection signal="timeout" from="ComboTimer" to="." method="_on_ComboTimer_timeout"]
 [connection signal="timeout" from="WaitTreeRemoveTimer" to="." method="_on_WaitTreeRemoveTimer_timeout"]
 [connection signal="timeout" from="WaitTreeSpawnTimer" to="." method="_on_WaitTreeSpawnTimer_timeout"]
+[connection signal="timeout" from="GoToGameResultsSceneTimer" to="." method="_on_GoToGameResultsSceneTimer_timeout"]

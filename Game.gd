@@ -4,6 +4,7 @@ onready var player
 
 func _ready():
 	enter_game_play_scene()
+	$Levels/GamePlayScene.connect("go_to_game_results", self, "_on_GamePlayScene_go_to_game_results")
 	
 func enter_game_play_scene():
 	player = $ARVROrigin
@@ -13,3 +14,6 @@ func enter_game_play_scene():
 	
 	var game_play_scene = $Levels/GamePlayScene
 	game_play_scene.set_player(player)
+
+func _on_GamePlayScene_go_to_game_results():
+	pass
