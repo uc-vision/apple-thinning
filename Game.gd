@@ -1,34 +1,67 @@
 extends Spatial
 
-onready var game_results_scene = load("res://Levels/GameResultsScene.tscn")
-onready var player
-onready var game_play_scene
+var game_play_scene = preload("res://Levels/GamePlayScene.tscn")
+var game_results_scene = load("res://Levels/GameResultsScene.tscn")
+
+var player
+var game_play_level
+var game_results_level
 
 func _ready():
 	enter_game_play_scene()
-	$Levels/GamePlayScene.connect("go_to_game_results", self, "_on_GamePlayScene_go_to_game_results")
-	
+
 func enter_game_play_scene():
-	player = $ARVROrigin
+	
+	# First time to load GamePlayScene
+	if not player:
+		player = $ARVROrigin
 
+	# Detatch the player from a current parent
 	if player and player.get_parent():
 		player.get_parent().remove_child(player)
-	
-	game_play_scene = $Levels/GamePlayScene
-	game_play_scene.set_player(player)
 
+	# Instantiated the GamePlayScene
+	game_play_level = game_play_scene.instance()
+	
+	# Add the level with a human readable name
+	$Levels.add_child(game_play_level, true)
+	game_play_level.set_name("GamePlayScene")
+	
+	# Add the player to GamePlayScene
+	game_play_level.set_player(player)
+	
+	# Connect signal to request transition from GamePlayScene to GameResultsScene
+	game_play_level.connect("go_to_game_results", self, "_on_GamePlayScene_go_to_game_results")
+
+# Level transition from GamePlayScene --> GameResultsScene
 func _on_GamePlayScene_go_to_game_results():
-#	var platform = $Levels/GamePlayScene/Platform
-#	for platform.get_children():
-		
+
+	# Detach the player from GamePlayScene level before deleting the level
 	player = get_node("Levels/GamePlayScene/Platform/ARVROrigin")
-	
 	if player and player.get_parent():
 		player.get_parent().remove_child(player)
+
+	# Delete the GamePlayScene
+	game_play_level.queue_free()
+
+	# Instantiate the GameResultsScene
+	game_results_level = game_results_scene.instance()
 	
-	game_play_scene.queue_free()
-	var game_results_level = game_results_scene.instance()
-	$Levels.add_child(game_results_level)
+	# Add the level to the Levels with a human readable node name
+	$Levels.add_child(game_results_level, true)
+	game_results_level.set_name("GameResultsScene")
+
+	# Add player to the GameResultsScene
 	game_results_level.set_player(player)
+	game_results_level.connect("play_again", self, "_on_GameResultsScene_play_again")
+
+# Level transition from GameResultsScene --> GamePlayScene (TODO: Change the distination to GamePreparationScene once the scene is created)
+func _on_GameResultsScene_play_again():
 	
-	
+	# Detach the player from Game
+	player = get_node("Levels/GameResultsScene/ARVROrigin")
+	if player and player.get_parent():
+		player.get_parent().remove_child(player)
+
+	game_results_level.queue_free()
+	enter_game_play_scene()

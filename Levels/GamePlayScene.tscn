@@ -5,11 +5,11 @@
 [ext_resource path="res://Audio/game-play-bgm.wav" type="AudioStream" id=3]
 [ext_resource path="res://Scenes/Platform.tscn" type="PackedScene" id=9]
 
-[sub_resource type="SpatialMaterial" id=1]
+[sub_resource type="SpatialMaterial" id=4]
 albedo_color = Color( 0.345098, 0.458824, 0.282353, 1 )
 
 [sub_resource type="CubeMesh" id=2]
-material = SubResource( 1 )
+material = SubResource( 4 )
 size = Vector3( 30, 2, 30 )
 
 [sub_resource type="BoxShape" id=3]
