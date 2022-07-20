@@ -15,7 +15,7 @@ onready var confirmation_dialog = $Platform/ConfirmationDialog
 onready var bgm_player = $BGM_Player
 
 const DIALOG_WAIT_TIME = 5
-const GAME_PLAY_DURATION = 60
+const GAME_PLAY_DURATION = 10
 const COMBO_INTERVAL = 3
 const TREE_REMOVE_WAIT_TIMER = 0.5
 const TREE_SPAWN_WAIT_TIME = 0.5
@@ -67,7 +67,8 @@ func _ready():
 	game_start_timer.start()
 	
 func set_player(player):
-	platform.add_child(player)
+	# Add the player to GamePlayScene with human readable name
+	platform.add_child(player, true)
 	player.set_name("ARVROrigin")
 	remaining_time_watch = $Platform/ARVROrigin/LeftHand/RemainingTimeWatch
 	score_and_combo_watch = $Platform/ARVROrigin/RightHand/ScoreAndComboWatch
@@ -84,7 +85,6 @@ func _process(delta):
 		if remaining_time != ceil(remaining_time_timer.get_time_left()):
 			remaining_time = ceil(remaining_time_timer.get_time_left())
 			remaining_time_watch.update_remaining_time(str(remaining_time))
-			
 
 func _on_AppleCluster_score_updated(cluster_score, has_damaged):
 	# If there is a damaged apple in the finished cluster, cut the combo
