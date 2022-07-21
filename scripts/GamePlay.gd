@@ -218,7 +218,7 @@ func _on_WaitTreeRemoveTimer_timeout():
 # Spawn a new apple tree
 func _on_WaitTreeSpawnTimer_timeout():
 	var new_apple_tree = apple_tree_scene.instance()
-	add_child(new_apple_tree)
+	add_child(new_apple_tree, true)
 	new_apple_tree.set_name("AppleTree")
 	if not remaining_time_timer.is_stopped():
 		setup_apples()

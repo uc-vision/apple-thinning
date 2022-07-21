@@ -27,7 +27,7 @@ func _ready():
 		
 			# Get the spawn path on the branch
 			var cluster_spawn_path = child.get_node("AppleClusterSpawnPath")
-			# Initialize a spawning location node and 
+			# Initialize a spawning location node and add to to the spawn path
 			var cluster_spawn_location = PathFollow.new()
 			cluster_spawn_path.add_child(cluster_spawn_location)
 			
@@ -59,18 +59,6 @@ func _ready():
 					apple_cluster_c_instance.connect("cluster_finished", self, "_on_AppleCluster_finished")
 					child.add_child(apple_cluster_c_instance)
 
-func tree_hit(area_node):
-	
-	# Get all the clusters belong to the hit area
-	var overlapping_apples = area_node.get_overlapping_areas()
-	
-	# Drop the clusters that belong to the area
-	for area in overlapping_apples:
-		if area.get_name() == "ClusterHub":
-			var parent_cluster = area.get_parent()
-			if not parent_cluster.isDropped and parent_cluster.is_interactable:
-				apple_cluster_fall_sound_player.play()
-				parent_cluster.drop_cluster()
 
 func _on_AppleCluster_finished():
 	num_cluster -= 1
