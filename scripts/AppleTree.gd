@@ -11,7 +11,7 @@ onready var num_cluster = 0
 
 const MAX_CLUSTER_PER_BRANCH = 2
 const NUM_BRANCH = 3
-const TREE_TRANSLATE = Vector3(0, 0, -1)
+const TREE_TRANSLATE = Vector3(0, 0, -0.85)
 const TREE_ROTATION = Vector3(0, deg2rad(-90), 0)
 
 signal all_clusters_thinned
