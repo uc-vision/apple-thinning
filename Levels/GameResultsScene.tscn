@@ -17,10 +17,10 @@ extents = Vector3( 15, 1, 15 )
 script = ExtResource( 2 )
 
 [node name="GameResultsDialog" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.444642, 0.394753, 0 )
+transform = Transform( 0.856105, -0.516802, 0, 0.516802, 0.856105, 0, 0, 0, 1, -0.409846, 0.661657, 0 )
 
 [node name="Ground" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.258, -1, -1.085 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
 mesh = SubResource( 2 )
 material/0 = null
 
