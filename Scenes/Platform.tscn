@@ -48,7 +48,7 @@ height = 0.75
 script = ExtResource( 6 )
 
 [node name="Floor" type="StaticBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.104108, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.103461, 0 )
 collision_layer = 8
 collision_mask = 7
 
@@ -60,7 +60,7 @@ mesh = SubResource( 3 )
 material/0 = null
 
 [node name="FrontFence" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.550811, -0.580446 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.343242, -0.580446 )
 
 [node name="Pole1" type="MeshInstance" parent="FrontFence"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, 0, 0 )
@@ -118,7 +118,7 @@ material/0 = null
 shape = SubResource( 9 )
 
 [node name="BackFence" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.550811, 0.577046 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.343242, 0.577046 )
 
 [node name="Pole1" type="MeshInstance" parent="BackFence"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, 0, 0 )
@@ -176,7 +176,7 @@ material/0 = null
 shape = SubResource( 9 )
 
 [node name="LeftFence" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.953855, 0.104108, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.953855, -0.103461, 0 )
 
 [node name="Pole1" type="MeshInstance" parent="LeftFence"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0 )
@@ -201,7 +201,7 @@ material/0 = null
 shape = SubResource( 11 )
 
 [node name="RightFence" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.94793, 0.104108, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.94793, -0.103461, 0 )
 
 [node name="Pole1" type="MeshInstance" parent="RightFence"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0 )
@@ -226,24 +226,26 @@ material/0 = null
 shape = SubResource( 11 )
 
 [node name="PauseButton" parent="." instance=ExtResource( 1 )]
-transform = Transform( -4.37114e-08, 0, -1, 0.679672, 0.733516, -2.97094e-08, 0.733516, -0.679672, -3.2063e-08, -0.673283, 0.86677, -0.450455 )
+transform = Transform( -4.37114e-08, 0, -1, 0.679672, 0.733516, -2.97094e-08, 0.733516, -0.679672, -3.2063e-08, -0.673283, 0.659201, -0.450455 )
 
 [node name="PauseDialog" parent="." instance=ExtResource( 2 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1.29635, -0.615356 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1.08878, -0.615356 )
 
 [node name="ConfirmationDialog" parent="." instance=ExtResource( 3 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1.29277, -0.609134 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1.0852, -0.609134 )
 
 [node name="PlatformController" parent="." instance=ExtResource( 5 )]
-transform = Transform( -4.37114e-08, 0, -1, 0.694093, 0.719885, -3.03398e-08, 0.719885, -0.694093, -3.14672e-08, 0, 0.861, -0.439 )
+transform = Transform( -4.37114e-08, 0, -1, 0.694093, 0.719885, -3.03398e-08, 0.719885, -0.694093, -3.14672e-08, 0, 0.653431, -0.439 )
 
 [node name="GameFlowObstacle" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1.40779, -0.78972 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1.20022, -0.78972 )
 
 [node name="PlatformUpSoundPlayer" type="AudioStreamPlayer3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.207569, 0 )
 stream = ExtResource( 7 )
 unit_db = 10.0
 
 [node name="PlatformDownSoundPlayer" type="AudioStreamPlayer3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.207569, 0 )
 stream = ExtResource( 8 )
 unit_db = 10.0

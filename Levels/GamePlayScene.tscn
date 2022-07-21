@@ -30,7 +30,7 @@ collision_mask = 14
 shape = SubResource( 3 )
 
 [node name="AppleTree" parent="." instance=ExtResource( 1 )]
-transform = Transform( -0.731354, 0, 0.681998, 0, 1, 0, -0.681998, 0, -0.731354, -0.8, 0.13, 0.08 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -1 )
 
 [node name="RemainingTimeTimer" type="Timer" parent="."]
 
@@ -46,7 +46,7 @@ __meta__ = {
 [node name="WaitTreeSpawnTimer" type="Timer" parent="."]
 
 [node name="Platform" parent="." instance=ExtResource( 9 )]
-transform = Transform( 0.397837, 0, 0.917456, 0, 1, 0, -0.917456, 0, 0.397837, 0.41317, 0.1, -0.12082 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0 )
 
 [node name="BGM_Player" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )

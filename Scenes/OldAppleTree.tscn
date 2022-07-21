@@ -1,0 +1,81 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scripts/BranchSection.gd" type="Script" id=1]
+[ext_resource path="res://Audio/tree-branch-hit-sound.wav" type="AudioStream" id=2]
+[ext_resource path="res://Audio/apple-cluster-falling-sound.wav" type="AudioStream" id=3]
+[ext_resource path="res://Assets/AppleTreeModel.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scripts/AppleTree.gd" type="Script" id=5]
+[ext_resource path="res://Audio/apple-tree-thinned-sound.wav" type="AudioStream" id=6]
+
+[sub_resource type="Curve3D" id=1]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -0.0107371, 0.763548, 0.107095, 0, 0, 0, 0, 0, 0, -0.0900356, 0.879068, 0.344067, 0, 0, 0, 0, 0, 0, -0.0326493, 0.839708, 0.731455, 0, 0, 0, 0, 0, 0, -0.00338675, 0.889762, 0.846837, 0, 0, 0, 0, 0, 0, 0.0337429, 1.25701, 1.17274 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0 )
+}
+
+[sub_resource type="BoxShape" id=2]
+
+[node name="AppleTree" type="Spatial"]
+script = ExtResource( 5 )
+
+[node name="AppleTreeModel" parent="." instance=ExtResource( 4 )]
+
+[node name="Branch1" type="Spatial" parent="." groups=["Branch"]]
+
+[node name="AppleClusterSpawnPath" type="Path" parent="Branch1" groups=["ClusterSpawnPath"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00919244, -0.0551334, 0.0235204 )
+curve = SubResource( 1 )
+
+[node name="PathFollow" type="PathFollow" parent="Branch1/AppleClusterSpawnPath"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0107371, 0.763548, 0.107095 )
+
+[node name="Sections" type="Spatial" parent="Branch1"]
+
+[node name="Section1" type="Area" parent="Branch1/Sections"]
+collision_mask = 6
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Branch1/Sections/Section1"]
+transform = Transform( 0.0337876, 6.81306e-11, -0.0162478, 0.000905219, 0.0339385, 0.0843479, 0.00225214, -0.0136411, 0.209854, -0.0610933, 0.858575, 0.17553 )
+shape = SubResource( 2 )
+
+[node name="BranchHitSoundPlayer" type="AudioStreamPlayer3D" parent="Branch1/Sections/Section1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0562929, 0.862151, 0.190176 )
+stream = ExtResource( 2 )
+
+[node name="Section2" type="Area" parent="Branch1/Sections"]
+collision_mask = 6
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Branch1/Sections/Section2"]
+transform = Transform( 0.0350706, -0.000432286, 0.0609238, 0.00228737, 0.0342699, -0.0290974, -0.0113084, 0.00559117, 0.183057, -0.0270511, 0.914979, 0.536412 )
+shape = SubResource( 2 )
+
+[node name="BranchHitSoundPlayer" type="AudioStreamPlayer3D" parent="Branch1/Sections/Section2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0163877, 0.907534, 0.492746 )
+stream = ExtResource( 2 )
+
+[node name="Section3" type="Area" parent="Branch1/Sections"]
+collision_mask = 6
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Branch1/Sections/Section3"]
+transform = Transform( 0.0400527, 0, 0, 0, 0.027445, 0.190671, 0, -0.0275574, 0.189894, 0.0280013, 1.09293, 0.953958 )
+shape = SubResource( 2 )
+
+[node name="BranchHitSoundPlayer" type="AudioStreamPlayer3D" parent="Branch1/Sections/Section3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0246515, 1.16113, 0.994166 )
+stream = ExtResource( 2 )
+
+[node name="AppleClusterFallSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[node name="ThinningCompletedSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+
+[connection signal="area_entered" from="Branch1/Sections/Section1" to="Branch1/Sections/Section1" method="_on_Section_area_entered"]
+[connection signal="area_exited" from="Branch1/Sections/Section1" to="Branch1/Sections/Section1" method="_on_Section_area_exited"]
+[connection signal="area_entered" from="Branch1/Sections/Section2" to="Branch1/Sections/Section2" method="_on_Section_area_entered"]
+[connection signal="area_exited" from="Branch1/Sections/Section2" to="Branch1/Sections/Section2" method="_on_Section_area_exited"]
+[connection signal="area_entered" from="Branch1/Sections/Section3" to="Branch1/Sections/Section3" method="_on_Section_area_entered"]
+[connection signal="area_exited" from="Branch1/Sections/Section3" to="Branch1/Sections/Section3" method="_on_Section_area_exited"]
