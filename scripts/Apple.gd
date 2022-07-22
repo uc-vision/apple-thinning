@@ -26,3 +26,6 @@ func hide_point():
 # Get apple being pickable or not from the parent apple cluster.
 func is_interactable():
 	return get_parent().is_interactable
+
+func is_picked_off():
+	return picked_off
