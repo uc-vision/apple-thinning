@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/poor-apple-thinning-sound.wav-3c4c4b7dee71c58fbd3568ed3fb398ef.sample"
+path="res://import/poor-apple-thinning-sound.wav-3c4c4b7dee71c58fbd3568ed3fb398ef.sample"
 
 [deps]
 
 source_file="res://Audio/poor-apple-thinning-sound.wav"
-dest_files=[ "res://.import/poor-apple-thinning-sound.wav-3c4c4b7dee71c58fbd3568ed3fb398ef.sample" ]
+dest_files=[ "res://import/poor-apple-thinning-sound.wav-3c4c4b7dee71c58fbd3568ed3fb398ef.sample" ]
 
 [params]
 

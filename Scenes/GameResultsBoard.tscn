@@ -1,0 +1,175 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Assets/Meshes/game-result-board-mesh.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Fonts/Calistoga/Calistoga-Regular.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFontData" id=7]
+font_path = "res://Assets/Fonts/Calistoga/Calistoga-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=1]
+size = 42
+font_data = SubResource( 7 )
+
+[sub_resource type="ViewportTexture" id=2]
+viewport_path = NodePath("ScoreSection/Viewport")
+
+[sub_resource type="DynamicFont" id=3]
+size = 42
+font_data = ExtResource( 2 )
+
+[sub_resource type="ViewportTexture" id=4]
+viewport_path = NodePath("ScoreSection/Viewport2")
+
+[sub_resource type="DynamicFont" id=8]
+size = 32
+font_data = SubResource( 7 )
+
+[sub_resource type="ViewportTexture" id=5]
+viewport_path = NodePath("PickedNumberSection/Viewport")
+
+[sub_resource type="ViewportTexture" id=6]
+viewport_path = NodePath("PickedNumberSection/Viewport2")
+
+[sub_resource type="DynamicFont" id=9]
+size = 32
+font_data = SubResource( 7 )
+
+[sub_resource type="ViewportTexture" id=10]
+viewport_path = NodePath("MaxComboSection/Viewport")
+
+[sub_resource type="DynamicFont" id=11]
+size = 42
+font_data = ExtResource( 2 )
+
+[sub_resource type="ViewportTexture" id=12]
+viewport_path = NodePath("MaxComboSection/Viewport2")
+
+[sub_resource type="DynamicFont" id=13]
+size = 150
+font_data = ExtResource( 2 )
+
+[sub_resource type="ViewportTexture" id=14]
+viewport_path = NodePath("GradeSection/Viewport")
+
+[node name="GameResultsBoard" type="Spatial"]
+
+[node name="ScoreSection" type="Spatial" parent="."]
+transform = Transform( 0.985736, 0, 0.1683, 0, 1, 0, -0.1683, 0, 0.985736, -0.0736534, -0.0715924, 0.156791 )
+
+[node name="Viewport" type="Viewport" parent="ScoreSection"]
+size = Vector2( 300, 300 )
+transparent_bg = true
+render_target_v_flip = true
+
+[node name="ScoreLabel" type="Label" parent="ScoreSection/Viewport"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 1 )
+text = "Score"
+
+[node name="Sprite3D" type="Sprite3D" parent="ScoreSection"]
+transform = Transform( -0.0948563, 0, 0.49092, 0, 0.5, 0, -0.49092, 0, -0.0948563, 0.115219, -0.0973555, 0.43901 )
+texture = SubResource( 2 )
+
+[node name="Viewport2" type="Viewport" parent="ScoreSection"]
+size = Vector2( 300, 300 )
+transparent_bg = true
+render_target_v_flip = true
+
+[node name="ScoreValue" type="Label" parent="ScoreSection/Viewport2"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 3 )
+text = "--"
+
+[node name="Sprite3D2" type="Sprite3D" parent="ScoreSection"]
+transform = Transform( 0.0225332, 0, 0.499491, 0, 0.5, 0, -0.499491, 0, 0.0225332, 0.177275, -0.110105, -0.209958 )
+texture = SubResource( 4 )
+
+[node name="PickedNumberSection" type="Spatial" parent="."]
+transform = Transform( 0.985736, 0, 0.1683, 0, 1, 0, -0.1683, 0, 0.985736, -0.0736534, -0.408591, 0.156791 )
+
+[node name="Viewport" type="Viewport" parent="PickedNumberSection"]
+size = Vector2( 300, 300 )
+transparent_bg = true
+render_target_v_flip = true
+
+[node name="PickedNumberLabel" type="Label" parent="PickedNumberSection/Viewport"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_constants/line_spacing = -5
+custom_fonts/font = SubResource( 8 )
+text = "Apples Picked"
+
+[node name="Sprite3D" type="Sprite3D" parent="PickedNumberSection"]
+transform = Transform( -0.0768294, 0, 0.494061, 0, 0.5, 0, -0.494061, 0, -0.0768294, 0.148635, -0.155309, 0.431831 )
+texture = SubResource( 5 )
+
+[node name="Viewport2" type="Viewport" parent="PickedNumberSection"]
+size = Vector2( 300, 300 )
+transparent_bg = true
+render_target_v_flip = true
+
+[node name="PickedNumberValue" type="Label" parent="PickedNumberSection/Viewport2"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 3 )
+text = "--"
+
+[node name="Sprite3D2" type="Sprite3D" parent="PickedNumberSection"]
+transform = Transform( 0.0940418, 0, 0.491075, 0, 0.5, 0, -0.491075, 0, 0.0940418, 0.276196, -0.0900153, -0.686978 )
+texture = SubResource( 6 )
+
+[node name="MaxComboSection" type="Spatial" parent="."]
+transform = Transform( 0.985736, 0, 0.1683, 0, 1, 0, -0.1683, 0, 0.985736, -0.0736534, -1.87274, 0.156791 )
+
+[node name="Viewport" type="Viewport" parent="MaxComboSection"]
+size = Vector2( 300, 300 )
+transparent_bg = true
+render_target_v_flip = true
+
+[node name="MaxComboLabel" type="Label" parent="MaxComboSection/Viewport"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_constants/line_spacing = -5
+custom_fonts/font = SubResource( 9 )
+text = "Max Combo"
+
+[node name="Sprite3D" type="Sprite3D" parent="MaxComboSection"]
+transform = Transform( -0.0690681, 0, 0.495206, 0, 0.5, 0, -0.495206, 0, -0.0690681, 0.155484, 0.938119, 0.431225 )
+texture = SubResource( 10 )
+
+[node name="Viewport2" type="Viewport" parent="MaxComboSection"]
+size = Vector2( 300, 300 )
+transparent_bg = true
+render_target_v_flip = true
+
+[node name="MaxComboValue" type="Label" parent="MaxComboSection/Viewport2"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 11 )
+text = "--"
+
+[node name="Sprite3D2" type="Sprite3D" parent="MaxComboSection"]
+transform = Transform( 0.0642072, 0, 0.495859, 0, 0.5, 0, -0.495859, 0, 0.0642072, 0.228637, 0.954038, -0.558938 )
+texture = SubResource( 12 )
+
+[node name="GradeSection" type="Spatial" parent="."]
+
+[node name="Viewport" type="Viewport" parent="GradeSection"]
+size = Vector2( 300, 300 )
+transparent_bg = true
+render_target_v_flip = true
+
+[node name="GradeValue" type="Label" parent="GradeSection/Viewport"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 13 )
+text = "-"
+
+[node name="Sprite3D" type="Sprite3D" parent="GradeSection"]
+transform = Transform( 0.200561, 0, 0.774452, 0, 0.8, 0, -0.774452, 0, 0.200561, 0.417607, -0.42079, -1.45998 )
+modulate = Color( 0.917647, 0.858824, 0, 1 )
+texture = SubResource( 14 )
+
+[node name="game-result-board-mesh" parent="." instance=ExtResource( 1 )]

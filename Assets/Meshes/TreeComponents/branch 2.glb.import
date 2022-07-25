@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/branch 2.glb-3e668f4e1a12748e1f50cd47214f921b.scn"
+path="res://import/branch 2.glb-3e668f4e1a12748e1f50cd47214f921b.scn"
 
 [deps]
 
 source_file="res://Assets/Meshes/TreeComponents/branch 2.glb"
-dest_files=[ "res://.import/branch 2.glb-3e668f4e1a12748e1f50cd47214f921b.scn" ]
+dest_files=[ "res://import/branch 2.glb-3e668f4e1a12748e1f50cd47214f921b.scn" ]
 
 [params]
 

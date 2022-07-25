@@ -2,9 +2,9 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/pause.png-bd36503e07322b004a41b75fab53d296.s3tc.stex"
-path.etc2="res://.import/pause.png-bd36503e07322b004a41b75fab53d296.etc2.stex"
-path.etc="res://.import/pause.png-bd36503e07322b004a41b75fab53d296.etc.stex"
+path.s3tc="res://import/pause.png-bd36503e07322b004a41b75fab53d296.s3tc.stex"
+path.etc2="res://import/pause.png-bd36503e07322b004a41b75fab53d296.etc2.stex"
+path.etc="res://import/pause.png-bd36503e07322b004a41b75fab53d296.etc.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2", "etc" ],
 "vram_texture": true
@@ -13,7 +13,7 @@ metadata={
 [deps]
 
 source_file="res://Assets/Images/pause.png"
-dest_files=[ "res://.import/pause.png-bd36503e07322b004a41b75fab53d296.s3tc.stex", "res://.import/pause.png-bd36503e07322b004a41b75fab53d296.etc2.stex", "res://.import/pause.png-bd36503e07322b004a41b75fab53d296.etc.stex" ]
+dest_files=[ "res://import/pause.png-bd36503e07322b004a41b75fab53d296.s3tc.stex", "res://import/pause.png-bd36503e07322b004a41b75fab53d296.etc2.stex", "res://import/pause.png-bd36503e07322b004a41b75fab53d296.etc.stex" ]
 
 [params]
 

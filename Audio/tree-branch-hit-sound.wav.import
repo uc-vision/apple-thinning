@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/tree-branch-hit-sound.wav-bf1899ccc5ca29aca1ee06c28ee918ac.sample"
+path="res://import/tree-branch-hit-sound.wav-bf1899ccc5ca29aca1ee06c28ee918ac.sample"
 
 [deps]
 
 source_file="res://Audio/tree-branch-hit-sound.wav"
-dest_files=[ "res://.import/tree-branch-hit-sound.wav-bf1899ccc5ca29aca1ee06c28ee918ac.sample" ]
+dest_files=[ "res://import/tree-branch-hit-sound.wav-bf1899ccc5ca29aca1ee06c28ee918ac.sample" ]
 
 [params]
 

@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/button-press-sound.wav-0934f49a5d04ff1663896f5570290cd9.sample"
+path="res://import/button-press-sound.wav-0934f49a5d04ff1663896f5570290cd9.sample"
 
 [deps]
 
 source_file="res://Audio/button-press-sound.wav"
-dest_files=[ "res://.import/button-press-sound.wav-0934f49a5d04ff1663896f5570290cd9.sample" ]
+dest_files=[ "res://import/button-press-sound.wav-0934f49a5d04ff1663896f5570290cd9.sample" ]
 
 [params]
 

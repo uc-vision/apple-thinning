@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/vr_glove_left_model_slim.glb-8eb4d606fd297e3eb0e89b81fe711f50.scn"
+path="res://import/vr_glove_left_model_slim.glb-8eb4d606fd297e3eb0e89b81fe711f50.scn"
 
 [deps]
 
 source_file="res://addons/godot-openvr/meshes/vr_glove_left_model_slim.glb"
-dest_files=[ "res://.import/vr_glove_left_model_slim.glb-8eb4d606fd297e3eb0e89b81fe711f50.scn" ]
+dest_files=[ "res://import/vr_glove_left_model_slim.glb-8eb4d606fd297e3eb0e89b81fe711f50.scn" ]
 
 [params]
 

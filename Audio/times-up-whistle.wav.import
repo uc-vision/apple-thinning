@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/times-up-whistle.wav-7eacef1ba0da8d2ee20948bb29012b96.sample"
+path="res://import/times-up-whistle.wav-7eacef1ba0da8d2ee20948bb29012b96.sample"
 
 [deps]
 
 source_file="res://Audio/times-up-whistle.wav"
-dest_files=[ "res://.import/times-up-whistle.wav-7eacef1ba0da8d2ee20948bb29012b96.sample" ]
+dest_files=[ "res://import/times-up-whistle.wav-7eacef1ba0da8d2ee20948bb29012b96.sample" ]
 
 [params]
 
