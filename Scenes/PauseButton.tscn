@@ -14,6 +14,7 @@ size = Vector3( 0.05, 0.2, 0.25 )
 extents = Vector3( 0.05, 0.1, 0.125 )
 
 [node name="PauseButton" type="MeshInstance"]
+cast_shadow = 0
 mesh = SubResource( 2 )
 material/0 = null
 script = ExtResource( 2 )

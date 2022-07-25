@@ -43,12 +43,14 @@ viewport_path = NodePath("BackToMenuButton/Viewport")
 extents = Vector3( 0.1, 0.15, 0.175 )
 
 [node name="GameResultsDialog" type="MeshInstance"]
+cast_shadow = 0
 mesh = SubResource( 1 )
 material/0 = null
 script = ExtResource( 2 )
 
 [node name="PlayAgainButton" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0339265, 0.00611565, 0.241597 )
+cast_shadow = 0
 mesh = SubResource( 5 )
 material/0 = null
 
@@ -77,6 +79,7 @@ shape = SubResource( 11 )
 
 [node name="BackToMenuButton" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0296314, 0.00628805, -0.241717 )
+cast_shadow = 0
 mesh = SubResource( 8 )
 material/0 = null
 

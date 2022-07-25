@@ -64,6 +64,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.343242, -0.580446 )
 
 [node name="Pole1" type="MeshInstance" parent="FrontFence"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, 0, 0 )
+cast_shadow = 0
 mesh = SubResource( 4 )
 skeleton = NodePath("")
 material/0 = null
@@ -75,6 +76,7 @@ shape = SubResource( 8 )
 
 [node name="Pole2" type="MeshInstance" parent="FrontFence"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.325, 0, 0 )
+cast_shadow = 0
 mesh = SubResource( 4 )
 skeleton = NodePath("")
 material/0 = null
@@ -86,6 +88,7 @@ shape = SubResource( 8 )
 
 [node name="Pole3" type="MeshInstance" parent="FrontFence"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.325, 0, 0 )
+cast_shadow = 0
 mesh = SubResource( 4 )
 skeleton = NodePath("")
 material/0 = null
@@ -97,6 +100,7 @@ shape = SubResource( 8 )
 
 [node name="Pole4" type="MeshInstance" parent="FrontFence"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, 0, 0 )
+cast_shadow = 0
 mesh = SubResource( 4 )
 skeleton = NodePath("")
 material/0 = null
@@ -108,6 +112,7 @@ shape = SubResource( 8 )
 
 [node name="Pole5" type="MeshInstance" parent="FrontFence"]
 transform = Transform( -4.37114e-08, -2.55, 0, 1, -1.11464e-07, 0, 0, 0, 1, 0, 0.371604, 0 )
+cast_shadow = 0
 mesh = SubResource( 4 )
 skeleton = NodePath("")
 material/0 = null
@@ -122,6 +127,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.343242, 0.577046 )
 
 [node name="Pole1" type="MeshInstance" parent="BackFence"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, 0, 0 )
+cast_shadow = 0
 mesh = SubResource( 4 )
 skeleton = NodePath("")
 material/0 = null
@@ -133,6 +139,7 @@ shape = SubResource( 8 )
 
 [node name="Pole2" type="MeshInstance" parent="BackFence"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.325, 0, 0 )
+cast_shadow = 0
 mesh = SubResource( 4 )
 skeleton = NodePath("")
 material/0 = null
@@ -144,6 +151,7 @@ shape = SubResource( 8 )
 
 [node name="Pole3" type="MeshInstance" parent="BackFence"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.325, 0, 0 )
+cast_shadow = 0
 mesh = SubResource( 4 )
 skeleton = NodePath("")
 material/0 = null
@@ -155,6 +163,7 @@ shape = SubResource( 8 )
 
 [node name="Pole4" type="MeshInstance" parent="BackFence"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, 0, 0 )
+cast_shadow = 0
 mesh = SubResource( 4 )
 skeleton = NodePath("")
 material/0 = null
@@ -166,6 +175,7 @@ shape = SubResource( 8 )
 
 [node name="Pole5" type="MeshInstance" parent="BackFence"]
 transform = Transform( -4.37114e-08, -2.55, 0, 1, -1.11464e-07, 0, 0, 0, 1, 0, 0.371604, 0 )
+cast_shadow = 0
 mesh = SubResource( 4 )
 skeleton = NodePath("")
 material/0 = null
@@ -180,6 +190,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.953855, -0.103461, 0 )
 
 [node name="Pole1" type="MeshInstance" parent="LeftFence"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0 )
+cast_shadow = 0
 mesh = SubResource( 4 )
 skeleton = NodePath("")
 material/0 = null
@@ -191,6 +202,7 @@ shape = SubResource( 10 )
 
 [node name="Pole2" type="MeshInstance" parent="LeftFence"]
 transform = Transform( 1, 0, 0, 0, -6.55671e-08, -1, 0, 1.5, -4.37114e-08, 0, 0.82, 0 )
+cast_shadow = 0
 mesh = SubResource( 4 )
 skeleton = NodePath("")
 material/0 = null
@@ -205,6 +217,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.94793, -0.103461, 0 )
 
 [node name="Pole1" type="MeshInstance" parent="RightFence"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0 )
+cast_shadow = 0
 mesh = SubResource( 4 )
 skeleton = NodePath("")
 material/0 = null
@@ -216,6 +229,7 @@ shape = SubResource( 10 )
 
 [node name="Pole2" type="MeshInstance" parent="RightFence"]
 transform = Transform( 1, 0, 0, 0, -6.55671e-08, -1, 0, 1.5, -4.37114e-08, 0, 0.82, 0 )
+cast_shadow = 0
 mesh = SubResource( 4 )
 skeleton = NodePath("")
 material/0 = null
