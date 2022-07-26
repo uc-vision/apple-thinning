@@ -15,7 +15,7 @@ onready var confirmation_dialog = $Platform/ConfirmationDialog
 onready var bgm_player = $BGM_Player
 
 const DIALOG_WAIT_TIME = 5
-const GAME_PLAY_DURATION = 10
+const GAME_PLAY_DURATION = 15
 const COMBO_INTERVAL = 3
 const TREE_REMOVE_WAIT_TIMER = 0.5
 const TREE_SPAWN_WAIT_TIME = 0.5
@@ -74,8 +74,10 @@ func set_player(player):
 	platform.add_child(player, true)
 	player.set_name("ARVROrigin")
 	remaining_time_watch = $Platform/ARVROrigin/LeftHand/RemainingTimeWatch
+	remaining_time_watch.reset_label(GAME_PLAY_DURATION)
 	score_and_combo_watch = $Platform/ARVROrigin/RightHand/ScoreAndComboWatch
-	
+	score_and_combo_watch.reset_label()
+
 func set_game_play_data(data):
 	game_play_data = data
 	
