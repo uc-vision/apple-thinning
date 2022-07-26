@@ -2,6 +2,7 @@ extends Spatial
 
 onready var game_results_dialog = $GameResultsDialog
 onready var go_to_other_level_timer = $GoToOtherLevelTimer
+onready var game_results_board = $GameResultsBoard
 
 var next_level
 
@@ -34,3 +35,10 @@ func _on_GameResultsDialog_play_again_button_pressed():
 func _on_GoToOtherLevelTimer_timeout():
 	if next_level == Level.GAME_PLAY:
 		emit_signal("play_again")
+
+func set_game_results_data(data):
+	if data:
+		game_results_board.set_score_text(str(data.get_score()))
+		game_results_board.set_picked_number_value_text(str(data.get_num_picked()))
+		game_results_board.set_max_combo_text(str(data.get_max_combo()))
+		game_results_board.set_grade_text(str(data.get_grade()))

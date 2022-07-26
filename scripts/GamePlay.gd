@@ -26,9 +26,12 @@ var remaining_time = GAME_PLAY_DURATION
 var current_combo = 0
 var remaining_time_watch 
 var score_and_combo_watch
-var total_score = 0
+var total_score: int = 0
+var num_apples_picked: int = 0
+var max_combo = 0
+var game_play_data
 
-signal go_to_game_results
+signal go_to_game_results(game_results_data)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -73,6 +76,9 @@ func set_player(player):
 	remaining_time_watch = $Platform/ARVROrigin/LeftHand/RemainingTimeWatch
 	score_and_combo_watch = $Platform/ARVROrigin/RightHand/ScoreAndComboWatch
 	
+func set_game_play_data(data):
+	game_play_data = data
+	
 func _process(delta):
 	# Checks the game start countdown and updates the GUI board
 	if not game_start_timer.is_stopped():
@@ -104,7 +110,10 @@ func _on_GameStartTimer_timeout():
 	
 # Increment the combo whenever an apple is picked. Updates the score board and start a new combo timer countdown. 
 func _on_AppleCluster_apple_picked():
+	num_apples_picked += 1
 	current_combo += 1
+	if current_combo > max_combo:
+		max_combo = current_combo
 	score_and_combo_watch.update_combo_label(str(current_combo))
 	combo_timer.start()
 
@@ -225,4 +234,10 @@ func _on_WaitTreeSpawnTimer_timeout():
 
 
 func _on_GoToGameResultsSceneTimer_timeout():
-	emit_signal("go_to_game_results")
+	if game_play_data:
+		game_play_data.set_score(total_score)
+		game_play_data.set_highest_score(0)
+		game_play_data.set_num_picked(num_apples_picked)
+		game_play_data.set_max_combo(max_combo)
+		
+	emit_signal("go_to_game_results", game_play_data)
