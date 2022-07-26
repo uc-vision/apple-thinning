@@ -14,7 +14,7 @@ func set_picked_number_value_text(num_picked_text: String):
 func set_max_combo_text(max_combo: String):
 	max_combo_value_label.set_text(max_combo)
 
-func set_grade_text(grade):
+func set_grade(grade):
 	if grade == 0:
 		grade_label.set_text("D")
 	elif grade == 1:

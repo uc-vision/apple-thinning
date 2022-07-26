@@ -41,4 +41,4 @@ func set_game_results_data(data):
 		game_results_board.set_score_text(str(data.get_score()))
 		game_results_board.set_picked_number_value_text(str(data.get_num_picked()))
 		game_results_board.set_max_combo_text(str(data.get_max_combo()))
-		game_results_board.set_grade_text(str(data.get_grade()))
+		game_results_board.set_grade(data.get_grade())
