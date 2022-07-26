@@ -99,3 +99,5 @@ func get_grade():
 		grade = Grade.A
 	else:
 		grade = Grade.S
+		
+	return grade

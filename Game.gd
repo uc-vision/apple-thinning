@@ -58,6 +58,8 @@ func _on_GamePlayScene_go_to_game_results(data):
 	# Add player to the GameResultsScene
 	game_results_level.set_player(player)
 	game_results_level.connect("play_again", self, "_on_GameResultsScene_play_again")
+	if not data.get_num_picked():
+		get_tree().root.get_node("Game/AudioStreamPlayer").play()
 	game_results_level.set_game_results_data(data)
 
 # Level transition from GameResultsScene --> GamePlayScene (TODO: Change the distination to GamePreparationScene once the scene is created)

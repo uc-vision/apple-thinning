@@ -28,7 +28,7 @@ font_data = SubResource( 7 )
 [sub_resource type="ViewportTexture" id=5]
 viewport_path = NodePath("PickedNumberSection/Viewport")
 
-[sub_resource type="ViewportTexture" id=6]
+[sub_resource type="ViewportTexture" id=15]
 viewport_path = NodePath("PickedNumberSection/Viewport2")
 
 [sub_resource type="DynamicFont" id=9]
@@ -116,11 +116,11 @@ render_target_v_flip = true
 margin_right = 40.0
 margin_bottom = 14.0
 custom_fonts/font = SubResource( 3 )
-text = "--"
+text = "num_picked"
 
 [node name="Sprite3D2" type="Sprite3D" parent="PickedNumberSection"]
 transform = Transform( 0.0940418, 0, 0.491075, 0, 0.5, 0, -0.491075, 0, 0.0940418, 0.276196, -0.0900153, -0.686978 )
-texture = SubResource( 6 )
+texture = SubResource( 15 )
 
 [node name="MaxComboSection" type="Spatial" parent="."]
 transform = Transform( 0.985736, 0, 0.1683, 0, 1, 0, -0.1683, 0, 0.985736, -0.0736534, -1.87274, 0.156791 )
@@ -167,7 +167,7 @@ render_target_v_flip = true
 margin_right = 40.0
 margin_bottom = 14.0
 custom_fonts/font = SubResource( 13 )
-text = "-"
+text = "grade"
 
 [node name="Sprite3D" type="Sprite3D" parent="GradeSection"]
 transform = Transform( 0.200561, 0, 0.774452, 0, 0.8, 0, -0.774452, 0, 0.200561, 0.417607, -0.42079, -1.45998 )
