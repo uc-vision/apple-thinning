@@ -12,6 +12,7 @@ var highest_score: int = 0 setget set_highest_score, get_highest_score
 var is_new_record: bool = false setget , get_is_new_record
 var num_picked: int = 0 setget set_num_picked, get_num_picked
 var max_combo: int = 0 setget set_max_combo, get_max_combo
+var if_full_combo: bool = false setget , get_is_full_combo
 var grade = Grade.NA setget , get_grade
 
 func set_score(game_play_score: int):
@@ -45,6 +46,12 @@ func set_max_combo(new_max_combo: int):
 func get_max_combo():
 	return max_combo
 	
+func get_is_full_combo():
+	if get_max_combo() == get_num_picked():
+		return true
+	else:
+		false
+
 func get_grade():
 	var sub_grades = []
 	

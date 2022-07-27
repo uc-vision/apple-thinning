@@ -42,3 +42,5 @@ func set_game_results_data(data):
 		game_results_board.set_picked_number_value_text(str(data.get_num_picked()))
 		game_results_board.set_max_combo_text(str(data.get_max_combo()))
 		game_results_board.set_grade(data.get_grade())
+		game_results_board.set_high_score_label_visibility(data.get_is_new_record())
+		game_results_board.set_full_combo_label_visibilitu(data.get_is_full_combo())

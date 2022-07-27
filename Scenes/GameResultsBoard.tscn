@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Assets/Meshes/game-result-board-mesh.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Fonts/Calistoga/Calistoga-Regular.ttf" type="DynamicFontData" id=2]
@@ -20,6 +20,20 @@ font_data = ExtResource( 2 )
 
 [sub_resource type="ViewportTexture" id=4]
 viewport_path = NodePath("ScoreSection/Viewport2")
+
+[sub_resource type="SpatialMaterial" id=16]
+albedo_color = Color( 0.917647, 0.858824, 0, 1 )
+
+[sub_resource type="CubeMesh" id=17]
+material = SubResource( 16 )
+size = Vector3( 0.005, 0.15, 0.4 )
+
+[sub_resource type="DynamicFont" id=18]
+size = 38
+font_data = ExtResource( 2 )
+
+[sub_resource type="ViewportTexture" id=19]
+viewport_path = NodePath("ScoreSection/HighScoreLabel/Viewport")
 
 [sub_resource type="DynamicFont" id=8]
 size = 32
@@ -44,6 +58,9 @@ font_data = ExtResource( 2 )
 
 [sub_resource type="ViewportTexture" id=12]
 viewport_path = NodePath("MaxComboSection/Viewport2")
+
+[sub_resource type="ViewportTexture" id=20]
+viewport_path = NodePath("MaxComboSection/FullComboLabel/Viewport")
 
 [sub_resource type="DynamicFont" id=13]
 size = 150
@@ -88,6 +105,28 @@ text = "--"
 transform = Transform( 0.0225332, 0, 0.499491, 0, 0.5, 0, -0.499491, 0, 0.0225332, 0.177275, -0.110105, -0.209958 )
 texture = SubResource( 4 )
 
+[node name="HighScoreLabel" type="MeshInstance" parent="ScoreSection"]
+transform = Transform( 0.794441, 0.00824231, 0.0937852, -0.0324534, 0.772059, 0.207055, -0.0883764, -0.209421, 0.767029, 0.20252, 0.611067, 0.724598 )
+visible = false
+mesh = SubResource( 17 )
+material/0 = null
+
+[node name="Viewport" type="Viewport" parent="ScoreSection/HighScoreLabel"]
+size = Vector2( 300, 300 )
+transparent_bg = true
+render_target_v_flip = true
+
+[node name="Label" type="Label" parent="ScoreSection/HighScoreLabel/Viewport"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 18 )
+text = "High Score"
+
+[node name="Sprite3D" type="Sprite3D" parent="ScoreSection/HighScoreLabel"]
+transform = Transform( -9.31323e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -9.31323e-09, 0.00562683, -0.248284, -0.114605 )
+modulate = Color( 0.117647, 0.564706, 0.937255, 1 )
+texture = SubResource( 19 )
+
 [node name="PickedNumberSection" type="Spatial" parent="."]
 transform = Transform( 0.985736, 0, 0.1683, 0, 1, 0, -0.1683, 0, 0.985736, -0.0736534, -0.408591, 0.156791 )
 
@@ -116,7 +155,7 @@ render_target_v_flip = true
 margin_right = 40.0
 margin_bottom = 14.0
 custom_fonts/font = SubResource( 3 )
-text = "num_picked"
+text = "--"
 
 [node name="Sprite3D2" type="Sprite3D" parent="PickedNumberSection"]
 transform = Transform( 0.0940418, 0, 0.491075, 0, 0.5, 0, -0.491075, 0, 0.0940418, 0.276196, -0.0900153, -0.686978 )
@@ -156,6 +195,29 @@ text = "--"
 transform = Transform( 0.0642072, 0, 0.495859, 0, 0.5, 0, -0.495859, 0, 0.0642072, 0.228637, 0.954038, -0.558938 )
 texture = SubResource( 12 )
 
+[node name="FullComboLabel" type="MeshInstance" parent="MaxComboSection"]
+transform = Transform( 0.797611, 2.23517e-08, 0.0617789, -0.0159896, 0.772741, 0.206437, -0.059674, -0.207055, 0.770434, 0.128608, 1.69759, 0.438776 )
+visible = false
+mesh = SubResource( 17 )
+skeleton = NodePath("../../ScoreSection")
+material/0 = null
+
+[node name="Viewport" type="Viewport" parent="MaxComboSection/FullComboLabel"]
+size = Vector2( 300, 300 )
+transparent_bg = true
+render_target_v_flip = true
+
+[node name="Label" type="Label" parent="MaxComboSection/FullComboLabel/Viewport"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 18 )
+text = "Full Combo"
+
+[node name="Sprite3D" type="Sprite3D" parent="MaxComboSection/FullComboLabel"]
+transform = Transform( -3.72529e-09, -9.31323e-10, 0.2, 0, 0.2, 0, -0.2, 3.72529e-09, -1.11759e-08, 0.00562686, -0.248284, -0.114605 )
+modulate = Color( 0.117647, 0.564706, 0.937255, 1 )
+texture = SubResource( 20 )
+
 [node name="GradeSection" type="Spatial" parent="."]
 
 [node name="Viewport" type="Viewport" parent="GradeSection"]
@@ -167,10 +229,10 @@ render_target_v_flip = true
 margin_right = 40.0
 margin_bottom = 14.0
 custom_fonts/font = SubResource( 13 )
-text = "grade"
+text = "-"
 
 [node name="Sprite3D" type="Sprite3D" parent="GradeSection"]
-transform = Transform( 0.200561, 0, 0.774452, 0, 0.8, 0, -0.774452, 0, 0.200561, 0.417607, -0.42079, -1.45998 )
+transform = Transform( 0.222053, 0, 0.768566, 0, 0.8, 0, -0.768566, 0, 0.222053, 0.458041, -0.42079, -1.5021 )
 modulate = Color( 0.917647, 0.858824, 0, 1 )
 texture = SubResource( 14 )
 

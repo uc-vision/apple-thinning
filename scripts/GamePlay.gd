@@ -15,7 +15,7 @@ onready var confirmation_dialog = $Platform/ConfirmationDialog
 onready var bgm_player = $BGM_Player
 
 const DIALOG_WAIT_TIME = 5
-const GAME_PLAY_DURATION = 15
+const GAME_PLAY_DURATION = 20
 const COMBO_INTERVAL = 3
 const TREE_REMOVE_WAIT_TIMER = 0.5
 const TREE_SPAWN_WAIT_TIME = 0.5
