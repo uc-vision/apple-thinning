@@ -23,6 +23,7 @@ size = 56
 font_data = ExtResource( 2 )
 
 [node name="GameFlowObstacle" type="MeshInstance"]
+cast_shadow = 0
 mesh = SubResource( 7 )
 material/0 = null
 script = ExtResource( 1 )

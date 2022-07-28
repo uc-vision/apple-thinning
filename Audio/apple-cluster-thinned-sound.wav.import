@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/apple-cluster-thinned-sound.wav-1dd5453f5d2e43f9212db0dc8305840f.sample"
+path="res://import/apple-cluster-thinned-sound.wav-1dd5453f5d2e43f9212db0dc8305840f.sample"
 
 [deps]
 
 source_file="res://Audio/apple-cluster-thinned-sound.wav"
-dest_files=[ "res://.import/apple-cluster-thinned-sound.wav-1dd5453f5d2e43f9212db0dc8305840f.sample" ]
+dest_files=[ "res://import/apple-cluster-thinned-sound.wav-1dd5453f5d2e43f9212db0dc8305840f.sample" ]
 
 [params]
 

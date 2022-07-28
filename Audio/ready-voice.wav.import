@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/ready-voice.wav-68a80ce75d4af9000a29b6bab896e24e.sample"
+path="res://import/ready-voice.wav-68a80ce75d4af9000a29b6bab896e24e.sample"
 
 [deps]
 
 source_file="res://Audio/ready-voice.wav"
-dest_files=[ "res://.import/ready-voice.wav-68a80ce75d4af9000a29b6bab896e24e.sample" ]
+dest_files=[ "res://import/ready-voice.wav-68a80ce75d4af9000a29b6bab896e24e.sample" ]
 
 [params]
 

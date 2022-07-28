@@ -1,11 +1,9 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/CGTuts_OceanHDRI_Freebie_001.hdr" type="Texture" id=1]
 [ext_resource path="res://Scenes/ARVROrigin.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Audio/beep.wav" type="AudioStream" id=3]
 [ext_resource path="res://Game.gd" type="Script" id=4]
-[ext_resource path="res://Scenes/GameReset.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Levels/GamePlayScene.tscn" type="PackedScene" id=7]
 
 [sub_resource type="PanoramaSky" id=4]
 panorama = ExtResource( 1 )
@@ -26,8 +24,6 @@ height = 0.07
 script = ExtResource( 4 )
 
 [node name="Levels" type="Spatial" parent="."]
-
-[node name="GamePlayScene" parent="Levels" instance=ExtResource( 7 )]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 3 )
@@ -56,8 +52,5 @@ shape = SubResource( 15 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
-
-[node name="GameReset" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.305942, 0.469421, 0.128892 )
 
 [editable path="ARVROrigin"]

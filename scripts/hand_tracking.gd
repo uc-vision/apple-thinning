@@ -123,9 +123,9 @@ func _update_hand_model(model : Spatial, skel: Skeleton):
 	
 	
 func grab_object(object_to_pickup):
-	held_object = object_to_pickup
 	
-	if 'Apple' in held_object.get_groups() and held_object.is_interactable():
+	if 'Apple' in object_to_pickup.get_groups() and object_to_pickup.is_interactable() and not object_to_pickup.is_picked_off():
+		held_object = object_to_pickup
 		held_object.mode = RigidBody.MODE_STATIC
 		var original_position = held_object.global_transform
 		
@@ -137,7 +137,8 @@ func grab_object(object_to_pickup):
 		held_object.global_transform = original_position
 		held_object.picked_up()
 
-	if held_object.has_method("interact"):
+	if object_to_pickup.has_method("interact"):
+		#held_object = object_to_pickup #Does this need to be here?
 		held_object.interact()
 	
 func drop_object():

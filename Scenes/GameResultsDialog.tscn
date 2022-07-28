@@ -1,0 +1,116 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Assets/Fonts/Calistoga/Calistoga-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scripts/GameResultsDialog.gd" type="Script" id=2]
+[ext_resource path="res://Audio/dialog-pop-up-sound.wav" type="AudioStream" id=3]
+[ext_resource path="res://Audio/button-press-sound.wav" type="AudioStream" id=4]
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 0.02, 0.5, 1 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.117647, 0.564706, 0.937255, 1 )
+
+[sub_resource type="CubeMesh" id=5]
+material = SubResource( 2 )
+size = Vector3( 0.05, 0.3, 0.35 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 48
+font_data = ExtResource( 1 )
+
+[sub_resource type="ViewportTexture" id=7]
+viewport_path = NodePath("PlayAgainButton/Viewport")
+
+[sub_resource type="BoxShape" id=11]
+extents = Vector3( 0.1, 0.15, 0.175 )
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_color = Color( 0.933333, 0.607843, 0.0235294, 1 )
+
+[sub_resource type="CubeMesh" id=8]
+material = SubResource( 4 )
+size = Vector3( 0.05, 0.3, 0.35 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 48
+font_data = ExtResource( 1 )
+
+[sub_resource type="ViewportTexture" id=10]
+viewport_path = NodePath("BackToMenuButton/Viewport")
+
+[sub_resource type="BoxShape" id=12]
+extents = Vector3( 0.1, 0.15, 0.175 )
+
+[node name="GameResultsDialog" type="MeshInstance"]
+cast_shadow = 0
+mesh = SubResource( 1 )
+material/0 = null
+script = ExtResource( 2 )
+
+[node name="PlayAgainButton" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0339265, 0.00611565, 0.241597 )
+cast_shadow = 0
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="Viewport" type="Viewport" parent="PlayAgainButton"]
+size = Vector2( 250, 125 )
+transparent_bg = true
+render_target_v_flip = true
+
+[node name="Label" type="Label" parent="PlayAgainButton/Viewport"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 6 )
+text = "Play
+Again"
+align = 1
+
+[node name="Sprite3D" type="Sprite3D" parent="PlayAgainButton"]
+transform = Transform( -7.86805e-09, 0, 0.18, 0, 0.18, 0, -0.18, 0, -7.86805e-09, 0.0276494, 0.0161967, -0.110272 )
+texture = SubResource( 7 )
+
+[node name="PlayAgainButtonArea" type="Area" parent="PlayAgainButton"]
+
+[node name="CollisionShape" type="CollisionShape" parent="PlayAgainButton/PlayAgainButtonArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0732695, 0, 0 )
+shape = SubResource( 11 )
+
+[node name="BackToMenuButton" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0296314, 0.00628805, -0.241717 )
+cast_shadow = 0
+mesh = SubResource( 8 )
+material/0 = null
+
+[node name="Viewport" type="Viewport" parent="BackToMenuButton"]
+size = Vector2( 250, 125 )
+transparent_bg = true
+render_target_v_flip = true
+
+[node name="Label" type="Label" parent="BackToMenuButton/Viewport"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 9 )
+text = "Back to 
+Menu"
+align = 1
+
+[node name="Sprite3D" type="Sprite3D" parent="BackToMenuButton"]
+transform = Transform( -7.86805e-09, 0, 0.18, 0, 0.18, 0, -0.18, 0, -7.86805e-09, 0.0274915, 0.015048, -0.0917479 )
+texture = SubResource( 10 )
+
+[node name="BackToMenuButtonArea" type="Area" parent="BackToMenuButton"]
+
+[node name="CollisionShape" type="CollisionShape" parent="BackToMenuButton/BackToMenuButtonArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0737063, 0, 0 )
+shape = SubResource( 12 )
+
+[node name="DialogPupUpSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[node name="ButtonPressSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[connection signal="area_entered" from="PlayAgainButton/PlayAgainButtonArea" to="." method="_on_PlayAgainButtonArea_area_entered"]
+[connection signal="area_entered" from="BackToMenuButton/BackToMenuButtonArea" to="." method="_on_BackToMenuButtonArea_area_entered"]

@@ -1,81 +1,181 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=20 format=2]
 
-[ext_resource path="res://scripts/BranchSection.gd" type="Script" id=1]
-[ext_resource path="res://Audio/tree-branch-hit-sound.wav" type="AudioStream" id=2]
-[ext_resource path="res://Audio/apple-cluster-falling-sound.wav" type="AudioStream" id=3]
-[ext_resource path="res://Assets/AppleTreeModel.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Meshes/TreeComponents/branch 1.glb" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Meshes/TreeComponents/branch 2.glb" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Meshes/TreeComponents/trunk 1.glb" type="PackedScene" id=3]
+[ext_resource path="res://Audio/apple-cluster-falling-sound.wav" type="AudioStream" id=4]
 [ext_resource path="res://scripts/AppleTree.gd" type="Script" id=5]
 [ext_resource path="res://Audio/apple-tree-thinned-sound.wav" type="AudioStream" id=6]
+[ext_resource path="res://Assets/Meshes/leaves.glb" type="PackedScene" id=7]
+[ext_resource path="res://Assets/Meshes/leaves.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Curve3D" id=1]
 _data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -0.0107371, 0.763548, 0.107095, 0, 0, 0, 0, 0, 0, -0.0900356, 0.879068, 0.344067, 0, 0, 0, 0, 0, 0, -0.0326493, 0.839708, 0.731455, 0, 0, 0, 0, 0, 0, -0.00338675, 0.889762, 0.846837, 0, 0, 0, 0, 0, 0, 0.0337429, 1.25701, 1.17274 ),
-"tilts": PoolRealArray( 0, 0, 0, 0, 0 )
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -0.0030365, -0.00531864, 0.0410901, 0, 0, 0, 0, 0, 0, 0.00434653, -0.00186443, 0.756422 ),
+"tilts": PoolRealArray( 0, 0 )
 }
 
-[sub_resource type="BoxShape" id=2]
+[sub_resource type="Curve3D" id=2]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -0.0030365, -0.00531864, 0.0410901, 0, 0, 0, 0, 0, 0, 0.00465396, -0.00173044, 0.765706 ),
+"tilts": PoolRealArray( 0, 0 )
+}
+
+[sub_resource type="Curve3D" id=3]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -0.0030365, -0.00531864, 0.0410901, 0, 0, 0, 0, 0, 0, 0.00157092, 0.00141406, 0.753132 ),
+"tilts": PoolRealArray( 0, 0 )
+}
+
+[sub_resource type="Curve3D" id=4]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -0.0030365, -0.00531864, 0.0410901, 0, 0, 0, 0, 0, 0, 0.00314061, 0.00719118, 0.817492 ),
+"tilts": PoolRealArray( 0, 0 )
+}
+
+[sub_resource type="Curve3D" id=5]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -0.0030365, -0.00531864, 0.0410901, 0, 0, 0, 0, 0, 0, -0.00695099, 0.00176704, 0.904498 ),
+"tilts": PoolRealArray( 0, 0 )
+}
+
+[sub_resource type="Curve3D" id=6]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -0.0030365, -0.00531864, 0.0410901, 0, 0, 0, 0, 0, 0, -0.0074017, 0.00164342, 0.758692 ),
+"tilts": PoolRealArray( 0, 0 )
+}
+
+[sub_resource type="Curve3D" id=7]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -0.0030365, -0.00531864, 0.0410901, 0, 0, 0, 0, 0, 0, -0.0060606, 0.00399697, 0.767847 ),
+"tilts": PoolRealArray( 0, 0 )
+}
+
+[sub_resource type="Curve3D" id=8]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -0.0030365, -0.00531864, 0.0410901, 0, 0, 0, 0, 0, 0, -0.00695794, -0.00104821, 0.758135 ),
+"tilts": PoolRealArray( 0, 0 )
+}
+
+[sub_resource type="Curve3D" id=9]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -0.0030365, -0.00531864, 0.0410901, 0, 0, 0, 0, 0, 0, -0.00215304, 0.00224111, 0.769111 ),
+"tilts": PoolRealArray( 0, 0 )
+}
+
+[sub_resource type="Curve3D" id=10]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -0.0030365, -0.00531864, 0.0410901, 0, 0, 0, 0, 0, 0, -0.00808194, 0.000733614, 0.764607 ),
+"tilts": PoolRealArray( 0, 0 )
+}
+
+[sub_resource type="Curve3D" id=11]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 0.00117493, 0.00570345, -0.690734, 0, 0, 0, 0, 0, 0, 0.00117493, -0.00495219, -0.152408, 0, 0, 0, 0, 0, 0, 0.00117493, -0.0601311, -0.000329748, 0, 0, 0, 0, 0, 0, 0.00117493, 0.00312281, 0.147711, 0, 0, 0, 0, 0, 0, 0.00117493, 0.00149369, 0.704342 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0 )
+}
 
 [node name="AppleTree" type="Spatial"]
 script = ExtResource( 5 )
 
-[node name="AppleTreeModel" parent="." instance=ExtResource( 4 )]
-
-[node name="Branch1" type="Spatial" parent="." groups=["Branch"]]
+[node name="Branch1" parent="." groups=["Branch"] instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6286, 0 )
 
 [node name="AppleClusterSpawnPath" type="Path" parent="Branch1" groups=["ClusterSpawnPath"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00919244, -0.0551334, 0.0235204 )
 curve = SubResource( 1 )
 
-[node name="PathFollow" type="PathFollow" parent="Branch1/AppleClusterSpawnPath"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0107371, 0.763548, 0.107095 )
+[node name="leaves" parent="Branch1" instance=ExtResource( 8 )]
 
-[node name="Sections" type="Spatial" parent="Branch1"]
+[node name="Branch2" parent="." groups=["Branch"] instance=ExtResource( 2 )]
+transform = Transform( 0.595973, 0.803005, 0, -0.803005, 0.595973, 0, 0, 0, 1, 0, 2.15654, 0 )
 
-[node name="Section1" type="Area" parent="Branch1/Sections"]
-collision_mask = 6
-script = ExtResource( 1 )
+[node name="AppleClusterSpawnPath" type="Path" parent="Branch2" groups=["ClusterSpawnPath"]]
+transform = Transform( 0.595973, -0.803005, 0, 0.803005, 0.595973, 0, 0, 0, 1, -0.00889218, 0.00659955, 0 )
+curve = SubResource( 2 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Branch1/Sections/Section1"]
-transform = Transform( 0.0337876, 6.81306e-11, -0.0162478, 0.000905219, 0.0339385, 0.0843479, 0.00225214, -0.0136411, 0.209854, -0.0610933, 0.858575, 0.17553 )
-shape = SubResource( 2 )
+[node name="leaves" parent="Branch2" instance=ExtResource( 8 )]
 
-[node name="BranchHitSoundPlayer" type="AudioStreamPlayer3D" parent="Branch1/Sections/Section1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0562929, 0.862151, 0.190176 )
-stream = ExtResource( 2 )
+[node name="Branch3" parent="." groups=["Branch"] instance=ExtResource( 2 )]
+transform = Transform( 0.406242, -0.913765, 0, 0.913765, 0.406242, 0, 0, 0, 1, 0, 1.66425, 0 )
 
-[node name="Section2" type="Area" parent="Branch1/Sections"]
-collision_mask = 6
-script = ExtResource( 1 )
+[node name="AppleClusterSpawnPath" type="Path" parent="Branch3" groups=["ClusterSpawnPath"]]
+transform = Transform( 0.406242, 0.913765, 0, -0.913765, 0.406242, 0, 0, 0, 1, -0.00536525, -0.00238532, 0 )
+curve = SubResource( 3 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Branch1/Sections/Section2"]
-transform = Transform( 0.0350706, -0.000432286, 0.0609238, 0.00228737, 0.0342699, -0.0290974, -0.0113084, 0.00559117, 0.183057, -0.0270511, 0.914979, 0.536412 )
-shape = SubResource( 2 )
+[node name="leaves" parent="Branch3" instance=ExtResource( 8 )]
 
-[node name="BranchHitSoundPlayer" type="AudioStreamPlayer3D" parent="Branch1/Sections/Section2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0163877, 0.907534, 0.492746 )
-stream = ExtResource( 2 )
+[node name="Branch4" parent="." groups=["Branch"] instance=ExtResource( 1 )]
+transform = Transform( 1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 1.20089, 0 )
 
-[node name="Section3" type="Area" parent="Branch1/Sections"]
-collision_mask = 6
-script = ExtResource( 1 )
+[node name="AppleClusterSpawnPath" type="Path" parent="Branch4" groups=["ClusterSpawnPath"]]
+transform = Transform( 0.909091, 0, 0, 0, 0.909091, 0, 0, 0, 0.909091, 8.12791e-08, -0.0103837, 0 )
+curve = SubResource( 4 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Branch1/Sections/Section3"]
-transform = Transform( 0.0400527, 0, 0, 0, 0.027445, 0.190671, 0, -0.0275574, 0.189894, 0.0280013, 1.09293, 0.953958 )
-shape = SubResource( 2 )
+[node name="leaves" parent="Branch4" instance=ExtResource( 8 )]
 
-[node name="BranchHitSoundPlayer" type="AudioStreamPlayer3D" parent="Branch1/Sections/Section3"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0246515, 1.16113, 0.994166 )
-stream = ExtResource( 2 )
+[node name="Branch5" parent="." groups=["Branch"] instance=ExtResource( 1 )]
+transform = Transform( 0.843165, -0.853858, 0, 0.853858, 0.843165, 0, 0, 0, 1.2, 0, 0.68077, 0 )
+
+[node name="AppleClusterSpawnPath" type="Path" parent="Branch5" groups=["ClusterSpawnPath"]]
+transform = Transform( 0.585531, 0.592957, 0, -0.592957, 0.585531, 0, 0, 0, 0.833333, -0.00483361, -0.0047732, 0 )
+curve = SubResource( 5 )
+
+[node name="leaves" parent="Branch5" instance=ExtResource( 8 )]
+
+[node name="Branch6" parent="." groups=["Branch"] instance=ExtResource( 2 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.70023e-09, 2.61239, -0.0194484 )
+
+[node name="AppleClusterSpawnPath" type="Path" parent="Branch6" groups=["ClusterSpawnPath"]]
+curve = SubResource( 6 )
+
+[node name="leaves" parent="Branch6" instance=ExtResource( 8 )]
+
+[node name="Branch7" parent="." groups=["Branch"] instance=ExtResource( 1 )]
+transform = Transform( -0.928745, 0.37072, 1.50996e-07, 0.37072, 0.928745, 0, -1.40237e-07, 5.59771e-08, -1, 0, 2.14158, 0 )
+
+[node name="AppleClusterSpawnPath" type="Path" parent="Branch7" groups=["ClusterSpawnPath"]]
+curve = SubResource( 7 )
+
+[node name="leaves" parent="Branch7" instance=ExtResource( 8 )]
+
+[node name="Branch8" parent="." groups=["Branch"] instance=ExtResource( 2 )]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 1.73014, 0 )
+
+[node name="AppleClusterSpawnPath" type="Path" parent="Branch8" groups=["ClusterSpawnPath"]]
+curve = SubResource( 8 )
+
+[node name="leaves" parent="Branch8" instance=ExtResource( 7 )]
+
+[node name="Branch9" parent="." groups=["Branch"] instance=ExtResource( 1 )]
+transform = Transform( 0.107914, -1.09469, 1.66095e-07, -1.09469, -0.107914, 0, 1.62946e-08, -1.65294e-07, -1.1, 0, 1.18501, 0 )
+
+[node name="AppleClusterSpawnPath" type="Path" parent="Branch9" groups=["ClusterSpawnPath"]]
+curve = SubResource( 9 )
+
+[node name="leaves" parent="Branch9" instance=ExtResource( 8 )]
+
+[node name="Branch10" parent="." groups=["Branch"] instance=ExtResource( 2 )]
+transform = Transform( 0.806747, -0.888346, 1.81195e-07, -0.888346, -0.806747, 0, 1.21815e-07, -1.34137e-07, -1.2, 0, 0.685673, 0 )
+
+[node name="AppleClusterSpawnPath" type="Path" parent="Branch10" groups=["ClusterSpawnPath"]]
+curve = SubResource( 10 )
+
+[node name="leaves" parent="Branch10" instance=ExtResource( 8 )]
+
+[node name="TrunkAndTopBranches" parent="." groups=["Branch"] instance=ExtResource( 3 )]
+
+[node name="AppleClusterSpawnPath" type="Path" parent="TrunkAndTopBranches" groups=["ClusterSpawnPath"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.00283, 0 )
+curve = SubResource( 11 )
+
+[node name="leaves" parent="TrunkAndTopBranches" instance=ExtResource( 7 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 3.0009, 0 )
+
+[node name="leaves2" parent="TrunkAndTopBranches" instance=ExtResource( 7 )]
+transform = Transform( -0.9, 0, -7.86805e-08, 0, 0.9, 0, 7.86805e-08, 0, -0.9, 0, 3.0009, 0 )
 
 [node name="AppleClusterFallSoundPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 3 )
+stream = ExtResource( 4 )
 
 [node name="ThinningCompletedSoundPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
-
-[connection signal="area_entered" from="Branch1/Sections/Section1" to="Branch1/Sections/Section1" method="_on_Section_area_entered"]
-[connection signal="area_exited" from="Branch1/Sections/Section1" to="Branch1/Sections/Section1" method="_on_Section_area_exited"]
-[connection signal="area_entered" from="Branch1/Sections/Section2" to="Branch1/Sections/Section2" method="_on_Section_area_entered"]
-[connection signal="area_exited" from="Branch1/Sections/Section2" to="Branch1/Sections/Section2" method="_on_Section_area_exited"]
-[connection signal="area_entered" from="Branch1/Sections/Section3" to="Branch1/Sections/Section3" method="_on_Section_area_entered"]
-[connection signal="area_exited" from="Branch1/Sections/Section3" to="Branch1/Sections/Section3" method="_on_Section_area_exited"]

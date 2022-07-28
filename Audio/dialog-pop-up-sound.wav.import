@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/dialog-pop-up-sound.wav-0d4848b1f87d7fd11257372c6acde8a8.sample"
+path="res://import/dialog-pop-up-sound.wav-0d4848b1f87d7fd11257372c6acde8a8.sample"
 
 [deps]
 
 source_file="res://Audio/dialog-pop-up-sound.wav"
-dest_files=[ "res://.import/dialog-pop-up-sound.wav-0d4848b1f87d7fd11257372c6acde8a8.sample" ]
+dest_files=[ "res://import/dialog-pop-up-sound.wav-0d4848b1f87d7fd11257372c6acde8a8.sample" ]
 
 [params]
 

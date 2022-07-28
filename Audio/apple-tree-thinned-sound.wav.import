@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/apple-tree-thinned-sound.wav-2ef7c4927ee186ab5fb36937d1730c4d.sample"
+path="res://import/apple-tree-thinned-sound.wav-2ef7c4927ee186ab5fb36937d1730c4d.sample"
 
 [deps]
 
 source_file="res://Audio/apple-tree-thinned-sound.wav"
-dest_files=[ "res://.import/apple-tree-thinned-sound.wav-2ef7c4927ee186ab5fb36937d1730c4d.sample" ]
+dest_files=[ "res://import/apple-tree-thinned-sound.wav-2ef7c4927ee186ab5fb36937d1730c4d.sample" ]
 
 [params]
 

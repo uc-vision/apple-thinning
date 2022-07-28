@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/apple-picking-sound.wav-cbcf6e148f11494fee656a9c694082f6.sample"
+path="res://import/apple-picking-sound.wav-cbcf6e148f11494fee656a9c694082f6.sample"
 
 [deps]
 
 source_file="res://Audio/apple-picking-sound.wav"
-dest_files=[ "res://.import/apple-picking-sound.wav-cbcf6e148f11494fee656a9c694082f6.sample" ]
+dest_files=[ "res://import/apple-picking-sound.wav-cbcf6e148f11494fee656a9c694082f6.sample" ]
 
 [params]
 

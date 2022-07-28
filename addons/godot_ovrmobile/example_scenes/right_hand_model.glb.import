@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/right_hand_model.glb-5462a0aefd8dcabe7f35f5f18c012b18.scn"
+path="res://import/right_hand_model.glb-5462a0aefd8dcabe7f35f5f18c012b18.scn"
 
 [deps]
 
 source_file="res://addons/godot_ovrmobile/example_scenes/right_hand_model.glb"
-dest_files=[ "res://.import/right_hand_model.glb-5462a0aefd8dcabe7f35f5f18c012b18.scn" ]
+dest_files=[ "res://import/right_hand_model.glb-5462a0aefd8dcabe7f35f5f18c012b18.scn" ]
 
 [params]
 

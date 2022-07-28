@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/apple-cluster-falling-sound.wav-fddd88b417fc1581daf86f39c4b82917.sample"
+path="res://import/apple-cluster-falling-sound.wav-fddd88b417fc1581daf86f39c4b82917.sample"
 
 [deps]
 
 source_file="res://Audio/apple-cluster-falling-sound.wav"
-dest_files=[ "res://.import/apple-cluster-falling-sound.wav-fddd88b417fc1581daf86f39c4b82917.sample" ]
+dest_files=[ "res://import/apple-cluster-falling-sound.wav-fddd88b417fc1581daf86f39c4b82917.sample" ]
 
 [params]
 

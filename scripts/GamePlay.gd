@@ -7,6 +7,7 @@ onready var remaining_time_timer = $RemainingTimeTimer
 onready var combo_timer = $ComboTimer
 onready var wait_tree_spawn_timer = $WaitTreeSpawnTimer
 onready var wait_tree_remove_timer = $WaitTreeRemoveTimer
+onready var go_to_game_results_scene_timer = $GoToGameResultsSceneTimer
 onready var platform = $Platform
 onready var pause_button = $Platform/PauseButton
 onready var pause_dialog = $Platform/PauseDialog
@@ -14,17 +15,23 @@ onready var confirmation_dialog = $Platform/ConfirmationDialog
 onready var bgm_player = $BGM_Player
 
 const DIALOG_WAIT_TIME = 5
-const GAME_PLAY_DURATION = 60
+const GAME_PLAY_DURATION = 20
 const COMBO_INTERVAL = 3
 const TREE_REMOVE_WAIT_TIMER = 0.5
 const TREE_SPAWN_WAIT_TIME = 0.5
+const WAIT_BEFORE_GO_TO_RESULTS_TIME = 3
 
 var game_start_countdown = DIALOG_WAIT_TIME
 var remaining_time = GAME_PLAY_DURATION
 var current_combo = 0
 var remaining_time_watch 
 var score_and_combo_watch
-var total_score = 0
+var total_score: int = 0
+var num_apples_picked: int = 0
+var max_combo = 0
+var game_play_data
+
+signal go_to_game_results(game_results_data)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -55,15 +62,24 @@ func _ready():
 	wait_tree_spawn_timer.set_one_shot(true)
 	wait_tree_spawn_timer.set_wait_time(TREE_SPAWN_WAIT_TIME)
 	
-	
+	# Set up the go to game results scene timer
+	go_to_game_results_scene_timer.set_one_shot(true)
+	go_to_game_results_scene_timer.set_wait_time(WAIT_BEFORE_GO_TO_RESULTS_TIME)
+		
 	# Start the getset-ready timer counting down
 	game_start_timer.start()
 	
 func set_player(player):
-	platform.add_child(player)
+	# Add the player to GamePlayScene with human readable name
+	platform.add_child(player, true)
 	player.set_name("ARVROrigin")
 	remaining_time_watch = $Platform/ARVROrigin/LeftHand/RemainingTimeWatch
+	remaining_time_watch.reset_label(GAME_PLAY_DURATION)
 	score_and_combo_watch = $Platform/ARVROrigin/RightHand/ScoreAndComboWatch
+	score_and_combo_watch.reset_label()
+
+func set_game_play_data(data):
+	game_play_data = data
 	
 func _process(delta):
 	# Checks the game start countdown and updates the GUI board
@@ -77,7 +93,6 @@ func _process(delta):
 		if remaining_time != ceil(remaining_time_timer.get_time_left()):
 			remaining_time = ceil(remaining_time_timer.get_time_left())
 			remaining_time_watch.update_remaining_time(str(remaining_time))
-			
 
 func _on_AppleCluster_score_updated(cluster_score, has_damaged):
 	# If there is a damaged apple in the finished cluster, cut the combo
@@ -97,7 +112,10 @@ func _on_GameStartTimer_timeout():
 	
 # Increment the combo whenever an apple is picked. Updates the score board and start a new combo timer countdown. 
 func _on_AppleCluster_apple_picked():
+	num_apples_picked += 1
 	current_combo += 1
+	if current_combo > max_combo:
+		max_combo = current_combo
 	score_and_combo_watch.update_combo_label(str(current_combo))
 	combo_timer.start()
 
@@ -123,6 +141,7 @@ func _on_RemainingTimeTimer_timeout():
 	platform.show_game_flow_obstacle()
 	pause_button.disable()
 	platform.disable_platform_motion()
+	go_to_game_results_scene_timer.start()
 
 	
 func set_apple_pickable():
@@ -210,7 +229,17 @@ func _on_WaitTreeRemoveTimer_timeout():
 # Spawn a new apple tree
 func _on_WaitTreeSpawnTimer_timeout():
 	var new_apple_tree = apple_tree_scene.instance()
-	add_child(new_apple_tree)
+	add_child(new_apple_tree, true)
 	new_apple_tree.set_name("AppleTree")
 	if not remaining_time_timer.is_stopped():
 		setup_apples()
+
+
+func _on_GoToGameResultsSceneTimer_timeout():
+	if game_play_data:
+		game_play_data.set_score(total_score)
+		game_play_data.set_highest_score(0)
+		game_play_data.set_num_picked(num_apples_picked)
+		game_play_data.set_max_combo(max_combo)
+		
+	emit_signal("go_to_game_results", game_play_data)
