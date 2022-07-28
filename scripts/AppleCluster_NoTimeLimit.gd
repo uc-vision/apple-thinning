@@ -10,9 +10,8 @@ onready var hasDamaged
 
 const MAX_APPLE_NUM_TO_LEAVE = 2
 
-signal score_updated(new_score, has_damaged)
+signal score_computed(score)
 signal apple_picked
-signal cluster_finished
 
 const Point = {
 	HEALTHY_LARGE = 200,
@@ -38,32 +37,18 @@ func initialize(spawn_location):
 func _on_HealthyLargeApple_on_picked(apple):
 	emit_signal("apple_picked")
 	play_apple_picked_sound()
-	hide_point(apple)
 	remaining_apple_count -= 1
-	if remaining_apple_count <= MAX_APPLE_NUM_TO_LEAVE:
-		calculate_score()
-		is_interactable = false
-
 
 func _on_HealthySmallApple_on_picked(apple):
 	emit_signal("apple_picked")
 	play_apple_picked_sound()
-	hide_point(apple)
 	remaining_apple_count -= 1
-	if remaining_apple_count <= MAX_APPLE_NUM_TO_LEAVE:
-		calculate_score()
-		is_interactable = false
-	
 
 func _on_DamagedApple_on_picked(apple):
 	emit_signal("apple_picked")
 	play_apple_picked_sound()
-	hide_point(apple)
 	remaining_apple_count -= 1
-	if remaining_apple_count <= MAX_APPLE_NUM_TO_LEAVE:
-		calculate_score()
-		is_interactable = false
-		
+
 func calculate_score():
 	score = 0
 	hasDamaged = false
@@ -81,17 +66,7 @@ func calculate_score():
 			
 			child.show_point()
 	
-	if hasDamaged:
-		$PoorlyThinnedSoundPlayer.play()
-	else:
-		$ThinningCompletedSoundPlayer.play()
-	
-	emit_signal("score_updated", score, hasDamaged)
-	emit_signal("cluster_finished")
+	emit_signal("score_computed", score)
 	
 func play_apple_picked_sound():
 	apple_pick_sound_player.play()
-	
-func hide_point(apple):
-	if apple.is_score_visible:
-		apple.hide_point()

@@ -75,8 +75,10 @@ func set_player(player):
 	player.set_name("ARVROrigin")
 	remaining_time_watch = $Platform/ARVROrigin/LeftHand/RemainingTimeWatch
 	remaining_time_watch.reset_label(GAME_PLAY_DURATION)
+	remaining_time_watch.set_visible(true)
 	score_and_combo_watch = $Platform/ARVROrigin/RightHand/ScoreAndComboWatch
 	score_and_combo_watch.reset_label()
+	score_and_combo_watch.set_visible(true)
 
 func set_game_play_data(data):
 	game_play_data = data

@@ -1,10 +1,9 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Assets/Meshes/TreeComponents/branch 1.glb" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Meshes/TreeComponents/branch 2.glb" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Meshes/TreeComponents/trunk 1.glb" type="PackedScene" id=3]
-[ext_resource path="res://scripts/AppleTree.gd" type="Script" id=5]
-[ext_resource path="res://Audio/apple-tree-thinned-sound.wav" type="AudioStream" id=6]
+[ext_resource path="res://scripts/AppleTree_NoTimeLimit.gd" type="Script" id=4]
 [ext_resource path="res://Assets/Meshes/leaves.glb" type="PackedScene" id=7]
 [ext_resource path="res://Assets/Meshes/leaves.tscn" type="PackedScene" id=8]
 
@@ -74,8 +73,8 @@ _data = {
 "tilts": PoolRealArray( 0, 0, 0, 0, 0 )
 }
 
-[node name="AppleTree" type="Spatial"]
-script = ExtResource( 5 )
+[node name="AppleTree_NoTimeLimit" type="Spatial"]
+script = ExtResource( 4 )
 
 [node name="Branch1" parent="." groups=["Branch"] instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6286, 0 )
@@ -172,6 +171,3 @@ transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 3.0009, 0 )
 
 [node name="leaves2" parent="TrunkAndTopBranches" instance=ExtResource( 7 )]
 transform = Transform( -0.9, 0, -7.86805e-08, 0, 0.9, 0, 7.86805e-08, 0, -0.9, 0, 3.0009, 0 )
-
-[node name="ThinningCompletedSoundPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 6 )
