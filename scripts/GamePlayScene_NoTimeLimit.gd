@@ -1,7 +1,7 @@
 extends Spatial
 
 onready var go_to_game_results_scene_timer = $GoToGameResultsSceneTimer
-onready var platform = $Platform
+onready var platform = $Platform_NoTimeLimit
 onready var confirmation_dialog = $Platform/ConfirmationDialog
 
 const WAIT_BEFORE_GO_TO_RESULTS_TIME = 3
