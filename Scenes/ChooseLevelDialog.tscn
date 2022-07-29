@@ -19,7 +19,7 @@ font_data = ExtResource( 2 )
 viewport_path = NodePath("NoTimeLimitLevelButton/Viewport")
 
 [sub_resource type="BoxShape" id=8]
-extents = Vector3( 0.025, 0.2, 0.45 )
+extents = Vector3( 0.2, 0.2, 0.45 )
 
 [sub_resource type="SpatialMaterial" id=9]
 
@@ -35,7 +35,7 @@ font_data = ExtResource( 2 )
 viewport_path = NodePath("TimeAttackLevelButton/Viewport")
 
 [sub_resource type="BoxShape" id=10]
-extents = Vector3( 0.025, 0.2, 0.45 )
+extents = Vector3( 0.2, 0.2, 0.45 )
 
 [sub_resource type="DynamicFont" id=13]
 size = 42
@@ -71,6 +71,7 @@ texture = SubResource( 4 )
 [node name="NoTimeLimitLevelButtonArea" type="Area" parent="NoTimeLimitLevelButton"]
 
 [node name="CollisionShape" type="CollisionShape" parent="NoTimeLimitLevelButton/NoTimeLimitLevelButtonArea"]
+transform = Transform( 1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, -0.174559, 0, -5.96046e-08 )
 shape = SubResource( 8 )
 
 [node name="TimeAttackLevelButton" type="MeshInstance" parent="."]
@@ -97,6 +98,7 @@ texture = SubResource( 12 )
 [node name="TimeAttackLevelButtonArea" type="Area" parent="TimeAttackLevelButton"]
 
 [node name="CollisionShape" type="CollisionShape" parent="TimeAttackLevelButton/TimeAttackLevelButtonArea"]
+transform = Transform( 1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, -0.171888, 0, 0 )
 shape = SubResource( 10 )
 
 [node name="game-result-board-mesh" parent="." instance=ExtResource( 1 )]

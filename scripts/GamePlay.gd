@@ -65,7 +65,7 @@ func _ready():
 	# Set up the go to game results scene timer
 	go_to_game_results_scene_timer.set_one_shot(true)
 	go_to_game_results_scene_timer.set_wait_time(WAIT_BEFORE_GO_TO_RESULTS_TIME)
-		
+	
 	# Start the getset-ready timer counting down
 	game_start_timer.start()
 	
