@@ -40,8 +40,7 @@ custom_fonts/font = SubResource( 2 )
 text = "Thin the apples in the tree and press \"Finish\" button.
 Follow the tips below to get higher score!
 
-Tip 1: Clusters with 6 apples or more should be thinned down to 2. 
-Tip 2: Clusters with less than 6 apples should be thinned down to 1.
+Tip 1: Thin down each cluster to two apples.
 Tiip 3: Remove diseased apples and leave healthy apples.
 Tip 4: Remove smaller apples and leave larger apples.
 Trip 5: Leave apples with more sun explosure."
