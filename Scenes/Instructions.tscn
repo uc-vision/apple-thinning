@@ -41,9 +41,9 @@ text = "Thin the apples in the tree and press \"Finish\" button.
 Follow the tips below to get higher score!
 
 Tip 1: Thin down each cluster to two apples.
-Tiip 3: Remove diseased apples and leave healthy apples.
-Tip 4: Remove smaller apples and leave larger apples.
-Trip 5: Leave apples with more sun explosure."
+Tiip 2: Remove diseased apples and leave healthy apples.
+Tip 3: Remove smaller apples and leave larger apples.
+Trip 4: Leave apples with more sun explosure."
 
 [node name="Sprite3D" type="Sprite3D" parent="Board"]
 transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.0989628, -0.873733, 0.102525 )
