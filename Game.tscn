@@ -29,7 +29,7 @@ script = ExtResource( 4 )
 environment = SubResource( 3 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.54002, 0.841652, 0, -0.841652, 0.54002, 0, 24.5053, 18.1196 )
+transform = Transform( 1, 0, 0, 0, 0.54002, 0.841652, 0, -0.841652, 0.54002, 0, 10.191, 4.11993 )
 shadow_enabled = true
 
 [node name="ARVROrigin" parent="." instance=ExtResource( 2 )]

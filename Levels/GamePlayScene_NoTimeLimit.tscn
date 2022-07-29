@@ -35,5 +35,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.290849, 0 )
 [node name="GoToGameResultsSceneTimer" type="Timer" parent="."]
 
 [node name="AppleTree_NoTimeLimit" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -0.85 )
 
 [connection signal="timeout" from="GoToGameResultsSceneTimer" to="." method="_on_GoToGameResultsSceneTimer_timeout"]
