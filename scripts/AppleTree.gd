@@ -21,6 +21,8 @@ func _ready():
 	set_translation(TREE_TRANSLATE)
 	set_rotation(TREE_ROTATION)
 	
+	rng.randomize()
+	
 	# Iterate over branches in the tree
 	for child in get_children():
 		if 'Branch' in child.get_groups():
