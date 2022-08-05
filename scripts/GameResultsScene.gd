@@ -13,6 +13,7 @@ enum Level {
 }
 
 signal play_again
+signal go_to_menu
 
 const WAIT_TIME = 2
 # Called when the node enters the scene tree for the first time.
@@ -35,6 +36,12 @@ func _on_GameResultsDialog_play_again_button_pressed():
 func _on_GoToOtherLevelTimer_timeout():
 	if next_level == Level.GAME_PLAY:
 		emit_signal("play_again")
+	elif next_level == Level.MENU:
+		emit_signal("go_to_menu")
+		
+func _on_GameResultsDialog_back_to_menu_button_pressed():
+	go_to_other_level_timer.start()
+	next_level = Level.MENU
 
 func set_game_results_data(data):
 	if data:
