@@ -1,24 +1,24 @@
 extends Spatial
 
 var menu_scene = preload("res://Levels/MenuScene.tscn")
-var game_play_scene = preload("res://Levels/GamePlayScene.tscn")
-var no_time_limit_game_play_scene = preload("res://Levels/GamePlayScene_NoTimeLimit.tscn")
-var game_results_scene = load("res://Levels/GameResultsScene.tscn") 
-var GamePlayData = load("res://scripts/Classes/GamePlayData.gd")
+var time_attack_game_scene = preload("res://Levels/TimeAttackGameScene.tscn")
+var training_game_scene = preload("res://Levels/TrainingGameScene.tscn")
+var game_results_scene = load("res://Levels/GameResultsScene.tscn")
+var TimeAttackGameData = load("res://scripts/Classes/TimeAttackGameData.gd")
 
 var player
 var menu_level
-var game_play_level
-var no_time_limit_game_play_level
+var time_attack_game_level
+var training_game_level
 var game_results_level
-var game_play_data
+var time_attack_game_data
 
 func _ready():
-	game_play_data = GamePlayData.new()
+	time_attack_game_data = TimeAttackGameData.new()
 	enter_menu_scene()
 	
 func enter_menu_scene():
-	# First time to load GamePlayScene
+	# First time to load MenuScene
 	if not player:
 		player = $ARVROrigin
 
@@ -36,20 +36,20 @@ func enter_menu_scene():
 	# Add the player ot the MenuScene
 	menu_level.set_player(player)
 	
-	# Connect signals to request transition to either GamePlayScene or GamePlayScene_NoTimeLimit scene
-	menu_level.connect("play_no_time_limit_mode", self, "_on_MenuScene_play_no_time_limit")
-	menu_level.connect("play_time_attack_mode", self, "_on_MenuScene_play_time_attack")
+	# Connect signals to request transition to either TimeAttackGameScene or TrainingGameScene scene
+	menu_level.connect("play_training_game_mode", self, "_on_MenuScene_play_training_game")
+	menu_level.connect("play_time_attack_game_mode", self, "_on_MenuScene_play_time_attack_game")
 
-# Level transition from GamePlayScene --> GameResultsScene
-func _on_GamePlayScene_go_to_game_results(data):
+# Level transition from TimeAttackGameScene --> GameResultsScene
+func _on_TimeAttackGameScene_go_to_game_results(data):
 
-	# Detach the player from GamePlayScene level before deleting the level
-	player = get_node("Levels/GamePlayScene/Platform/ARVROrigin")
+	# Detach the player from TimeAttackGameScene level before deleting the level
+	player = get_node("Levels/TimeAttackGameScene/Platform/ARVROrigin")
 	if player and player.get_parent():
 		player.get_parent().remove_child(player)
 
-	# Delete the GamePlayScene
-	game_play_level.queue_free()
+	# Delete the TimeAttackGameScene
+	time_attack_game_level.queue_free()
 
 	# Instantiate the GameResultsScene
 	game_results_level = game_results_scene.instance()
@@ -65,7 +65,7 @@ func _on_GamePlayScene_go_to_game_results(data):
 	game_results_level.connect("go_to_menu", self, "_on_GameResultsScene_go_to_menu")
 	game_results_level.set_game_results_data(data)
 
-# Level transition from GameResultsScene --> GamePlayScene (TODO: Change the distination to GamePreparationScene once the scene is created)
+# Level transition from GameResultsScene --> TimeAttackGameScene (TODO: Change the distination to GamePreparationScene once the scene is created)
 func _on_GameResultsScene_play_again():
 	
 	# Detach the player from GameResultsScene
@@ -75,19 +75,19 @@ func _on_GameResultsScene_play_again():
 
 	game_results_level.queue_free()
 	
-	# Instantiate the GamePlayScene
-	game_play_level = game_play_scene.instance()
+	# Instantiate the TimeAttackGameScene
+	time_attack_game_level = time_attack_game_scene.instance()
 	
 	# Add the level with a human readable name
-	$Levels.add_child(game_play_level, true)
-	game_play_level.set_name("GamePlayScene")
+	$Levels.add_child(time_attack_game_level, true)
+	time_attack_game_level.set_name("TimeAttackGameScene")
 	
-	# Add the player to GamePlayScene
-	game_play_level.set_player(player)
-	game_play_level.set_game_play_data(game_play_data)
+	# Add the player to TimeAttackGameScene
+	time_attack_game_level.set_player(player)
+	time_attack_game_level.set_game_play_data(time_attack_game_data)
 	
-	# Connect signal to request transition from GamePlayScene to GameResultsScene
-	game_play_level.connect("go_to_game_results", self, "_on_GamePlayScene_go_to_game_results")
+	# Connect signal to request transition from TimeAttackGameScene to GameResultsScene
+	time_attack_game_level.connect("go_to_game_results", self, "_on_TimeAttackGameScene_go_to_game_results")
 	
 func _on_GameResultsScene_go_to_menu():
 	
@@ -98,7 +98,7 @@ func _on_GameResultsScene_go_to_menu():
 
 	game_results_level.queue_free()
 	
-	# Instantiate the MenuScene	
+	# Instantiate the MenuScene
 	menu_level = menu_scene.instance()
 	
 	# Add the level with a human readable name
@@ -108,35 +108,35 @@ func _on_GameResultsScene_go_to_menu():
 	# Add the player ot the MenuScene
 	menu_level.set_player(player)
 	
-	# Connect signals to request transition to either GamePlayScene or GamePlayScene_NoTimeLimit scene
-	menu_level.connect("play_no_time_limit_mode", self, "_on_MenuScene_play_no_time_limit")
-	menu_level.connect("play_time_attack_mode", self, "_on_MenuScene_play_time_attack")
+	# Connect signals to request transition to either TimeAttackGameScene or TrainingGameScene
+	menu_level.connect("play_training_game_mode", self, "_on_MenuScene_play_training_game")
+	menu_level.connect("play_time_attack_game_mode", self, "_on_MenuScene_play_time_attack_game")
 	
-# Level transition from MenuScene --> GamePlayScene_NoTimeLimit
-func _on_MenuScene_play_no_time_limit():
+# Level transition from MenuScene --> TrainingGameScene
+func _on_MenuScene_play_training_game():
 	# Detach the player from MenuScene level before deleting the level
 	player = get_node("Levels/MenuScene/ARVROrigin")
 	if player and player.get_parent():
 		player.get_parent().remove_child(player)
 
-	# Delete the GamePlayScene
+	# Delete the TimeAttackGameScene
 	menu_level.queue_free()
 
 	# Instantiate the GameResultsScene
-	no_time_limit_game_play_level = no_time_limit_game_play_scene.instance()
+	training_game_level = training_game_scene.instance()
 	
 	# Add the level to the Levels with a human readable node name
-	$Levels.add_child(no_time_limit_game_play_level, true)
-	no_time_limit_game_play_level.set_name("GamePlayScene_NoTimeLimit")
+	$Levels.add_child(training_game_level, true)
+	training_game_level.set_name("TrainingGameScene")
 	
 	# Add player to the GameResultsScene
-	no_time_limit_game_play_level.set_player(player)
+	training_game_level.set_player(player)
 	
-	# Connect signal to request transition from GamePlayScene to GameResultsScene
-	no_time_limit_game_play_level.connect("go_to_game_results", self, "_on_GamePlayScene_go_to_game_results")
+	# Connect signal to request transition from TimeAttackGameScene to GameResultsScene
+	training_game_level.connect("go_to_game_results", self, "_on_TimeAttackGameScene_go_to_game_results")
 	
-# Level transition from MenuScene --> GamePlayScene
-func _on_MenuScene_play_time_attack():
+# Level transition from MenuScene --> TimeAttackGameScene
+func _on_MenuScene_play_time_attack_game():
 	# Detatch the player from a current parent
 	player = get_node("Levels/MenuScene/ARVROrigin")
 	if player and player.get_parent():
@@ -144,16 +144,16 @@ func _on_MenuScene_play_time_attack():
 		
 	menu_level.queue_free()
 
-	# Instantiated the GamePlayScene
-	game_play_level = game_play_scene.instance()
+	# Instantiated the TimeAttackGameScene
+	time_attack_game_level = time_attack_game_scene.instance()
 	
 	# Add the level with a human readable name
-	$Levels.add_child(game_play_level, true)
-	game_play_level.set_name("GamePlayScene")
+	$Levels.add_child(time_attack_game_level, true)
+	time_attack_game_level.set_name("TimeAttackGameScene")
 	
-	# Add the player to GamePlayScene
-	game_play_level.set_player(player)
-	game_play_level.set_game_play_data(game_play_data)
+	# Add the player to TimeAttackGameScene
+	time_attack_game_level.set_player(player)
+	time_attack_game_level.set_game_play_data(time_attack_game_data)
 	
-	# Connect signal to request transition from GamePlayScene to GameResultsScene
-	game_play_level.connect("go_to_game_results", self, "_on_GamePlayScene_go_to_game_results")
+	# Connect signal to request transition from TimeAttackGameScene to GameResultsScene
+	time_attack_game_level.connect("go_to_game_results", self, "_on_TimeAttackGameScene_go_to_game_results")

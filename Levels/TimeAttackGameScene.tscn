@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Scenes/AppleTree.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scripts/GamePlay.gd" type="Script" id=2]
-[ext_resource path="res://Audio/game-play-bgm.wav" type="AudioStream" id=3]
-[ext_resource path="res://Scenes/Platform.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Platform_TimeAttackGame.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/AppleTree_TimeAttackGame.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/GamePlayScene_TimeAttackGame.gd" type="Script" id=3]
+[ext_resource path="res://Audio/game-play-bgm.wav" type="AudioStream" id=4]
 
 [sub_resource type="SpatialMaterial" id=4]
 albedo_color = Color( 0.345098, 0.458824, 0.282353, 1 )
@@ -16,7 +16,7 @@ size = Vector3( 30, 2, 30 )
 extents = Vector3( 15, 1, 15 )
 
 [node name="GamePlayScene" type="Spatial"]
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 
 [node name="Ground" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
@@ -30,7 +30,7 @@ collision_mask = 14
 [node name="CollisionShape" type="CollisionShape" parent="Ground/StaticBody"]
 shape = SubResource( 3 )
 
-[node name="AppleTree" parent="." instance=ExtResource( 1 )]
+[node name="AppleTree" parent="." instance=ExtResource( 2 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -0.85 )
 
 [node name="RemainingTimeTimer" type="Timer" parent="."]
@@ -46,11 +46,11 @@ __meta__ = {
 
 [node name="WaitTreeSpawnTimer" type="Timer" parent="."]
 
-[node name="Platform" parent="." instance=ExtResource( 9 )]
+[node name="Platform" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0 )
 
 [node name="BGM_Player" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 3 )
+stream = ExtResource( 4 )
 volume_db = -15.0
 
 [node name="GoToGameResultsSceneTimer" type="Timer" parent="."]

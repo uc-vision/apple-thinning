@@ -1,6 +1,6 @@
 extends Spatial
 
-onready var apple_tree_scene = load("res://Scenes/AppleTree.tscn")
+onready var apple_tree_scene = load("res://Scenes/AppleTree_TimeAttackGame.tscn")
 
 onready var game_start_timer = $GameStartTimer
 onready var remaining_time_timer = $RemainingTimeTimer

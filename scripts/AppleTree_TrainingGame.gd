@@ -1,8 +1,8 @@
 extends Spatial
 
-onready var apple_cluster_a = preload("res://Scenes/AppleCluster_NoTimeLimit_TypeA.tscn")
-onready var apple_cluster_b = preload("res://Scenes/AppleCluster_NoTimeLimit_TypeB.tscn")
-onready var apple_cluster_c = preload("res://Scenes/AppleCluster_NoTimeLimit_TypeC.tscn")
+onready var apple_cluster_a = preload("res://Scenes/AppleCluster_TrainingGame_TypeA.tscn")
+onready var apple_cluster_b = preload("res://Scenes/AppleCluster_TrainingGame_TypeB.tscn")
+onready var apple_cluster_c = preload("res://Scenes/AppleCluster_TrainingGame_TypeC.tscn")
 onready var apple_cluster_fall_sound_player = get_node("AppleClusterFallSoundPlayer")
 onready var rng = RandomNumberGenerator.new()
 onready var cluster_type

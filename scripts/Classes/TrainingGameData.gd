@@ -1,6 +1,6 @@
 extends Reference
 
-class_name GamePlayData
+class_name TrainingGameData
 
 enum Grade {
 	D, C, B, A, S, NA = -1

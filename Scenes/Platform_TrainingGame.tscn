@@ -1,13 +1,9 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://Scenes/PauseButton.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/PauseDialog.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/ConfirmationDialog.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/GameFlowObstacle.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/PlatformController.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scripts/Platform.gd" type="Script" id=6]
-[ext_resource path="res://Audio/platform-up-sound.wav" type="AudioStream" id=7]
-[ext_resource path="res://Audio/platform-down-sound.wav" type="AudioStream" id=8]
+[ext_resource path="res://Scenes/PlatformController.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/Platform_TrainingGame.gd" type="Script" id=2]
+[ext_resource path="res://Audio/platform-up-sound.wav" type="AudioStream" id=3]
+[ext_resource path="res://Audio/platform-down-sound.wav" type="AudioStream" id=4]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 1, 0.1, 0.625 )
@@ -44,8 +40,8 @@ height = 0.75
 radius = 0.04
 height = 0.75
 
-[node name="Platform" type="Spatial"]
-script = ExtResource( 6 )
+[node name="Platform_NoTimeLimit" type="Spatial"]
+script = ExtResource( 2 )
 
 [node name="Floor" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.103461, 0 )
@@ -239,27 +235,15 @@ material/0 = null
 [node name="CollisionShape" type="CollisionShape" parent="RightFence/Pole2/StaticBody"]
 shape = SubResource( 11 )
 
-[node name="PauseButton" parent="." instance=ExtResource( 1 )]
-transform = Transform( -4.37114e-08, 0, -1, 0.679672, 0.733516, -2.97094e-08, 0.733516, -0.679672, -3.2063e-08, -0.673283, 0.659201, -0.450455 )
-
-[node name="PauseDialog" parent="." instance=ExtResource( 2 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1.08878, -0.615356 )
-
-[node name="ConfirmationDialog" parent="." instance=ExtResource( 3 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1.0852, -0.609134 )
-
-[node name="PlatformController" parent="." instance=ExtResource( 5 )]
+[node name="PlatformController" parent="." instance=ExtResource( 1 )]
 transform = Transform( -4.37114e-08, 0, -1, 0.694093, 0.719885, -3.03398e-08, 0.719885, -0.694093, -3.14672e-08, 0, 0.653431, -0.439 )
-
-[node name="GameFlowObstacle" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1.20022, -0.78972 )
 
 [node name="PlatformUpSoundPlayer" type="AudioStreamPlayer3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.207569, 0 )
-stream = ExtResource( 7 )
+stream = ExtResource( 3 )
 unit_db = 10.0
 
 [node name="PlatformDownSoundPlayer" type="AudioStreamPlayer3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.207569, 0 )
-stream = ExtResource( 8 )
+stream = ExtResource( 4 )
 unit_db = 10.0
