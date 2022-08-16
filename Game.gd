@@ -132,9 +132,12 @@ func _on_MenuScene_play_training_game():
 	# Add player to the GameResultsScene
 	training_game_level.set_player(player)
 	
-	# Connect signal to request transition from TimeAttackGameScene to GameResultsScene
-	training_game_level.connect("go_to_game_results", self, "_on_TimeAttackGameScene_go_to_game_results")
+	# Connect signal to request transition from TrainingGameScene to MenuScene
+	training_game_level.connect("exit_to_menu", self, "_on_TrainingGameScene_exit_to_menu")
 	
+func _on_TrainingGameScene_exit_to_menu():
+	pass
+
 # Level transition from MenuScene --> TimeAttackGameScene
 func _on_MenuScene_play_time_attack_game():
 	# Detatch the player from a current parent
