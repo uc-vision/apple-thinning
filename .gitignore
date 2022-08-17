@@ -12,3 +12,6 @@ data_*/
 
 # Addons
 # addons/
+
+# Builds
+build/

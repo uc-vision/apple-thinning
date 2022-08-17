@@ -1,6 +1,6 @@
 extends Spatial
 
-onready var apple_tree_scene = load("res://Scenes/AppleTree.tscn")
+onready var apple_tree_scene = load("res://Scenes/AppleTree_TimeAttackGame.tscn")
 
 onready var game_start_timer = $GameStartTimer
 onready var remaining_time_timer = $RemainingTimeTimer
@@ -65,7 +65,7 @@ func _ready():
 	# Set up the go to game results scene timer
 	go_to_game_results_scene_timer.set_one_shot(true)
 	go_to_game_results_scene_timer.set_wait_time(WAIT_BEFORE_GO_TO_RESULTS_TIME)
-		
+	
 	# Start the getset-ready timer counting down
 	game_start_timer.start()
 	
@@ -75,8 +75,10 @@ func set_player(player):
 	player.set_name("ARVROrigin")
 	remaining_time_watch = $Platform/ARVROrigin/LeftHand/RemainingTimeWatch
 	remaining_time_watch.reset_label(GAME_PLAY_DURATION)
+	remaining_time_watch.set_visible(true)
 	score_and_combo_watch = $Platform/ARVROrigin/RightHand/ScoreAndComboWatch
 	score_and_combo_watch.reset_label()
+	score_and_combo_watch.set_visible(true)
 
 func set_game_play_data(data):
 	game_play_data = data

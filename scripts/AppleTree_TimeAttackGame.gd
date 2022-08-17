@@ -1,8 +1,8 @@
 extends Spatial
 
-onready var apple_cluster_a = preload("res://Scenes/AppleCluster_TypeA.tscn")
-onready var apple_cluster_b = preload("res://Scenes/AppleCluster_TypeB.tscn")
-onready var apple_cluster_c = preload("res://Scenes/AppleCluster_TypeC.tscn")
+onready var apple_cluster_a = preload("res://Scenes/AppleCluster_TimeAttackGame_TypeA.tscn")
+onready var apple_cluster_b = preload("res://Scenes/AppleCluster_TimeAttackGame_TypeB.tscn")
+onready var apple_cluster_c = preload("res://Scenes/AppleCluster_TimeAttackGame_TypeC.tscn")
 onready var apple_cluster_fall_sound_player = get_node("AppleClusterFallSoundPlayer")
 onready var rng = RandomNumberGenerator.new()
 onready var cluster_type
@@ -20,6 +20,8 @@ func _ready():
 	
 	set_translation(TREE_TRANSLATE)
 	set_rotation(TREE_ROTATION)
+	
+	rng.randomize()
 	
 	# Iterate over branches in the tree
 	for child in get_children():

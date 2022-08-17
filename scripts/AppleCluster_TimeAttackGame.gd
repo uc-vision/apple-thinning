@@ -4,7 +4,6 @@ onready var rng = RandomNumberGenerator.new()
 onready var score = 0
 onready var remaining_apple_count = 0
 onready var apple_pick_sound_player = $ApplePickSound
-onready var isDropped = false
 # Makes apples only pickable during the game play.
 onready var is_interactable = false
 onready var hasDamaged

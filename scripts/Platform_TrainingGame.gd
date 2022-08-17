@@ -1,13 +1,12 @@
 extends Spatial
 
 onready var controller = $PlatformController
-onready var game_flow_obstacle = $GameFlowObstacle
-onready var pause_button = $PauseButton
 onready var platform_up_sound_player = $PlatformUpSoundPlayer
 onready var platform_down_sound_player = $PlatformDownSoundPlayer
 
 var elevate_vector
 var lower_vector
+const GameMode = preload("res://scripts/Enums/GameMode.gd")
 const PLATFORM_SPEED = 0.7
 const ELEVATE_DIRECTION = Vector3(0, 1, 0)
 const LOWER_DIRECTION = Vector3(0, -1, 0)
@@ -20,6 +19,9 @@ enum State {
 	ELEVATING,
 	LOWERING
 }
+
+func _ready():
+	$ConfirmationDialog.set_info_text(GameMode.TRAINING)
 	
 func enable_platform_motion():
 	controller.enable_buttons()
@@ -43,26 +45,3 @@ func _physics_process(delta):
 		translate(lower_vector)
 		if not platform_down_sound_player.is_playing():
 			platform_down_sound_player.play()
-		
-func update_before_game_obstacle(game_start_countdown):
-	if game_start_countdown == 3:
-		game_flow_obstacle.update_label("Ready")
-		game_flow_obstacle.say_ready()
-	elif game_start_countdown == 2:
-		game_flow_obstacle.update_label("Set")
-		game_flow_obstacle.say_set()
-	elif game_start_countdown == 1:
-		game_flow_obstacle.update_label("Go!")
-		game_flow_obstacle.say_go()
-		
-func hide_game_flow_obstacle():
-	game_flow_obstacle.set_visible(false)
-	
-func show_game_flow_obstacle():
-	game_flow_obstacle.update_label("Finish!")
-	game_flow_obstacle.set_visible(true)
-	game_flow_obstacle.play_times_up_whistle()
-
-	
-func play_button_press_sound():
-	$ButtonPressSoundPlayer.play()
