@@ -42,7 +42,7 @@ height = 0.75
 radius = 0.04
 height = 0.75
 
-[node name="Platform_NoTimeLimit" type="Spatial"]
+[node name="Platform_TrainingGame" type="Spatial"]
 script = ExtResource( 2 )
 
 [node name="Floor" type="StaticBody" parent="."]

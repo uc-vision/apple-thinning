@@ -1,6 +1,7 @@
 extends MeshInstance
 
 onready var wait_timer = $WaitTimer
+var signal_sent = false
 
 signal confirm_exit_pressed
 signal cancel_button_pressed
@@ -37,19 +38,23 @@ func set_info_text(game_mode):
 		$Viewport/Label.set_text(TRAINING_MODE_TEXT)
 	elif game_mode == GameMode.TIME_ATTACK:
 		$Viewport/Label.set_text(TIME_ATTACK_MODE_TEXT)
+	else:
+		pass
 
 	
 func play_button_press_sound():
 	$ButtonPressSoundPlayer.play()
 
 func _on_ExitButtonArea_area_entered(area):
-	if "HandArea" in area.get_groups():
+	if "HandArea" in area.get_groups() and not signal_sent:
 		play_button_press_sound()
+		signal_sent = true
 		emit_signal("confirm_exit_pressed")
 
 func _on_CancelButtonArea_area_entered(area):
-	if "HandArea" in area.get_groups():
+	if "HandArea" in area.get_groups() and not signal_sent:
 		play_button_press_sound()
+		signal_sent = true
 		emit_signal("cancel_button_pressed")
 
 func _on_WaitTimer_timeout():

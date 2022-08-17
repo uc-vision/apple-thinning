@@ -1,8 +1,8 @@
 extends Spatial
 
 onready var go_to_game_results_scene_timer = $GoToGameResultsSceneTimer
-onready var platform = $Platform_NoTimeLimit
-onready var confirmation_dialog = $Platform/ConfirmationDialog
+onready var platform = $Platform_TrainingGame
+onready var confirmation_dialog = $Platform_TrainingGame/ConfirmationDialog
 
 var total_score: int = 0
 var num_apples_picked: int = 0
@@ -31,8 +31,8 @@ func set_player(player):
 	# Add the player to GamePlayScene with human readable name
 	platform.add_child(player, true)
 	player.set_name("ARVROrigin")
-	$Platform/ARVROrigin/LeftHand/RemainingTimeWatch.set_visible(false)
-	$Platform/ARVROrigin/RightHand/ScoreAndComboWatch.set_visible(false)
+	$Platform_TrainingGame/ARVROrigin/LeftHand/RemainingTimeWatch.set_visible(false)
+	$Platform_TrainingGame/ARVROrigin/RightHand/ScoreAndComboWatch.set_visible(false)
 
 func set_game_play_data(data):
 	game_play_data = data
