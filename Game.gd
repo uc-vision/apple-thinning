@@ -185,7 +185,6 @@ func _on_MenuScene_play_time_attack_game():
 
 # Level transition from menu to the tutorial
 func _on_MenuScene_play_tutorial_game():
-	#get_tree().root.get_node("Game/AudioStreamPlayer").play()  # debugging
 	# Detatch the player from a current parent
 	player = get_node("Levels/MenuScene/ARVROrigin")
 	if player and player.get_parent():
@@ -202,14 +201,20 @@ func _on_MenuScene_play_tutorial_game():
 	
 	# Add the player to TimeAttackGameScene
 	tutorial_game_level.set_player(player)
-	tutorial_game_level.set_game_play_data(time_attack_game_data)
-	
-	#get_tree().root.get_node("Game/AudioStreamPlayer").play()  # debugging
 
 	# Connect signal to request transition from TimeAttackGameScene to GameResultsScene
-	#tutorial_game_level.connect("exit_to_menu", self, "_on_TutorialGameScene_exit_to_menu")
+	tutorial_game_level.connect("exit_to_menu", self, "_on_TutorialGameScene_exit_to_menu")
 	
+
+func _on_TutorialGameScene_exit_to_menu():
+	# Detatch the player from a current parent
+	player = get_node("Levels/TutorialGameScene/ARVROrigin")
+	if player and player.get_parent():
+		player.get_parent().remove_child(player)
 	
+	tutorial_game_level.queue_free()
+	
+	enter_menu_scene()
 	
 	
 	

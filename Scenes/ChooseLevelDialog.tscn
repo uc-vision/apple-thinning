@@ -5,10 +5,10 @@
 [ext_resource path="res://Audio/button-press-sound.wav" type="AudioStream" id=3]
 [ext_resource path="res://scripts/ChooseLevelDialog.gd" type="Script" id=4]
 
-[sub_resource type="SpatialMaterial" id=6]
+[sub_resource type="SpatialMaterial" id=17]
 
 [sub_resource type="CubeMesh" id=3]
-material = SubResource( 6 )
+material = SubResource( 17 )
 size = Vector3( 0.05, 0.4, 0.9 )
 
 [sub_resource type="DynamicFont" id=7]
