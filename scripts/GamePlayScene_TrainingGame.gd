@@ -2,7 +2,7 @@ extends Spatial
 
 onready var go_to_game_results_scene_timer = $GoToGameResultsSceneTimer
 onready var platform = $Platform_TrainingGame
-onready var confirmation_dialog = $Platform_TrainingGame/ConfirmationDialog
+onready var exit_to_menu = $Platform_TrainingGame/ExitToMenu
 
 var total_score: int = 0
 var num_apples_picked: int = 0
@@ -11,12 +11,11 @@ var game_play_data
 
 const WAIT_BEFORE_GO_TO_RESULTS_TIME = 3
 
-signal exit_to_menu 
+signal exit_to_menu
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	confirmation_dialog.connect("confirm_exit_pressed", self, "_on_ConfirmationDialog_exit_pressed")
-	confirmation_dialog.connect("cancel_button_pressed", self, "_on_ConfirmationDialog_cancel_pressed")
+	exit_to_menu.connect("exit_to_menu", self, "_on_ExitToMenu_exit_to_menu")
 	
 	# Set up the go to game results scene timer
 	go_to_game_results_scene_timer.set_one_shot(true)
@@ -64,11 +63,9 @@ func set_apple_not_pickable():
 				if "AppleCluster" in branch_child.get_groups():
 					branch_child.is_interactable = false
 					
-func _on_ConfirmationDialog_exit_pressed():
+func _on_ExitToMenu_exit_to_menu():
+	get_tree().root.get_node("Game/AudioStreamPlayer").play()
 	emit_signal("exit_to_menu")
-	
-func _on_ConfirmationDialog_cancel_pressed():
-	pass
 
 func _on_GoToGameResultsSceneTimer_timeout():
 	# Set the game play data

@@ -3,10 +3,10 @@ extends Spatial
 onready var controller = $PlatformController
 onready var platform_up_sound_player = $PlatformUpSoundPlayer
 onready var platform_down_sound_player = $PlatformDownSoundPlayer
+onready var exit_to_menu_button = $ExitToMenuButton
 
 var elevate_vector
 var lower_vector
-const GameMode = preload("res://scripts/Enums/GameMode.gd")
 const PLATFORM_SPEED = 0.7
 const ELEVATE_DIRECTION = Vector3(0, 1, 0)
 const LOWER_DIRECTION = Vector3(0, -1, 0)
@@ -19,9 +19,7 @@ enum State {
 	ELEVATING,
 	LOWERING
 }
-
-func _ready():
-	$ConfirmationDialog.set_info_text(GameMode.TRAINING)
+	
 	
 func enable_platform_motion():
 	controller.enable_buttons()

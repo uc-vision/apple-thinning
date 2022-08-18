@@ -25,6 +25,7 @@ func enable(wait):
 		$CancelButton/CancelButtonArea.set_monitoring(true)
 		$ExitButton/ExitButtonArea/CollisionShape.set_disabled(false)
 		$CancelButton/CancelButtonArea/CollisionShape.set_disabled(false)
+		signal_sent = false
 	
 func disable():
 	set_visible(false)

@@ -5,7 +5,7 @@
 [ext_resource path="res://Audio/platform-up-sound.wav" type="AudioStream" id=3]
 [ext_resource path="res://Audio/platform-down-sound.wav" type="AudioStream" id=4]
 [ext_resource path="res://Scenes/Instructions.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/ConfirmationDialog.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/ExitToMenu.tscn" type="PackedScene" id=6]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 1, 0.1, 0.625 )
@@ -237,8 +237,11 @@ material/0 = null
 [node name="CollisionShape" type="CollisionShape" parent="RightFence/Pole2/StaticBody"]
 shape = SubResource( 11 )
 
+[node name="Instructions" parent="." instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.40206, 1.61097, 0 )
+
 [node name="PlatformController" parent="." instance=ExtResource( 1 )]
-transform = Transform( -4.37114e-08, 0, -1, 0.694093, 0.719885, -3.03398e-08, 0.719885, -0.694093, -3.14672e-08, 0, 0.653431, -0.439 )
+transform = Transform( -3.09086e-08, 3.09086e-08, -1, 0.707107, 0.707107, 0, 0.707107, -0.707107, -4.37114e-08, 0, 0.653431, -0.439 )
 
 [node name="PlatformUpSoundPlayer" type="AudioStreamPlayer3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.207569, 0 )
@@ -250,8 +253,5 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.207569, 0 )
 stream = ExtResource( 4 )
 unit_db = 10.0
 
-[node name="Instructions" parent="." instance=ExtResource( 5 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.40206, 1.61097, 0 )
-
-[node name="ConfirmationDialog" parent="." instance=ExtResource( 6 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.08068, 1.17488, 0 )
+[node name="ExitToMenu" parent="." instance=ExtResource( 6 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.06491, 0.922262, 0 )
