@@ -3,6 +3,7 @@ extends Spatial
 onready var go_to_game_results_scene_timer = $GoToGameResultsSceneTimer
 onready var platform = $Platform_TrainingGame
 onready var exit_to_menu = $Platform_TrainingGame/ExitToMenu
+onready var finish_training_game = $Platform_TrainingGame/FinishTrainingGame
 
 var total_score: int = 0
 var num_apples_picked: int = 0
@@ -16,7 +17,7 @@ signal exit_to_menu
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	exit_to_menu.connect("exit_to_menu", self, "_on_ExitToMenu_exit_to_menu")
-	
+	finish_training_game.connect("start_evaluation", self, "_on_FinishTrainingGame_start_evaluation")
 	# Set up the go to game results scene timer
 	go_to_game_results_scene_timer.set_one_shot(true)
 	go_to_game_results_scene_timer.set_wait_time(WAIT_BEFORE_GO_TO_RESULTS_TIME)
@@ -75,3 +76,6 @@ func _on_GoToGameResultsSceneTimer_timeout():
 		game_play_data.set_max_combo(max_combo)
 		
 	emit_signal("go_to_game_results", game_play_data)
+	
+func _on_FinishTrainingGame_start_evaluation():
+	get_tree().root.get_node("Game/AudioStreamPlayer").play()
