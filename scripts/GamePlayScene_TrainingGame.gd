@@ -64,7 +64,6 @@ func set_apple_not_pickable():
 					branch_child.is_interactable = false
 					
 func _on_ExitToMenu_exit_to_menu():
-	get_tree().root.get_node("Game/AudioStreamPlayer").play()
 	emit_signal("exit_to_menu")
 
 func _on_GoToGameResultsSceneTimer_timeout():

@@ -20,6 +20,7 @@ enum State {
 	ELEVATING,
 	LOWERING
 }
+
 	
 func enable_platform_motion():
 	controller.enable_buttons()
