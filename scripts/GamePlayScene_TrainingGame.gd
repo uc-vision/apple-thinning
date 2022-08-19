@@ -78,4 +78,4 @@ func _on_GoToGameResultsSceneTimer_timeout():
 	emit_signal("go_to_game_results", game_play_data)
 	
 func _on_FinishTrainingGame_start_evaluation():
-	get_tree().root.get_node("Game/AudioStreamPlayer").play()
+	pass

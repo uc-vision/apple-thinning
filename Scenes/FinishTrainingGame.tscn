@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/Fonts/Calistoga/Calistoga-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scenes/FinishTrainingGameDialog.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/FinishTrainingGame.gd" type="Script" id=3]
+[ext_resource path="res://Audio/button-press-sound.wav" type="AudioStream" id=4]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_color = Color( 1, 0, 0, 1 )
@@ -55,5 +56,8 @@ texture = SubResource( 4 )
 
 [node name="FinishTrainingGameDialog" parent="." instance=ExtResource( 2 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.5, 0 )
+
+[node name="ButtonPressSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
 
 [connection signal="area_entered" from="FinishTrainingGameButton/FinishTrainingGameButtonArea" to="." method="_on_FinishTrainingGameButtonArea_area_entered"]
