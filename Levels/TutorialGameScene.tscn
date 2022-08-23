@@ -76,7 +76,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.38419e-07, 0, 0.252965 )
 skeleton = NodePath("../..")
 
 [node name="Ground" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
+transform = Transform( 1, 0, 7.45058e-09, 0, 1, 0, -7.45058e-09, 0, 1, 0, -1, 0 )
 cast_shadow = 0
 mesh = SubResource( 5 )
 material/0 = null
