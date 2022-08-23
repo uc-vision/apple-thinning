@@ -3,8 +3,7 @@ extends Spatial
 signal exit_to_menu
 var signal_sent = false
 
-var CURRENT_SECTION = 0
-var SECTION_LIST = [] # list of items to generate for each section
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

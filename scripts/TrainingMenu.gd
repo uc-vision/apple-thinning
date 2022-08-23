@@ -19,13 +19,14 @@ func _ready():
 
 
 func _on_PreviousButtonArea_area_entered(area):
-	get_tree().root.get_node("Game/AudioStreamPlayer").play()
 	$ButtonPressSoundPlayer.play()
+	get_node("../../SceneController").next_scene(-1)
 	pass # Replace with function body.
 
 
 func _on_NextButtonButtonArea_area_entered(area):
 	$ButtonPressSoundPlayer.play()
+	get_node("../../SceneController").next_scene(1)
 	pass # Replace with function body.
 
 
