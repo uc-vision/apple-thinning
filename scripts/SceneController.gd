@@ -4,7 +4,7 @@ extends Spatial
 # get_tree().root.get_node("Game/AudioStreamPlayer").play()
 
 const MAX_SCENE_NUMBER = 3 # Scences start at 0 like arrays but end on last scene #
-const SCENE_PATH = "res://Scenes/TrainingScene%s.tscn"
+const SCENE_PATH = "res://Scenes/Tutorial/TrainingScene%s.tscn"
 
 var current_scene_number = 0
 var current_scene
@@ -16,7 +16,7 @@ func _ready():
 	current_scene = load(SCENE_PATH % 0)
 	scene_instance = current_scene.instance()
 	add_child(scene_instance)
-	pass
+
 
 
 # Logic to check transition is valid and then make trasition

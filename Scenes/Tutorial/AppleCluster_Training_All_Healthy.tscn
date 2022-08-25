@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scripts/Apple_Cluster_Tutorial.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/HealthyLargeAplle.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Audio/apple-picking-sound.wav" type="AudioStream" id=6]
+
+[node name="AppleCluster_Training_All_Healthy" type="Spatial" groups=["AppleCluster"]]
+script = ExtResource( 1 )
+
+[node name="HealthyLargeApple" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.276581, -0.951177, 0.136987, 0.931674, 0.230464, -0.280839, 0.235557, 0.205302, 0.949928, 0.0301229, -0.0674365, -0.0150189 )
+mode = 1
+
+[node name="HealthyLargeApple2" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.975637, 0.171368, 0.136987, -0.127649, 0.951228, -0.280839, -0.178433, 0.256511, 0.949928, -0.00910816, -0.100488, -0.0191328 )
+mode = 1
+
+[node name="HealthyLargeApple3" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.276581, -0.438525, -0.855101, 0.931674, 0.340471, 0.126743, 0.235557, -0.83173, 0.50273, 0.0224989, -0.0905458, 0.0143805 )
+mode = 1
+
+[node name="HealthyLargeApple4" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.276581, -0.951177, 0.136987, 0.931674, 0.230464, -0.280839, 0.235557, 0.205302, 0.949928, 0.0373709, -0.094278, -0.0239996 )
+mode = 1
+
+[node name="HealthyLargeApple5" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.276581, -0.481028, 0.831934, 0.931674, -0.0779803, -0.354828, 0.235557, 0.87323, 0.426593, 0.0171361, -0.0645617, -0.0447713 )
+mode = 1
+
+[node name="HealthyLargeApple6" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.27262, 0.95232, 0.136987, -0.911248, 0.301259, -0.280839, -0.308717, -0.048267, 0.949928, -0.0110917, -0.0603121, -0.00696916 )
+mode = 1
+
+[node name="ApplePickSound" type="AudioStreamPlayer3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0542786, 0 )
+stream = ExtResource( 6 )
+unit_db = 10.0
+
+[connection signal="on_picked" from="HealthyLargeApple" to="." method="_on_HealthyLargeApple_on_picked"]
+[connection signal="on_picked" from="HealthyLargeApple2" to="." method="_on_HealthyLargeApple_on_picked"]
+[connection signal="on_picked" from="HealthyLargeApple3" to="." method="_on_HealthyLargeApple_on_picked"]
+[connection signal="on_picked" from="HealthyLargeApple4" to="." method="_on_HealthyLargeApple_on_picked"]
+[connection signal="on_picked" from="HealthyLargeApple5" to="." method="_on_HealthyLargeApple_on_picked"]
+[connection signal="on_picked" from="HealthyLargeApple6" to="." method="_on_HealthyLargeApple_on_picked"]

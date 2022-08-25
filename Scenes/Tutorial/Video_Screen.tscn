@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 1, 1, 0.02 )
+
+[node name="Video_Screen" type="Spatial"]
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="Viewport" type="Viewport" parent="MeshInstance"]
+
+[node name="VideoPlayer" type="VideoPlayer" parent="MeshInstance/Viewport"]
+margin_right = 40.0
+margin_bottom = 40.0
