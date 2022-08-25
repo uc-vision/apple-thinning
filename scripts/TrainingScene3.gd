@@ -4,34 +4,20 @@ extends Spatial
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-
+const PATH = "res://Assets/Videos/%s.webm"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	play_video()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
 
+func play_video():
+	# Called every time the node is added to the scene.
+	# Initialization here
+	get_tree().root.get_node("Game/AudioStreamPlayer").play()
 
-#extends VideoPlayer
-#func _process(delta):
-#    var isPlaying = is_playing()
-#    if isPlaying == false:
-#        play()
-#
-#    pass
-#
-#func _ready():
-#    # Called every time the node is added to the scene.
-#    # Initialization here
-#    set_process(true)
-#
-#
-#    set_autoplay(true)
-#    print('Autoplay set to true')
-#
-#    print(has_autoplay())
-#    pass
+	var parent_name = get_parent().get_name()
+	var video_path = PATH % parent_name
+	$Viewport/VideoPlayer.set_stream(video_path)
+
