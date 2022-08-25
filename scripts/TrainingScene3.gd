@@ -1,5 +1,6 @@
 extends Spatial
 
+onready var TV = $Viewport/VideoPlayer
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -16,8 +17,15 @@ func play_video():
 	# Called every time the node is added to the scene.
 	# Initialization here
 	get_tree().root.get_node("Game/AudioStreamPlayer").play()
-
 	var parent_name = get_parent().get_name()
 	var video_path = PATH % parent_name
-	$Viewport/VideoPlayer.set_stream(video_path)
+	
+	if load(video_path):
+		TV.stream = load(video_path)
+		TV.play()
+	
+	#$Viewport/VideoPlayer.set_stream("res://Assets/Videos/TrainingScene1.webm")
+	#var parent_name = get_parent().get_name()
+	#var video_path = PATH % parent_name
+	
 
