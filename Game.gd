@@ -3,7 +3,7 @@ extends Spatial
 var menu_scene = preload("res://Levels/MenuScene.tscn")
 var time_attack_game_scene = preload("res://Levels/TimeAttackGameScene.tscn")
 var training_game_scene = preload("res://Levels/TrainingGameScene.tscn")
-var game_results_scene = load("res://Levels/GameResultsScene.tscn")
+var game_results_scene = preload("res://Levels/GameResultsScene.tscn")
 var TimeAttackGameData = load("res://scripts/Classes/TimeAttackGameData.gd")
 
 var player
@@ -50,7 +50,7 @@ func _on_TimeAttackGameScene_go_to_game_results(data):
 
 	# Delete the TimeAttackGameScene
 	time_attack_game_level.queue_free()
-
+	
 	# Instantiate the GameResultsScene
 	game_results_level = game_results_scene.instance()
 	
@@ -60,10 +60,12 @@ func _on_TimeAttackGameScene_go_to_game_results(data):
 	
 	# Add player to the GameResultsScene
 	game_results_level.set_player(player)
+	get_tree().root.get_node("Game/AudioStreamPlayer").play()
 	
 	game_results_level.connect("play_again", self, "_on_GameResultsScene_play_again")
 	game_results_level.connect("go_to_menu", self, "_on_GameResultsScene_go_to_menu")
 	game_results_level.set_game_results_data(data)
+	
 
 # Level transition from GameResultsScene --> TimeAttackGameScene (TODO: Change the distination to GamePreparationScene once the scene is created)
 func _on_GameResultsScene_play_again():

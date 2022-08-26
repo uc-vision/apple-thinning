@@ -1,6 +1,6 @@
 extends Spatial
 
-onready var apple_tree_scene = load("res://Scenes/AppleTree_TimeAttackGame.tscn")
+onready var apple_tree_scene = load("res://Scenes/TimeAttack/AppleTree_TimeAttackGame.tscn")
 
 onready var game_start_timer = $GameStartTimer
 onready var remaining_time_timer = $RemainingTimeTimer
@@ -15,7 +15,7 @@ onready var confirmation_dialog = $Platform/ConfirmationDialog
 onready var bgm_player = $BGM_Player
 
 const DIALOG_WAIT_TIME = 5
-const GAME_PLAY_DURATION = 20
+const GAME_PLAY_DURATION = 5
 const COMBO_INTERVAL = 3
 const TREE_REMOVE_WAIT_TIMER = 0.5
 const TREE_SPAWN_WAIT_TIME = 0.5

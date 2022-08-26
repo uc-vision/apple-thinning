@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Assets/Fonts/Calistoga/Calistoga-Regular.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://scripts/Instructions.gd" type="Script" id=2]
-[ext_resource path="res://Audio/button-press-sound.wav" type="AudioStream" id=3]
+[ext_resource path="res://Audio/button-press-sound.wav" type="AudioStream" id=2]
+[ext_resource path="res://scripts/Training/Instructions.gd" type="Script" id=3]
 
 [sub_resource type="SpatialMaterial" id=4]
 albedo_color = Color( 0.117647, 0.564706, 0.937255, 1 )
@@ -32,7 +32,7 @@ font_data = ExtResource( 1 )
 viewport_path = NodePath("HideAndShowBoardButton/Viewport")
 
 [node name="Instructions" type="Spatial"]
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 
 [node name="Board" type="MeshInstance" parent="."]
 cast_shadow = 0
@@ -94,6 +94,6 @@ texture = SubResource( 8 )
 [node name="WaitButtonInteractiveTimer" type="Timer" parent="."]
 
 [node name="ButtonPressedSoundPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 3 )
+stream = ExtResource( 2 )
 
 [connection signal="area_entered" from="HideAndShowBoardButton/HideAndShowBoardButtonArea" to="." method="_on_HideAndShowBoardButtonArea_area_entered"]

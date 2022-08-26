@@ -3,7 +3,7 @@
 [ext_resource path="res://Assets/Meshes/game-result-board-mesh.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Fonts/Calistoga/Calistoga-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Audio/button-press-sound.wav" type="AudioStream" id=3]
-[ext_resource path="res://scripts/ChooseLevelDialog.gd" type="Script" id=4]
+[ext_resource path="res://scripts/Menu/ChooseLevelDialog.gd" type="Script" id=4]
 
 [sub_resource type="SpatialMaterial" id=6]
 

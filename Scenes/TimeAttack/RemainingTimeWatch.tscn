@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/Fonts/Calistoga/Calistoga-Regular.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://scripts/RemainingTimeWatch.gd" type="Script" id=2]
+[ext_resource path="res://scripts/TimeAttack/RemainingTimeWatch.gd" type="Script" id=2]
 
 [sub_resource type="CylinderMesh" id=9]
 top_radius = 0.07

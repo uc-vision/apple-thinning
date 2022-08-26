@@ -1,8 +1,8 @@
 extends Spatial
 
-onready var apple_cluster_a = preload("res://Scenes/AppleCluster_TrainingGame_TypeA.tscn")
-onready var apple_cluster_b = preload("res://Scenes/AppleCluster_TrainingGame_TypeB.tscn")
-onready var apple_cluster_c = preload("res://Scenes/AppleCluster_TrainingGame_TypeC.tscn")
+onready var apple_cluster_a = preload("res://Scenes/Training/AppleCluster_TrainingGame_TypeA.tscn")
+onready var apple_cluster_b = preload("res://Scenes/Training/AppleCluster_TrainingGame_TypeB.tscn")
+onready var apple_cluster_c = preload("res://Scenes/Training/AppleCluster_TrainingGame_TypeC.tscn")
 onready var apple_cluster_fall_sound_player = get_node("AppleClusterFallSoundPlayer")
 onready var rng = RandomNumberGenerator.new()
 onready var cluster_type
@@ -57,3 +57,13 @@ func _ready():
 					var apple_cluster_c_instance = apple_cluster_c.instance()
 					apple_cluster_c_instance.initialize(cluster_spawn_location.translation)
 					child.add_child(apple_cluster_c_instance)
+					
+func evaluate():
+	# Evaluate the Rule 1: Thin down each cluster into two fruitlets
+	
+	# Evaluate the Rule 2: Remove damaged/diseased fruitlets and leave healthy fruitlets
+
+	# Evaluate the Rule 3: Remove smaller fruitlets and leave larger fruitlets
+
+	#Rule 4. Leave fruitlets with more sun exposure
+	pass
