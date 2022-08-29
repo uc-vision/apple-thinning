@@ -1,14 +1,13 @@
 extends Spatial
 
-onready var rng = RandomNumberGenerator.new()
-onready var score = 0
-onready var remaining_apple_count = 0 setget set_remaining_apple_count, get_remaining_apple_count
 onready var apple_pick_sound_player = $ApplePickSound
+var rng = RandomNumberGenerator.new()
+var score = 0
+var remaining_apple_count = 0 setget set_remaining_apple_count, get_remaining_apple_count
 # Makes apples only pickable during the game play.
-onready var is_interactable = false
-onready var hasDamaged
-
-const MAX_APPLE_NUM_TO_LEAVE = 2
+var is_interactable = false
+var hasDamaged
+var initial_apple_count = 0
 
 signal score_computed(score)
 signal apple_picked
@@ -35,6 +34,7 @@ func _ready():
 	for child in children:
 		if child.get_groups().has("Apple"):
 			counter += 1
+	initial_apple_count = counter
 	set_remaining_apple_count(counter)
 
 func initialize(spawn_location):

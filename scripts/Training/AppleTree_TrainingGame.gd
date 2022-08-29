@@ -14,6 +14,11 @@ const MAX_CLUSTER_PER_BRANCH = 2
 const NUM_BRANCH = 3
 const TREE_TRANSLATE = Vector3(0, 0, -0.85)
 const TREE_ROTATION = Vector3(0, deg2rad(-90), 0)
+const MAX_APPLE_NUM_TO_LEAVE = 2
+
+enum EvaluateNumFruitletLeftResult {
+	SUCCESSFUL, OVERTHINNED, UNDERTHINNED, MISSED
+}
 
 signal all_clusters_thinned
 
@@ -63,8 +68,15 @@ func _ready():
 
 # Evaluate the Rule 1: Thin down each cluster into two fruitlets
 func evaluate_num_fruitlet_left(cluster):
-	pass
-#	var cluster.get_remaining_apple_count()
+	var fruitlet_num_left = cluster.get_remaining_apple_count()
+	if fruitlet_num_left == MAX_APPLE_NUM_TO_LEAVE:
+		return EvaluateNumFruitletLeftResult.SUCCESSFUL
+	elif fruitlet_num_left == cluster.initial_apple_count:
+		return EvaluateNumFruitletLeftResult.MISSED
+	elif fruitlet_num_left > MAX_APPLE_NUM_TO_LEAVE:
+		return EvaluateNumFruitletLeftResult.UNDERTHINNED
+	else:
+		return EvaluateNumFruitletLeftResult.OVERTHINNED
 
 
 
@@ -80,22 +92,45 @@ func evaluate_fruitlet_size(cluster):
 
 
 
-#Rule 4. Leave fruitlets with more sun exposure
+# Evaluate the Rule 4. Leave fruitlets with more sun exposure
 func evaluate_fruitlet_sun_exposure(cluster):
 	pass
 
 
 
 func evaluate():
-	
 	var training_game_data = TrainingGameData.new()
+	
+	var num_successful_clusters = 0
+	var num_overthinned_clusters = 0
+	var num_underthinned_clusters = 0
+	var num_missed_clusters = 0
+	var num_left_damaged = 0
+	var num_left_large = 0
+	var num_left_small = 0
+	var num_sunshine_apple = 0
+	
+	var evaluate_num_fruitlet_left_result
 	
 	# Iterate over branches in the tree
 	for child in get_children():
 		if 'Branch' in child.get_groups():
 			for branch_child in child.get_children():
 				if "AppleCluster" in branch_child.get_groups():
-					evaluate_num_fruitlet_left(branch_child)
-					evaluate_diseased_fruitlet_left(branch_child)
-					evaluate_fruitlet_size(branch_child)
-					evaluate_fruitlet_sun_exposure(branch_child)
+					# Evaluate the cluster based on the four rules
+					
+					# Rule 1: Thin down each cluster into two fruitlets
+					evaluate_num_fruitlet_left_result = evaluate_num_fruitlet_left(branch_child)
+					if evaluate_num_fruitlet_left_result == EvaluateNumFruitletLeftResult.SUCCESSFUL:
+						num_successful_clusters += 1
+					elif evaluate_num_fruitlet_left_result == EvaluateNumFruitletLeftResult.MISSED:
+						num_missed_clusters += 1
+					elif evaluate_num_fruitlet_left_result == EvaluateNumFruitletLeftResult.UNDERTHINNED:
+						num_underthinned_clusters += 1
+					elif evaluate_num_fruitlet_left_result == EvaluateNumFruitletLeftResult.OVERTHINNED:
+						num_overthinned_clusters += 1
+					
+	training_game_data.set_num_successful_clusters(num_successful_clusters)
+	training_game_data.set_num_overthinned_clusters(num_overthinned_clusters)
+	training_game_data.set_num_underthinned_clusters(num_underthinned_clusters)
+	training_game_data.set_num_missed_clusters(num_missed_clusters)
