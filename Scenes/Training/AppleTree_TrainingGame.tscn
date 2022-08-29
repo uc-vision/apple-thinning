@@ -73,7 +73,7 @@ _data = {
 "tilts": PoolRealArray( 0, 0, 0, 0, 0 )
 }
 
-[node name="AppleTree_NoTimeLimit" type="Spatial"]
+[node name="AppleTree_TrainingGame" type="Spatial"]
 script = ExtResource( 1 )
 
 [node name="Branch1" parent="." groups=["Branch"] instance=ExtResource( 5 )]

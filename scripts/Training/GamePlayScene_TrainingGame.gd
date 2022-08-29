@@ -43,7 +43,7 @@ func _on_AppleCluster_apple_picked():
 
 # Connect custom signals with apples and make them interactable
 func setup_apples():
-	for child in $AppleTree_NoTimeLimit.get_children():
+	for child in $AppleTree_TrainingGame.get_children():
 		if "Branch" in child.get_groups():
 			for branch_child in child.get_children():
 				if "AppleCluster" in branch_child.get_groups():
@@ -51,14 +51,14 @@ func setup_apples():
 					branch_child.is_interactable = true
 
 func set_apple_pickable():
-	for child in $AppleTree_NoTimeLimit.get_children():
+	for child in $AppleTree_TrainingGame.get_children():
 		if "Branch" in child.get_groups():
 			for branch_child in child.get_children():
 				if "AppleCluster" in branch_child.get_groups():
 					branch_child.is_interactable = true
 	
 func set_apple_not_pickable():
-	for child in $AppleTree_NoTimeLimit.get_children():
+	for child in $AppleTree_TrainingGame.get_children():
 		if "Branch" in child.get_groups():
 			for branch_child in child.get_children():
 				if "AppleCluster" in branch_child.get_groups():
@@ -78,4 +78,5 @@ func _on_GoToGameResultsSceneTimer_timeout():
 	emit_signal("go_to_game_results", game_play_data)
 	
 func _on_FinishTrainingGame_start_evaluation():
-	pass
+	get_tree().root.get_node("Game/AudioStreamPlayer").play()
+	$AppleTree_TrainingGame.evaluate()

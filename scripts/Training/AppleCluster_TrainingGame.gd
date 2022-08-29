@@ -2,7 +2,7 @@ extends Spatial
 
 onready var rng = RandomNumberGenerator.new()
 onready var score = 0
-onready var remaining_apple_count = 0
+onready var remaining_apple_count = 0 setget set_remaining_apple_count, get_remaining_apple_count
 onready var apple_pick_sound_player = $ApplePickSound
 # Makes apples only pickable during the game play.
 onready var is_interactable = false
@@ -19,12 +19,23 @@ const Point = {
 	DAMAGED = -300,
 }
 
+#== Getters and setters =====
+
+func get_remaining_apple_count():
+	return remaining_apple_count
+	
+func set_remaining_apple_count(num_apple):
+	remaining_apple_count = num_apple
+
+#== End of getters and setters ====
+
 func _ready():
+	var counter = 0
 	var children = get_children()
 	for child in children:
 		if child.get_groups().has("Apple"):
-			remaining_apple_count += 1
-
+			counter += 1
+	set_remaining_apple_count(counter)
 
 func initialize(spawn_location):
 	set_translation(spawn_location)
@@ -37,17 +48,17 @@ func initialize(spawn_location):
 func _on_HealthyLargeApple_on_picked(apple):
 	emit_signal("apple_picked")
 	play_apple_picked_sound()
-	remaining_apple_count -= 1
+	set_remaining_apple_count(get_remaining_apple_count() - 1)
 
 func _on_HealthySmallApple_on_picked(apple):
 	emit_signal("apple_picked")
 	play_apple_picked_sound()
-	remaining_apple_count -= 1
+	set_remaining_apple_count(get_remaining_apple_count() - 1)
 
 func _on_DamagedApple_on_picked(apple):
 	emit_signal("apple_picked")
 	play_apple_picked_sound()
-	remaining_apple_count -= 1
+	set_remaining_apple_count(get_remaining_apple_count() - 1)
 
 func calculate_score():
 	score = 0

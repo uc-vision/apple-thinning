@@ -8,6 +8,7 @@ onready var rng = RandomNumberGenerator.new()
 onready var cluster_type
 onready var cluster_spawn_location
 onready var num_cluster = 0
+var TrainingGameData = load("res://scripts/Classes/TrainingGameData.gd")
 
 const MAX_CLUSTER_PER_BRANCH = 2
 const NUM_BRANCH = 3
@@ -57,13 +58,44 @@ func _ready():
 					var apple_cluster_c_instance = apple_cluster_c.instance()
 					apple_cluster_c_instance.initialize(cluster_spawn_location.translation)
 					child.add_child(apple_cluster_c_instance)
-					
-func evaluate():
-	# Evaluate the Rule 1: Thin down each cluster into two fruitlets
-	
-	# Evaluate the Rule 2: Remove damaged/diseased fruitlets and leave healthy fruitlets
 
-	# Evaluate the Rule 3: Remove smaller fruitlets and leave larger fruitlets
 
-	#Rule 4. Leave fruitlets with more sun exposure
+
+# Evaluate the Rule 1: Thin down each cluster into two fruitlets
+func evaluate_num_fruitlet_left(cluster):
 	pass
+#	var cluster.get_remaining_apple_count()
+
+
+
+# Evaluate the Rule 2: Remove damaged/diseased fruitlets and leave healthy fruitlets
+func evaluate_diseased_fruitlet_left(cluster):
+	pass
+
+
+
+# Evaluate the Rule 3: Remove smaller fruitlets and leave larger fruitlets
+func evaluate_fruitlet_size(cluster):
+	pass
+
+
+
+#Rule 4. Leave fruitlets with more sun exposure
+func evaluate_fruitlet_sun_exposure(cluster):
+	pass
+
+
+
+func evaluate():
+	
+	var training_game_data = TrainingGameData.new()
+	
+	# Iterate over branches in the tree
+	for child in get_children():
+		if 'Branch' in child.get_groups():
+			for branch_child in child.get_children():
+				if "AppleCluster" in branch_child.get_groups():
+					evaluate_num_fruitlet_left(branch_child)
+					evaluate_diseased_fruitlet_left(branch_child)
+					evaluate_fruitlet_size(branch_child)
+					evaluate_fruitlet_sun_exposure(branch_child)
