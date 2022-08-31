@@ -22,6 +22,7 @@ func disable_finish_training_game_button():
 	
 func _on_ConfirmationDialog_confirm_fisish_pressed():
 	emit_signal("start_evaluation")
+	confirm_finish_dialog.disable()
 	
 
 func _on_ConfirmationDialog_cancel_button_pressed():
