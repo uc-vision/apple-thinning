@@ -11,6 +11,9 @@ const PATH = "res://Assets/Videos/%s.webm"
 func _ready():
 	pass
 
+func _process(delta):    
+	if not TV.is_playing():        
+		TV.play()
 
 
 func play_video():

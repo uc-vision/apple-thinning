@@ -19,6 +19,7 @@ render_target_v_flip = true
 [node name="VideoPlayer" type="VideoPlayer" parent="Viewport"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+volume_db = -80.0
 autoplay = true
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
@@ -26,7 +27,7 @@ transform = Transform( 0.000366516, 0, -0.999993, 0, 0.1, 0, 0.0999993, 0, 0.003
 texture = SubResource( 1 )
 
 [node name="VideoWaitTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 0.1
 one_shot = true
 autostart = true
 
