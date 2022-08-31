@@ -23,6 +23,6 @@ func play_button_press_sound():
 func _on_TrainingMenu_Exit_Pressed():
 	if not signal_sent:
 		#get_tree().root.get_node("Game/AudioStreamPlayer").play()
-		play_button_press_sound()
+		#play_button_press_sound()
 		signal_sent = true
 		emit_signal("exit_to_menu")

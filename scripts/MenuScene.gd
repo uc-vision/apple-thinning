@@ -24,22 +24,25 @@ func set_player(player):
 
 func _on_NoTimeLimit_pressed():
 	if not signal_sent:
+		signal_sent = true
 		emit_signal("play_training_game_mode")
 		play_button_sound()
-		signal_sent = true
+
 	
 func _on_TimeAttack_pressed():
 	if not signal_sent:
+		signal_sent = true
 		emit_signal("play_time_attack_game_mode")
 		play_button_sound()
-		signal_sent = true
+
 
 func _on_Tutorial_pressed():
 	if not signal_sent:
+		signal_sent = true
 		get_tree().root.get_node("Game/AudioStreamPlayer").play()
 		emit_signal("play_tutorial_game_mode")
 		play_button_sound()
-		signal_sent = true
+
 
 func _on_TimerButtonLock_timeout():
 	choose_level_dialog.connect("play_training_game_pressed", self, "_on_NoTimeLimit_pressed")
