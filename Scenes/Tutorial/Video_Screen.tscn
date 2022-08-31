@@ -1,6 +1,5 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Assets/Videos/1661408215223799.webm" type="VideoStream" id=1]
 [ext_resource path="res://scripts/TrainingScene3.gd" type="Script" id=2]
 
 [sub_resource type="ViewportTexture" id=1]
@@ -10,7 +9,7 @@ viewport_path = NodePath("Viewport")
 script = ExtResource( 2 )
 __meta__ = {
 "_editor_description_": "0.3,1.5,-1.2
--135"
+y: -135"
 }
 
 [node name="Viewport" type="Viewport" parent="."]
@@ -20,9 +19,15 @@ render_target_v_flip = true
 [node name="VideoPlayer" type="VideoPlayer" parent="Viewport"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-stream = ExtResource( 1 )
 autoplay = true
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform( 0.000366516, 0, -0.999993, 0, 0.1, 0, 0.0999993, 0, 0.00366516, 0, 0, 0 )
 texture = SubResource( 1 )
+
+[node name="VideoWaitTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="VideoWaitTimer" to="." method="_on_VideoWaitTimer_timeout"]

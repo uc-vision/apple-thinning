@@ -1,11 +1,7 @@
 extends MeshInstance
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
+signal exit_to_menu
 
 
 # Called when the node enters the scene tree for the first time.
@@ -13,9 +9,17 @@ func _ready():
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+
+func play_button_press_sound():
+	$ButtonPressSoundPlayer.play()
+
+
+func _on_ExitToMenuGameButtonArea_area_entered(area):
+	if "HandArea" in area.get_groups():
+		#get_tree().root.get_node("Game/AudioStreamPlayer").play()
+		#play_button_press_sound()
+		emit_signal("exit_to_menu")
+
 
 
 func _on_PreviousButtonArea_area_entered(area):
@@ -36,3 +40,7 @@ func _on_NextButtonButtonArea_area_exited(area):
 
 func _on_PreviousButtonArea_area_exited(area):
 	pass # Replace with function body.
+
+
+
+
