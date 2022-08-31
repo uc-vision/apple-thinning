@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/HealthyLargeAplle.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/HealthySmallApple.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/DamagedSmallApple.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Audio/apple-picking-sound.wav" type="AudioStream" id=4]
 [ext_resource path="res://scripts/Training/AppleCluster_TrainingGame.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/Training/ClusterGradeIcons/EvaluationFeedback.tscn" type="PackedScene" id=6]
 
 [node name="AppleCluster_NoTimeLimit_TypeC" type="Spatial" groups=["AppleCluster"]]
 script = ExtResource( 5 )
@@ -37,6 +38,9 @@ mode = 1
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0407207, 0 )
 stream = ExtResource( 4 )
 unit_db = 10.0
+
+[node name="EvaluationFeedback" parent="." instance=ExtResource( 6 )]
+visible = false
 
 [connection signal="on_picked" from="HealthyLargeApple" to="." method="_on_HealthyLargeApple_on_picked"]
 [connection signal="on_picked" from="HealthySmallApple" to="." method="_on_HealthySmallApple_on_picked"]

@@ -68,15 +68,25 @@ func _ready():
 
 # Evaluate the Rule 1: Thin down each cluster into two fruitlets
 func evaluate_num_fruitlet_left(cluster):
+	var result
 	var fruitlet_num_left = cluster.get_remaining_apple_count()
+	
 	if fruitlet_num_left == MAX_APPLE_NUM_TO_LEAVE:
-		return EvaluateNumFruitletLeftResult.SUCCESSFUL
+		result = EvaluateNumFruitletLeftResult.SUCCESSFUL
+		cluster.show_evaluation_feedback(result)
+		return result
 	elif fruitlet_num_left == cluster.initial_apple_count:
-		return EvaluateNumFruitletLeftResult.MISSED
+		result = EvaluateNumFruitletLeftResult.MISSED
+		cluster.show_evaluation_feedback(result)
+		return result
 	elif fruitlet_num_left > MAX_APPLE_NUM_TO_LEAVE:
-		return EvaluateNumFruitletLeftResult.UNDERTHINNED
+		result = EvaluateNumFruitletLeftResult.UNDERTHINNED
+		cluster.show_evaluation_feedback(result)
+		return result
 	else:
-		return EvaluateNumFruitletLeftResult.OVERTHINNED
+		result = EvaluateNumFruitletLeftResult.OVERTHINNED
+		cluster.show_evaluation_feedback(result)
+		return result
 
 
 
@@ -131,6 +141,6 @@ func evaluate():
 						num_overthinned_clusters += 1
 					
 	training_game_data.set_num_successful_clusters(num_successful_clusters)
-	training_game_data.set_num_overthinned_clusters(num_overthinned_clusters)
-	training_game_data.set_num_underthinned_clusters(num_underthinned_clusters)
 	training_game_data.set_num_missed_clusters(num_missed_clusters)
+	training_game_data.set_num_underthinned_clusters(num_underthinned_clusters)
+	training_game_data.set_num_overthinned_clusters(num_overthinned_clusters)

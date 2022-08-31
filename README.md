@@ -64,7 +64,7 @@ Model License:
 
 #### Images
 
-- Pause, Up, and Down icons: https://icons8.com
+- `arrow.png`, `exclamation.png`, `exit.png`, `pause.png`, and `tick.png` icons: https://icons8.com
 
 #### Fonts
 

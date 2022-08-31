@@ -18,6 +18,11 @@ const Point = {
 	DAMAGED = -300,
 }
 
+# TODO Make this globa since this is also used in AppleTree_TrainingGame.gd
+enum EvaluateNumFruitletLeftResult {
+	SUCCESSFUL, OVERTHINNED, UNDERTHINNED, MISSED
+}
+
 #== Getters and setters =====
 
 func get_remaining_apple_count():
@@ -81,3 +86,13 @@ func calculate_score():
 	
 func play_apple_picked_sound():
 	apple_pick_sound_player.play()
+	
+func show_evaluation_feedback(result):
+	
+	# Enable the visibility of the parent node of evaluation feedback icons
+	$EvaluationFeedback.set_visible(true)
+	
+	if result == EvaluateNumFruitletLeftResult.SUCCESSFUL:
+		$EvaluationFeedback/CorrectIcon.set_visible(true)
+	else:
+		$EvaluationFeedback/ErrorIcon.set_visible(true)
