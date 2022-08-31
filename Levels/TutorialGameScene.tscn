@@ -22,7 +22,7 @@ script = ExtResource( 1 )
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -0.5 )
 
 [node name="Menu" type="Spatial" parent="."]
-transform = Transform( -0.954418, 0, -0.298475, 0, 1, 0, 0.298475, 0, -0.954418, 0.925174, 1, 0.244055 )
+transform = Transform( -0.954418, 0, -0.298475, 0, 1, 0, 0.298475, 0, -0.954418, 0.83903, 1, 0.270995 )
 
 [node name="TrainingMenu" parent="Menu" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98023e-07, 0, 0.524629 )
