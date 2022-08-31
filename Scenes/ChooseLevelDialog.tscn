@@ -1,8 +1,7 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Assets/Meshes/game-result-board-mesh.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Fonts/Calistoga/Calistoga-Regular.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://Audio/button-press-sound.wav" type="AudioStream" id=3]
 [ext_resource path="res://scripts/ChooseLevelDialog.gd" type="Script" id=4]
 
 [sub_resource type="SpatialMaterial" id=17]
@@ -149,9 +148,6 @@ text = "Choose game mode"
 [node name="Sprite3D" type="Sprite3D" parent="GameModeInfoSection"]
 transform = Transform( -1.31134e-08, 0, 0.3, 0, 0.3, 0, -0.3, 0, -1.31134e-08, 0.125484, -0.148913, -0.0981828 )
 texture = SubResource( 14 )
-
-[node name="ButtonPressSoundPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 3 )
 
 [connection signal="area_entered" from="TrainingGameButton/TrainingGameButtonArea" to="." method="_on_TrainingGameButtonArea_area_entered"]
 [connection signal="area_entered" from="TutorialGameButton/TutorialGameButtonArea" to="." method="_on_TutorialGameButtonArea_area_entered"]
