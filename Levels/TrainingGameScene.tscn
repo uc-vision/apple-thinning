@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Training/AppleTree_TrainingGame.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Training/Platform_TrainingGame.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/Training/GamePlayScene_TrainingGame.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Training/EvaluationStatsBoard.tscn" type="PackedScene" id=4]
 
 [sub_resource type="SpatialMaterial" id=4]
 albedo_color = Color( 0.345098, 0.458824, 0.282353, 1 )
@@ -36,5 +37,9 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -
 
 [node name="Platform_TrainingGame" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.340053, 0 )
+
+[node name="EvaluationStatsBoard" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.81657, 1.86219, 0 )
+visible = false
 
 [connection signal="timeout" from="GoToGameResultsSceneTimer" to="." method="_on_GoToGameResultsSceneTimer_timeout"]
