@@ -7,7 +7,7 @@ var remaining_apple_count = 0 setget set_remaining_apple_count, get_remaining_ap
 # Makes apples only pickable during the game play.
 var is_interactable = false
 var hasDamaged
-var initial_apple_count = 0
+var initial_apple_count
 
 signal score_computed(score)
 signal apple_picked
@@ -34,20 +34,18 @@ func set_remaining_apple_count(num_apple):
 #== End of getters and setters ====
 
 func _ready():
-	var counter = 0
-	var children = get_children()
-	for child in children:
-		if child.get_groups().has("Apple"):
-			counter += 1
-	initial_apple_count = counter
-	set_remaining_apple_count(counter)
+	initial_apple_count = $Apples.get_child_count()
+	set_remaining_apple_count(initial_apple_count)
+	is_interactable = true
+
 
 func initialize(spawn_location):
+	# Spawn this cluster on the given location
 	set_translation(spawn_location)
 	# Give a random rotation on the apple clusters in Y direction
 	var rotation_offset = rng.randf_range(-180, 180)
 	var rotation_vector = Vector3(0, deg2rad(rotation_offset), 0)
-	set_rotation(rotation_vector)
+	$Apples.set_rotation(rotation_vector)
 
 
 func _on_HealthyLargeApple_on_picked(apple):
@@ -55,10 +53,12 @@ func _on_HealthyLargeApple_on_picked(apple):
 	play_apple_picked_sound()
 	set_remaining_apple_count(get_remaining_apple_count() - 1)
 
+
 func _on_HealthySmallApple_on_picked(apple):
 	emit_signal("apple_picked")
 	play_apple_picked_sound()
 	set_remaining_apple_count(get_remaining_apple_count() - 1)
+
 
 func _on_DamagedApple_on_picked(apple):
 	emit_signal("apple_picked")
@@ -68,10 +68,10 @@ func _on_DamagedApple_on_picked(apple):
 func calculate_score():
 	score = 0
 	hasDamaged = false
-	var children = get_children()
-	for child in children:
-		var groups = child.get_groups()
-		if groups.has("Apple") and !child.picked_off:
+	var apples = $Apples.get_children()
+	for apple in apples:
+		var groups = apple.get_groups()
+		if !apple.picked_off:
 			if groups.has("HealthyLarge"):
 				score += Point.HEALTHY_LARGE
 			elif groups.has("HealthySmall"):
@@ -80,7 +80,7 @@ func calculate_score():
 				hasDamaged = true
 				score += Point.DAMAGED
 			
-			child.show_point()
+			apple.show_point()
 	
 	emit_signal("score_computed", score)
 	
@@ -93,6 +93,6 @@ func show_evaluation_feedback(result):
 	$EvaluationFeedback.set_visible(true)
 	
 	if result == EvaluateNumFruitletLeftResult.SUCCESSFUL:
-		$EvaluationFeedback/CorrectIcon.set_visible(true)
+		$EvaluationFeedback/Tick.set_visible(true)
 	else:
-		$EvaluationFeedback/ErrorIcon.set_visible(true)
+		$EvaluationFeedback/Exclamation.set_visible(true)
