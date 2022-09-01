@@ -1,0 +1,365 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://Assets/Meshes/game-result-board-mesh.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Fonts/Calistoga/Calistoga-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://scripts/TimeAttack/GameResultsBoard.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=25]
+size = 38
+font_data = ExtResource( 2 )
+
+[sub_resource type="ViewportTexture" id=26]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="DynamicFontData" id=7]
+font_path = "res://Assets/Fonts/Calistoga/Calistoga-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=8]
+size = 29
+font_data = SubResource( 7 )
+
+[sub_resource type="ViewportTexture" id=9]
+viewport_path = NodePath("SuccessfulClustersSection/Viewport")
+
+[sub_resource type="DynamicFont" id=3]
+size = 42
+font_data = ExtResource( 2 )
+
+[sub_resource type="ViewportTexture" id=10]
+viewport_path = NodePath("SuccessfulClustersSection/Viewport2")
+
+[sub_resource type="ViewportTexture" id=11]
+viewport_path = NodePath("OverthinnedClustersSection/Viewport")
+
+[sub_resource type="ViewportTexture" id=12]
+viewport_path = NodePath("OverthinnedClustersSection/Viewport2")
+
+[sub_resource type="ViewportTexture" id=13]
+viewport_path = NodePath("UnderthinnedClustersSection/Viewport")
+
+[sub_resource type="ViewportTexture" id=14]
+viewport_path = NodePath("UnderthinnedClustersSection/Viewport2")
+
+[sub_resource type="ViewportTexture" id=15]
+viewport_path = NodePath("MissedClustersSection/Viewport")
+
+[sub_resource type="ViewportTexture" id=16]
+viewport_path = NodePath("MissedClustersSection/Viewport2")
+
+[sub_resource type="ViewportTexture" id=17]
+viewport_path = NodePath("DamagedFruitletsSection/Viewport")
+
+[sub_resource type="ViewportTexture" id=18]
+viewport_path = NodePath("DamagedFruitletsSection/Viewport2")
+
+[sub_resource type="ViewportTexture" id=19]
+viewport_path = NodePath("LargeFruitletsSection/Viewport")
+
+[sub_resource type="ViewportTexture" id=20]
+viewport_path = NodePath("LargeFruitletsSection/Viewport2")
+
+[sub_resource type="ViewportTexture" id=21]
+viewport_path = NodePath("SmallFruitletsSection/Viewport")
+
+[sub_resource type="ViewportTexture" id=22]
+viewport_path = NodePath("SmallFruitletsSection/Viewport2")
+
+[sub_resource type="ViewportTexture" id=23]
+viewport_path = NodePath("SunExposureFruitletsSection/Viewport")
+
+[sub_resource type="ViewportTexture" id=24]
+viewport_path = NodePath("SunExposureFruitletsSection/Viewport2")
+
+[node name="GameResultsBoard" type="Spatial"]
+script = ExtResource( 3 )
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 400, 400 )
+transparent_bg = true
+render_target_v_flip = true
+
+[node name="EvaluationStatsBoardTitle" type="Label" parent="Viewport"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 25 )
+text = "Evaluation Results"
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform( -2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 0.214704, -0.370604, -0.19514 )
+modulate = Color( 0.917647, 0.858824, 0, 1 )
+texture = SubResource( 26 )
+
+[node name="SuccessfulClustersSection" type="Spatial" parent="."]
+transform = Transform( 0.966975, 0, 0.254872, 0, 1, 0, -0.254872, 0, 0.966975, -0.0107225, 0.0136179, 0.600307 )
+
+[node name="Viewport" type="Viewport" parent="SuccessfulClustersSection"]
+size = Vector2( 300, 300 )
+transparent_bg = true
+render_target_v_flip = true
+
+[node name="Title" type="Label" parent="SuccessfulClustersSection/Viewport"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_constants/line_spacing = -5
+custom_fonts/font = SubResource( 8 )
+text = "Successful Clusters"
+
+[node name="Sprite3D" type="Sprite3D" parent="SuccessfulClustersSection"]
+transform = Transform( -0.0276228, 0, 0.298726, 0, 0.3, 0, -0.298726, 0, -0.0276228, 0.184274, -0.155309, 0.387874 )
+texture = SubResource( 9 )
+
+[node name="Viewport2" type="Viewport" parent="SuccessfulClustersSection"]
+size = Vector2( 300, 300 )
+transparent_bg = true
+render_target_v_flip = true
+
+[node name="Value" type="Label" parent="SuccessfulClustersSection/Viewport2"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 3 )
+text = "--"
+
+[node name="Sprite3D2" type="Sprite3D" parent="SuccessfulClustersSection"]
+transform = Transform( 0.0564252, 0, 0.294646, 0, 0.3, 0, -0.294646, 0, 0.0564252, 0.262236, -0.125504, -0.717133 )
+texture = SubResource( 10 )
+
+[node name="OverthinnedClustersSection" type="Spatial" parent="."]
+transform = Transform( 0.966975, 0, 0.254872, 0, 1, 0, -0.254872, 0, 0.966975, -0.0107225, -0.201997, 0.600307 )
+
+[node name="Viewport" type="Viewport" parent="OverthinnedClustersSection"]
+size = Vector2( 300, 300 )
+transparent_bg = true
+render_target_v_flip = true
+
+[node name="Title" type="Label" parent="OverthinnedClustersSection/Viewport"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_constants/line_spacing = -5
+custom_fonts/font = SubResource( 8 )
+text = "Overthinned Clusters"
+
+[node name="Sprite3D" type="Sprite3D" parent="OverthinnedClustersSection"]
+transform = Transform( -0.0276228, 0, 0.298726, 0, 0.3, 0, -0.298726, 0, -0.0276228, 0.184274, -0.155309, 0.387874 )
+texture = SubResource( 11 )
+
+[node name="Viewport2" type="Viewport" parent="OverthinnedClustersSection"]
+size = Vector2( 300, 300 )
+transparent_bg = true
+render_target_v_flip = true
+
+[node name="Value" type="Label" parent="OverthinnedClustersSection/Viewport2"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 3 )
+text = "--"
+
+[node name="Sprite3D2" type="Sprite3D" parent="OverthinnedClustersSection"]
+transform = Transform( 0.0564252, 0, 0.294646, 0, 0.3, 0, -0.294646, 0, 0.0564252, 0.262236, -0.125504, -0.717133 )
+texture = SubResource( 12 )
+
+[node name="UnderthinnedClustersSection" type="Spatial" parent="."]
+transform = Transform( 0.966975, 0, 0.254872, 0, 1, 0, -0.254872, 0, 0.966975, -0.0107225, -0.436529, 0.600307 )
+
+[node name="Viewport" type="Viewport" parent="UnderthinnedClustersSection"]
+size = Vector2( 300, 300 )
+transparent_bg = true
+render_target_v_flip = true
+
+[node name="Title" type="Label" parent="UnderthinnedClustersSection/Viewport"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_constants/line_spacing = -5
+custom_fonts/font = SubResource( 8 )
+text = "Underthinned Clusters"
+
+[node name="Sprite3D" type="Sprite3D" parent="UnderthinnedClustersSection"]
+transform = Transform( -0.0276228, 0, 0.298726, 0, 0.3, 0, -0.298726, 0, -0.0276228, 0.184274, -0.155309, 0.387874 )
+texture = SubResource( 13 )
+
+[node name="Viewport2" type="Viewport" parent="UnderthinnedClustersSection"]
+size = Vector2( 300, 300 )
+transparent_bg = true
+render_target_v_flip = true
+
+[node name="Value" type="Label" parent="UnderthinnedClustersSection/Viewport2"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 3 )
+text = "--"
+
+[node name="Sprite3D2" type="Sprite3D" parent="UnderthinnedClustersSection"]
+transform = Transform( 0.0564252, 0, 0.294646, 0, 0.3, 0, -0.294646, 0, 0.0564252, 0.262236, -0.125504, -0.717133 )
+texture = SubResource( 14 )
+
+[node name="MissedClustersSection" type="Spatial" parent="."]
+transform = Transform( 0.966975, 0, 0.254872, 0, 1, 0, -0.254872, 0, 0.966975, -0.0107225, -0.704417, 0.600307 )
+
+[node name="Viewport" type="Viewport" parent="MissedClustersSection"]
+size = Vector2( 300, 300 )
+transparent_bg = true
+render_target_v_flip = true
+
+[node name="Title" type="Label" parent="MissedClustersSection/Viewport"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_constants/line_spacing = -5
+custom_fonts/font = SubResource( 8 )
+text = "Missed Clusters"
+
+[node name="Sprite3D" type="Sprite3D" parent="MissedClustersSection"]
+transform = Transform( -0.0276228, 0, 0.298726, 0, 0.3, 0, -0.298726, 0, -0.0276228, 0.184274, -0.155309, 0.387874 )
+texture = SubResource( 15 )
+
+[node name="Viewport2" type="Viewport" parent="MissedClustersSection"]
+size = Vector2( 300, 300 )
+transparent_bg = true
+render_target_v_flip = true
+
+[node name="Value" type="Label" parent="MissedClustersSection/Viewport2"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 3 )
+text = "--"
+
+[node name="Sprite3D2" type="Sprite3D" parent="MissedClustersSection"]
+transform = Transform( 0.0564252, 0, 0.294646, 0, 0.3, 0, -0.294646, 0, 0.0564252, 0.262236, -0.125504, -0.717133 )
+texture = SubResource( 16 )
+
+[node name="DamagedFruitletsSection" type="Spatial" parent="."]
+transform = Transform( 0.958218, 0, -0.28604, 0, 1, 0, 0.28604, 0, 0.958218, 0.104895, 0.0136179, -1 )
+
+[node name="Viewport" type="Viewport" parent="DamagedFruitletsSection"]
+size = Vector2( 300, 300 )
+transparent_bg = true
+render_target_v_flip = true
+
+[node name="Title" type="Label" parent="DamagedFruitletsSection/Viewport"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_constants/line_spacing = -5
+custom_fonts/font = SubResource( 8 )
+text = "Damaged Fruitlets"
+
+[node name="Sprite3D" type="Sprite3D" parent="DamagedFruitletsSection"]
+transform = Transform( -0.0276228, 0, 0.298726, 0, 0.3, 0, -0.298726, 0, -0.0276228, 0.193138, -0.155309, 0.417566 )
+texture = SubResource( 17 )
+
+[node name="Viewport2" type="Viewport" parent="DamagedFruitletsSection"]
+size = Vector2( 300, 300 )
+transparent_bg = true
+render_target_v_flip = true
+
+[node name="Value" type="Label" parent="DamagedFruitletsSection/Viewport2"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 3 )
+text = "--"
+
+[node name="Sprite3D2" type="Sprite3D" parent="DamagedFruitletsSection"]
+transform = Transform( 0.0564253, 0, 0.294646, 0, 0.3, 0, -0.294646, 0, 0.0564253, 0.266153, -0.125504, -0.653959 )
+texture = SubResource( 18 )
+
+[node name="LargeFruitletsSection" type="Spatial" parent="."]
+transform = Transform( 0.958218, 0, -0.28604, 0, 1, 0, 0.28604, 0, 0.958218, 0.104895, -0.201997, -1 )
+
+[node name="Viewport" type="Viewport" parent="LargeFruitletsSection"]
+size = Vector2( 300, 300 )
+transparent_bg = true
+render_target_v_flip = true
+
+[node name="Title" type="Label" parent="LargeFruitletsSection/Viewport"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_constants/line_spacing = -5
+custom_fonts/font = SubResource( 8 )
+text = "Large Fruitlets"
+
+[node name="Sprite3D" type="Sprite3D" parent="LargeFruitletsSection"]
+transform = Transform( -0.0276228, 0, 0.298726, 0, 0.3, 0, -0.298726, 0, -0.0276228, 0.193138, -0.155309, 0.417566 )
+texture = SubResource( 19 )
+
+[node name="Viewport2" type="Viewport" parent="LargeFruitletsSection"]
+size = Vector2( 300, 300 )
+transparent_bg = true
+render_target_v_flip = true
+
+[node name="Value" type="Label" parent="LargeFruitletsSection/Viewport2"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 3 )
+text = "--"
+
+[node name="Sprite3D2" type="Sprite3D" parent="LargeFruitletsSection"]
+transform = Transform( 0.0564253, 0, 0.294646, 0, 0.3, 0, -0.294646, 0, 0.0564253, 0.266153, -0.125504, -0.653959 )
+texture = SubResource( 20 )
+
+[node name="SmallFruitletsSection" type="Spatial" parent="."]
+transform = Transform( 0.958218, 0, -0.28604, 0, 1, 0, 0.28604, 0, 0.958218, 0.104895, -0.436529, -1 )
+
+[node name="Viewport" type="Viewport" parent="SmallFruitletsSection"]
+size = Vector2( 300, 300 )
+transparent_bg = true
+render_target_v_flip = true
+
+[node name="Title" type="Label" parent="SmallFruitletsSection/Viewport"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_constants/line_spacing = -5
+custom_fonts/font = SubResource( 8 )
+text = "Underthinned Clusters"
+
+[node name="Sprite3D" type="Sprite3D" parent="SmallFruitletsSection"]
+transform = Transform( -0.0276228, 0, 0.298726, 0, 0.3, 0, -0.298726, 0, -0.0276228, 0.193138, -0.155309, 0.417566 )
+texture = SubResource( 21 )
+
+[node name="Viewport2" type="Viewport" parent="SmallFruitletsSection"]
+size = Vector2( 300, 300 )
+transparent_bg = true
+render_target_v_flip = true
+
+[node name="Value" type="Label" parent="SmallFruitletsSection/Viewport2"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 3 )
+text = "--"
+
+[node name="Sprite3D2" type="Sprite3D" parent="SmallFruitletsSection"]
+transform = Transform( 0.0564253, 0, 0.294646, 0, 0.3, 0, -0.294646, 0, 0.0564253, 0.266153, -0.125504, -0.653959 )
+texture = SubResource( 22 )
+
+[node name="SunExposureFruitletsSection" type="Spatial" parent="."]
+transform = Transform( 0.958218, 0, -0.28604, 0, 1, 0, 0.28604, 0, 0.958218, 0.104895, -0.704417, -1 )
+
+[node name="Viewport" type="Viewport" parent="SunExposureFruitletsSection"]
+size = Vector2( 300, 300 )
+transparent_bg = true
+render_target_v_flip = true
+
+[node name="Title" type="Label" parent="SunExposureFruitletsSection/Viewport"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_constants/line_spacing = -5
+custom_fonts/font = SubResource( 8 )
+text = "Missed Clusters"
+
+[node name="Sprite3D" type="Sprite3D" parent="SunExposureFruitletsSection"]
+transform = Transform( -0.0276228, 0, 0.298726, 0, 0.3, 0, -0.298726, 0, -0.0276228, 0.193138, -0.155309, 0.417566 )
+texture = SubResource( 23 )
+
+[node name="Viewport2" type="Viewport" parent="SunExposureFruitletsSection"]
+size = Vector2( 300, 300 )
+transparent_bg = true
+render_target_v_flip = true
+
+[node name="Value" type="Label" parent="SunExposureFruitletsSection/Viewport2"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 3 )
+text = "--"
+
+[node name="Sprite3D2" type="Sprite3D" parent="SunExposureFruitletsSection"]
+transform = Transform( 0.0564253, 0, 0.294646, 0, 0.3, 0, -0.294646, 0, 0.0564253, 0.266153, -0.125504, -0.653959 )
+texture = SubResource( 24 )
+
+[node name="game-result-board-mesh" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00252652, -0.00406772, 0.037869 )
