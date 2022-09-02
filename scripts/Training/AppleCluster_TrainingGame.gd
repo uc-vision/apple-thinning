@@ -4,6 +4,10 @@ onready var apple_pick_sound_player = $ApplePickSound
 var rng = RandomNumberGenerator.new()
 var score = 0
 var remaining_apple_count = 0 setget set_remaining_apple_count, get_remaining_apple_count
+var diseased_apple_count = 0 setget ,get_diseased_apple_count
+var large_apple_count = 0 setget ,get_large_apple_count
+var small_apple_count = 0 setget ,get_small_apple_count
+
 # Makes apples only pickable during the game play.
 var is_interactable = false
 var hasDamaged
@@ -18,9 +22,8 @@ const Point = {
 	DAMAGED = -300,
 }
 
-# TODO Make this globa since this is also used in AppleTree_TrainingGame.gd
-enum EvaluateNumFruitletLeftResult {
-	SUCCESSFUL, OVERTHINNED, UNDERTHINNED, MISSED
+enum EvaluationIconType {
+	ERROR, WARNING, PASS, ONE_STAR, TWO_STARS, THREE_STARS 
 }
 
 #== Getters and setters =====
@@ -30,6 +33,39 @@ func get_remaining_apple_count():
 	
 func set_remaining_apple_count(num_apple):
 	remaining_apple_count = num_apple
+
+func get_diseased_apple_count():
+	var result = 0
+	var apples = $Apples.get_children()
+	for apple in apples:
+		var groups = apple.get_groups()
+		if !apple.picked_off:
+			if groups.has("Damaged"):
+				result += 1
+		
+	return result
+	
+func get_large_apple_count():
+	var result = 0
+	var apples = $Apples.get_children()
+	for apple in apples:
+		var groups = apple.get_groups()
+		if !apple.picked_off:
+			if groups.has("HealthyLarge"):
+				result += 1
+		
+	return result
+	
+func get_small_apple_count():
+	var result = 0
+	var apples = $Apples.get_children()
+	for apple in apples:
+		var groups = apple.get_groups()
+		if !apple.picked_off:
+			if groups.has("HealthySmall"):
+				result += 1
+		
+	return result
 
 #== End of getters and setters ====
 
@@ -83,16 +119,44 @@ func calculate_score():
 			apple.show_point()
 	
 	emit_signal("score_computed", score)
-	
+
+
 func play_apple_picked_sound():
 	apple_pick_sound_player.play()
 	
-func show_evaluation_feedback(result):
-	
-	# Enable the visibility of the parent node of evaluation feedback icons
+func show_icon(feedback_type):
 	$EvaluationFeedback.set_visible(true)
 	
-	if result == EvaluateNumFruitletLeftResult.SUCCESSFUL:
+	if feedback_type == EvaluationIconType.PASS:
 		$EvaluationFeedback/Tick.set_visible(true)
-	else:
+	elif feedback_type == EvaluationIconType.WARNING:
+		# TODO show warning icon
+		pass
+	elif feedback_type == EvaluationIconType.ERROR:
 		$EvaluationFeedback/Exclamation.set_visible(true)
+
+
+func show_evaluation_feedback(is_num_fruitlet_success, num_left_damaged, num_left_large):
+	var feedback_type
+	
+	if is_num_fruitlet_success:
+		if num_left_damaged == 0:
+			# TODO add rule 4 condition switch once implemented
+			if num_left_large == 2:
+				feedback_type = EvaluationIconType.PASS
+			elif num_left_large == 1:
+				feedback_type = EvaluationIconType.PASS
+			elif num_left_large == 0:
+				feedback_type = EvaluationIconType.PASS
+		else:
+			feedback_type = EvaluationIconType.WARNING
+			pass
+			
+	else:
+		feedback_type = EvaluationIconType.ERROR
+
+	# Enable the visibility of the parent node of evaluation feedback icons
+	
+	show_icon(feedback_type)
+
+
