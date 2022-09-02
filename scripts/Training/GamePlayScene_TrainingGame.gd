@@ -79,5 +79,5 @@ func _on_GoToGameResultsSceneTimer_timeout():
 	
 func _on_FinishTrainingGame_start_evaluation():
 	finish_training_game
-	$AppleTree_TrainingGame.evaluate()
-	$EvaluationStatsBoard.set_visible(true)
+	var evaluation_stats = $AppleTree_TrainingGame.evaluate()
+	$EvaluationStatsBoard.show_data(evaluation_stats)

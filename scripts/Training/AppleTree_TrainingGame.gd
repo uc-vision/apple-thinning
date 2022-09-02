@@ -156,3 +156,5 @@ func evaluate():
 	training_game_data.set_num_left_damaged(num_left_damaged)
 	training_game_data.set_num_left_large(num_left_large)
 	training_game_data.set_num_left_small(num_left_small)
+	
+	return training_game_data
