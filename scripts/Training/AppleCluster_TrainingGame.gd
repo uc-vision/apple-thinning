@@ -130,12 +130,13 @@ func show_icon(feedback_type):
 	if feedback_type == EvaluationIconType.PASS:
 		$EvaluationFeedback/Tick.set_visible(true)
 	elif feedback_type == EvaluationIconType.WARNING:
-		# TODO show warning icon
-		pass
+		$EvaluationFeedback/Warning.set_visible(true)
 	elif feedback_type == EvaluationIconType.ERROR:
 		$EvaluationFeedback/Exclamation.set_visible(true)
 
 
+# Based on the given evaluation results, assign the feedback type to the cluster. 
+# Called from AppleTree_TrainingGame.gd
 func show_evaluation_feedback(is_num_fruitlet_success, num_left_damaged, num_left_large):
 	var feedback_type
 	
@@ -150,7 +151,6 @@ func show_evaluation_feedback(is_num_fruitlet_success, num_left_damaged, num_lef
 				feedback_type = EvaluationIconType.PASS
 		else:
 			feedback_type = EvaluationIconType.WARNING
-			pass
 			
 	else:
 		feedback_type = EvaluationIconType.ERROR
