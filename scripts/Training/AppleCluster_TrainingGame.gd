@@ -73,6 +73,16 @@ func _ready():
 	initial_apple_count = $Apples.get_child_count()
 	set_remaining_apple_count(initial_apple_count)
 	is_interactable = true
+	
+	var apple_type
+	for apple in $Apples.get_children():
+		apple_type = apple.get_groups()
+		if "HealthyLarge" in apple_type:
+			apple.connect("on_picked", self, "_on_HealthyLargeApple_on_picked")
+		elif "HealthySmall" in apple_type:
+			apple.connect("on_picked", self, "_on_HealthySmallApple_on_picked")
+		elif "Damaged" in apple_type:
+			apple.connect("on_picked", self, "_on_DamagedApple_on_picked")
 
 
 func initialize(spawn_location):
