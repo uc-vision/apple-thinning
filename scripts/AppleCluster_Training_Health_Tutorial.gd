@@ -1,12 +1,7 @@
 extends "res://scripts/AppleCluster_Training_Thinning_Tutorial.gd"
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-# MAX_APPLE_NUM_TO_LEAVE
-# remaining_apple_count
+# On ready attach all apples to correct groups
 func _ready():
 	var apple_type
 	for apple in get_children():
@@ -19,6 +14,7 @@ func _ready():
 			elif "Damaged" in apple_type:
 				apple.connect("on_picked", self, "_on_DamagedApple_on_picked")
 
+#Checks cluster health and returns bool; true if no damaged apples exist, false if damagage apples still unpicked
 func check_health():
 	var all_healthy = true
 	for child in get_children():    
@@ -26,6 +22,7 @@ func check_health():
 			all_healthy = false
 	return all_healthy
 
+# Following three functions are inherited and check_apples() added on pick triggers
 func check_apples():
 	var healthy = check_health()  #checks if any unhealth apples, true if only healty remain
 	if MAX_APPLE_NUM_TO_LEAVE == remaining_apple_count and healthy:
@@ -40,7 +37,10 @@ func check_apples():
 		$Tick.set_visible(false)
 		$Exclamation.set_visible(true)
 		$Warning.set_visible(false)
-	
+
+
+# Following three functions are inherited and check_apples() added on pick triggers
+
 
 func _on_HealthyLargeApple_on_picked(apple):
 	emit_signal("apple_picked")

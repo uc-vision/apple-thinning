@@ -1,11 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scenes/Tutorial/TutorialTree.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scripts/TrainingScene3.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Tutorial/Video_Screen.tscn" type="PackedScene" id=3]
 
-[node name="TrainingScene3" type="Spatial"]
-script = ExtResource( 2 )
+[node name="TrainingScene6" type="Spatial"]
 
 [node name="TutorialTree" parent="." instance=ExtResource( 1 )]
 
