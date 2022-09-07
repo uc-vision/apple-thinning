@@ -22,6 +22,33 @@ func check_health():
 			all_healthy = false
 	return all_healthy
 
+# function to hide all stars
+func hide_stars():
+	$OneStar.set_visible(false)
+	$DoubleStars.set_visible(false)
+	$TripleStars.set_visible(false)
+
+# function to display correct amount of stars
+func display_stars():
+	var apple_type
+	var score = 1
+
+	#traverse nodes checking for large apples, add star for each large
+	for apple in get_children():
+		if apple.get_groups().has("Apple"):
+			apple_type = apple.get_groups()
+			if "HealthyLarge" in apple_type and !apple.picked_off:
+				score += 1
+	
+	# display the score to player
+	if score == 1:
+		$OneStar.set_visible(true)
+	elif score == 2:
+		$DoubleStars.set_visible(true)
+	else:
+		$TripleStars.set_visible(true)
+
+
 # Following three functions are inherited and check_apples() added on pick triggers
 func check_apples():
 	var healthy = check_health()  #checks if any unhealth apples, true if only healty remain
@@ -29,6 +56,7 @@ func check_apples():
 		$Tick.set_visible(true)
 		$Exclamation.set_visible(false)
 		$Warning.set_visible(false)
+		display_stars()
 	elif MAX_APPLE_NUM_TO_LEAVE == remaining_apple_count:
 		$Exclamation.set_visible(false)
 		$Tick.set_visible(false)
@@ -37,6 +65,7 @@ func check_apples():
 		$Tick.set_visible(false)
 		$Exclamation.set_visible(true)
 		$Warning.set_visible(false)
+		hide_stars()
 
 
 # Following three functions are inherited and check_apples() added on pick triggers
