@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/Tutorial/Tick.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/HealthySmallApple.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/TripleStars.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/OneStar.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/DoubleStars.tscn" type="PackedScene" id=10]
+
+[node name="AppleCluster_Training_Size_Example_3" type="Spatial" groups=["AppleCluster"]]
+
+[node name="HealthySmallApple" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, -0.00938156, -0.0596802, 0 )
+mode = 1
+script = null
+
+[node name="HealthySmallApple2" parent="." instance=ExtResource( 5 )]
+transform = Transform( -0.65, 0, -5.68248e-08, 0, 0.65, 0, 5.68248e-08, 0, -0.65, 0.0154795, -0.0605133, 0 )
+mode = 1
+script = null
+
+[node name="Tick" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.0510441, 0 )
+
+[node name="OneStar" parent="." instance=ExtResource( 9 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -0.00113461, -0.0916805, 0.138905 )
+
+[node name="DoubleStars" parent="." instance=ExtResource( 10 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -0.00113461, -0.0916805, 0.138905 )
+visible = false
+
+[node name="TripleStars" parent="." instance=ExtResource( 8 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -0.00113461, -0.0916805, 0.138905 )
+visible = false
