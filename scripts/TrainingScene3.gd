@@ -5,7 +5,7 @@ onready var TV = $Viewport/VideoPlayer
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-const PATH = "res://Assets/Videos/%s.webm"
+const PATH = "res://Assets/Videos/%s.ogv"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
