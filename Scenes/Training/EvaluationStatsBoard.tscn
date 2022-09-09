@@ -306,7 +306,7 @@ margin_right = 40.0
 margin_bottom = 14.0
 custom_constants/line_spacing = -5
 custom_fonts/font = SubResource( 8 )
-text = "Underthinned Clusters"
+text = "Small Fruitlets"
 
 [node name="Sprite3D" type="Sprite3D" parent="SmallFruitletsSection"]
 transform = Transform( -0.0276228, 0, 0.298726, 0, 0.3, 0, -0.298726, 0, -0.0276228, 0.193138, -0.155309, 0.417566 )
@@ -340,7 +340,8 @@ margin_right = 40.0
 margin_bottom = 14.0
 custom_constants/line_spacing = -5
 custom_fonts/font = SubResource( 8 )
-text = "Missed Clusters"
+text = "Good sun 
+exposure fruitlets"
 
 [node name="Sprite3D" type="Sprite3D" parent="SunExposureFruitletsSection"]
 transform = Transform( -0.0276228, 0, 0.298726, 0, 0.3, 0, -0.298726, 0, -0.0276228, 0.193138, -0.155309, 0.417566 )

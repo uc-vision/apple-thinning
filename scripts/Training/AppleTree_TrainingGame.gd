@@ -88,12 +88,15 @@ func evaluate_diseased_fruitlet_left(cluster):
 	return cluster.get_diseased_apple_count()
 
 
+
 # Evaluate the Rule 3: Remove smaller fruitlets and leave larger fruitlets
 func evaluate_fruitlet_size(cluster):
 	var num_large = cluster.get_large_apple_count()
 	var num_small = cluster.get_small_apple_count()
 
 	return Vector2(num_large, num_small)
+
+
 
 # Evaluate the Rule 4. Leave fruitlets with more sun exposure
 func evaluate_fruitlet_sun_exposure(cluster):
@@ -104,6 +107,7 @@ func evaluate_fruitlet_sun_exposure(cluster):
 func evaluate():
 	var training_game_data = TrainingGameData.new()
 	
+	# For whole tree stats.
 	var num_successful_clusters = 0
 	var num_overthinned_clusters = 0
 	var num_underthinned_clusters = 0
@@ -113,6 +117,10 @@ func evaluate():
 	var num_left_small = 0
 	var num_sunshine_apple = 0
 	
+	# For per cluster stats
+	var num_left_damaged_fruitlet
+	var nun_left_large_fruitlet
+	var num_left_small_fruitlet
 	var evaluate_num_fruitlet_left_result
 	var large_and_small_count
 	
@@ -125,9 +133,7 @@ func evaluate():
 					
 					# Rule 1: Thin down each cluster into two fruitlets
 					evaluate_num_fruitlet_left_result = evaluate_num_fruitlet_left(branch_child)
-					if evaluate_num_fruitlet_left_result == EvaluateNumFruitletLeftResult.SUCCESSFUL:
-						num_successful_clusters += 1
-					elif evaluate_num_fruitlet_left_result == EvaluateNumFruitletLeftResult.MISSED:
+					if evaluate_num_fruitlet_left_result == EvaluateNumFruitletLeftResult.MISSED:
 						num_missed_clusters += 1
 					elif evaluate_num_fruitlet_left_result == EvaluateNumFruitletLeftResult.UNDERTHINNED:
 						num_underthinned_clusters += 1
@@ -135,19 +141,23 @@ func evaluate():
 						num_overthinned_clusters += 1
 						
 					# Rule 2: Remove damaged/diseased fruitlets and leave healthy fruitlets
-					num_left_damaged = evaluate_diseased_fruitlet_left(branch_child)
+					num_left_damaged_fruitlet = evaluate_diseased_fruitlet_left(branch_child)
+					num_left_damaged += num_left_damaged_fruitlet
 					
 					# Rule 3: Remove smaller fruitlets and leave larger fruitlets
 					large_and_small_count = evaluate_fruitlet_size(branch_child)
-					num_left_large = large_and_small_count.x
-					num_left_small = large_and_small_count.y
+					nun_left_large_fruitlet = large_and_small_count.x
+					num_left_large += large_and_small_count.x
+					num_left_small += large_and_small_count.y
 					
 					
 					# Based on the results of the four rules, show a feedback icon
 					if evaluate_num_fruitlet_left_result == EvaluateNumFruitletLeftResult.SUCCESSFUL:
-						branch_child.show_evaluation_feedback(true, num_left_damaged, num_left_large)
+						if num_left_damaged_fruitlet == 0:
+							num_successful_clusters += 1
+						branch_child.show_evaluation_feedback(true, num_left_damaged_fruitlet, nun_left_large_fruitlet)
 					else:
-						branch_child.show_evaluation_feedback(false, num_left_damaged, num_left_large)
+						branch_child.show_evaluation_feedback(false, num_left_damaged_fruitlet, nun_left_large_fruitlet)
 					
 	training_game_data.set_num_successful_clusters(num_successful_clusters)
 	training_game_data.set_num_missed_clusters(num_missed_clusters)

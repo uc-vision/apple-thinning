@@ -78,6 +78,5 @@ func _on_GoToGameResultsSceneTimer_timeout():
 	emit_signal("go_to_game_results", game_play_data)
 	
 func _on_FinishTrainingGame_start_evaluation():
-	finish_training_game
 	var evaluation_stats = $AppleTree_TrainingGame.evaluate()
 	$EvaluationStatsBoard.show_data(evaluation_stats)

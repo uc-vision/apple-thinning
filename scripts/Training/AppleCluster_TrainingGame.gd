@@ -168,5 +168,3 @@ func show_evaluation_feedback(is_num_fruitlet_success, num_left_damaged, num_lef
 	# Enable the visibility of the parent node of evaluation feedback icons
 	
 	show_icon(feedback_type)
-
-
