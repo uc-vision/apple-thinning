@@ -51,5 +51,6 @@ func show_data(data):
 	set_damaged_fruitlets_label(str(data.get_num_left_damaged()))
 	set_large_fruitlets_label(str(data.get_num_left_large()))
 	set_small_fruitlets_label(str(data.get_num_left_small()))
+	set_sun_exposure_fruitlets_label(str(data.get_num_sunshine_apple()))
 	
 	set_visible(true)

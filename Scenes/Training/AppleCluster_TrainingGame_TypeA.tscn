@@ -11,6 +11,7 @@
 [node name="HealthyLargeApple" parent="Apples" index="0" instance=ExtResource( 2 )]
 transform = Transform( 0.842405, 0.509127, 0.176477, 0.19751, 0.0129664, -0.980215, -0.501342, 0.860594, -0.0896348, -0.0350211, -0.0325113, -0.0219324 )
 mode = 1
+has_strong_sun_exposure = 1
 
 [node name="HealthyLargeApple2" parent="Apples" index="1" instance=ExtResource( 2 )]
 transform = Transform( 0.875778, -0.471703, -0.102518, 0.428042, 0.857047, -0.286794, 0.223144, 0.207285, 0.952491, 0.00358299, -0.0753063, -0.0242914 )

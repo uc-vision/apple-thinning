@@ -7,6 +7,7 @@ var remaining_apple_count = 0 setget set_remaining_apple_count, get_remaining_ap
 var diseased_apple_count = 0 setget ,get_diseased_apple_count
 var large_apple_count = 0 setget ,get_large_apple_count
 var small_apple_count = 0 setget ,get_small_apple_count
+var sunshine_apple_count = 0 setget, get_sunshine_apple_count
 
 # Makes apples only pickable during the game play.
 var is_interactable = false
@@ -23,7 +24,7 @@ const Point = {
 }
 
 enum EvaluationIconType {
-	ERROR, WARNING, PASS, ONE_STAR, TWO_STARS, THREE_STARS 
+	ERROR, WARNING, PASS, ONE_STAR, DOUBLE_STARS, TRIPLE_STARS 
 }
 
 #== Getters and setters =====
@@ -66,6 +67,15 @@ func get_small_apple_count():
 				result += 1
 		
 	return result
+
+func get_sunshine_apple_count():
+	sunshine_apple_count = 0
+	var apples = $Apples.get_children()
+	for apple in apples:
+		if apple.has_strong_sun_exposure:
+			sunshine_apple_count += 1
+
+	return sunshine_apple_count
 
 #== End of getters and setters ====
 
@@ -139,6 +149,15 @@ func show_icon(feedback_type):
 	
 	if feedback_type == EvaluationIconType.PASS:
 		$EvaluationFeedback/Tick.set_visible(true)
+	elif feedback_type == EvaluationIconType.ONE_STAR:
+		$EvaluationFeedback/Tick.set_visible(true)
+		$EvaluationFeedback/OneStar.set_visible(true)
+	elif feedback_type == EvaluationIconType.DOUBLE_STARS:
+		$EvaluationFeedback/Tick.set_visible(true)
+		$EvaluationFeedback/DoubleStars.set_visible(true)
+	elif feedback_type == EvaluationIconType.TRIPLE_STARS:
+		$EvaluationFeedback/Tick.set_visible(true)
+		$EvaluationFeedback/TripleStars.set_visible(true)
 	elif feedback_type == EvaluationIconType.WARNING:
 		$EvaluationFeedback/Warning.set_visible(true)
 	elif feedback_type == EvaluationIconType.ERROR:
@@ -152,13 +171,21 @@ func show_evaluation_feedback(is_num_fruitlet_success, num_left_damaged, num_lef
 	
 	if is_num_fruitlet_success:
 		if num_left_damaged == 0:
-			# TODO add rule 4 condition switch once implemented
 			if num_left_large == 2:
-				feedback_type = EvaluationIconType.PASS
+				if sunshine_apple_count > 0:
+					feedback_type = EvaluationIconType.TRIPLE_STARS
+				else:
+					feedback_type = EvaluationIconType.DOUBLE_STARS
 			elif num_left_large == 1:
-				feedback_type = EvaluationIconType.PASS
+				if sunshine_apple_count > 0:
+					feedback_type = EvaluationIconType.DOUBLE_STARS
+				else:
+					feedback_type = EvaluationIconType.ONE_STAR
 			elif num_left_large == 0:
-				feedback_type = EvaluationIconType.PASS
+				if sunshine_apple_count > 0:
+					feedback_type = EvaluationIconType.ONE_STAR
+				else:
+					feedback_type = EvaluationIconType.PASS
 		else:
 			feedback_type = EvaluationIconType.WARNING
 			
