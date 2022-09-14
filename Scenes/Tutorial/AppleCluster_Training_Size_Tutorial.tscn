@@ -11,7 +11,7 @@
 [ext_resource path="res://Scenes/OneStar.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/DoubleStars.tscn" type="PackedScene" id=10]
 
-[node name="AppleCluster_Training_Health_Tutorial" type="Spatial" groups=["AppleCluster"]]
+[node name="AppleCluster_Training_Size_Tutorial" type="Spatial" groups=["AppleCluster"]]
 script = ExtResource( 2 )
 
 [node name="HealthyLargeApple" parent="." instance=ExtResource( 3 )]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Audio/apple-picking-sound.wav" type="AudioStream" id=1]
 [ext_resource path="res://scripts/AppleCluster_Training_Health_Tutorial.gd" type="Script" id=2]
@@ -7,33 +7,38 @@
 [ext_resource path="res://Scenes/DamagedLargeApple.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Tutorial/Exclamation.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Tutorial/Warning.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/HealthySmallApple.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/TripleStars.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/DamagedSmallApple.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/DoubleStars.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/HealthySmallApple.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/OneStar.tscn" type="PackedScene" id=12]
 
 [node name="AppleCluster_Training_Health_And_Size_Tutorial" type="Spatial" groups=["AppleCluster"]]
 script = ExtResource( 2 )
 
 [node name="HealthyLargeApple" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.276581, -0.951177, 0.136987, 0.931674, 0.230464, -0.280839, 0.235557, 0.205302, 0.949928, 0.0301229, -0.0674365, -0.0150189 )
+transform = Transform( 0.276581, -0.951177, 0.136987, 0.931674, 0.230464, -0.280839, 0.235557, 0.205302, 0.949928, 0.0301229, -0.0962568, -0.0150189 )
 mode = 1
 
 [node name="HealthyLargeApple2" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.975637, 0.171368, 0.136987, -0.127649, 0.951228, -0.280839, -0.178433, 0.256511, 0.949928, -0.00910816, -0.100488, -0.0191328 )
+transform = Transform( 0.975637, 0.171368, 0.136987, -0.127649, 0.951228, -0.280839, -0.178433, 0.256511, 0.949928, -0.00910816, -0.0926861, -0.0191328 )
 mode = 1
-
-[node name="HealthySmallApple" parent="." instance=ExtResource( 8 )]
-transform = Transform( 0.862063, -0.506801, 0, 0.415669, 0.707048, 0.572103, -0.289943, -0.493189, 0.820182, 0.0215752, -0.0806233, 0.0302546 )
 
 [node name="DamagedLargeApple" parent="." instance=ExtResource( 5 )]
-transform = Transform( 0.969768, 0.230572, 0.079926, -0.244016, 0.919936, 0.306878, -0.00276952, -0.317103, 0.948386, -0.00947122, -0.109589, 0.0327556 )
-mode = 1
-
-[node name="DamagedLargeApple2" parent="." instance=ExtResource( 5 )]
-transform = Transform( 0.508808, -0.849912, 0.136987, 0.842744, 0.459251, -0.280839, 0.175777, 0.258338, 0.949928, 0.0486654, -0.109378, 0.00833955 )
+transform = Transform( 0.276581, -0.438525, -0.855101, 0.931674, 0.340471, 0.126743, 0.235557, -0.83173, 0.50273, 0.0280317, -0.0793935, 0.0208929 )
 mode = 1
 
 [node name="DamagedSmallApple" parent="." instance=ExtResource( 9 )]
-transform = Transform( 0.834627, 0.550816, 0, -0.550816, 0.834627, 0, 0, 0, 1, -0.0081648, -0.0662499, 0.0208114 )
+transform = Transform( 0.773431, 0.525746, 0.354113, -0.63388, 0.64149, 0.432072, 0, -0.558643, 0.829408, -0.00672261, -0.0737458, 0.0225731 )
+mode = 1
+
+[node name="HealthySmallApple" parent="." instance=ExtResource( 11 )]
+transform = Transform( 0.217352, 0.117914, -0.601128, -0.309954, 0.571339, 0, 0.528381, 0.286649, 0.247276, 0.0206998, -0.0562941, -0.0120815 )
+mode = 1
+
+[node name="HealthySmallApple3" parent="." instance=ExtResource( 11 )]
+transform = Transform( 0.51942, 0.390771, 0, -0.390771, 0.51942, 0, 0, 0, 0.65, -0.0121709, -0.0582192, 0.00392268 )
+mode = 1
 
 [node name="ApplePickSound" type="AudioStreamPlayer3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0542786, 0 )
@@ -51,7 +56,14 @@ visible = false
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.0510441, 0 )
 visible = false
 
-[node name="HealthySmallApple3" parent="." instance=ExtResource( 8 )]
-transform = Transform( -0.65, 0, -5.68248e-08, 0, 0.65, 0, 5.68248e-08, 0, -0.65, 0.0154795, -0.0605133, 0.164252 )
-mode = 1
-script = null
+[node name="OneStar" parent="." instance=ExtResource( 12 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -0.00113461, -0.0916805, 0.138905 )
+visible = false
+
+[node name="DoubleStars" parent="." instance=ExtResource( 10 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -0.00113461, -0.0916805, 0.138905 )
+visible = false
+
+[node name="TripleStars" parent="." instance=ExtResource( 8 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -0.00113461, -0.0916805, 0.138905 )
+visible = false
