@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/Tutorial/TutorialTree.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Tutorial/AppleCluster_Training_Size_Example_1.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Scenes/Tutorial/AppleCluster_Training_Example_OverThinned.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Tutorial/AppleCluster_Training_One_Unhealthy_Small.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Tutorial/AppleCluster_Training_Health_And_Size_Tutorial.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Tutorial/Non_Inteactable_Box.tscn" type="PackedScene" id=10]
 
 [node name="TrainingScene5" type="Spatial"]
 
@@ -46,3 +47,5 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1.01
 
 [node name="AppleCluster_Training_Health_And_Size_Tutorial4" parent="." instance=ExtResource( 9 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1.01023, 0.589992 )
+
+[node name="Non_Inteactable_Box" parent="." instance=ExtResource( 10 )]
