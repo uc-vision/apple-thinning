@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Tutorial/Warning.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/HealthySmallApple.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/DamagedSmallApple.tscn" type="PackedScene" id=3]
+
+[node name="AppleCluster_Training_One_Unhealthy_Small" type="Spatial" groups=["AppleCluster"]]
+
+[node name="HealthySmallApple" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 0.821577, -0.570097, 0, 0.570097, 0.821577, 0, 0, -0.0167461 )
+mode = 1
+script = null
+
+[node name="DamagedSmallApple" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 0.842076, 0.539359, 0, -0.539359, 0.842076, 0, 0, 0.0244997 )
+mode = 1
+script = null
+
+[node name="Warning" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.0956695, 0 )
