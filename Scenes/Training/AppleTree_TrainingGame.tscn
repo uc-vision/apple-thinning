@@ -55,6 +55,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6286, 0 )
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0.825811 )
 curve = SubResource( 6 )
 
+[node name="PathFollow" type="PathFollow" parent="Branch1/AppleClusterSpawnPath"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0030365, -0.00531864, 0.0410901 )
+
 [node name="Branch2" parent="." groups=["Branch"] instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.15654, 0 )
 
@@ -63,6 +66,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.15654, 0 )
 [node name="AppleClusterSpawnPath" type="Path" parent="Branch2" groups=["ClusterSpawnPath"]]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.0017302, 0.831411 )
 curve = SubResource( 6 )
+
+[node name="PathFollow" type="PathFollow" parent="Branch2/AppleClusterSpawnPath"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0030365, -0.00531864, 0.0410901 )
 
 [node name="Branch3" parent="." groups=["Branch"] instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66425, 0 )
@@ -73,6 +79,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66425, 0 )
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.0109624, 0.857219 )
 curve = SubResource( 6 )
 
+[node name="PathFollow" type="PathFollow" parent="Branch3/AppleClusterSpawnPath"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0030365, -0.00531864, 0.0410901 )
+
 [node name="Branch4" parent="." groups=["Branch"] instance=ExtResource( 5 )]
 transform = Transform( 1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 1.20089, 0 )
 
@@ -81,6 +90,9 @@ transform = Transform( 1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 1.20089, 0 )
 [node name="AppleClusterSpawnPath" type="Path" parent="Branch4" groups=["ClusterSpawnPath"]]
 transform = Transform( -0.909091, 0, -7.94752e-08, 0, 0.909091, 0, 7.94752e-08, 0, -0.909091, 0, -0.00163162, 0.792724 )
 curve = SubResource( 6 )
+
+[node name="PathFollow" type="PathFollow" parent="Branch4/AppleClusterSpawnPath"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0030365, -0.00531864, 0.0410901 )
 
 [node name="Branch5" parent="." groups=["Branch"] instance=ExtResource( 5 )]
 transform = Transform( 1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0.68077, 0 )
@@ -91,11 +103,17 @@ transform = Transform( 1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0.68077, 0 )
 transform = Transform( -0.833333, 0, -7.28523e-08, 0, 0.833333, 0, 7.28523e-08, 0, -0.833333, 0, -0.00157034, 0.761938 )
 curve = SubResource( 6 )
 
+[node name="PathFollow" type="PathFollow" parent="Branch5/AppleClusterSpawnPath"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0030365, -0.00531864, 0.0410901 )
+
 [node name="Branch6" parent="." groups=["Branch"] instance=ExtResource( 2 )]
 transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -1.70023e-09, 2.61239, -0.0194484 )
 
 [node name="AppleClusterSpawnPath" type="Path" parent="Branch6" groups=["ClusterSpawnPath"]]
 curve = SubResource( 6 )
+
+[node name="PathFollow" type="PathFollow" parent="Branch6/AppleClusterSpawnPath"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0030365, -0.00531864, 0.0410901 )
 
 [node name="leaves" parent="Branch6" instance=ExtResource( 4 )]
 
@@ -105,6 +123,9 @@ transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 2.14
 [node name="AppleClusterSpawnPath" type="Path" parent="Branch7" groups=["ClusterSpawnPath"]]
 curve = SubResource( 7 )
 
+[node name="PathFollow" type="PathFollow" parent="Branch7/AppleClusterSpawnPath"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0030365, -0.00531864, 0.0410901 )
+
 [node name="leaves" parent="Branch7" instance=ExtResource( 4 )]
 
 [node name="Branch8" parent="." groups=["Branch"] instance=ExtResource( 2 )]
@@ -112,6 +133,9 @@ transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 1.73
 
 [node name="AppleClusterSpawnPath" type="Path" parent="Branch8" groups=["ClusterSpawnPath"]]
 curve = SubResource( 8 )
+
+[node name="PathFollow" type="PathFollow" parent="Branch8/AppleClusterSpawnPath"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0030365, -0.00531864, 0.0410901 )
 
 [node name="leaves" parent="Branch8" instance=ExtResource( 3 )]
 
@@ -121,6 +145,9 @@ transform = Transform( -1.1, 0, -9.61651e-08, 0, 1.1, 0, 9.61647e-08, 0, -1.1, 0
 [node name="AppleClusterSpawnPath" type="Path" parent="Branch9" groups=["ClusterSpawnPath"]]
 curve = SubResource( 9 )
 
+[node name="PathFollow" type="PathFollow" parent="Branch9/AppleClusterSpawnPath"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0030365, -0.00531864, 0.0410901 )
+
 [node name="leaves" parent="Branch9" instance=ExtResource( 4 )]
 
 [node name="Branch10" parent="." groups=["Branch"] instance=ExtResource( 2 )]
@@ -129,6 +156,9 @@ transform = Transform( -1.2, 0, -1.04907e-07, 0, 1.2, 0, 1.04907e-07, 0, -1.2, 0
 [node name="AppleClusterSpawnPath" type="Path" parent="Branch10" groups=["ClusterSpawnPath"]]
 curve = SubResource( 10 )
 
+[node name="PathFollow" type="PathFollow" parent="Branch10/AppleClusterSpawnPath"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0030365, -0.00531864, 0.0410901 )
+
 [node name="leaves" parent="Branch10" instance=ExtResource( 4 )]
 
 [node name="TrunkAndTopBranches" parent="." groups=["Branch"] instance=ExtResource( 6 )]
@@ -136,6 +166,9 @@ curve = SubResource( 10 )
 [node name="AppleClusterSpawnPath" type="Path" parent="TrunkAndTopBranches" groups=["ClusterSpawnPath"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.00283, 0 )
 curve = SubResource( 11 )
+
+[node name="PathFollow" type="PathFollow" parent="TrunkAndTopBranches/AppleClusterSpawnPath"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00117493, 0.00570345, -0.690734 )
 
 [node name="leaves" parent="TrunkAndTopBranches" instance=ExtResource( 3 )]
 transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 3.0009, 0 )
