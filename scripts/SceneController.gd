@@ -3,7 +3,7 @@ extends Spatial
 # JADES DEBUGGING MAGIC
 # get_tree().root.get_node("Game/AudioStreamPlayer").play()
 
-const MAX_SCENE_NUMBER = 5 # Scences start at 0 like arrays but end on last scene #
+const MAX_SCENE_NUMBER = 6 # Scences start at 0 like arrays but end on last scene #
 const SCENE_PATH = "res://Scenes/Tutorial/TrainingScene%s.tscn"
 
 var current_scene_number = 0
