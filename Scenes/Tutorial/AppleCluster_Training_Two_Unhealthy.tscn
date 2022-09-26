@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Tutorial/Warning.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/DamagedLargeApple.tscn" type="PackedScene" id=5]
+
+[node name="AppleCluster_Training_Two_Unhealthy" type="Spatial" groups=["AppleCluster"]]
+
+[node name="DamagedLargeApple" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.899672, 0.436566, 0, -0.436566, 0.899672, 0, 0, 0, 1, -0.0252016, 0, 0 )
+mode = 1
+script = null
+
+[node name="DamagedLargeApple2" parent="." instance=ExtResource( 5 )]
+transform = Transform( -0.867505, -0.497428, -1.50996e-07, -0.497428, 0.867505, 3.53444e-15, 1.3099e-07, 7.51096e-08, -1, 0.0241551, 0, 0 )
+mode = 1
+script = null
+
+[node name="Warning" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.101732, 0 )

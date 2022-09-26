@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Assets/CGTuts_OceanHDRI_Freebie_001.hdr" type="Texture" id=1]
 [ext_resource path="res://Scenes/ARVROrigin.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Audio/beep.wav" type="AudioStream" id=3]
+[ext_resource path="res://Audio/times-up-whistle.wav" type="AudioStream" id=3]
 [ext_resource path="res://Game.gd" type="Script" id=4]
 
 [sub_resource type="PanoramaSky" id=4]

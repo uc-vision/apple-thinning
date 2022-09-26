@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/HealthyLargeAplle.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Tutorial/Exclamation.tscn" type="PackedScene" id=2]
+
+[node name="AppleCluster_Training_Example_OverThinned" type="Spatial"]
+
+[node name="HealthyLargeApple" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+mode = 1
+script = null
+
+[node name="HealthyLargeApple2" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+mode = 1
+script = null
+
+[node name="HealthyLargeApple3" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+mode = 1
+script = null
+
+[node name="Exclamation" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.0794182, 0 )
