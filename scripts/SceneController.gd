@@ -5,6 +5,7 @@ extends Spatial
 
 const MAX_SCENE_NUMBER = 6 # Scences start at 0 like arrays but end on last scene #
 const SCENE_PATH = "res://Scenes/Tutorial/TrainingScene%s.tscn"
+#const TUT_LABEL_PATH = 
 
 var current_scene_number = 0
 var current_scene
@@ -29,6 +30,7 @@ func next_scene(transition):
 		pass
 	else:
 		current_scene_number += transition
+		get_node("../Menu/TrainingMenu").set_current_tutorial_label(current_scene_number)
 		load_scene(current_scene_number)
 	
 

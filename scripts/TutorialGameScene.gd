@@ -20,7 +20,7 @@ func set_player(player):
 func play_button_press_sound():
 	$ButtonPressSoundPlayer.play()
 
-# Exits secne: checks signal not already sent (captures accidental dobule clicks)
+# Exits scene: checks signal not already sent (captures accidental dobule clicks)
 func _on_TrainingMenu_Exit_Pressed():
 	if not signal_sent:
 		signal_sent = true

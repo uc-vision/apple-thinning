@@ -3,6 +3,7 @@ extends MeshInstance
 
 signal exit_to_menu
 const VALUE = 2
+onready var MAX_SCENE = get_tree().root.get_node("Game/Levels/TutorialGameScene/SceneController").MAX_SCENE_NUMBER
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -42,7 +43,8 @@ func _on_NextButtonButtonArea_area_entered(area):
 		$ButtonPressSoundPlayer.play()
 		get_node("../../SceneController").next_scene(1)
 
-
+func set_current_tutorial_label(current_tutorial_num):
+	$Viewport/CurrentTutorialLabel.set_text(str(current_tutorial_num) + "/" + str(MAX_SCENE))
 
 func _on_NextButtonButtonArea_area_exited(area):
 	pass # Replace with function body.

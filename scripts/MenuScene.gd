@@ -39,7 +39,6 @@ func _on_TimeAttack_pressed():
 func _on_Tutorial_pressed():
 	if not signal_sent:
 		signal_sent = true
-		get_tree().root.get_node("Game/AudioStreamPlayer").play()
 		emit_signal("play_tutorial_game_mode")
 		play_button_sound()
 
