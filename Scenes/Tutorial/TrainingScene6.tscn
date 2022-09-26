@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Audio/yay-voice.wav" type="AudioStream" id=1]
+[ext_resource path="res://Scenes/Tutorial/Video_Screen.tscn" type="PackedScene" id=3]
+
+[node name="TrainingScene6" type="Spatial"]
+
+[node name="Video_Screen" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1.5, 0 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+autoplay = true

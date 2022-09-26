@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Tutorial/TutorialTree_All_Healthy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Tutorial/Video_Screen.tscn" type="PackedScene" id=2]
+
+[node name="TrainingScene1" type="Spatial"]
+
+[node name="Video_Screen" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 0.300379, 1.5, -1.19962 )
+
+[node name="TutorialTree" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00183678, 0.00448418, -0.000204414 )
+script = null

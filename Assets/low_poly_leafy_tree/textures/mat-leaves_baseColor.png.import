@@ -2,9 +2,9 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://import/mat-leaves_baseColor.png-60940b4f773069120a81d2df20c082b5.s3tc.stex"
-path.etc2="res://import/mat-leaves_baseColor.png-60940b4f773069120a81d2df20c082b5.etc2.stex"
-path.etc="res://import/mat-leaves_baseColor.png-60940b4f773069120a81d2df20c082b5.etc.stex"
+path.s3tc="res://.import/mat-leaves_baseColor.png-60940b4f773069120a81d2df20c082b5.s3tc.stex"
+path.etc2="res://.import/mat-leaves_baseColor.png-60940b4f773069120a81d2df20c082b5.etc2.stex"
+path.etc="res://.import/mat-leaves_baseColor.png-60940b4f773069120a81d2df20c082b5.etc.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2", "etc" ],
 "vram_texture": true
@@ -13,7 +13,7 @@ metadata={
 [deps]
 
 source_file="res://Assets/low_poly_leafy_tree/textures/mat-leaves_baseColor.png"
-dest_files=[ "res://import/mat-leaves_baseColor.png-60940b4f773069120a81d2df20c082b5.s3tc.stex", "res://import/mat-leaves_baseColor.png-60940b4f773069120a81d2df20c082b5.etc2.stex", "res://import/mat-leaves_baseColor.png-60940b4f773069120a81d2df20c082b5.etc.stex" ]
+dest_files=[ "res://.import/mat-leaves_baseColor.png-60940b4f773069120a81d2df20c082b5.s3tc.stex", "res://.import/mat-leaves_baseColor.png-60940b4f773069120a81d2df20c082b5.etc2.stex", "res://.import/mat-leaves_baseColor.png-60940b4f773069120a81d2df20c082b5.etc.stex" ]
 
 [params]
 
