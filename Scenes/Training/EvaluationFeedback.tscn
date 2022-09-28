@@ -17,15 +17,15 @@ visible = false
 visible = false
 
 [node name="OneStar" parent="." instance=ExtResource( 5 )]
-transform = Transform( -1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, -0.087, -0.13, 0 )
+transform = Transform( -1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 0, -0.2, 0 )
 visible = false
 
 [node name="DoubleStars" parent="." instance=ExtResource( 3 )]
-transform = Transform( -1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, -0.087, -0.13, 0 )
+transform = Transform( -1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 0, -0.2, 0 )
 visible = false
 
 [node name="TripleStars" parent="." instance=ExtResource( 4 )]
-transform = Transform( -1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, -0.087, -0.13, 0 )
+transform = Transform( -1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 0, -0.2, 0 )
 visible = false
 
 [node name="Warning" parent="." instance=ExtResource( 6 )]
