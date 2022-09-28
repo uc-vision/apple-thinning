@@ -96,12 +96,17 @@ func _ready():
 
 
 func initialize(spawn_location):
+	
 	# Spawn this cluster on the given location
 	set_translation(spawn_location)
+	
 	# Give a random rotation on the apple clusters in Y direction
 	var rotation_offset = rng.randf_range(-180, 180)
 	var rotation_vector = Vector3(0, deg2rad(rotation_offset), 0)
 	$Apples.set_rotation(rotation_vector)
+	
+	# Set the rotation of the cluster to make the cluster evaluation faced to player
+	transform.origin = Vector3()
 
 
 func _on_HealthyLargeApple_on_picked(apple):
