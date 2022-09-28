@@ -105,8 +105,6 @@ func initialize(spawn_location):
 	var rotation_vector = Vector3(0, deg2rad(rotation_offset), 0)
 	$Apples.set_rotation(rotation_vector)
 	
-	# Set the rotation of the cluster to make the cluster evaluation faced to player
-	transform.origin = Vector3()
 
 
 func _on_HealthyLargeApple_on_picked(apple):
