@@ -139,7 +139,7 @@ func _on_MenuScene_play_training_game():
 	
 func _on_TrainingGameScene_exit_to_menu():
 	# Detach the player from the TrainingGameScene level before deleting the level
-	player = get_node("Levels/TrainingGameScene/Platform_TrainingGame/ARVROrigin")
+	player = get_node("Levels/TrainingGameScene/ARVROrigin")
 	if player and player.get_parent():
 		player.get_parent().remove_child(player)
 		
