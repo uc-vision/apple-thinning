@@ -51,10 +51,10 @@ visible = false
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.09013, 1.33099, 0.0429714 )
 
 [node name="ExitToMenu" parent="." instance=ExtResource( 6 )]
-transform = Transform( -0.913382, 0, -0.407103, 0, 1, 0, 0.407103, 0, -0.913382, 1.15514, 0.765038, -0.108486 )
+transform = Transform( -0.996607, 0, -0.0823039, 0, 1, 0, 0.0823039, 0, -0.996607, 0.965687, 0.765038, -0.107045 )
 
 [node name="FinishTrainingGame" parent="." instance=ExtResource( 8 )]
-transform = Transform( 0.407103, 0, -0.913382, 0, 1, 0, 0.913382, 0, 0.407103, 1.14704, 0.766454, -0.104875 )
+transform = Transform( 0.0823038, 0, -0.996607, 0, 1, 0, 0.996607, 0, 0.0823038, 0.956847, 0.766454, -0.106315 )
 
 [node name="BGM_Player" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
@@ -62,3 +62,4 @@ volume_db = -5.0
 autoplay = true
 
 [connection signal="timeout" from="GoToGameResultsSceneTimer" to="." method="_on_GoToGameResultsSceneTimer_timeout"]
+[connection signal="finished" from="BGM_Player" to="." method="_on_BGM_Player_finished"]

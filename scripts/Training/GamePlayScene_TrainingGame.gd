@@ -8,6 +8,7 @@ var total_score: int = 0
 var num_apples_picked: int = 0
 var max_combo = 0
 var game_play_data
+var is_evaluation_mode = false
 
 const WAIT_BEFORE_GO_TO_RESULTS_TIME = 3
 
@@ -76,7 +77,15 @@ func _on_GoToGameResultsSceneTimer_timeout():
 	emit_signal("go_to_game_results", game_play_data)
 	
 func _on_FinishTrainingGame_start_evaluation():
+	is_evaluation_mode = true
+	set_apple_not_pickable()
+	$BGM_Player.stop()
 	var evaluation_stats = $AppleTree_TrainingGame.evaluate()
 	$EvaluationStatsBoard.show_data(evaluation_stats)
 	$Instructions.set_visible(false)
 	$FeedbackIconBoard.set_visible(true)
+	
+
+func _on_BGM_Player_finished():
+	if !is_evaluation_mode:
+		$BGM_Player.play()
