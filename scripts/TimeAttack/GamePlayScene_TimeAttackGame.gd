@@ -30,8 +30,11 @@ var total_score: int = 0
 var num_apples_picked: int = 0
 var max_combo = 0
 var game_play_data
+var is_signal_sent = false
+
 
 signal go_to_game_results(game_results_data)
+signal exit_to_menu
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -211,7 +214,9 @@ func _on_ExitButton_pressed():
 	
 # Exit the GamePlayScene to MenuScene
 func _on_ConfirmExit_pressed():
-	pass # TODO: Exit to the Menu scene once the Menu scene is built
+	if !is_signal_sent:
+		is_signal_sent = true
+		emit_signal("exit_to_menu")
 	
 # Show the PauseDialog again
 func _on_CancelButton_pressed():
