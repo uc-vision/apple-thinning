@@ -11,6 +11,7 @@ var small_apple_count = 0 setget ,get_small_apple_count
 # Makes apples only pickable during the game play.
 var is_interactable = true
 var hasDamaged
+var initial_apple_count = 0
 
 const Point = {
 	HEALTHY_LARGE = 200,
@@ -57,7 +58,6 @@ func get_small_apple_count():
 #== End of getters and setters ====
 
 func _ready():
-	var initial_apple_count = 0
 	for child in get_children():
 		if child.get_groups().has("Apple"):
 			initial_apple_count += 1
