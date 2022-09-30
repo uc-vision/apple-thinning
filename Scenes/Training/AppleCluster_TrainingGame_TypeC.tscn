@@ -32,3 +32,10 @@ mode = 1
 [node name="DamagedSmallApple" parent="." index="5" instance=ExtResource( 3 )]
 transform = Transform( 0.984166, -0.150655, -0.0933835, 0.0590288, -0.218197, 0.974118, -0.167132, -0.964206, -0.20585, -0.0106749, -0.0375972, 0.0214966 )
 mode = 1
+
+[connection signal="on_picked" from="HealthyLargeApple" to="." method="_on_HealthyLargeApple_on_picked"]
+[connection signal="on_picked" from="HealthySmallApple" to="." method="_on_HealthySmallApple_on_picked"]
+[connection signal="on_picked" from="HealthySmallApple2" to="." method="_on_HealthySmallApple_on_picked"]
+[connection signal="on_picked" from="HealthySmallApple3" to="." method="_on_HealthySmallApple_on_picked"]
+[connection signal="on_picked" from="HealthySmallApple4" to="." method="_on_HealthySmallApple_on_picked"]
+[connection signal="on_picked" from="DamagedSmallApple" to="." method="_on_DamagedApple_on_picked"]

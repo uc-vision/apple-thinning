@@ -62,16 +62,8 @@ func get_small_apple_count():
 
 func _ready():
 	for child in get_children():
-		if child.get_groups().has("HealthyLarge"):
+		if child.get_groups().has("Apple"):
 			initial_apple_count += 1
-			child.connect("on_picked", self, "_on_HealthyLargeApple_on_picked")
-		elif child.get_groups().has("HealthySmall"):
-			initial_apple_count += 1
-			child.connect("on_picked", self, "_on_HealthySmallApple_on_picked")
-		elif child.get_groups().has("Damaged"):
-			initial_apple_count += 1
-			child.connect("on_picked", self, "_on_DamagedApple_on_picked")
-			
 	set_remaining_apple_count(initial_apple_count)
 	is_interactable = true
 
