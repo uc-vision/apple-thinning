@@ -21,6 +21,10 @@ linear_damp = 0.5
 angular_damp = 5.0
 script = ExtResource( 2 )
 
+[node name="AppleMesh" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0 )
+use_in_baked_light = true
+
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0 )
 shape = SubResource( 1 )

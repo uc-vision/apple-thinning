@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/Menu/ChooseLevelDialog.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/Menu/MenuScene.gd" type="Script" id=2]
+[ext_resource path="res://Audio/button-press-sound.wav" type="AudioStream" id=3]
 
 [sub_resource type="SpatialMaterial" id=4]
 albedo_color = Color( 0.345098, 0.458824, 0.282353, 1 )
@@ -29,4 +30,14 @@ collision_mask = 14
 shape = SubResource( 6 )
 
 [node name="ChooseLevelDialog" parent="." instance=ExtResource( 1 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.780283, -0.464805 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.780283, -0.781867 )
+
+[node name="TimerButtonLock" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+autostart = true
+
+[node name="ButtonPressSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[connection signal="timeout" from="TimerButtonLock" to="." method="_on_TimerButtonLock_timeout"]

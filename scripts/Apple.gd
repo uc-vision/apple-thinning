@@ -3,10 +3,11 @@ extends RigidBody
 signal on_picked
 onready var picked_off = false
 onready var is_score_visible = false
-
 export(int, FLAGS, "Has Strong Sun Exposure") var has_strong_sun_exposure = false
 
 func _ready():
+	if has_strong_sun_exposure:
+		$AppleMesh.set_layer_mask(2)
 	pass
 	
 
