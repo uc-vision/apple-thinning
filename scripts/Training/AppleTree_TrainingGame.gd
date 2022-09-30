@@ -95,8 +95,8 @@ func evaluate_fruitlet_size(cluster):
 
 
 # Evaluate the Rule 4. Leave fruitlets with more sun exposure
-func evaluate_fruitlet_sun_exposure(cluster):
-	return cluster.get_sunshine_apple_count()
+#func evaluate_fruitlet_sun_exposure(cluster):
+#	return cluster.get_sunshine_apple_count()
 
 
 func evaluate():
@@ -110,7 +110,7 @@ func evaluate():
 	var num_left_damaged = 0
 	var num_left_large = 0
 	var num_left_small = 0
-	var num_sunshine_apple = 0
+#	var num_sunshine_apple = 0
 	
 	# For per cluster stats
 	var num_left_damaged_fruitlet
@@ -146,7 +146,7 @@ func evaluate():
 					num_left_small += large_and_small_count.y
 					
 					# Rule 4: Leave fruitlets with more sun exposure
-					num_sunshine_apple += evaluate_fruitlet_sun_exposure(branch_child)
+#					num_sunshine_apple += evaluate_fruitlet_sun_exposure(branch_child)
 					
 					# Based on the results of the four rules, show a feedback icon
 					if evaluate_num_fruitlet_left_result == EvaluateNumFruitletLeftResult.SUCCESSFUL:
@@ -163,6 +163,5 @@ func evaluate():
 	training_game_data.set_num_left_damaged(num_left_damaged)
 	training_game_data.set_num_left_large(num_left_large)
 	training_game_data.set_num_left_small(num_left_small)
-	training_game_data.set_num_sunshine_apple(num_sunshine_apple)
 	
 	return training_game_data

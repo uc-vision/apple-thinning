@@ -329,6 +329,7 @@ texture = SubResource( 22 )
 
 [node name="SunExposureFruitletsSection" type="Spatial" parent="."]
 transform = Transform( 0.958218, 0, -0.28604, 0, 1, 0, 0.28604, 0, 0.958218, 0.104895, -0.704417, -1 )
+visible = false
 
 [node name="Viewport" type="Viewport" parent="SunExposureFruitletsSection"]
 size = Vector2( 300, 300 )

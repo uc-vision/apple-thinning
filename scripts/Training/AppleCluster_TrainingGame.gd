@@ -175,20 +175,11 @@ func show_evaluation_feedback(is_num_fruitlet_success, num_left_damaged, num_lef
 	if is_num_fruitlet_success:
 		if num_left_damaged == 0:
 			if num_left_large == 2:
-				if sunshine_apple_count > 0:
-					feedback_type = EvaluationIconType.TRIPLE_STARS
-				else:
-					feedback_type = EvaluationIconType.DOUBLE_STARS
+				feedback_type = EvaluationIconType.TRIPLE_STARS
 			elif num_left_large == 1:
-				if sunshine_apple_count > 0:
-					feedback_type = EvaluationIconType.DOUBLE_STARS
-				else:
-					feedback_type = EvaluationIconType.ONE_STAR
+				feedback_type = EvaluationIconType.DOUBLE_STARS
 			elif num_left_large == 0:
-				if sunshine_apple_count > 0:
-					feedback_type = EvaluationIconType.ONE_STAR
-				else:
-					feedback_type = EvaluationIconType.PASS
+				feedback_type = EvaluationIconType.ONE_STAR
 		else:
 			feedback_type = EvaluationIconType.WARNING
 			
