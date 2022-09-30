@@ -7,10 +7,9 @@ var remaining_apple_count = 0 setget set_remaining_apple_count, get_remaining_ap
 var diseased_apple_count = 0 setget ,get_diseased_apple_count
 var large_apple_count = 0 setget ,get_large_apple_count
 var small_apple_count = 0 setget ,get_small_apple_count
-var sunshine_apple_count = 0 setget, get_sunshine_apple_count
 
 # Makes apples only pickable during the game play.
-var is_interactable = false
+var is_interactable = true
 var hasDamaged
 var initial_apple_count
 
@@ -37,62 +36,44 @@ func set_remaining_apple_count(num_apple):
 
 func get_diseased_apple_count():
 	var result = 0
-	var apples = $Apples.get_children()
-	for apple in apples:
-		var groups = apple.get_groups()
-		if !apple.picked_off:
-			if groups.has("Damaged"):
-				result += 1
+	for child in get_children():
+		if child.get_groups().has("Damaged") and !child.picked_off:
+			result += 1
 		
 	return result
 	
 func get_large_apple_count():
 	var result = 0
-	var apples = $Apples.get_children()
-	for apple in apples:
-		var groups = apple.get_groups()
-		if !apple.picked_off:
-			if groups.has("HealthyLarge"):
-				result += 1
+	for child in get_children():
+		if child.get_groups().has("HealthyLarge") and !child.picked_off:
+			result += 1
 		
 	return result
 	
 func get_small_apple_count():
 	var result = 0
-	var apples = $Apples.get_children()
-	for apple in apples:
-		var groups = apple.get_groups()
-		if !apple.picked_off:
-			if groups.has("HealthySmall"):
-				result += 1
+	for child in get_children():
+		if child.get_groups().has("HealthySmall") and !child.picked_off:
+			result += 1
 		
 	return result
-
-func get_sunshine_apple_count():
-	sunshine_apple_count = 0
-	var apples = $Apples.get_children()
-	for apple in apples:
-		if apple.has_strong_sun_exposure:
-			sunshine_apple_count += 1
-
-	return sunshine_apple_count
 
 #== End of getters and setters ====
 
 func _ready():
-	initial_apple_count = $Apples.get_child_count()
+	for child in get_children():
+		if child.get_groups().has("HealthyLarge"):
+			initial_apple_count += 1
+			child.connect("on_picked", self, "_on_HealthyLargeApple_on_picked")
+		elif child.get_groups().has("HealthySmall"):
+			initial_apple_count += 1
+			child.connect("on_picked", self, "_on_HealthySmallApple_on_picked")
+		elif child.get_groups().has("Damaged"):
+			initial_apple_count += 1
+			child.connect("on_picked", self, "_on_DamagedApple_on_picked")
+			
 	set_remaining_apple_count(initial_apple_count)
 	is_interactable = true
-	
-	var apple_type
-	for apple in $Apples.get_children():
-		apple_type = apple.get_groups()
-		if "HealthyLarge" in apple_type:
-			apple.connect("on_picked", self, "_on_HealthyLargeApple_on_picked")
-		elif "HealthySmall" in apple_type:
-			apple.connect("on_picked", self, "_on_HealthySmallApple_on_picked")
-		elif "Damaged" in apple_type:
-			apple.connect("on_picked", self, "_on_DamagedApple_on_picked")
 
 
 func initialize(spawn_location):
@@ -103,8 +84,6 @@ func initialize(spawn_location):
 	# Give a random rotation on the apple clusters in Y direction
 	var rotation_offset = rng.randf_range(-180, 180)
 	var rotation_vector = Vector3(0, deg2rad(rotation_offset), 0)
-	$Apples.set_rotation(rotation_vector)
-	
 
 
 func _on_HealthyLargeApple_on_picked(apple):
@@ -124,24 +103,6 @@ func _on_DamagedApple_on_picked(apple):
 	play_apple_picked_sound()
 	set_remaining_apple_count(get_remaining_apple_count() - 1)
 
-func calculate_score():
-	score = 0
-	hasDamaged = false
-	var apples = $Apples.get_children()
-	for apple in apples:
-		var groups = apple.get_groups()
-		if !apple.picked_off:
-			if groups.has("HealthyLarge"):
-				score += Point.HEALTHY_LARGE
-			elif groups.has("HealthySmall"):
-				score += Point.HEALTHY_SMALL
-			else:
-				hasDamaged = true
-				score += Point.DAMAGED
-			
-			apple.show_point()
-	
-	emit_signal("score_computed", score)
 
 
 func play_apple_picked_sound():

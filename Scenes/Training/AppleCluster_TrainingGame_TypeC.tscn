@@ -7,28 +7,28 @@
 
 [node name="AppleCluster_TrainingGame_TypeC" instance=ExtResource( 4 )]
 
-[node name="HealthyLargeApple" parent="Apples" index="0" instance=ExtResource( 1 )]
+[node name="HealthyLargeApple" parent="." index="0" instance=ExtResource( 1 )]
 transform = Transform( 0.547461, -0.836831, 0, 0.836831, 0.547461, 0, 0, 0, 1, 0.0257213, -0.0515658, 0.0027465 )
 mode = 1
 has_strong_sun_exposure = 1
 
-[node name="HealthySmallApple" parent="Apples" index="1" instance=ExtResource( 2 )]
+[node name="HealthySmallApple" parent="." index="1" instance=ExtResource( 2 )]
 transform = Transform( 0.876462, 0.295984, 0.379747, -0.319952, 0.947434, 0, -0.359785, -0.121501, 0.92509, -0.0178561, -0.058912, 0.0321614 )
 mode = 1
 
-[node name="HealthySmallApple2" parent="Apples" index="2" instance=ExtResource( 2 )]
+[node name="HealthySmallApple2" parent="." index="2" instance=ExtResource( 2 )]
 transform = Transform( 0.950722, 0.305992, 0.0499676, -0.29152, 0.937104, -0.191968, -0.105565, 0.167941, 0.980128, -0.0170312, -0.0759064, -0.000872904 )
 mode = 1
 
-[node name="HealthySmallApple3" parent="Apples" index="3" instance=ExtResource( 2 )]
+[node name="HealthySmallApple3" parent="." index="3" instance=ExtResource( 2 )]
 transform = Transform( 0.81708, 0.378943, -0.43449, -0.570387, 0.641007, -0.513584, 0.0838918, 0.667467, 0.739899, -0.00855028, -0.0474517, -0.0219688 )
 mode = 1
 has_strong_sun_exposure = 1
 
-[node name="HealthySmallApple4" parent="Apples" index="4" instance=ExtResource( 2 )]
+[node name="HealthySmallApple4" parent="." index="4" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0176663, -0.0695308, 0.0203025 )
 mode = 1
 
-[node name="DamagedSmallApple" parent="Apples" index="5" instance=ExtResource( 3 )]
+[node name="DamagedSmallApple" parent="." index="5" instance=ExtResource( 3 )]
 transform = Transform( 0.984166, -0.150655, -0.0933835, 0.0590288, -0.218197, 0.974118, -0.167132, -0.964206, -0.20585, -0.0106749, -0.0375972, 0.0214966 )
 mode = 1

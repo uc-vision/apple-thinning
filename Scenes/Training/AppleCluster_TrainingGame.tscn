@@ -15,5 +15,3 @@ unit_db = 10.0
 [node name="EvaluationFeedback" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07, 0 )
 visible = false
-
-[node name="Apples" type="Spatial" parent="."]

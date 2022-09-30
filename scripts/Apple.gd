@@ -28,7 +28,13 @@ func hide_point():
 
 # Get apple being pickable or not from the parent apple cluster.
 func is_interactable():
-	return get_parent().is_interactable || get_parent().get_parent().is_interactable
+	if get_parent().is_interactable:
+		return true
+	elif get_parent().get_parent().is_interactable:
+		get_tree().root.get_node("Game/AudioStreamPlayer").play()
+		return true
+	else:
+		return false
 
 func is_picked_off():
 	return picked_off

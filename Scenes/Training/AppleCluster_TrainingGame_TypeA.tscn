@@ -8,31 +8,31 @@
 
 [node name="AppleCluster_TrainingGame_TypeA" instance=ExtResource( 5 )]
 
-[node name="HealthyLargeApple" parent="Apples" index="0" instance=ExtResource( 2 )]
+[node name="HealthyLargeApple" parent="." index="3" instance=ExtResource( 2 )]
 transform = Transform( 0.842405, 0.509127, 0.176477, 0.19751, 0.0129664, -0.980215, -0.501342, 0.860594, -0.0896348, -0.0350211, -0.0325113, -0.0219324 )
 mode = 1
 has_strong_sun_exposure = 1
 
-[node name="HealthyLargeApple2" parent="Apples" index="1" instance=ExtResource( 2 )]
+[node name="HealthyLargeApple2" parent="." index="4" instance=ExtResource( 2 )]
 transform = Transform( 0.875778, -0.471703, -0.102518, 0.428042, 0.857047, -0.286794, 0.223144, 0.207285, 0.952491, 0.00358299, -0.0753063, -0.0242914 )
 mode = 1
 
-[node name="HealthySmallApple" parent="Apples" index="2" instance=ExtResource( 3 )]
+[node name="HealthySmallApple" parent="." index="5" instance=ExtResource( 3 )]
 transform = Transform( 0.561915, -0.752517, -0.343468, 0.721198, 0.649039, -0.242119, 0.405123, -0.111658, 0.907418, 0.023188, -0.0846138, 0.0141125 )
 mode = 1
 
-[node name="HealthySmallApple2" parent="Apples" index="3" instance=ExtResource( 3 )]
+[node name="HealthySmallApple2" parent="." index="6" instance=ExtResource( 3 )]
 transform = Transform( 0.960977, 0.276627, 0, -0.276627, 0.960977, 0, 0, 0, 1, -0.0363297, -0.0867134, 0.00946388 )
 mode = 1
 
-[node name="DamagedLargeApple" parent="Apples" index="4" instance=ExtResource( 1 )]
+[node name="DamagedLargeApple" parent="." index="7" instance=ExtResource( 1 )]
 transform = Transform( 0.952373, -0.0285527, -0.303597, 0.18938, 0.835713, 0.515479, 0.239002, -0.548423, 0.801318, -0.00689414, -0.0603507, 0.0265823 )
 mode = 1
 
-[node name="DamagedSmallApple" parent="Apples" index="5" instance=ExtResource( 4 )]
+[node name="DamagedSmallApple" parent="." index="8" instance=ExtResource( 4 )]
 transform = Transform( -0.658089, -0.665069, 0.352989, 0.708065, -0.387214, 0.590516, -0.256052, 0.638551, 0.725734, 0.0179059, -0.0388062, -0.0290687 )
 mode = 1
 
-[node name="DamagedSmallApple2" parent="Apples" index="6" instance=ExtResource( 4 )]
+[node name="DamagedSmallApple2" parent="." index="9" instance=ExtResource( 4 )]
 transform = Transform( -0.409684, -0.912227, 0, 0.912227, -0.409684, 0, 0, 0, 1, 0.00300326, -0.0266791, 0.0138406 )
 mode = 1

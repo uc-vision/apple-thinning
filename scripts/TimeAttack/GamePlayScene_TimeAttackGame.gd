@@ -15,7 +15,7 @@ onready var confirmation_dialog = $Platform/ConfirmationDialog
 onready var bgm_player = $BGM_Player
 
 const DIALOG_WAIT_TIME = 5
-const GAME_PLAY_DURATION = 60
+const GAME_PLAY_DURATION = 30
 const COMBO_INTERVAL = 3
 const TREE_REMOVE_WAIT_TIMER = 0.5
 const TREE_SPAWN_WAIT_TIME = 0.5
@@ -135,8 +135,7 @@ func setup_apples():
 					branch_child.is_interactable = true
 					branch_child.connect("score_updated", self, "_on_AppleCluster_score_updated")
 					branch_child.connect("apple_picked", self, "_on_AppleCluster_apple_picked")
-					get_tree().root.get_node("Game/AudioStreamPlayer").play()
-					
+
 
 # Game time is up
 func _on_RemainingTimeTimer_timeout():
