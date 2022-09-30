@@ -51,3 +51,6 @@ valign = 1
 transform = Transform( 0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0.003271, -0.012707, 0.0314593 )
 flip_v = true
 texture = SubResource( 2 )
+
+[node name="AppleMesh" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0 )

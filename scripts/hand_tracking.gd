@@ -123,7 +123,7 @@ func _update_hand_model(model : Spatial, skel: Skeleton):
 	
 	
 func grab_object(object_to_pickup):
-	
+		
 	if 'Apple' in object_to_pickup.get_groups() and object_to_pickup.is_interactable() and not object_to_pickup.is_picked_off():
 		held_object = object_to_pickup
 		held_object.mode = RigidBody.MODE_STATIC
