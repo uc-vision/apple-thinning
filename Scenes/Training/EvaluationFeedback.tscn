@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scenes/Training/FeedbackIcons/Tick.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Training/FeedbackIcons/Exclamation.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Training/FeedbackIcons/DoubleStars.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Training/FeedbackIcons/TripleStars.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Training/FeedbackIcons/OneStar.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Training/FeedbackIcons/Warning.tscn" type="PackedScene" id=6]
+
+[node name="EvaluationFeedback" type="Spatial"]
+
+[node name="Tick" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0 )
+visible = false
+
+[node name="Exclamation" parent="." instance=ExtResource( 2 )]
+visible = false
+
+[node name="OneStar" parent="." instance=ExtResource( 5 )]
+transform = Transform( -1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 0, -0.2, 0 )
+visible = false
+
+[node name="DoubleStars" parent="." instance=ExtResource( 3 )]
+transform = Transform( -1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 0, -0.2, 0 )
+visible = false
+
+[node name="TripleStars" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1.31134e-07, 0, -3, 0, 3, 0, 3, 0, -1.31134e-07, 0, -0.2, 0 )
+visible = false
+
+[node name="Warning" parent="." instance=ExtResource( 6 )]
+visible = false

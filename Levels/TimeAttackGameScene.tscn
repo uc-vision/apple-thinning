@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Scenes/Platform_TimeAttackGame.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/AppleTree_TimeAttackGame.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scripts/GamePlayScene_TimeAttackGame.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/TimeAttack/Platform_TimeAttackGame.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/TimeAttack/AppleTree_TimeAttackGame.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/TimeAttack/GamePlayScene_TimeAttackGame.gd" type="Script" id=3]
 [ext_resource path="res://Audio/game-play-bgm.wav" type="AudioStream" id=4]
 
 [sub_resource type="SpatialMaterial" id=4]

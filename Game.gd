@@ -32,7 +32,7 @@ func enter_menu_scene():
 	if player and player.get_parent():
 		player.get_parent().remove_child(player)
 	
-	# Instantiate the MenuScene	
+	# Instantiate the MenuScene
 	menu_level = menu_scene.instance()
 	
 	# Add the level with a human readable name
@@ -59,7 +59,7 @@ func _on_TimeAttackGameScene_go_to_game_results(data):
 
 	# Delete the TimeAttackGameScene
 	time_attack_game_level.queue_free()
-
+	
 	# Instantiate the GameResultsScene
 	game_results_level = game_results_scene.instance()
 	
@@ -69,10 +69,12 @@ func _on_TimeAttackGameScene_go_to_game_results(data):
 	
 	# Add player to the GameResultsScene
 	game_results_level.set_player(player)
+	get_tree().root.get_node("Game/AudioStreamPlayer").play()
 	
 	game_results_level.connect("play_again", self, "_on_GameResultsScene_play_again")
 	game_results_level.connect("go_to_menu", self, "_on_GameResultsScene_go_to_menu")
 	game_results_level.set_game_results_data(data)
+	
 
 
 
@@ -135,17 +137,17 @@ func _on_MenuScene_play_training_game():
 	if player and player.get_parent():
 		player.get_parent().remove_child(player)
 
-	# Delete the TimeAttackGameScene
+	# Delete the MenuScene
 	menu_level.queue_free()
 
-	# Instantiate the GameResultsScene
+	# Instantiate the TrainingGameScene
 	training_game_level = training_game_scene.instance()
 	
 	# Add the level to the Levels with a human readable node name
 	$Levels.add_child(training_game_level, true)
 	training_game_level.set_name("TrainingGameScene")
 	
-	# Add player to the GameResultsScene
+	# Add player to the TrainingGameScene
 	training_game_level.set_player(player)
 	
 	# Connect signal to request transition from TrainingGameScene to MenuScene
@@ -154,7 +156,16 @@ func _on_MenuScene_play_training_game():
 	
 	
 func _on_TrainingGameScene_exit_to_menu():
-	pass
+	# Detach the player from the TrainingGameScene level before deleting the level
+	player = get_node("Levels/TrainingGameScene/ARVROrigin")
+	if player and player.get_parent():
+		player.get_parent().remove_child(player)
+		
+	# Delete the TrainingGameScene
+	training_game_level.queue_free()
+	
+	# Go to the MenuScene
+	enter_menu_scene()
 
 
 

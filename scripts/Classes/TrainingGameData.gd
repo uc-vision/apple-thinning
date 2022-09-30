@@ -2,8 +2,8 @@ extends Reference
 
 class_name TrainingGameData
 
-enum Grade {
-	D, C, B, A, S, NA = -1
+enum Feedback {
+	ERROR, WARNING, PASS, ONE_STAR, TWO_STARS, THREE_STARS
 }
 
 # Properties
