@@ -36,17 +36,12 @@ func set_player(player):
 func set_game_play_data(data):
 	game_play_data = data
 
-# Increment the combo whenever an apple is picked. Updates the score board and start a new combo timer countdown. 
-func _on_AppleCluster_apple_picked():
-	pass
-
 # Connect custom signals with apples and make them interactable
 func setup_apples():
 	for child in $AppleTree_TrainingGame.get_children():
 		if "Branch" in child.get_groups():
 			for branch_child in child.get_children():
 				if "AppleCluster" in branch_child.get_groups():
-					branch_child.connect("apple_picked", self, "_on_AppleCluster_apple_picked")
 					branch_child.is_interactable = true
 
 func set_apple_pickable():
@@ -79,7 +74,6 @@ func _on_GoToGameResultsSceneTimer_timeout():
 func _on_FinishTrainingGame_start_evaluation():
 	is_evaluation_mode = true
 	set_apple_not_pickable()
-	$BGM_Player.stop()
 	var evaluation_stats = $AppleTree_TrainingGame.evaluate()
 	$EvaluationStatsBoard.show_data(evaluation_stats)
 	$Instructions.set_visible(false)
