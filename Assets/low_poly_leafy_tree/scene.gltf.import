@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://import/scene.gltf-810596c9bb8e464b5db2273dbb3e7ad6.scn"
+path="res://.import/scene.gltf-810596c9bb8e464b5db2273dbb3e7ad6.scn"
 
 [deps]
 
 source_file="res://Assets/low_poly_leafy_tree/scene.gltf"
-dest_files=[ "res://import/scene.gltf-810596c9bb8e464b5db2273dbb3e7ad6.scn" ]
+dest_files=[ "res://.import/scene.gltf-810596c9bb8e464b5db2273dbb3e7ad6.scn" ]
 
 [params]
 

@@ -6,8 +6,8 @@
 [ext_resource path="res://addons/godot_ovrmobile/example_scenes/oculus_touch_controller.gd" type="Script" id=4]
 [ext_resource path="res://scripts/arvr_origin.gd" type="Script" id=5]
 [ext_resource path="res://interaction/InteractionMechanic3RightHand.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/RemainingTimeWatch.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/ScoreAndComboWatch.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/TimeAttack/RemainingTimeWatch.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/TimeAttack/ScoreAndComboWatch.tscn" type="PackedScene" id=8]
 
 [node name="ARVROrigin" type="ARVROrigin"]
 script = ExtResource( 5 )

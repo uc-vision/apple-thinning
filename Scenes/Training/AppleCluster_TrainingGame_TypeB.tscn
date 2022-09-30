@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/DamagedLargeApple.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/HealthyLargeAplle.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/HealthySmallApple.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/DamagedSmallApple.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Training/AppleCluster_TrainingGame.tscn" type="PackedScene" id=5]
+
+[node name="AppleCluster_TrainingGame_TypeB" instance=ExtResource( 5 )]
+
+[node name="HealthyLargeApple" parent="Apples" index="0" instance=ExtResource( 2 )]
+transform = Transform( 0.276581, -0.951177, 0.136987, 0.931674, 0.230464, -0.280839, 0.235557, 0.205302, 0.949928, 0.0301229, -0.0674365, -0.0150189 )
+mode = 1
+has_strong_sun_exposure = 1
+
+[node name="HealthySmallApple" parent="Apples" index="1" instance=ExtResource( 3 )]
+transform = Transform( 0.712288, -0.349905, -0.608451, 0.589974, 0.768084, 0.248952, 0.380232, -0.536296, 0.753532, -0.000569684, -0.0890569, 0.0253697 )
+mode = 1
+
+[node name="HealthyLargeApple2" parent="Apples" index="2" instance=ExtResource( 2 )]
+transform = Transform( 0.208862, 0.490637, 0.845962, -0.971886, 0.200283, 0.123793, -0.108694, -0.848035, 0.518674, -0.0254268, -0.0532791, 0.0093353 )
+mode = 1
+has_strong_sun_exposure = 1
+
+[node name="HealthySmallApple2" parent="Apples" index="3" instance=ExtResource( 3 )]
+transform = Transform( 0.711401, 0.669159, -0.214792, -0.702787, 0.677361, -0.217425, 0, 0.305629, 0.952151, -0.0264931, -0.0860676, -0.0179989 )
+mode = 1
+
+[node name="HealthyLargeApple3" parent="Apples" index="4" instance=ExtResource( 2 )]
+transform = Transform( 0.86738, -0.141795, 0.477017, 0.362845, 0.836212, -0.41121, -0.34058, 0.529759, 0.776763, 0.000798507, -0.0958234, -0.0400113 )
+mode = 1
+
+[node name="HealthySmallApple3" parent="Apples" index="5" instance=ExtResource( 3 )]
+transform = Transform( 0.878131, 0.461135, -0.127442, -0.235266, 0.648169, 0.724242, 0.416577, -0.605996, 0.677667, -0.0372817, -0.0939579, 0.011797 )
+mode = 1
+
+[node name="HealthySmallApple4" parent="Apples" index="6" instance=ExtResource( 3 )]
+transform = Transform( 0.0096014, 0.653297, 0.757041, 0.999892, -0.0146952, 0, 0.0111249, 0.756959, -0.653368, -0.0393908, -0.0557813, -0.0331871 )
+mode = 1
+has_strong_sun_exposure = 1
+
+[node name="DamagedLargeApple" parent="Apples" index="7" instance=ExtResource( 1 )]
+transform = Transform( 0.865405, -0.501073, 0, 0.501073, 0.865405, 0, 0, 0, 1, 0.0200746, -0.105348, 0 )
+mode = 1
+
+[node name="DamagedSmallApple" parent="Apples" index="8" instance=ExtResource( 4 )]
+transform = Transform( 0.941557, 0.270801, 0.200344, 0.11414, 0.303088, -0.946102, -0.316928, 0.913676, 0.254466, -0.00417612, -0.0534041, -0.0426165 )
+mode = 1
