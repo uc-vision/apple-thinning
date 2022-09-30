@@ -132,9 +132,11 @@ func setup_apples():
 		if "Branch" in child.get_groups():
 			for branch_child in child.get_children():
 				if "AppleCluster" in branch_child.get_groups():
+					branch_child.is_interactable = true
 					branch_child.connect("score_updated", self, "_on_AppleCluster_score_updated")
 					branch_child.connect("apple_picked", self, "_on_AppleCluster_apple_picked")
-					branch_child.is_interactable = true
+					get_tree().root.get_node("Game/AudioStreamPlayer").play()
+					
 
 # Game time is up
 func _on_RemainingTimeTimer_timeout():

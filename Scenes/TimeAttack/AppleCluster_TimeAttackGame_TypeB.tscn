@@ -12,6 +12,21 @@
 [node name="AppleCluster_TypeB" type="Spatial" groups=["AppleCluster"]]
 script = ExtResource( 1 )
 
+[node name="ApplePickSound" type="AudioStreamPlayer3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0542786, 0 )
+stream = ExtResource( 8 )
+unit_db = 10.0
+
+[node name="ThinningCompletedSoundPlayer" type="AudioStreamPlayer3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0529001, 0 )
+stream = ExtResource( 7 )
+unit_db = 5.0
+
+[node name="PoorlyThinnedSoundPlayer" type="AudioStreamPlayer3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0482558, 0 )
+stream = ExtResource( 6 )
+unit_db = 10.0
+
 [node name="HealthyLargeApple" parent="." instance=ExtResource( 3 )]
 transform = Transform( 0.276581, -0.951177, 0.136987, 0.931674, 0.230464, -0.280839, 0.235557, 0.205302, 0.949928, 0.0301229, -0.0674365, -0.0150189 )
 mode = 1
@@ -47,21 +62,6 @@ mode = 1
 [node name="DamagedSmallApple" parent="." instance=ExtResource( 5 )]
 transform = Transform( 0.941557, 0.270801, 0.200344, 0.11414, 0.303088, -0.946102, -0.316928, 0.913676, 0.254466, -0.00417612, -0.0534041, -0.0426165 )
 mode = 1
-
-[node name="ApplePickSound" type="AudioStreamPlayer3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0542786, 0 )
-stream = ExtResource( 8 )
-unit_db = 10.0
-
-[node name="ThinningCompletedSoundPlayer" type="AudioStreamPlayer3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0529001, 0 )
-stream = ExtResource( 7 )
-unit_db = 5.0
-
-[node name="PoorlyThinnedSoundPlayer" type="AudioStreamPlayer3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0482558, 0 )
-stream = ExtResource( 6 )
-unit_db = 10.0
 
 [connection signal="on_picked" from="HealthyLargeApple" to="." method="_on_HealthyLargeApple_on_picked"]
 [connection signal="on_picked" from="HealthySmallApple" to="." method="_on_HealthySmallApple_on_picked"]

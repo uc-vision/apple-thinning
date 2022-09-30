@@ -63,7 +63,7 @@ render_target_v_flip = true
 margin_right = 40.0
 margin_bottom = 14.0
 custom_fonts/font = SubResource( 7 )
-text = "No Time Limit"
+text = "Training"
 
 [node name="Sprite3D" type="Sprite3D" parent="TrainingGameButton"]
 transform = Transform( -7.45058e-09, 0, 0.3, 0, 0.3, 0, -0.3, 0, -7.45058e-09, 0.0287741, -0.498509, -0.197521 )
