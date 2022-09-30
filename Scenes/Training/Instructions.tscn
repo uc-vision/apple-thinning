@@ -35,6 +35,7 @@ viewport_path = NodePath("HideAndShowBoardButton/Viewport")
 script = ExtResource( 3 )
 
 [node name="Board" type="MeshInstance" parent="."]
+transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0 )
 cast_shadow = 0
 mesh = SubResource( 1 )
 material/0 = null
@@ -63,7 +64,7 @@ cast_shadow = 0
 texture = SubResource( 3 )
 
 [node name="HideAndShowBoardButton" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.881567, 0.472058, 0, -0.472058, 0.881567, 0, -0.645622, 0.311538 )
+transform = Transform( 0.650704, 0.12181, -0.227479, 0, 0.617097, 0.330441, 0.258039, -0.30717, 0.573639, 0.509715, -0.458695, 0.232266 )
 cast_shadow = 0
 mesh = SubResource( 5 )
 material/0 = null

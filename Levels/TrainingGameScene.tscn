@@ -44,17 +44,17 @@ transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.81657
 visible = false
 
 [node name="FeedbackIconBoard" parent="." instance=ExtResource( 5 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.6033, 1.59968, 0.133033 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.09129, 1.33697, 0.0436504 )
 visible = false
 
 [node name="Instructions" parent="." instance=ExtResource( 7 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.5993, 1.61276, 0 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.09013, 1.33099, 0.0429714 )
 
 [node name="ExitToMenu" parent="." instance=ExtResource( 6 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.20094, 0.765038, 0 )
+transform = Transform( -0.913382, 0, -0.407103, 0, 1, 0, 0.407103, 0, -0.913382, 1.15514, 0.765038, -0.108486 )
 
 [node name="FinishTrainingGame" parent="." instance=ExtResource( 8 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.19207, 0.766454, 0 )
+transform = Transform( 0.407103, 0, -0.913382, 0, 1, 0, 0.913382, 0, 0.407103, 1.14704, 0.766454, -0.104875 )
 
 [node name="BGM_Player" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )

@@ -25,6 +25,7 @@ viewport_path = NodePath("Board/Viewport")
 [node name="FeedbackIconBoard" type="Spatial"]
 
 [node name="Board" type="MeshInstance" parent="."]
+transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0 )
 cast_shadow = 0
 mesh = SubResource( 1 )
 material/0 = null
