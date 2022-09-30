@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/Training/AppleTree_TrainingGame.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Audio/training-game-bgm.wav" type="AudioStream" id=2]
 [ext_resource path="res://scripts/Training/GamePlayScene_TrainingGame.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Training/EvaluationStatsBoard.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Training/FeedbackIconBoard.tscn" type="PackedScene" id=5]
@@ -54,5 +55,10 @@ transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.20094
 
 [node name="FinishTrainingGame" parent="." instance=ExtResource( 8 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.19207, 0.766454, 0 )
+
+[node name="BGM_Player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -5.0
+autoplay = true
 
 [connection signal="timeout" from="GoToGameResultsSceneTimer" to="." method="_on_GoToGameResultsSceneTimer_timeout"]
