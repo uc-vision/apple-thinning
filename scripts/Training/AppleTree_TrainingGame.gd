@@ -10,7 +10,7 @@ onready var cluster_spawn_location
 onready var num_cluster = 0
 var TrainingGameData = load("res://scripts/Classes/TrainingGameData.gd")
 
-const MAX_CLUSTER_PER_BRANCH = 2
+const MAX_CLUSTER_PER_BRANCH = 3
 const NUM_BRANCH = 3
 const TREE_TRANSLATE = Vector3(0, 0, -0.85)
 const TREE_ROTATION = Vector3(0, deg2rad(-90), 0)
@@ -31,12 +31,11 @@ func _ready():
 	
 	# Iterate over branches in the tree
 	for child in get_children():
-		if 'Branch' in child.get_groups():
-		
-			# Get the spawn location on the branch
+		if 'Branch' in child.get_groups() and child.get_node("AppleClusterSpawnPath"):
+			
 			var cluster_spawn_location = child.get_node("AppleClusterSpawnPath/PathFollow")
 			
-			# Random number of apples per branch is spawned 
+			# Random number of apples per branch is spawned
 			for i in range(rng.randi_range(1, MAX_CLUSTER_PER_BRANCH)):
 				
 				# Count the number of apple clusters spawned in the tree.

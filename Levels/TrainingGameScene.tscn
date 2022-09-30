@@ -1,9 +1,12 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/Training/AppleTree_TrainingGame.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/Training/Platform_TrainingGame.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/Training/GamePlayScene_TrainingGame.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Training/EvaluationStatsBoard.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Training/FeedbackIconBoard.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Training/ExitToMenu.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Training/Instructions.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Training/FinishTrainingGame.tscn" type="PackedScene" id=8]
 
 [sub_resource type="SpatialMaterial" id=4]
 albedo_color = Color( 0.345098, 0.458824, 0.282353, 1 )
@@ -35,11 +38,21 @@ shape = SubResource( 3 )
 [node name="AppleTree_TrainingGame" parent="." instance=ExtResource( 1 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -0.85 )
 
-[node name="Platform_TrainingGame" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.340053, 0 )
-
 [node name="EvaluationStatsBoard" parent="." instance=ExtResource( 4 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.81657, 1.86219, 0 )
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.81657, 1.39513, 0 )
 visible = false
+
+[node name="FeedbackIconBoard" parent="." instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.6033, 1.59968, 0.133033 )
+visible = false
+
+[node name="Instructions" parent="." instance=ExtResource( 7 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.5993, 1.61276, 0 )
+
+[node name="ExitToMenu" parent="." instance=ExtResource( 6 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.20094, 0.765038, 0 )
+
+[node name="FinishTrainingGame" parent="." instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.19207, 0.766454, 0 )
 
 [connection signal="timeout" from="GoToGameResultsSceneTimer" to="." method="_on_GoToGameResultsSceneTimer_timeout"]

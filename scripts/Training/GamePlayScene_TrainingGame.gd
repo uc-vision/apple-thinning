@@ -1,9 +1,8 @@
 extends Spatial
 
 onready var go_to_game_results_scene_timer = $GoToGameResultsSceneTimer
-onready var platform = $Platform_TrainingGame
-onready var exit_to_menu = $Platform_TrainingGame/ExitToMenu
-onready var finish_training_game = $Platform_TrainingGame/FinishTrainingGame
+onready var exit_to_menu = $ExitToMenu
+onready var finish_training_game = $FinishTrainingGame
 
 var total_score: int = 0
 var num_apples_picked: int = 0
@@ -24,15 +23,14 @@ func _ready():
 	
 	# Set up interactive objects
 	setup_apples()
-	platform.enable_platform_motion()
 
 	
 func set_player(player):
 	# Add the player to GamePlayScene with human readable name
-	platform.add_child(player, true)
+	add_child(player, true)
 	player.set_name("ARVROrigin")
-	$Platform_TrainingGame/ARVROrigin/LeftHand/RemainingTimeWatch.set_visible(false)
-	$Platform_TrainingGame/ARVROrigin/RightHand/ScoreAndComboWatch.set_visible(false)
+	$ARVROrigin/LeftHand/RemainingTimeWatch.set_visible(false)
+	$ARVROrigin/RightHand/ScoreAndComboWatch.set_visible(false)
 
 func set_game_play_data(data):
 	game_play_data = data
@@ -80,3 +78,5 @@ func _on_GoToGameResultsSceneTimer_timeout():
 func _on_FinishTrainingGame_start_evaluation():
 	var evaluation_stats = $AppleTree_TrainingGame.evaluate()
 	$EvaluationStatsBoard.show_data(evaluation_stats)
+	$Instructions.set_visible(false)
+	$FeedbackIconBoard.set_visible(true)
