@@ -30,7 +30,7 @@ collision_mask = 14
 shape = SubResource( 6 )
 
 [node name="ChooseLevelDialog" parent="." instance=ExtResource( 1 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.780283, -0.781867 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.996703, -0.781867 )
 
 [node name="TimerButtonLock" type="Timer" parent="."]
 wait_time = 1.5
