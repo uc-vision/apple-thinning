@@ -8,10 +8,10 @@ onready var combo_timer = $ComboTimer
 onready var wait_tree_spawn_timer = $WaitTreeSpawnTimer
 onready var wait_tree_remove_timer = $WaitTreeRemoveTimer
 onready var go_to_game_results_scene_timer = $GoToGameResultsSceneTimer
-onready var platform = $Platform
-onready var pause_button = $Platform/PauseButton
-onready var pause_dialog = $Platform/PauseDialog
-onready var confirmation_dialog = $Platform/ConfirmationDialog
+onready var pause_button = $PauseButton
+onready var pause_dialog = $PauseDialog
+onready var confirmation_dialog = $ConfirmationDialog
+onready var game_flow_obstacle = $GameFlowObstacle
 onready var bgm_player = $BGM_Player
 
 const DIALOG_WAIT_TIME = 5
@@ -74,12 +74,12 @@ func _ready():
 	
 func set_player(player):
 	# Add the player to GamePlayScene with human readable name
-	platform.add_child(player, true)
+	add_child(player, true)
 	player.set_name("ARVROrigin")
-	remaining_time_watch = $Platform/ARVROrigin/LeftHand/RemainingTimeWatch
+	remaining_time_watch = $ARVROrigin/LeftHand/RemainingTimeWatch
 	remaining_time_watch.reset_label(GAME_PLAY_DURATION)
 	remaining_time_watch.set_visible(true)
-	score_and_combo_watch = $Platform/ARVROrigin/RightHand/ScoreAndComboWatch
+	score_and_combo_watch = $ARVROrigin/RightHand/ScoreAndComboWatch
 	score_and_combo_watch.reset_label()
 	score_and_combo_watch.set_visible(true)
 
@@ -91,7 +91,7 @@ func _process(delta):
 	if not game_start_timer.is_stopped():
 		if game_start_countdown != ceil(game_start_timer.get_time_left()):
 			game_start_countdown = ceil(game_start_timer.get_time_left())
-			platform.update_before_game_obstacle(game_start_countdown)
+			game_flow_obstacle.update_before_game_obstacle(game_start_countdown)
 	
 	# Checks the game play remaining time and updates the GUI board
 	if not remaining_time_timer.is_stopped():
@@ -109,9 +109,8 @@ func _on_AppleCluster_score_updated(cluster_score, has_damaged):
 	
 # Start the game
 func _on_GameStartTimer_timeout():
-	platform.hide_game_flow_obstacle()
+	game_flow_obstacle.hide_game_flow_obstacle()
 	setup_apples()
-	platform.enable_platform_motion()
 	remaining_time_timer.start()
 	bgm_player.play()
 	
@@ -144,9 +143,8 @@ func _on_RemainingTimeTimer_timeout():
 	set_apple_not_pickable()
 	remaining_time_watch.update_remaining_time(str(0))
 	# Put obstacle between the player and a tree
-	platform.show_game_flow_obstacle()
+	game_flow_obstacle.show_game_flow_obstacle()
 	pause_button.disable()
-	platform.disable_platform_motion()
 	go_to_game_results_scene_timer.start()
 
 	
@@ -178,7 +176,6 @@ func _on_PauseButton_pressed():
 	bgm_player.set_stream_paused(true)
 	
 	pause_button.disable()
-	platform.disable_platform_motion()
 	
 	# Pauses the timers
 	game_start_timer.set_paused(true)
@@ -193,7 +190,6 @@ func _on_PauseButton_pressed():
 # Resumes the game
 func _on_ResumeButton_pressed():
 	pause_dialog.disable()
-	platform.enable_platform_motion()
 	pause_button.enable()
 	
 	# Makes apples interactalble again
