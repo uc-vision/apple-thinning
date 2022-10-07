@@ -9,7 +9,7 @@ onready var cluster_type
 onready var cluster_spawn_location
 onready var num_cluster = 0
 
-const MAX_CLUSTER_PER_BRANCH = 2
+const CLUSTER_PER_BRANCH = 3
 const NUM_BRANCH = 3
 const TREE_TRANSLATE = Vector3(0, 0, -0.85)
 const TREE_ROTATION = Vector3(0, deg2rad(-90), 0)
@@ -29,14 +29,14 @@ func _ready():
 
 			var cluster_spawn_location = child.get_node("AppleClusterSpawnPath/PathFollow")
 			
-			# Random number of apples per branch is spawned 
-			for i in range(rng.randi_range(1, MAX_CLUSTER_PER_BRANCH)):
+			# Spawn the given number of clusters per branch
+			for i in range(1, CLUSTER_PER_BRANCH + 1):
 				
 				# Count the number of apple clusters spawned in the tree.
 				num_cluster += 1
 				
-				# Give a random offset of the spawning location
-				cluster_spawn_location.unit_offset = rng.randf()
+				# Spanw a cluster with equal spacing distribution
+				cluster_spawn_location.set_unit_offset(float(i) / float(CLUSTER_PER_BRANCH))
 				# Pick a type of apple cluster to spawn randomly
 				cluster_type = rng.randi() % 3
 
