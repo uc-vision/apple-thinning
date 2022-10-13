@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/healthy-fruitlet.gltf-e17ff712bc4d3e6a1ccd84128b2e4055.scn"
+path="res://.import/damaged-fruitlet.gltf-cba30fa63eeb9a5fa98b243b886f32ce.scn"
 
 [deps]
 
-source_file="res://Assets/MeshImports/healthy-fruitlet.gltf"
-dest_files=[ "res://.import/healthy-fruitlet.gltf-e17ff712bc4d3e6a1ccd84128b2e4055.scn" ]
+source_file="res://Assets/MeshImports/damaged-fruitlet.gltf"
+dest_files=[ "res://.import/damaged-fruitlet.gltf-cba30fa63eeb9a5fa98b243b886f32ce.scn" ]
 
 [params]
 
