@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/healthy-fruitlet-texture.png-44fbac732dac06a0d1fa074e5e41c07e.stex"
+path="res://.import/damaged-fruitlet-texture.bmp-319996c4d54b301cba61f8ee6611585f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/MeshImports/healthy-fruitlet-texture.png"
-dest_files=[ "res://.import/healthy-fruitlet-texture.png-44fbac732dac06a0d1fa074e5e41c07e.stex" ]
+source_file="res://Assets/MeshImports/damaged-fruitlet-texture.bmp"
+dest_files=[ "res://.import/damaged-fruitlet-texture.bmp-319996c4d54b301cba61f8ee6611585f.stex" ]
 
 [params]
 

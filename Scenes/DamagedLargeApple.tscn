@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Assets/DamagedApple.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Meshes/Fruitlets/DamagedFruitlet.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/Apple.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Fonts/Calistoga/Calistoga-Regular.ttf" type="DynamicFontData" id=3]
 
@@ -48,5 +48,4 @@ transform = Transform( 0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0.00422797, -0.013079
 flip_v = true
 texture = SubResource( 2 )
 
-[node name="AppleMesh" parent="." instance=ExtResource( 1 )]
-transform = Transform( 0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, 0, 0 )
+[node name="DamagedFruitlet" parent="." instance=ExtResource( 1 )]

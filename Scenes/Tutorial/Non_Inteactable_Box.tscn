@@ -1,6 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://scripts/Non_Inteactable_Box.gd" type="Script" id=1]
+[ext_resource path="res://scripts/Non_Interactable_Box.gd" type="Script" id=1]
+
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 1.7, 0.3, 0.3 )
