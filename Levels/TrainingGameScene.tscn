@@ -58,7 +58,7 @@ transform = Transform( 0.0823038, 0, -0.996607, 0, 1, 0, 0.996607, 0, 0.0823038,
 
 [node name="BGM_Player" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
-volume_db = -5.0
+volume_db = -15.0
 autoplay = true
 
 [connection signal="timeout" from="GoToGameResultsSceneTimer" to="." method="_on_GoToGameResultsSceneTimer_timeout"]
