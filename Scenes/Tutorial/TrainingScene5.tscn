@@ -31,7 +31,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.34849e-09, 1.63866, -0.1888
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.90365e-08, 1.63866, 0.215812 )
 
 [node name="AppleCluster_Training_One_Unhealthy_Small" parent="." instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.92908e-08, 1.63866, 0.450402 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00127855, 1.63453, 0.451428 )
 
 [node name="AppleCluster_Training_Example_OverThinned" parent="." instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.64624, 0.677433 )
