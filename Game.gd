@@ -55,7 +55,7 @@ func enter_menu_scene():
 func _on_TimeAttackGameScene_go_to_game_results(data):
 
 	# Detach the player from TimeAttackGameScene level before deleting the level
-	player = get_node("Levels/TimeAttackGameScene/Platform/ARVROrigin")
+	player = get_node("Levels/TimeAttackGameScene/ARVROrigin")
 	if player and player.get_parent():
 		player.get_parent().remove_child(player)
 
@@ -81,7 +81,7 @@ func _on_TimeAttackGameScene_go_to_game_results(data):
 # Exitting the TimeAttackGameScene --> MenuScene in the middle of the game
 func _on_TimeAttackGameScene_exit_to_menu():
 	# Detach the player from TimeAttackGameScene level before deleting the level
-	player = get_node("Levels/TimeAttackGameScene/Platform/ARVROrigin")
+	player = get_node("Levels/TimeAttackGameScene/ARVROrigin")
 	if player and player.get_parent():
 		player.get_parent().remove_child(player)
 

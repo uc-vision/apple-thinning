@@ -25,13 +25,9 @@ func _ready():
 	
 	# Iterate over branches in the tree
 	for child in get_children():
-		if 'Branch' in child.get_groups():
-		
-			# Get the spawn path on the branch
-			var cluster_spawn_path = child.get_node("AppleClusterSpawnPath")
-			# Initialize a spawning location node and add to to the spawn path
-			var cluster_spawn_location = PathFollow.new()
-			cluster_spawn_path.add_child(cluster_spawn_location)
+		if 'Branch' in child.get_groups() and child.get_node("AppleClusterSpawnPath"):
+
+			var cluster_spawn_location = child.get_node("AppleClusterSpawnPath/PathFollow")
 			
 			# Random number of apples per branch is spawned 
 			for i in range(rng.randi_range(1, MAX_CLUSTER_PER_BRANCH)):
