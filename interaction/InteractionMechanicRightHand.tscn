@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://interaction/InteractionMechanic3.gd" type="Script" id=1]
+[ext_resource path="res://interaction/InteractionMechanic.gd" type="Script" id=1]
 
 [sub_resource type="SpatialMaterial" id=24]
 albedo_color = Color( 0.968627, 0, 1, 1 )
@@ -125,7 +125,6 @@ transform = Transform( 1, -2.25846e-07, 1.11759e-07, 4.5402e-08, 1, 1.19209e-07,
 visible = false
 mesh = SubResource( 41 )
 skeleton = NodePath("../../..")
-material/0 = null
 
 [node name="HandModel" type="Spatial" parent="."]
 
@@ -137,7 +136,7 @@ bones/0/name = "b_r_wrist"
 bones/0/parent = -1
 bones/0/rest = Transform( 1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0 )
 bones/0/enabled = true
-bones/0/bound_children = [ NodePath("BoneAttachment 5"), NodePath("BoneAttachment 6"), NodePath("BoneAttachment 7"), NodePath("BoneAttachment 8"), NodePath("BoneAttachment 9"), NodePath("BoneAttachment 10"), NodePath("BoneAttachment 11"), NodePath("BoneAttachment 12"), NodePath("BoneAttachment 13"), NodePath("BoneAttachment 14"), NodePath("BoneAttachment 15"), NodePath("BoneAttachment 16") ]
+bones/0/bound_children = [  ]
 bones/1/name = "b_r_thumb_0"
 bones/1/parent = 0
 bones/1/rest = Transform( 0.639336, 0.331584, 0.693759, 0.305949, 0.718048, -0.625141, -0.70544, 0.61193, 0.357626, -2.00693, -1.15541, 1.04965 )
@@ -147,22 +146,22 @@ bones/2/name = "b_r_thumb_1"
 bones/2/parent = 1
 bones/2/rest = Transform( 0.967226, -0.22789, 0.111981, 0.253217, 0.832971, -0.491977, 0.0188399, 0.504209, 0.863376, -2.48526, -2.56281e-07, -8.33007e-08 )
 bones/2/enabled = true
-bones/2/bound_children = [ NodePath("BoneAttachment 3") ]
+bones/2/bound_children = [  ]
 bones/3/name = "b_r_thumb_2"
 bones/3/parent = 2
 bones/3/rest = Transform( 0.974021, 0.179179, -0.138485, -0.153719, 0.972187, 0.176698, 0.166294, -0.15082, 0.974474, -3.25129, -6.69714e-07, -2.25983e-07 )
 bones/3/enabled = true
-bones/3/bound_children = [ NodePath("BoneAttachment 2") ]
+bones/3/bound_children = [  ]
 bones/4/name = "b_r_thumb_3"
 bones/4/parent = 3
 bones/4/rest = Transform( 0.984754, 0.126553, 0.119347, -0.104836, 0.979262, -0.173366, -0.138811, 0.158211, 0.9776, -3.37931, 3.74931e-07, -4.57547e-08 )
 bones/4/enabled = true
-bones/4/bound_children = [ NodePath("BoneAttachment") ]
+bones/4/bound_children = [  ]
 bones/5/name = "b_r_thumb_null"
 bones/5/parent = 4
 bones/5/rest = Transform( 1, -1.63913e-07, 2.45869e-07, 1.63913e-07, 1, -2.98023e-08, -2.45869e-07, 2.98023e-08, 1, -1.48634, 2.38419e-07, -2.98023e-07 )
 bones/5/enabled = true
-bones/5/bound_children = [ NodePath("ThumbTip") ]
+bones/5/bound_children = [  ]
 bones/6/name = "b_r_index_1"
 bones/6/parent = 0
 bones/6/rest = Transform( 0.995542, -0.0875827, -0.0349953, 0.0852684, 0.994371, -0.062901, 0.0403073, 0.0596367, 0.997406, -9.59962, -0.731646, 2.35507 )
@@ -182,12 +181,12 @@ bones/9/name = "b_r_index_null"
 bones/9/parent = 8
 bones/9/rest = Transform( 1, -1.10595e-09, 1.08557e-08, 1.10595e-09, 1, 1.32713e-08, -1.08557e-08, -1.32713e-08, 1, -1.1583, 4.54485e-07, 7.45058e-08 )
 bones/9/enabled = true
-bones/9/bound_children = [ NodePath("IndexTip") ]
+bones/9/bound_children = [  ]
 bones/10/name = "b_r_middle_1"
 bones/10/parent = 0
 bones/10/rest = Transform( 0.989329, -0.102457, -0.103592, 0.104323, 0.994462, 0.012748, 0.101712, -0.023419, 0.994538, -9.56466, -0.254316, 0.172591 )
 bones/10/enabled = true
-bones/10/bound_children = [ NodePath("BoneAttachment 4") ]
+bones/10/bound_children = [  ]
 bones/11/name = "b_r_middle_2"
 bones/11/parent = 10
 bones/11/rest = Transform( 0.999954, 0.00405477, -0.00871269, -0.0038581, 0.99974, 0.0224721, 0.00880154, -0.0224375, 0.99971, -4.2927, -5.32528e-07, -1.66876e-07 )
@@ -202,7 +201,7 @@ bones/13/name = "b_r_middle_null"
 bones/13/parent = 12
 bones/13/rest = Transform( 1, -2.79397e-09, -5.12227e-09, 2.79397e-09, 1, 1.86264e-09, 5.12228e-09, -1.86265e-09, 1, -1.22035, -1.08033e-06, -1.86265e-07 )
 bones/13/enabled = true
-bones/13/bound_children = [ NodePath("MiddleTip") ]
+bones/13/bound_children = [  ]
 bones/14/name = "b_r_ring_1"
 bones/14/parent = 0
 bones/14/rest = Transform( 0.964728, -0.0855142, -0.248971, 0.111691, 0.989385, 0.0929609, 0.238379, -0.11749, 0.964039, -8.86938, -0.652931, -1.74652 )
@@ -222,7 +221,7 @@ bones/17/name = "b_r_ring_null"
 bones/17/parent = 16
 bones/17/rest = Transform( 1, 4.65661e-09, -1.39698e-09, -4.65661e-09, 1, -4.47035e-08, 1.39698e-09, 4.47035e-08, 1, -1.19394, 2.98023e-07, -2.38419e-07 )
 bones/17/enabled = true
-bones/17/bound_children = [ NodePath("RingTip") ]
+bones/17/bound_children = [  ]
 bones/18/name = "b_r_pinky_0"
 bones/18/parent = 0
 bones/18/rest = Transform( 0.959937, 0.0226589, -0.279298, 0.0935652, 0.913602, 0.395699, 0.264133, -0.405979, 0.87488, -3.40736, -0.941984, -2.29986 )
@@ -247,7 +246,7 @@ bones/22/name = "b_r_pinky_null"
 bones/22/parent = 21
 bones/22/rest = Transform( 1, -1.08033e-07, -9.31327e-10, 1.08033e-07, 1, 6.56582e-08, 9.3132e-10, -6.56582e-08, 1, -1.19088, -4.32134e-07, 4.76837e-07 )
 bones/22/enabled = true
-bones/22/bound_children = [ NodePath("PinkyTip") ]
+bones/22/bound_children = [  ]
 bones/23/name = "b_r_forearm_stub"
 bones/23/parent = 0
 bones/23/rest = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
@@ -369,7 +368,6 @@ transform = Transform( 1, 0, 0, 0, 0, -1, 0, 1, 0, -9.01119, -2.34416, -1.88233 
 [node name="r_handMeshNode" type="MeshInstance" parent="HandModel/Armature/Skeleton"]
 mesh = SubResource( 37 )
 skin = SubResource( 38 )
-material/0 = null
 
 [node name="ThumbTip" type="BoneAttachment" parent="HandModel/Armature/Skeleton"]
 transform = Transform( 0.575562, 0.67335, 0.464036, -0.739133, 0.671135, -0.0570921, -0.349873, -0.310125, 0.883974, -9.16781, 7.78987, 4.89121 )
@@ -384,7 +382,6 @@ transform = Transform( 1, -2.98023e-08, -3.72529e-09, 2.98023e-08, 1, 1.49012e-0
 visible = false
 mesh = SubResource( 39 )
 skeleton = NodePath("../..")
-material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="HandModel/Armature/Skeleton/ThumbTip/Area"]
 shape = SubResource( 40 )
@@ -402,7 +399,6 @@ transform = Transform( 1, -2.98023e-08, -3.72529e-09, 2.98023e-08, 1, 1.49012e-0
 visible = false
 mesh = SubResource( 39 )
 skeleton = NodePath("../..")
-material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="HandModel/Armature/Skeleton/IndexTip/Area"]
 shape = SubResource( 40 )
@@ -420,7 +416,6 @@ transform = Transform( 1, -2.98023e-08, -3.72529e-09, 2.98023e-08, 1, 1.49012e-0
 visible = false
 mesh = SubResource( 39 )
 skeleton = NodePath("../..")
-material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="HandModel/Armature/Skeleton/MiddleTip/Area"]
 shape = SubResource( 40 )
@@ -438,7 +433,6 @@ transform = Transform( 1, -2.98023e-08, -3.72529e-09, 2.98023e-08, 1, 1.49012e-0
 visible = false
 mesh = SubResource( 39 )
 skeleton = NodePath("../..")
-material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="HandModel/Armature/Skeleton/RingTip/Area"]
 shape = SubResource( 40 )
@@ -456,7 +450,6 @@ transform = Transform( 1, -2.98023e-08, -3.72529e-09, 2.98023e-08, 1, 1.49012e-0
 visible = false
 mesh = SubResource( 39 )
 skeleton = NodePath("../..")
-material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="HandModel/Armature/Skeleton/PinkyTip/Area"]
 shape = SubResource( 40 )
