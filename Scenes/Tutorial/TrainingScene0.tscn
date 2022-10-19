@@ -5,4 +5,4 @@
 [node name="TrainingScene0" type="Spatial"]
 
 [node name="Video_Screen" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1, 0 )
+transform = Transform( -0.939693, 0, 0.34202, 0, 1, 0, -0.34202, 0, -0.939693, 0.7, 1.35, 1 )

@@ -41,4 +41,4 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.42137
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.54273e-09, 1.02795, 0.596642 )
 
 [node name="Video_Screen" parent="." instance=ExtResource( 2 )]
-transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0.3, 1.5, -1.2 )
+transform = Transform( -0.939693, 0, 0.34202, 0, 1, 0, -0.34202, 0, -0.939693, 0.7, 1.35, 1 )
