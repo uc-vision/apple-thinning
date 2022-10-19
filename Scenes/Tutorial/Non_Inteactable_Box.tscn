@@ -2,7 +2,6 @@
 
 [ext_resource path="res://scripts/Non_Interactable_Box.gd" type="Script" id=1]
 
-
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 1.7, 0.3, 0.3 )
 
@@ -28,41 +27,49 @@ material/0 = SubResource( 2 )
 
 [node name="MeshInstance" type="MeshInstance" parent="MeshInstance"]
 transform = Transform( 0.860533, 0, 0, 0, 0.0101239, 0, -3.55271e-15, 0, 0.0101239, 4.44089e-16, 0.14417, 0.147531 )
+visible = false
 mesh = SubResource( 3 )
 material/0 = SubResource( 4 )
 
 [node name="MeshInstance5" type="MeshInstance" parent="MeshInstance"]
 transform = Transform( -6.68791e-09, 0, 0.01, 0, 0.01, 0, -0.153002, 0, -4.37114e-10, 0.848728, 0.14417, -0.00533537 )
+visible = false
 mesh = SubResource( 3 )
 material/0 = SubResource( 4 )
 
 [node name="MeshInstance6" type="MeshInstance" parent="MeshInstance"]
 transform = Transform( -6.68791e-09, 0, 0.01, 0, 0.01, 0, -0.153002, 0, -4.37114e-10, 0.848728, -0.153701, -0.00533537 )
+visible = false
 mesh = SubResource( 3 )
 material/0 = SubResource( 4 )
 
 [node name="MeshInstance7" type="MeshInstance" parent="MeshInstance"]
 transform = Transform( -6.68791e-09, 0, 0.01, 0, 0.01, 0, -0.153002, 0, -4.37114e-10, -0.850455, 0.14417, -0.00533544 )
+visible = false
 mesh = SubResource( 3 )
 material/0 = SubResource( 4 )
 
 [node name="MeshInstance8" type="MeshInstance" parent="MeshInstance"]
 transform = Transform( -6.68791e-09, 0, 0.01, 0, 0.01, 0, -0.153002, 0, -4.37114e-10, -0.850455, -0.153701, -0.00533544 )
+visible = false
 mesh = SubResource( 3 )
 material/0 = SubResource( 4 )
 
 [node name="MeshInstance2" type="MeshInstance" parent="MeshInstance"]
 transform = Transform( 0.860533, 0, 0, 0, 0.0101239, 0, -3.55271e-15, 0, 0.0101239, 1.31826e-08, 0.14417, -0.154052 )
+visible = false
 mesh = SubResource( 3 )
 material/0 = SubResource( 4 )
 
 [node name="MeshInstance3" type="MeshInstance" parent="MeshInstance"]
 transform = Transform( 0.860533, 0, 0, 0, 0.0101239, 0, -3.55271e-15, 0, 0.0101239, 4.44089e-16, -0.153707, 0.147531 )
+visible = false
 mesh = SubResource( 3 )
 material/0 = SubResource( 4 )
 
 [node name="MeshInstance4" type="MeshInstance" parent="MeshInstance"]
 transform = Transform( 0.860533, 0, 0, 0, 0.0101239, 0, -3.55271e-15, 0, 0.0101239, 1.31826e-08, -0.153707, -0.154052 )
+visible = false
 mesh = SubResource( 3 )
 material/0 = SubResource( 4 )
 
