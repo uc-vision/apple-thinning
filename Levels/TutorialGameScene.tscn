@@ -25,7 +25,7 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.23
 transform = Transform( -0.885759, 0, -0.464147, 0, 1, 0, 0.464147, 0, -0.885759, 1.27672, 1.18813, 0.445231 )
 
 [node name="TrainingMenu" parent="Menu" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.76837e-07, 0, 0.588203 )
+transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -5.96046e-07, 0, 0.588203 )
 skeleton = NodePath("../..")
 
 [node name="Ground" type="MeshInstance" parent="."]

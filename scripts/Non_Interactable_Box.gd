@@ -1,6 +1,6 @@
 extends Spatial
 
-onready var BlueShader = preload("res://Assets/Meshes/MaterialBlue.material")
+onready var BlueShader = preload("res://Assets/Meshes/Material_Hand.tres")
 onready var GreyShader = preload("res://Assets/Meshes/MaterialRed.material")
 
 
