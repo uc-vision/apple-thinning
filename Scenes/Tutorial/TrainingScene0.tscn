@@ -4,6 +4,7 @@
 [ext_resource path="res://Assets/Meshes/Arrow.tscn" type="PackedScene" id=2]
 
 [node name="TrainingScene0" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00444651, 0.00473356, 0.00278854 )
 
 [node name="Video_Screen" parent="." instance=ExtResource( 1 )]
 transform = Transform( -0.939693, 0, 0.34202, 0, 1, 0, -0.34202, 0, -0.939693, 0.7, 1.35, 1 )
