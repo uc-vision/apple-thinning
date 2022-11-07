@@ -137,6 +137,9 @@ height = 0.1
 transform = Transform( 1, 2.98023e-08, 0, -5.21541e-08, 1, 5.96046e-08, -7.45058e-09, 0, 0.804483, 5.96046e-08, -0.0293739, -1.19209e-07 )
 shape = SubResource( 2 )
 
+[node name="Plane" parent="." index="2"]
+transform = Transform( 0.7, 0, 0, 0, 0.4, 0, 0, 0, 0.7, 0, 0, 0 )
+
 [node name="StaticBody" type="StaticBody" parent="Plane" index="0"]
 transform = Transform( 2.02577, 0, 0, 0, 2.02577, 0, 0, 0, 2.02577, 0, 0, 0 )
 
