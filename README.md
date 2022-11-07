@@ -38,7 +38,8 @@ To simulate and quantify good apple thinning process, the game can have function
 
 #### Textures
 
-- Grass, ground, and rock texture: https://ambientcg.com/
+- Grass, ground, and rock texture: https://ambientcg.com/ (CC0 license)
+- Skybox: https://polyhaven.com/ (CC0 license)
 
 #### Audio
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://Assets/CGTuts_OceanHDRI_Freebie_001.hdr" type="Texture" id=1]
+[ext_resource path="res://Assets/Images/skybox.hdr" type="Texture" id=1]
 [ext_resource path="res://Scenes/ARVROrigin.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Audio/times-up-whistle.wav" type="AudioStream" id=3]
 [ext_resource path="res://Game.gd" type="Script" id=4]
@@ -13,6 +13,7 @@ panorama = ExtResource( 1 )
 [sub_resource type="Environment" id=3]
 background_mode = 2
 background_sky = SubResource( 4 )
+ambient_light_color = Color( 1, 1, 1, 1 )
 
 [sub_resource type="CapsuleShape" id=14]
 radius = 0.05
