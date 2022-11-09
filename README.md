@@ -56,7 +56,8 @@ To simulate and quantify good apple thinning process, the game can have function
 
 #### Images
 
-- `arrow.png`, `exclamation.png`, `exit.png`, `pause.png`, and `tick.png` icons: https://icons8.com
+- `arrow.png`, `exclamation.png`, `exit.png`, `pause.png`, `close.png`, `disappointed.png`, `happy.png`, `help.png`, `neutral.png`, `sad.png`, `very_happy.png` , and `tick.png` icons: https://icons8.com
+- `skybox.hdr`: https://polyhaven.com/a/dreifaltigkeitsberg 
 
 #### Fonts
 
