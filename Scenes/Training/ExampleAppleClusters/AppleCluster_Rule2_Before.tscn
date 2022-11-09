@@ -1,36 +1,36 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Scenes/HealthyLargeAplle.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/DamagedLargeApple.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/HealthyLargeAplle.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/DamagedLargeApple.tscn" type="PackedScene" id=2]
 
 [node name="AppleCluster_Rule2_Before" type="Spatial"]
 
-[node name="HealthyLargeApple" parent="." instance=ExtResource( 3 )]
+[node name="HealthyLargeApple" parent="." instance=ExtResource( 1 )]
 transform = Transform( 0.276581, -0.951177, 0.136987, 0.931674, 0.230464, -0.280839, 0.235557, 0.205302, 0.949928, 0.0375614, -0.0623706, 0 )
 mode = 1
 script = null
 
-[node name="HealthyLargeApple2" parent="." instance=ExtResource( 3 )]
+[node name="HealthyLargeApple2" parent="." instance=ExtResource( 1 )]
 transform = Transform( 0.975637, 0.171368, 0.136987, -0.127649, 0.951228, -0.280839, -0.178433, 0.256511, 0.949928, 0.000158265, -0.0940485, 0 )
 mode = 1
 script = null
 
-[node name="HealthyLargeApple3" parent="." instance=ExtResource( 3 )]
+[node name="HealthyLargeApple3" parent="." instance=ExtResource( 1 )]
 transform = Transform( 0.276581, -0.438525, -0.855101, 0.931674, 0.340471, 0.126743, 0.235557, -0.83173, 0.50273, -0.0503221, -0.0984867, 0 )
 mode = 1
 script = null
 
-[node name="DamagedLargeApple" parent="." instance=ExtResource( 5 )]
+[node name="DamagedLargeApple" parent="." instance=ExtResource( 2 )]
 transform = Transform( 0.969768, 0.230572, 0.079926, -0.244016, 0.919936, 0.306878, -0.00276952, -0.317103, 0.948386, -0.00989564, -0.139828, -5.20647e-05 )
 mode = 1
 script = null
 
-[node name="DamagedLargeApple2" parent="." instance=ExtResource( 5 )]
+[node name="DamagedLargeApple2" parent="." instance=ExtResource( 2 )]
 transform = Transform( 0.508808, -0.849912, 0.136987, 0.842744, 0.459251, -0.280839, 0.175777, 0.258338, 0.949928, 0.0436698, -0.1226, 0 )
 mode = 1
 script = null
 
-[node name="DamagedLargeApple3" parent="." instance=ExtResource( 5 )]
+[node name="DamagedLargeApple3" parent="." instance=ExtResource( 2 )]
 transform = Transform( 0.442932, 0.886028, 0.136987, -0.840394, 0.463538, -0.280839, -0.31233, 0.00926928, 0.949928, -0.0238682, -0.0531666, 0 )
 mode = 1
 script = null

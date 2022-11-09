@@ -1,13 +1,13 @@
 [gd_scene load_steps=18 format=2]
 
-[ext_resource path="res://Scenes/Training/AppleCluster_Rule1_After.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Training/ExampleAppleClusters/AppleCluster_Rule1_After.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Audio/button-press-sound.wav" type="AudioStream" id=2]
 [ext_resource path="res://scripts/Training/Instructions.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Images/help.png" type="Texture" id=4]
-[ext_resource path="res://Scenes/Training/AppleCluster_Rule1_Before.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Training/ExampleAppleClusters/AppleCluster_Rule1_Before.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Images/arrow.png" type="Texture" id=6]
-[ext_resource path="res://Scenes/Training/AppleCluster_Rule2_Before.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/Training/AppleCluster_Rule2_After.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Training/ExampleAppleClusters/AppleCluster_Rule2_Before.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Training/ExampleAppleClusters/AppleCluster_Rule2_After.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Assets/Meshes/Fruitlets/DamagedFruitlet.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Assets/Meshes/Fruitlets/HealthyFruitlet.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Assets/Images/happy.png" type="Texture" id=11]
@@ -87,12 +87,12 @@ modulate = Color( 0.117647, 0.564706, 0.937255, 1 )
 texture = ExtResource( 11 )
 
 [node name="NeutralFace" type="Sprite3D" parent="Board/Rule3"]
-transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.156453, 0.120345, 0.110869 )
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.155, 0.12, 0.111 )
 modulate = Color( 0.117647, 0.564706, 0.937255, 1 )
 texture = ExtResource( 13 )
 
 [node name="SadFace" type="Sprite3D" parent="Board/Rule3"]
-transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.157354, -0.169613, 0.109624 )
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.155, -0.17, 0.11 )
 modulate = Color( 0.117647, 0.564706, 0.937255, 1 )
 texture = ExtResource( 12 )
 

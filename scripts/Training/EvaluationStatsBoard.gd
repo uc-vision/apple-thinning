@@ -10,6 +10,8 @@ onready var large_fruitlets_label = $LargeFruitletsSection/Viewport2/Value
 onready var small_fruitlets_label = $SmallFruitletsSection/Viewport2/Value
 onready var sun_exposure_fruitlets_label = $SunExposureFruitletsSection/Viewport2/Value
 
+const PREFIX = "x "
+
 func set_successful_clusters_label(value: String):
 	successful_clusters_label.set_text(value)
 
@@ -44,13 +46,12 @@ func set_sun_exposure_fruitlets_label(value: String):
 # Called GamePlayScene_TrainingGame.gd
 # Recieved evaluation stats object TrainingGameData
 func show_data(data):
-	set_successful_clusters_label(str(data.get_num_successful_clusters()))
-	set_overthinned_clusters_label(str(data.get_num_overthinned_clusters()))
-	set_underthinned_clusters_label(str(data.get_num_underthinned_clusters()))
-	set_missed_clusters_label(str(data.get_num_missed_clusters()))
-	set_damaged_fruitlets_label(str(data.get_num_left_damaged()))
-	set_large_fruitlets_label(str(data.get_num_left_large()))
-	set_small_fruitlets_label(str(data.get_num_left_small()))
-#	set_sun_exposure_fruitlets_label(str(data.get_num_sunshine_apple()))
+	set_successful_clusters_label(PREFIX + str(data.get_num_successful_clusters()))
+	set_overthinned_clusters_label(PREFIX + str(data.get_num_overthinned_clusters()))
+	set_underthinned_clusters_label(PREFIX + str(data.get_num_underthinned_clusters()))
+	set_missed_clusters_label(PREFIX + str(data.get_num_missed_clusters()))
+	set_damaged_fruitlets_label(PREFIX + str(data.get_num_left_damaged()))
+	set_large_fruitlets_label(PREFIX + str(data.get_num_left_large()))
+	set_small_fruitlets_label(PREFIX + str(data.get_num_left_small()))
 	
 	set_visible(true)
