@@ -16,7 +16,7 @@
 
 [sub_resource type="SpatialMaterial" id=4]
 
-[sub_resource type="CubeMesh" id=1]
+[sub_resource type="CubeMesh" id=11]
 material = SubResource( 4 )
 size = Vector3( 2.2, 1.25, 0.2 )
 
@@ -35,7 +35,7 @@ script = ExtResource( 3 )
 [node name="Board" type="MeshInstance" parent="."]
 transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0 )
 cast_shadow = 0
-mesh = SubResource( 1 )
+mesh = SubResource( 11 )
 material/0 = null
 
 [node name="Rule1" type="Spatial" parent="Board"]
