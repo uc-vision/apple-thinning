@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/HealthyLargeAplle.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Tutorial/Tick.tscn" type="PackedScene" id=2]
+
+[node name="AppleCluster_Rule1_After" type="Spatial"]
+
+[node name="HealthyLargeApple" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.276581, -0.951177, 0.136987, 0.931674, 0.230464, -0.280839, 0.235557, 0.205302, 0.949928, 0.0112248, -0.0440355, -0.00537533 )
+mode = 1
+script = null
+
+[node name="HealthyLargeApple2" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.27262, 0.95232, 0.136987, -0.911248, 0.301259, -0.280839, -0.308717, -0.048267, 0.949928, -0.0323173, -0.045937, 0.000341618 )
+mode = 1
+script = null
+
+[node name="Tick" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.0989425, -0.0145047, 0, 0.0145047, 0.0989425, 0, 0, 0, 0.1, -0.00825078, 0.0316459, 0 )
