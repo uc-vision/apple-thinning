@@ -18,15 +18,15 @@ func set_max_combo_text(max_combo: String):
 
 func set_grade(grade):
 	if grade == 0:
-		grade_label.set_text("D")
+		grade_label.set_text("E")
 	elif grade == 1:
-		grade_label.set_text("C")
+		grade_label.set_text("D")
 	elif grade == 2:
-		grade_label.set_text("B")
+		grade_label.set_text("C")
 	elif grade == 3:
-		grade_label.set_text("A")
+		grade_label.set_text("B")
 	elif grade == 4:
-		grade_label.set_text("S")
+		grade_label.set_text("A")
 	else:
 		grade_label.set_text("N")
 

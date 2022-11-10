@@ -8,11 +8,11 @@
 script = ExtResource( 2 )
 
 [node name="GameResultsDialog" parent="." instance=ExtResource( 1 )]
-transform = Transform( -3.74215e-08, 2.25901e-08, -1, 0.516802, 0.856105, 0, 0.856105, -0.516802, -4.37114e-08, 0, 1.0848, -0.631 )
+transform = Transform( -3.74215e-08, 2.25901e-08, -1, 0.516802, 0.856105, 0, 0.856105, -0.516802, -4.37114e-08, 0, 1.0848, -0.674684 )
 
 [node name="GoToOtherLevelTimer" type="Timer" parent="."]
 
 [node name="GameResultsBoard" parent="." instance=ExtResource( 3 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1.65005, -1.35833 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1.76215, -1.41424 )
 
 [connection signal="timeout" from="GoToOtherLevelTimer" to="." method="_on_GoToOtherLevelTimer_timeout"]
