@@ -51,14 +51,19 @@ func _ready():
 					var apple_cluster_a_instance = apple_cluster_a.instance()
 					apple_cluster_a_instance.initialize(cluster_spawn_location.translation)
 					child.add_child(apple_cluster_a_instance)
+					apple_cluster_a_instance.look_at(Vector3(0, 1, 1), Vector3(0, 1, 0))
+					
 				elif cluster_type == 1:
 					var apple_cluster_b_instance = apple_cluster_b.instance()
 					apple_cluster_b_instance.initialize(cluster_spawn_location.translation)
 					child.add_child(apple_cluster_b_instance)
+					apple_cluster_b_instance.look_at(Vector3(0, 1, 1), Vector3(0, 1, 0))
+					
 				else:
 					var apple_cluster_c_instance = apple_cluster_c.instance()
 					apple_cluster_c_instance.initialize(cluster_spawn_location.translation)
 					child.add_child(apple_cluster_c_instance)
+					apple_cluster_c_instance.look_at(Vector3(0, 1, 1), Vector3(0, 1, 0))
 
 
 
