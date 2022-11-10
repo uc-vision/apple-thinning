@@ -78,7 +78,7 @@ custom_fonts/font = SubResource( 25 )
 text = "Your Results"
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform( -8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, 0.214704, -0.145522, -0.275895 )
+transform = Transform( -8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, 0.107635, -0.145522, -0.275895 )
 modulate = Color( 0.917647, 0.858824, 0, 1 )
 texture = SubResource( 26 )
 

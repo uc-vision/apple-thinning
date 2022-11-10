@@ -16,19 +16,31 @@ viewport_path = NodePath("Viewport")
 
 [node name="AppleCluster_Missed" type="Spatial"]
 
+[node name="HealthySmallApple" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.598985, -0.785667, 0.154743, 0.738859, 0.616764, 0.27146, -0.308717, -0.048267, 0.949928, 0.0347902, -0.0118585, 0.000341618 )
+script = null
+
 [node name="HealthyLargeApple2" parent="." instance=ExtResource( 1 )]
 transform = Transform( 0.382796, 0.907956, 0.170539, -0.870725, 0.416277, -0.261825, -0.308717, -0.048267, 0.949928, -0.037485, -0.0202452, 0.000341618 )
 mode = 1
 script = null
 
 [node name="HealthyLargeApple3" parent="." instance=ExtResource( 1 )]
-transform = Transform( 0.843089, 0.492816, -0.215256, -0.537515, 0.784696, -0.308755, 0.0167514, 0.376011, 0.926463, -0.0353407, -0.0634177, -0.00816691 )
+transform = Transform( 0.994605, -0.101147, 0.0230681, 0.0184466, 0.391231, 0.920107, -0.102092, -0.914717, 0.390985, -0.000752263, -0.0706402, -0.00816691 )
 mode = 1
 script = null
 
 [node name="HealthyLargeApple4" parent="." instance=ExtResource( 1 )]
-transform = Transform( -0.277384, 0.181236, 0.94351, -0.537515, 0.784696, -0.308755, -0.796327, -0.592794, -0.120245, -0.00148302, -0.028679, 0.00918745 )
+transform = Transform( -0.277384, 0.181236, 0.94351, -0.537515, 0.784696, -0.308755, -0.796327, -0.592794, -0.120245, -0.00148302, -0.0209753, 0.0135442 )
 mode = 1
+script = null
+
+[node name="DamagedSmallApple" parent="." instance=ExtResource( 6 )]
+transform = Transform( 0.728969, 0.684547, 0, -0.684547, 0.728969, 0, 0, 0, 1, -0.0371051, -0.0620254, 0 )
+script = null
+
+[node name="DamagedLargeApple" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.887655, -0.46051, 0, 0.46051, 0.887655, 0, 0, 0, 1, 0.0372532, -0.0526221, 0 )
 script = null
 
 [node name="Viewport" type="Viewport" parent="."]
@@ -43,18 +55,9 @@ custom_fonts/font = SubResource( 1 )
 text = "Missed"
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform( 0.09, 0, 0, 0, 0.09, 0, 0, 0, 0.09, 0.0730254, -0.298477, 0 )
+transform = Transform( 0.09, 0, 0, 0, 0.09, 0, 0, 0, 0.09, 0.0730254, -0.285192, 0 )
 modulate = Color( 0.117647, 0.564706, 0.937255, 1 )
 texture = SubResource( 2 )
 
 [node name="Exclamation" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0264596, 0 )
-
-[node name="DamagedLargeApple" parent="." instance=ExtResource( 4 )]
-transform = Transform( 0.934117, -0.291374, 0.206221, 0.297775, 0.954636, 0, -0.196866, 0.0614075, 0.978505, 0.0365731, -0.0597747, -0.0031957 )
-
-[node name="DamagedSmallApple" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 0.913197, 0.407518, 0, -0.407518, 0.913197, 0, -0.0612254, 0.0140645 )
-
-[node name="HealthySmallApple" parent="." instance=ExtResource( 5 )]
-transform = Transform( 0.874086, -0.485771, 0, 0.485771, 0.874086, 0, 0, 0, 1, 0.0369159, -0.0203309, 0 )

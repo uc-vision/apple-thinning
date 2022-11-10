@@ -7,6 +7,10 @@ func _ready():
 	print_to_debug()
 	pass
 
+func _process(delta):
+	output(Performance.get_monitor(Performance.TIME_FPS))
+	
+
 #print a message to debug by itself
 func output(message):
 	$Viewport/Label.set_text(str(message))
