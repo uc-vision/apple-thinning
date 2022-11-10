@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scripts/TimeAttack/AppleCluster_TimeAttackGame.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/DamagedLargeApple.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Audio/poor-apple-thinning-sound.wav" type="AudioStream" id=6]
 [ext_resource path="res://Audio/apple-cluster-thinned-sound.wav" type="AudioStream" id=7]
 [ext_resource path="res://Audio/apple-picking-sound.wav" type="AudioStream" id=8]
+[ext_resource path="res://Scenes/TimeAttack/EvaluationFeedback_TimeAttack.tscn" type="PackedScene" id=9]
 
 [node name="AppleCluster_TypeA" type="Spatial" groups=["AppleCluster"]]
 script = ExtResource( 1 )
@@ -54,6 +55,9 @@ mode = 1
 [node name="DamagedSmallApple2" parent="." instance=ExtResource( 5 )]
 transform = Transform( -0.409684, -0.912227, 0, 0.912227, -0.409684, 0, 0, 0, 1, 0.00300326, -0.0266791, 0.0138406 )
 mode = 1
+
+[node name="EvaluationFeedback_TimeAttack" parent="." instance=ExtResource( 9 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.06, 0 )
 
 [connection signal="on_picked" from="HealthyLargeApple" to="." method="_on_HealthyLargeApple_on_picked"]
 [connection signal="on_picked" from="HealthyLargeApple2" to="." method="_on_HealthyLargeApple_on_picked"]
