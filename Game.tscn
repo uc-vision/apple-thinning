@@ -57,6 +57,7 @@ stream = ExtResource( 3 )
 
 [node name="Debugger" parent="." instance=ExtResource( 5 )]
 transform = Transform( 0.442617, 0, 0.896711, 0, 1, 0, -0.896711, 0, 0.442617, -1.28066, 0.503346, 0.106715 )
+visible = false
 
 [node name="Landscape" parent="." instance=ExtResource( 6 )]
 transform = Transform( 0.702054, 0, 0.712124, 0, 1, 0, -0.712124, 0, 0.702054, 0, 0, 0 )
