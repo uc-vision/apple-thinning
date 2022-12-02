@@ -128,7 +128,8 @@ func _on_GameResultsScene_play_again():
 	
 	# Connect signal to request transition from TimeAttackGameScene to GameResultsScene
 	time_attack_game_level.connect("go_to_game_results", self, "_on_TimeAttackGameScene_go_to_game_results")
-	
+	# Connect signal to request transition from TimeAttackGameScene to MenuScene.
+	time_attack_game_level.connect("exit_to_menu", self, "_on_TimeAttackGameScene_exit_to_menu")
 	
 	
 func _on_GameResultsScene_go_to_menu():
