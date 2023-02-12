@@ -1,14 +1,15 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/Menu/ChooseLevelDialog.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/Menu/MenuScene.gd" type="Script" id=2]
 [ext_resource path="res://Audio/button-press-sound.wav" type="AudioStream" id=3]
+[ext_resource path="res://Scenes/Menu/Credits.tscn" type="PackedScene" id=4]
 
 [node name="MenuScene" type="Spatial"]
 script = ExtResource( 2 )
 
 [node name="ChooseLevelDialog" parent="." instance=ExtResource( 1 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1.5, -0.782 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1.28912, -0.782 )
 
 [node name="TimerButtonLock" type="Timer" parent="."]
 wait_time = 1.5
@@ -17,5 +18,8 @@ autostart = true
 
 [node name="ButtonPressSoundPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
+
+[node name="Credits" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.37694, 0 )
 
 [connection signal="timeout" from="TimerButtonLock" to="." method="_on_TimerButtonLock_timeout"]
