@@ -19,6 +19,9 @@ const Point = {
 	HEALTHY_SMALL = 100,
 	DAMAGED = -300,
 }
+const TRIPLE_STARS_SCORE = Point.HEALTHY_LARGE * 2
+const DOUBLE_STARTS_SCORE = Point.HEALTHY_LARGE + Point.HEALTHY_SMALL
+const ONE_STAR_SCORE = Point.HEALTHY_SMALL * 2
 
 func _ready():
 	var children = get_children()
@@ -78,12 +81,23 @@ func calculate_score():
 			else:
 				hasDamaged = true
 				score += Point.DAMAGED
-			
-			child.show_point()
 	
 	if hasDamaged:
+		# Show the orange exclamation warning icon 
+		$EvaluationFeedback_TimeAttack/Warning.set_visible(true)
+		# Negative sound effect
 		$PoorlyThinnedSoundPlayer.play()
 	else:
+		# Show the green tick successful icons
+		$EvaluationFeedback_TimeAttack/Tick.set_visible(true)
+		# Depending on the size of fruitlet, show different number of stars
+		if score == TRIPLE_STARS_SCORE:
+			$EvaluationFeedback_TimeAttack/TripleStars.set_visible(true)
+		elif score == DOUBLE_STARTS_SCORE:
+			$EvaluationFeedback_TimeAttack/DoubleStars.set_visible(true)
+		elif score == ONE_STAR_SCORE:
+			$EvaluationFeedback_TimeAttack/OneStar.set_visible(true)
+		
 		$ThinningCompletedSoundPlayer.play()
 	
 	emit_signal("score_updated", score, hasDamaged)

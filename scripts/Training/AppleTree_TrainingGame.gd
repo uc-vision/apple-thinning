@@ -10,7 +10,7 @@ onready var cluster_spawn_location
 onready var num_cluster = 0
 var TrainingGameData = load("res://scripts/Classes/TrainingGameData.gd")
 
-const MAX_CLUSTER_PER_BRANCH = 3
+const CLUSTER_PER_BRANCH = 3
 const NUM_BRANCH = 3
 const TREE_TRANSLATE = Vector3(0, 0, -0.85)
 const TREE_ROTATION = Vector3(0, deg2rad(-90), 0)
@@ -35,14 +35,14 @@ func _ready():
 			
 			var cluster_spawn_location = child.get_node("AppleClusterSpawnPath/PathFollow")
 			
-			# Random number of apples per branch is spawned
-			for i in range(rng.randi_range(1, MAX_CLUSTER_PER_BRANCH)):
+			# Spawn the given number of clusters per branch
+			for i in range(1, CLUSTER_PER_BRANCH + 1):
 				
 				# Count the number of apple clusters spawned in the tree.
 				num_cluster += 1
 				
-				# Give a random offset of the spawning location
-				cluster_spawn_location.unit_offset = rng.randf()
+				# Spanw a cluster with equal spacing distribution
+				cluster_spawn_location.set_unit_offset(float(i) / float(CLUSTER_PER_BRANCH))
 				# Pick a type of apple cluster to spawn randomly
 				cluster_type = rng.randi() % 3
 
@@ -51,14 +51,19 @@ func _ready():
 					var apple_cluster_a_instance = apple_cluster_a.instance()
 					apple_cluster_a_instance.initialize(cluster_spawn_location.translation)
 					child.add_child(apple_cluster_a_instance)
+					apple_cluster_a_instance.look_at(Vector3(0, 1, 1), Vector3(0, 1, 0))
+					
 				elif cluster_type == 1:
 					var apple_cluster_b_instance = apple_cluster_b.instance()
 					apple_cluster_b_instance.initialize(cluster_spawn_location.translation)
 					child.add_child(apple_cluster_b_instance)
+					apple_cluster_b_instance.look_at(Vector3(0, 1, 1), Vector3(0, 1, 0))
+					
 				else:
 					var apple_cluster_c_instance = apple_cluster_c.instance()
 					apple_cluster_c_instance.initialize(cluster_spawn_location.translation)
 					child.add_child(apple_cluster_c_instance)
+					apple_cluster_c_instance.look_at(Vector3(0, 1, 1), Vector3(0, 1, 0))
 
 
 

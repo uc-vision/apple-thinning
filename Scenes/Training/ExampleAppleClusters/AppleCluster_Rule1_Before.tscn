@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/HealthyLargeAplle.tscn" type="PackedScene" id=1]
+
+[node name="AppleCluster_Rule1_Before" type="Spatial"]
+
+[node name="HealthyLargeApple" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.276581, -0.951177, 0.136987, 0.931674, 0.230464, -0.280839, 0.235557, 0.205302, 0.949928, 0.0465759, -0.0785498, 0.0096181 )
+mode = 1
+script = null
+
+[node name="HealthyLargeApple2" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.975637, 0.171368, 0.136987, -0.127649, 0.951228, -0.280839, -0.178433, 0.256511, 0.949928, -0.0232799, -0.115699, 0.00621855 )
+mode = 1
+script = null
+
+[node name="HealthyLargeApple4" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.740315, -0.658155, 0.136987, 0.666183, 0.690891, -0.280839, 0.0901925, 0.299168, 0.949928, 0.0248735, -0.118881, -0.00519486 )
+mode = 1
+script = null
+
+[node name="HealthyLargeApple5" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.276581, -0.481028, 0.831934, 0.931674, -0.0779803, -0.354828, 0.235557, 0.87323, 0.426593, 0.0150478, -0.0535929, -0.00539792 )
+mode = 1
+script = null
+
+[node name="HealthyLargeApple6" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.587122, 0.809499, 0, -0.809499, 0.587121, 0, 0, 0, 1, -0.0317442, -0.0652301, 0.00250524 )
+mode = 1
+script = null

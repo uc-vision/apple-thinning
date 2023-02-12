@@ -5,18 +5,6 @@
 
 [node name="TutorialTree" instance=ExtResource( 1 )]
 
-[node name="AppleCluster_Training_All_Healthy" parent="Trunk/Branch" index="1" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.44089e-16, 0, 0.264801 )
-
-[node name="AppleCluster_Training_All_Healthy2" parent="Trunk/Branch" index="2" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.33227e-15, 0, 0.630822 )
-
-[node name="AppleCluster_Training_All_Healthy3" parent="Trunk/Branch2" index="1" instance=ExtResource( 2 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.249e-08, 0.7, 0.495119 )
-
-[node name="AppleCluster_Training_All_Healthy4" parent="Trunk/Branch2" index="2" instance=ExtResource( 2 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -5.44885e-08, 0.7, 0.129098 )
-
 [node name="AppleCluster_Training_All_Healthy3" parent="Trunk/Branch3" index="1" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.11959e-09, -0.016796, 0.270329 )
 

@@ -1,0 +1,8 @@
+{
+	"contains_albedo": true,
+	"resolution": 1024,
+	"src": {
+		"a": "res://Assets/Images/grass/Grass004_1K_Displacement.jpg",
+		"rgb": "res://Assets/Images/grass/Grass004_1K_Color.jpg"
+	}
+}

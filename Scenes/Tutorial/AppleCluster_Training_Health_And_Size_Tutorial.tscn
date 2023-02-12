@@ -29,7 +29,7 @@ transform = Transform( 0.276581, -0.438525, -0.855101, 0.931674, 0.340471, 0.126
 mode = 1
 
 [node name="DamagedSmallApple" parent="." instance=ExtResource( 9 )]
-transform = Transform( 0.773431, 0.525746, 0.354113, -0.63388, 0.64149, 0.432072, 0, -0.558643, 0.829408, -0.00672261, -0.0737458, 0.0225731 )
+transform = Transform( 0.541402, 0.368022, 0.247879, -0.443716, 0.449043, 0.30245, 2.08616e-08, -0.39105, 0.580586, -0.00672261, -0.0737458, 0.0225731 )
 mode = 1
 
 [node name="HealthySmallApple" parent="." instance=ExtResource( 11 )]

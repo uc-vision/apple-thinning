@@ -3,6 +3,7 @@ extends OculusTracker
 # Extension of the OculusTracker class to support Oculus hands tracking.
 
 var held_object = null
+var held_object_time = 0
 var held_object_original_parent = null
 var grab_point_velocity = Vector3(0, 0, 0)
 var prior_grab_point_velocities = []
@@ -56,7 +57,6 @@ Quat(-0.207036, -0.140343, 0.018312, 0.968042), Quat(0.054699, -0.041463, 0.7067
 Quat(-0.081241, -0.013242, 0.560496, 0.824056), Quat(0.00276, 0.037404, 0.637818, 0.769273),
 ]
 
-var _t = 0.0
 
 #GESTURE DETECTION
 var tracking_confidence = 1.0;
@@ -123,8 +123,7 @@ func _update_hand_model(model : Spatial, skel: Skeleton):
 	
 	
 func grab_object(object_to_pickup):
-		
-	if 'Apple' in object_to_pickup.get_groups() and object_to_pickup.is_interactable() and not object_to_pickup.is_picked_off():
+	if 'Apple' in object_to_pickup.get_groups() and object_to_pickup.is_interactable():
 		held_object = object_to_pickup
 		held_object.mode = RigidBody.MODE_STATIC
 		var original_position = held_object.global_transform
@@ -138,7 +137,6 @@ func grab_object(object_to_pickup):
 		held_object.picked_up()
 
 	if object_to_pickup.has_method("interact"):
-		#held_object = object_to_pickup #Does this need to be here?
 		held_object.interact()
 	
 func drop_object():
@@ -151,12 +149,19 @@ func drop_object():
 	
 	held_object.mode = RigidBody.MODE_RIGID
 	held_object.global_transform = original_position
-	held_object.apply_impulse(Vector3(0, 0, 0), grab_point_velocity)
+	if (held_object_time < 0.1):
+		held_object.apply_impulse(Vector3(0, 0, 0), Vector3(0, 0, 0))
+	else:
+		held_object.apply_impulse(Vector3(0, 0, 0), grab_point_velocity)
 	
 	held_object = null
+	held_object_time = 0
 
 
 func _process(delta_t):
+	if (held_object):
+		held_object_time += delta_t
+	
 	_update_hand_model(hand_model, hand_skel);
 	
 	#This function is for the respective hand interaction mechanics
@@ -170,28 +175,12 @@ func _process(delta_t):
 	elif not object_to_pickup and held_object:
 		drop_object()
 	
-	#if held_object:
-	#	get_node("../../OutputNode/Viewport/OtherLabel").text = held_object.get_name()
-	#else:
-	#	get_node("../../OutputNode/Viewport/OtherLabel").text = "Not Holding anything"
 	
 	# If we are on desktop or don't have hand tracking we set a debug pose on the left hand
 	if (controller_id == LEFT_TRACKER_ID && !ovr_hand_tracking):
 		for i in range(0, _hand_bone_mappings.size()):
 			hand_skel.set_bone_pose(_hand_bone_mappings[i], Transform(_test_pose_left_ThumbsUp[i]));
 
-	_t += delta_t;
-	if (_t > 1.0):
-		_t = 0.0;
-
-		# here we print every second the state of the pinches
-		print("%s Pinches: %.3f %.3f %.3f %.3f" %
-			["Left" if controller_id == LEFT_TRACKER_ID else "Right",
-			get_joystick_axis(FINGER_PINCH_STRENGTH_AXIS.INDEX),
-			get_joystick_axis(FINGER_PINCH_STRENGTH_AXIS.MIDDLE),
-			get_joystick_axis(FINGER_PINCH_STRENGTH_AXIS.RING),
-			get_joystick_axis(FINGER_PINCH_STRENGTH_AXIS.PINKY)]);
-			
 
 func _physics_process(delta):
 	if held_object:

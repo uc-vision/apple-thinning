@@ -1,0 +1,8 @@
+{
+	"contains_albedo": false,
+	"resolution": 1024,
+	"src": {
+		"a": "res://Assets/Images/grass/Grass004_1K_Roughness.jpg",
+		"rgb": "res://Assets/Images/grass/Grass004_1K_NormalGL.jpg"
+	}
+}

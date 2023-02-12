@@ -1,0 +1,63 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Scenes/HealthyLargeAplle.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Training/FeedbackIcons/Exclamation.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Fonts/Calistoga/Calistoga-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Scenes/DamagedLargeApple.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/HealthySmallApple.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/DamagedSmallApple.tscn" type="PackedScene" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 72
+font_data = ExtResource( 3 )
+
+[sub_resource type="ViewportTexture" id=2]
+viewport_path = NodePath("Viewport")
+
+[node name="AppleCluster_Missed" type="Spatial"]
+
+[node name="HealthySmallApple" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.598985, -0.785667, 0.154743, 0.738859, 0.616764, 0.27146, -0.308717, -0.048267, 0.949928, 0.0347902, -0.0118585, 0.000341618 )
+script = null
+
+[node name="HealthyLargeApple2" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.382796, 0.907956, 0.170539, -0.870725, 0.416277, -0.261825, -0.308717, -0.048267, 0.949928, -0.037485, -0.0202452, 0.000341618 )
+mode = 1
+script = null
+
+[node name="HealthyLargeApple3" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.994605, -0.101147, 0.0230681, 0.0184466, 0.391231, 0.920107, -0.102092, -0.914717, 0.390985, -0.000752263, -0.0706402, -0.00816691 )
+mode = 1
+script = null
+
+[node name="HealthyLargeApple4" parent="." instance=ExtResource( 1 )]
+transform = Transform( -0.277384, 0.181236, 0.94351, -0.537515, 0.784696, -0.308755, -0.796327, -0.592794, -0.120245, -0.00148302, -0.0209753, 0.0135442 )
+mode = 1
+script = null
+
+[node name="DamagedSmallApple" parent="." instance=ExtResource( 6 )]
+transform = Transform( 0.728969, 0.684547, 0, -0.684547, 0.728969, 0, 0, 0, 1, -0.0371051, -0.0620254, 0 )
+script = null
+
+[node name="DamagedLargeApple" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.887655, -0.46051, 0, 0.46051, 0.887655, 0, 0, 0, 1, 0.0372532, -0.0526221, 0 )
+script = null
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 400, 400 )
+transparent_bg = true
+render_target_v_flip = true
+
+[node name="Label" type="Label" parent="Viewport"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 1 )
+text = "Missed"
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform( 0.09, 0, 0, 0, 0.09, 0, 0, 0, 0.09, 0.0730254, -0.285192, 0 )
+modulate = Color( 0.117647, 0.564706, 0.937255, 1 )
+texture = SubResource( 2 )
+
+[node name="Exclamation" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0264596, 0 )

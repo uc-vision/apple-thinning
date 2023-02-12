@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://Assets/CGTuts_OceanHDRI_Freebie_001.hdr" type="Texture" id=1]
+[ext_resource path="res://Assets/Images/skybox.hdr" type="Texture" id=1]
 [ext_resource path="res://Scenes/ARVROrigin.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Audio/times-up-whistle.wav" type="AudioStream" id=3]
 [ext_resource path="res://Game.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/DebugWindow.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Meshes/Landscape.tscn" type="PackedScene" id=6]
 
 [sub_resource type="PanoramaSky" id=4]
 panorama = ExtResource( 1 )
@@ -11,6 +13,7 @@ panorama = ExtResource( 1 )
 [sub_resource type="Environment" id=3]
 background_mode = 2
 background_sky = SubResource( 4 )
+ambient_light_color = Color( 1, 1, 1, 1 )
 
 [sub_resource type="CapsuleShape" id=14]
 radius = 0.05
@@ -30,7 +33,6 @@ environment = SubResource( 3 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.54002, 0.841652, 0, -0.841652, 0.54002, 0, 10.191, 4.11993 )
-shadow_enabled = true
 
 [node name="ARVROrigin" parent="." instance=ExtResource( 2 )]
 
@@ -52,5 +54,12 @@ shape = SubResource( 15 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
+
+[node name="Debugger" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.442617, 0, 0.896711, 0, 1, 0, -0.896711, 0, 0.442617, -1.28066, 0.503346, 0.106715 )
+visible = false
+
+[node name="Landscape" parent="." instance=ExtResource( 6 )]
+transform = Transform( 0.702054, 0, 0.712124, 0, 1, 0, -0.712124, 0, 0.702054, 0, 0, 0 )
 
 [editable path="ARVROrigin"]

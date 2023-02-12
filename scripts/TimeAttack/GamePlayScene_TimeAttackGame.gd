@@ -15,7 +15,7 @@ onready var game_flow_obstacle = $GameFlowObstacle
 onready var bgm_player = $BGM_Player
 
 const DIALOG_WAIT_TIME = 5
-const GAME_PLAY_DURATION = 30
+const GAME_PLAY_DURATION = 60
 const COMBO_INTERVAL = 3
 const TREE_REMOVE_WAIT_TIMER = 0.5
 const TREE_SPAWN_WAIT_TIME = 0.5

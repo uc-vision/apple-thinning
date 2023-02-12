@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/HealthyLargeAplle.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Training/FeedbackIcons/Exclamation.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Fonts/Calistoga/Calistoga-Regular.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 72
+font_data = ExtResource( 3 )
+
+[sub_resource type="ViewportTexture" id=2]
+viewport_path = NodePath("Viewport")
+
+[node name="AppleCluster_Underthinned" type="Spatial"]
+
+[node name="HealthyLargeApple" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.276581, -0.951177, 0.136987, 0.931674, 0.230464, -0.280839, 0.235557, 0.205302, 0.949928, 0.0282609, -0.0177185, -0.00537533 )
+mode = 1
+script = null
+
+[node name="HealthyLargeApple2" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.27262, 0.95232, 0.136987, -0.911248, 0.301259, -0.280839, -0.308717, -0.048267, 0.949928, -0.0281507, -0.0220393, 0.000341618 )
+mode = 1
+script = null
+
+[node name="HealthyLargeApple3" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.990564, 0.00434314, 0.136987, 0.0346324, 0.95913, -0.280839, -0.132608, 0.282933, 0.949928, 0.00333985, -0.0556444, -0.00138979 )
+mode = 1
+script = null
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 455, 455 )
+transparent_bg = true
+render_target_v_flip = true
+
+[node name="Label" type="Label" parent="Viewport"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 1 )
+text = "Underthinned"
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform( 0.09, 0, 0, 0, 0.09, 0, 0, 0, 0.09, -0.00511558, -0.314884, 0 )
+modulate = Color( 0.117647, 0.564706, 0.937255, 1 )
+texture = SubResource( 2 )
+
+[node name="Exclamation" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0264596, 0 )
